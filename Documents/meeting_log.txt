@@ -37,7 +37,6 @@ Actions:
     Chris - Search Campaigns
     Usu - User Logging and Log Out/Registration
 
-
-Who:
-Need: 
+To-Dos: Come Up with Database Schema for Project, Finish Up the Project Plan,
+Start Coding Pet Projects
 Feedback 
