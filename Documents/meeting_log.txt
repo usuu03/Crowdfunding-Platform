@@ -10,7 +10,13 @@ Description:
 03/09/2023 - Meeting Time 3pm - Duration ~ 1hr
 Attendants: Usu, Chris, Abdul, Michael
 What we did:
-Set up a Google Drive folder where we will keep documents,  documents for the following: competitors, project plan,  meeting log, and user stories. All the attendees have access to all the files in the folder. Focused on finding different crowdfunding platforms and finding out the advantages and disadvantages of each. We then started working on our User stories. We all came up with 4 user stories
+Set up a Google Drive folder where we will keep documents,  
+documents for the following: competitors, project plan,  meeting log, and user stories. 
+All the attendees have access to all the files in the folder. Focused on finding different 
+crowdfunding platforms and finding out the advantages and disadvantages of each. We then started working on our User stories.
+ We all came up with 4 user stories
+
+
 06/09/2023 - Meeting with Supervisor - Time 3pm - Duration ~ 50 mins
 Attendants: Usu, Chris, Abdul, Michael - Omar was sick and could not make the meeting
 Description:
@@ -18,3 +24,11 @@ To Dos: Need to rank user stories, Need to assign pet project, Set up gantt char
 Who 
 Need: 
 Feedback - Does not matter
+
+
+10/10/2023 - Meeting Time 3pm - Duration ~ 
+Attendants: Chris, Michael, Omar, Usu 
+Actions:
+Who:
+Need:
+Feedback 
