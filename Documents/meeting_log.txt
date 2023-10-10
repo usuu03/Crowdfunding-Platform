@@ -30,6 +30,7 @@ Feedback - Does not matter
 Attendants: Chris, Michael, Omar, Usu, Abdyk
 Actions: 
 - Started Developing a Gantt Chart in Excel
+- Set Up different branches in the Gitlab for each member to work on their Pet Project
 - Prioritised 5 User Stories Assigned a Project to each of the members of the group
     Omar - Campaign - Camapaign Progress
     Abdul - Campaign Creation
