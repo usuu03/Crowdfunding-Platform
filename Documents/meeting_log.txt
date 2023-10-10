@@ -28,12 +28,16 @@ Feedback - Does not matter
 
 10/10/2023 - Meeting Time 3pm - Duration ~ 
 Attendants: Chris, Michael, Omar, Usu, Abdyk
-Actions: Assigned a Project to each of the members of the group
-Omar - Campaign - Camapaign Progress
-Abdul - Campaign Creation
-Michael - Discovery
-Chris - Search Campaigns
-Usu - User Logging and Log Out/Registration
+Actions: 
+- Started Developing a Gantt Chart in Excel
+- Prioritised 5 User Stories Assigned a Project to each of the members of the group
+    Omar - Campaign - Camapaign Progress
+    Abdul - Campaign Creation
+    Michael - Discovery
+    Chris - Search Campaigns
+    Usu - User Logging and Log Out/Registration
+
+
 Who:
 Need:
 Feedback 
