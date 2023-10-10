@@ -27,8 +27,8 @@ Feedback - Does not matter
 
 
 10/10/2023 - Meeting Time 3pm - Duration ~ 
-Attendants: Chris, Michael, Omar, Usu 
-Actions:
+Attendants: Chris, Michael, Omar, Usu, Abdyk
+Actions: Each group member made sure to be able to open the project on Visual Studio Code, 
 Who:
 Need:
 Feedback 

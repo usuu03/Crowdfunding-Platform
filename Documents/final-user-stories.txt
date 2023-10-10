@@ -1,0 +1,7 @@
+FINAL USER STORIES 
+
+
+User Registration 1 - Registration/Authentication 
+User Story - As a donator, I want to be able to make a new account on the platform, so that I can start browsing and 
+donating to campaigns that align with my interests.
+Acceptance Criteria - The registration process should require a valid email that has not been used before and a valid password.
