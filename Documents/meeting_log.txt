@@ -26,7 +26,7 @@ Need:
 Feedback - Does not matter
 
 
-10/10/2023 - Meeting Time 3pm - Duration ~ 
+10/10/2023 - Meeting Time 3pm - Duration ~ 1 hour 44 minutes
 Attendants: Chris, Michael, Omar, Usu, Abdyk
 Actions: 
 - Started Developing a Gantt Chart in Excel
