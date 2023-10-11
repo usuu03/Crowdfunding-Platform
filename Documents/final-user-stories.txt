@@ -1,9 +1,23 @@
 FINAL USER STORIES 
 
 
-User Story 1 - Registration/Authentication 
-User Story - As a donator, I want to be able to make a new account on the platform, so that I can start browsing and 
-donating to campaigns that align with my interests.
+User Story 1 - Registration/Authentication
+Story: 
+Story - As a potential donator, I want the ability to create a new account on the platform 
+so that I can begin browsing and contributing to campaigns that align with my interests.
+
+Conversation: 
+
+
+Acceptance Criteria: 
+1.Users should be able to initiate the registration process from the platform's homepage or login page.
+2.The registration form should request an email and password.
+3.The system should validate that the email follows the standard email format (e.g., user@example.com).
+4.Passwords should have a minimum length of at least 8 characters.
+5.Passwords should contain a mix of letters, numbers, and symbols for enhanced security.
+6.When a user submits the registration form, the system should verify that the provided email has not been used for another account.
+7.If the email has been used before, the system should prompt the user to choose a different email address.
+
 Acceptance Criteria - The registration process should require a valid email that has not been used before and a valid password.
 
 
