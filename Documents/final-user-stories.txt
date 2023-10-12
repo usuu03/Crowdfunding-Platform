@@ -26,8 +26,6 @@ Acceptance Criteria:
 6.When a user submits the registration form, the system should verify that the provided email has not been used for another account.
 7.If the email has been used before, the system should prompt the user to choose a different email address.
 
-Acceptance Criteria - The registration process should require a valid email that has not been used before and a valid password.
-
 
 User Story 2 - Camapaign Creation ~ Abdul
 
