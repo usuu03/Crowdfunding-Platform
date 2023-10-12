@@ -7,7 +7,6 @@ Story - As a potential donator, I want the ability to create a new account on th
 so that I can begin browsing and contributing to campaigns that align with my interests.
 
 Conversation: 
-
 Product Owner - There has to be a stragthforward way to create accounts and engage in the platform 
 Developer - For account creation, what information should we collect from the user during the registration process?
 Product Owner - We can keep it simple and ask the user for their name, email and password.
@@ -17,7 +16,6 @@ length, mix of letters, numbers and symbols for security.
 Developer - Should we check if the email has been used before?
 Product Owner - Yes, so that multiple accounts do not have the same email address. During registration, we should check if 
 the email is unique
-
 
 Acceptance Criteria: 
 1.Users should be able to initiate the registration process from the platform's homepage or login page.
