@@ -27,7 +27,7 @@ Feedback - Does not matter
 
 
 10/10/2023 - Meeting Time 3pm - Duration ~ 1 hour 44 minutes
-Attendants: Chris, Michael, Omar, Usu, Abdyk
+Attendants: Chris, Michael, Omar, Usu, Abdul
 Actions: 
 - Started Developing a Gantt Chart in Excel
 - Set Up different branches in the Gitlab for each member to work on their Pet Project
