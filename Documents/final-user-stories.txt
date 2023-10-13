@@ -28,6 +28,28 @@ Acceptance Criteria:
 
 
 User Story 2 - Camapaign Creation ~ Abdul
+Story:
+Story - As a campaign creator, I want to be able to create a new campaign, give it a campaign title, a target amount, and a duration, as well as other details.
+
+Conversation:
+Campaign Creator - I want to be able to create campaigns and share them with our users.
+Developer - What specific details would you like to include when creating a campaign?
+Campaign Creator - I need to set a campaign title, specify a funding goal, and set a deadline date. I should also be able to provide a description for the campaign.
+Developer - Ok, the campaign creation form will have these details
+Campaign Creator - We should also validate that campaign titles are not empty, funding goals are numeric and positive, and the deadline date is a valid future date.
+Developer - I'll implement the validation rules. After creating a campaign, what should happen next?
+Campaign Creator - Once a campaign is created, it should be visible to donors on the platform. They should be able to browse and search for campaigns.
+Developer - We'll make sure that campaigns are listed and searchable for donors.
+Campaign Creator - Campaign creators should be able to edit their campaign details or delete their campaign if they wish.
+Developer - We'll implement those features as well. I'll work on designing the campaign creation form and set up the database structure to store campaign information
+
+Acceptance Criteria:
+1. Campaign creation form should include a tile, funding goal, deadline date and description.
+2. Make sure fields are filled. This includes ensuring that campaign titles are not left empty, funding goals are numeric and positive, and the deadline date is a valid future date.
+3. The campaign creator should be able to submit the campaign creation form.
+4. After successfully creating a campaign, the campaign should be visible to other users on the platform. It should appear in a campaign listing or search results.
+5. The campaign creator should have the option to delete their campaign
+6. The campaign creator should be able to edit campaign details e.g. campaign title, deadline date etc.
 
 
 User Story 3 - Camapaign Discovery ~ Michael
