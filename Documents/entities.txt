@@ -37,3 +37,7 @@ Donation:
  -Anonymous Donation (Boolean)
 
 Cause: 
+- Category ID (Primary Key)
+- Category Name
+- Description
+- Image or Icon
