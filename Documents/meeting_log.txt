@@ -42,3 +42,11 @@ Actions:
 Who:
 Need: 
 Feedback 
+
+
+17/10/2023 - Meeting Time 3pm - Duration ~ 1 hour 44 minutes 
+Attendants: Chris, Michael, Omar, Abdul, Usu 
+Actions: 
+- Set up Gitlab for Chris
+- Discussed the Database entities, Michael and Usu are responsible for setting
+up the database
