@@ -51,9 +51,13 @@ Need:
 Feedback 
 
 
-17/10/2023 - Meeting Time 3pm - Duration ~ 1 hour 44 minutes 
+17/10/2023 - Meeting Time 3pm - Duration ~ 1 hour
 Attendants: Chris, Michael, Omar, Abdul, Usu 
 Actions: 
 - Set up Gitlab for Chris
 - Discussed the Database entities, Michael and Usu are responsible for setting
 up the database
+- Concluded that each team member except Usu and Michael would start working on 
+their UIs, as Usu and Michael would set up the database
+To Dos: Set up database, discuss what entities are key for the initial prototype,
+Start our pet projects
