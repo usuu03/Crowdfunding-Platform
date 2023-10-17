@@ -1,10 +1,17 @@
 Meeting Log
+
+
 28/09/2023- Meeting with Supervisor - Time 2pm - Duration ~ 1hr
 Attendants: Michael, Chris, Usu, Abdul, Omar
 Description:
-
-
-
+We were given a description on what was going to be needed for the project.
+Spoke on:
+Creating a Gitlab for the group
+Designating PET projects
+Needing to create User Stories
+Researching other crowdfunding platforms
+Having a prototype by Christmas
+Evaluation (e.g. surveys)
 
 
 03/09/2023 - Meeting Time 3pm - Duration ~ 1hr
