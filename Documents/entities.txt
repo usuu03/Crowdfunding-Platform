@@ -11,8 +11,29 @@ User:
 - Contact Information
 - Role (Donor, Campaign Creator, Administrator)
 
-
+Camapaign: 
+- Campaign ID (Primary Key)
+- Campaign Title
+- Campaign Description
+- Images and Videos
+- Fundraising Goal
+- Current Funds Raised
+- Start Date
+- End Date
+- Category or Cause
+- Campaign Status (Active, Completed, etc.)
+- Creator User ID (Foreign Key)
+- Location or Target Region
+- Campaign Creation Date
+- Visibility (Public, Private)
+- Comments or Updates
 
 Donation:
-Camapaign: 
+- Donation ID (Primary Key)
+- Donor User ID (Foreign Key)
+- Campaign ID (Foreign Key)
+- Donation Amount
+- Donation Date
+ -Anonymous Donation (Boolean)
+
 Cause: 
