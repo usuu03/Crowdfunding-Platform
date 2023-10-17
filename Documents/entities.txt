@@ -1,4 +1,16 @@
 User:
+- Username
+- Email
+- Password (hashed and salted)
+- First Name
+- Last Name
+- Profile Picture
+- Account Creation Date
+- Address
+- Contact Information
+- Role (Donor, Campaign Creator, Administrator)
+
+
 
 Donation:
 Camapaign: 
