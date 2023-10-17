@@ -87,4 +87,27 @@ so that I can read up on causes that I care about, whether I have an account or 
 
 User Story 4 - Campaign Search ~ Chris 
 
+Story:
+
+Story- as a potential donator I want to have the ability to search for my desired campaign directly.
+
+Conversation:
+Product owner: there needs to be an easy way to search for a specific campaign. 
+Developer: how would you like this feature to be?
+Product owner: I would like for there to be a search bar.
+Developer: Okay, we can place it on the home page and centrally for ease of use for the user.
+Product owner: that is great is there a way to make it more convenient?
+Developer: yes we can add an autofill feature which, as the user types creates a drop-down box with other similar campaign as the user types
+Product owner: this will make the process very straightforward and helpful.
+
+
+Acceptance criteria:
+
+1.	It should be capable of searching for relevant items or content based on the user's input.
+2.	The search bar should be able to accept user input.
+3.	The search results should be accurate and relevant to the user's query.
+4.	If no results are found, it should communicate this to the user clearly and suggest possible actions.
+5.	The search bar should provide autosuggestions as users type, helping them complete their queries.
+
+
 User Story 5 - Campaign Progress  ~ Omar
