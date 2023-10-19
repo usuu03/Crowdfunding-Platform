@@ -61,3 +61,12 @@ up the database
 their UIs, as Usu and Michael would set up the database
 To Dos: Set up database, discuss what entities are key for the initial prototype,
 Start our pet projects
+
+19/10/2023 - Meeting Time 3pm - Duration ~ 45 minutes
+Attendants: Chris, Michael, Usu, Abdul
+Actions: 
+- Uploaded Gantt Chart outlining the project plan 
+- Started coding our UIs for our respective Pet Projects
+To Dos: 
+- Keep working on UIs for our respective Pet Projects
+- Michael and Usu set up the database 
