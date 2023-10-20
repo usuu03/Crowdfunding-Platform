@@ -1,4 +1,6 @@
-Meeting Log
+MEETING LOG
+
+WORK 6 HOURS A WEEK
 
 
 28/09/2023- Meeting with Supervisor - Time 2pm - Duration ~ 1hr
@@ -70,3 +72,22 @@ Actions:
 To Dos: 
 - Keep working on UIs for our respective Pet Projects
 - Michael and Usu set up the database 
+
+
+20/10/2023 - Meeting with Supervisor - Time 4pm - Duration ~ 
+Attendants: Usu, Abdul, Michael, Chris 
+What was done during the meeting:
+- Updated the Supervisor on what was done during the week
+- Went through the User Stories of the people that missed the meeting last week 
+- Received feedback on the individual Projects 
+- 
+
+
+What to do for the next meeting:
+- Redo our User Stories 
+- Make sure Pet Projects are nor dependent on each other
+- Set up Database and create stubs for it 
+
+
+
+Usu will say he's going to work more hours during Christmas
