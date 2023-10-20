@@ -87,7 +87,8 @@ What to do for the next meeting:
 - Redo our User Stories 
 - Make sure Pet Projects are nor dependent on each other
 - Set up Database and create stubs for it 
-
+- Plan 
+    Instead of sorting out plan in phases we should put our user stories there.
 
 
 Usu will say he's going to work more hours during Christmas
