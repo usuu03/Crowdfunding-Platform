@@ -14,38 +14,70 @@ export default function Register() {
       <div className="form-div">
         <h6>Your Account Details</h6>
         <form className="" action="">
-          <div className="form-firstName">
-            <input type="text" placeholder="First Name" />
+          <div className="form-row">
+            <div className="form-firstName">
+              <input
+                className="form-control"
+                type="text"
+                placeholder="First Name"
+              />
+            </div>
+
+            <div className="form-lastName">
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Last Name"
+              />
+            </div>
           </div>
 
-          <div className="form-lastName">
-            <input type="text" placeholder="Last Name" />
+          <div className="form-row">
+            <div className="form-emailAddress">
+              <input
+                className="form-control"
+                type="email"
+                placeholder="Email Address"
+              />
+            </div>
           </div>
 
-          <div className="form-emailAddress">
-            <input type="email" placeholder="Email Address" />
+          <div className="form-row">
+            <div className="form-confirmEmailAddress">
+              <input
+                className="form-control"
+                type="email"
+                placeholder="Confirm Email Address"
+              />
+            </div>
           </div>
 
-          <div className="form-confirmEmailAddress">
-            <input type="email" placeholder="Confirm Email Address" />
+          <div className="form-row">
+            <div className="form-password">
+              <input
+                className="form-control"
+                type="password"
+                placeholder="Password"
+              />
+            </div>
           </div>
 
-          <div className="form-password">
-            <input type="password" placeholder="Password" />
+          <div className="form-row">
+            <div className="password-explained">
+              <p>Your password must have at least:</p>
+              <ul>
+                <li>8 characters</li>
+                <li>1 uppercase letter</li>
+                <li>1 lowercase letter</li>
+                <li>1 symbol</li>
+                <li>1 number</li>
+              </ul>
+            </div>
           </div>
 
-          <div className="password-explained">
-            <p>Your password must have at least:</p>
-            <ul>
-              <li>At least 8 characters</li>
-              <li>1 uppercase letter</li>
-              <li>1 lowercase letter</li>
-              <li>1 symbol</li>
-              <li>1 number</li>
-            </ul>
+          <div className="form-row">
+            <button className="btn btn-primary">Sign Up</button>
           </div>
-
-          <button>Sign Up</button>
         </form>
       </div>
     </div>

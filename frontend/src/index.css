@@ -15,3 +15,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Register Page Styles */
+
+.form-div {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.password-explained {
+  background-color: #d9e6f2;
+  border-radius: 5px;
+  width: 20%;
+  padding: 20px;
+}
+
+.form-row {
+  margin-bottom: 20px;
+  display: flex;
+  width: auto;
+  /* Use Flexbox layout */
+  justify-content: space-between;
+  /* Space elements evenly */
+
+}
+
+.form-firstName,
+.form-lastName {
+  width: 49%;
+  /* Set the width for both columns */
+}
+
+.form-emailAddress,
+.form-confirmEmailAddress,
+.form-password {
+  width: 100%;
+}
+
+/* Adjust the width and other styles as needed */
