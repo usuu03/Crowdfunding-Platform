@@ -1,4 +1,4 @@
-FINAL USER STORIES 
+USER STORIES V1
 
 
 User Story 1 - Registration/Authentication
