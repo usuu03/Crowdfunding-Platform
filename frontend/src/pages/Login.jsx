@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; // Note the addition of 'Routes' here
 
 export default function Login() {
   return (
@@ -6,7 +7,7 @@ export default function Login() {
       <h2 className="register-title">Sign in to Crowdfunding Platform</h2>
       <div>
         <p>
-          Do not have an account? <a href="">Sign Up</a>
+          Do not have an account? <Link to="/register">Sign Up</Link>
         </p>
       </div>
       <div className="form-container">
@@ -27,7 +28,9 @@ export default function Login() {
                 type="password"
               />
             </div>
-            <button className="btn btn-primary">Sign In</button>{" "}
+            <button id="login-btn" className="btn btn-primary">
+              Sign In
+            </button>{" "}
             <span>
               {" "}
               <p>

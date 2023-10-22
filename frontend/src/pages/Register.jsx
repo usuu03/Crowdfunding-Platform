@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; // Note the addition of 'Routes' here
 
 export default function Register() {
   return (
@@ -7,7 +8,7 @@ export default function Register() {
 
       <div className="info-container">
         <p>
-          Already have an account? <a href="http://">Sign In</a>
+          Already have an account? <Link to="/login">Sign In</Link>
         </p>
       </div>
 
