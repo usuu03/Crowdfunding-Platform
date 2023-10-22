@@ -3,7 +3,7 @@ import React from "react";
 export default function Register() {
   return (
     <div className="container">
-      <h2>Create an Account</h2>
+      <h2 className="register-title">Create an Account</h2>
 
       <div className="info-container">
         <p>

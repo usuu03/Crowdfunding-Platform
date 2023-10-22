@@ -16,12 +16,23 @@ code {
     monospace;
 }
 
+/* Header Component Styles*/
+.header-text a {
+  margin-left: 20px;
+}
+
 /* Register Page Styles */
 
-.form-div {
+.register-title {
+  margin-top: 20px;
+}
+
+.form-div,
+.form-container {
   background-color: #f2f2f2;
   border-radius: 5px;
   padding: 20px;
+  box-shadow: 5px 5px 5px 5px #dcdcdc;
 }
 
 .password-explained {
@@ -53,4 +64,8 @@ code {
   width: 100%;
 }
 
-/* Adjust the width and other styles as needed */
+.form-div .btn btn-primary {
+  width: 15%;
+}
+
+/* Login Page Styles */

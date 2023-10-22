@@ -5,8 +5,8 @@ export default function Header() {
     <div>
       <header>
         <nav className="navbar navbar-expand-md navbar-dark bg-primary">
-          <div>
-            <a href="https://google.co.uk" className="navbar-brand">
+          <div className="header-text">
+            <a href="https://google.co.uk" className="navbar-brand mr-10">
               Crowdfunding Platform
             </a>
           </div>
