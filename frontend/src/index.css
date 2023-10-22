@@ -33,6 +33,7 @@ code {
   border-radius: 5px;
   padding: 20px;
   box-shadow: 5px 5px 5px 5px #dcdcdc;
+
 }
 
 .password-explained {
@@ -69,3 +70,14 @@ code {
 }
 
 /* Login Page Styles */
+.form-elements-div {
+  margin-bottom: 20px;
+
+  justify-content: space-between;
+
+}
+
+.input-password,
+.input-email {
+  margin-bottom: 20px;
+}

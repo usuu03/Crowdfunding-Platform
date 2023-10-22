@@ -12,7 +12,7 @@ export default function Login() {
       <div className="form-container">
         <h6>Your Account Details</h6>
         <form action="">
-          <div className="form-row">
+          <div className="form-elements-div">
             <div className="input-email">
               <input
                 className="form-control"
