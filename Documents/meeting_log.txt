@@ -74,7 +74,7 @@ To Dos:
 - Michael and Usu set up the database 
 
 
-20/10/2023 - Meeting with Supervisor - Time 4pm - Duration ~ 
+20/10/2023 - Meeting with Supervisor - Time 4pm - Duration ~ 1hr 10 minutes
 Attendants: Usu, Abdul, Michael, Chris 
 What was done during the meeting:
 - Updated the Supervisor on what was done during the week
@@ -92,3 +92,15 @@ What to do for the next meeting:
 
 
 Usu will say he's going to work more hours during Christmas
+
+
+24/10/2023 - Meeting Time 3pm - Duration ~ 1hr
+Attendants: Usu, Michael, Chris, Abdul, Omar
+What we did:
+- Began with the creation of the database
+- Began with the rewrite of the user stories and conversations
+- Made more progress on everyone's UIs
+-Discussed the relational schema
+
+What to do:
+-Continue with database creation and continue the development of everyone's UI.
