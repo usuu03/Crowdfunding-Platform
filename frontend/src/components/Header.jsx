@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; // Note the addition of 'Routes' here
 
 export default function Header() {
   return (
@@ -6,9 +7,9 @@ export default function Header() {
       <header>
         <nav className="navbar navbar-expand-md navbar-dark bg-primary">
           <div className="header-text">
-            <a href="https://google.co.uk" className="navbar-brand mr-10">
+            <Link to="/login" className="navbar-brand mr-10">
               Crowdfunding Platform
-            </a>
+            </Link>
           </div>
         </nav>
       </header>

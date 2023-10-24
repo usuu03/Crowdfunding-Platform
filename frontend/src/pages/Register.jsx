@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; // Note the addition of 'Routes' here
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default function Register() {
   return (
