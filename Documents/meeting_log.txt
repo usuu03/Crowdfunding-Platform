@@ -104,3 +104,11 @@ What we did:
 
 What to do:
 -Continue with database creation and continue the development of everyone's UI.
+
+
+26/10/2023 - Meeting Time 13:30pm - Duration ~ 1hr 30 mins
+Attendants: Usu, Michael, Chris, Omar
+What we did:
+- Continued progress on the UI designs
+- Continued progress on the database
+
