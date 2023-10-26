@@ -110,4 +110,4 @@ Acceptance criteria:
 5.	The search bar should provide autosuggestions as users type, helping them complete their queries.
 
 
-User Story 5 - Campaign Progress  ~ Omar
+User Story 5 - Campaign Progress  ~ Omarr 
