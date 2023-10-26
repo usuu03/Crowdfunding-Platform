@@ -53,7 +53,8 @@ As a user, I want to log out of my page, so that no one else can access my page.
 
 Once a user is finished on the site, an option to log out should be present. A logout button located in the top right corner that is easy to locate on the interface. 
 
-
+User Story 5: GUI 
+As a user, i want to access a simple and elegant GUI, so that i can easily navigate throughout the website.
 
 
 
