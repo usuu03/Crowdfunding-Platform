@@ -35,9 +35,7 @@ Omar’s User Stories:
 User Story 1: Transaction log.
 As a user, I want to view the donations made by philanthropists, so that I can see who has been making contributions.
 
-
 Located on the fundraising page, there should be a statement listing the donations made along with a timestamp.
-
 
 User Story 2: Withdrawal of Funds. 
 As a user, I want to withdraw my money, so that I can use it for the purposes pertinent to my campaign.
