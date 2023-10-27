@@ -116,5 +116,11 @@ What we did:
 Attendants: Usu, Michael, Chris, Abdul, Omar
 What we did:
 - Gave updates on everyone's progress so far
+-Discussed how to improve our user stories
 - Everyone needs to set up targets for each week to track progress.
 - Stand up agile methods should be implemented.
+- Everyone needs to connect to the database by the end of project week!
+    -AWS will be used to share the database between everyone
+- Everyone's UI needs to look the same (CSS styling)
+- Next meeting we will be discussing our plan for project week
+    - Assigning tasks and deadlines for project week
