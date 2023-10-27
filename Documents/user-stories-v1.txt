@@ -64,30 +64,23 @@ so that I can read up on causes that I care about, whether I have an account or 
     Conversation:
 
     Product Owner: For viewing campaign details, we want users to see everything from the campaign title and 
-    description to the fundraising progress. How can we implement this?
-
+    description to the fundraising progress.
     Developer: We should ensure that users can click on a campaign to get detailed information such as the title, 
     description, images, videos, fundraising goal, and current progress. 
 
-
-
-    Product Owner: We need to ensure users can easily browse and search for campaigns. What is the best way to implement this?
-
+    Product Owner: We need to ensure users can easily browse and search for campaigns.
     Developer: We start with making sure users can access the platform without creating an account. We should allow users to view a list of 
     campaigns and provide a search bar for keyword searches.
-
-
-
-    Product Owner: This feature needs to provide users with the ability to filter campaigns. How do we implement this?
-
-    Developer: We should allow users to filter campaigns based on criteria like campaign type (personal, nonprofit), location, popularity, and fundraising progress.
+    
+    Product Owner: This feature needs to provide users with the ability to filter campaigns.
+    Developer: We should allow users to filter campaigns based on criteria like campaign type (personal, nonprofit), location, popularity, and fundraising  progress.
 
     Acceptance Criteria:
     - Users should be able to access the campaign browsing and discovery feature without the need to create an account or log in.
     - Users should be able to filter between campaigns based on keywords, categories, or tags
     - Users should be able to click on a campaign to view detailed information, for example, the campaign title, fundraising goal, and the progress made.
     - Users should have the option to sort campaigns by factors such as most recent, most funded, and ending soonest.
-    - If a user attempts an action not possible without an account (e.g., donating or starting a campaign), clear guidance should be provided on how to proceed.
+    - If a user attempts an action not possible without an account (e.g., donating or starting a campaign), clear guidance should be provided on how to  proceed.
 
 User Story 4 - Campaign Search ~ Chris 
 
