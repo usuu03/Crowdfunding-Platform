@@ -36,16 +36,12 @@ Story:
 Story - As a campaign creator, I want to be able to create a new campaign, give it a campaign title, a target amount, and a duration, as well as other details.
 
 Conversation:
-Campaign Creator - I want to be able to create campaigns and share them with our users.
-Developer - What specific details would you like to include when creating a campaign?
-Campaign Creator - I need to set a campaign title, specify a funding goal, and set a deadline date. I should also be able to provide a description for the campaign.
-Developer - Ok, the campaign creation form will have these details
-Campaign Creator - We should also validate that campaign titles are not empty, funding goals are numeric and positive, and the deadline date is a valid future date.
-Developer - I'll implement the validation rules. After creating a campaign, what should happen next?
-Campaign Creator - Once a campaign is created, it should be visible to donors on the platform. They should be able to browse and search for campaigns.
-Developer - We'll make sure that campaigns are listed and searchable for donors.
-Campaign Creator - Campaign creators should be able to edit their campaign details or delete their campaign if they wish.
-Developer - We'll implement those features as well. I'll work on designing the campaign creation form and set up the database structure to store campaign information
+Campaign Creator - I want to create campaigns with a title, funding goal, deadline, and description. I need validation for the campaign title (not empty), funding goal (numeric and positive), and the deadline date (valid future date).
+Developer - Implement the campaign creation form with specified details and validation rules.
+Campaign Creator - I want campaigns to be visible and searchable for donors once created.
+Developer - Ensure that campaigns are listed and searchable for donors.
+Campaign Creator - Campaign creators should be able to edit or delete their campaigns.
+Developer - Implement features to allow campaign creators to edit or delete their campaigns as needed.
 
 Acceptance Criteria:
 1. Campaign creation form should include a tile, funding goal, deadline date and description.
