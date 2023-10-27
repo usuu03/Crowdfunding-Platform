@@ -116,3 +116,5 @@ What we did:
 Attendants: Usu, Michael, Chris, Abdul, Omar
 What we did:
 - Gave updates on everyone's progress so far
+- Everyone needs to set up targets for each week to track progress.
+- Stand up agile methods should be implemented.
