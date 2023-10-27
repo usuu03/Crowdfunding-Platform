@@ -75,6 +75,7 @@ so that I can read up on causes that I care about, whether I have an account or 
 User Story 4 - Campaign Search ~ Chris 
 
 Story:
+<<<<<<< HEAD:Documents/user-stories-v1.txt
 
 Story- as a potential donator I want to have the ability to search for my desired campaign easily and directly, I would also like for there to be a dropdown box as I type giving me suggestions.
 
@@ -84,6 +85,9 @@ Conversation:
 : I would like it to be central.
 : I would like there to be a drop down auto fill feature with similar campaigns.
 
+=======
+Story- as a potential donator I want to have the ability to search for my desired campaign easily and directly.
+>>>>>>> 4969bcf7 (user story update):Documents/final-user-stories.txt
 
 Acceptance criteria:
 
