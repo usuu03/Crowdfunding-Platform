@@ -7,15 +7,19 @@ Story - As a potential donator, I want the ability to create a new account on th
 so that I can begin browsing and contributing to campaigns that align with my interests.
 
 Conversation: 
-Product Owner - There has to be a stragthforward way to create accounts and engage in the platform 
-Developer - For account creation, what information should we collect from the user during the registration process?
-Product Owner - We can keep it simple and ask the user for their name, email and password.
-Developer - What requirements would the password and email have?
-Product Owner - A valid email should have the following format "user@example.com", and a password should have a minimum 
-length, mix of letters, numbers and symbols for security.
-Developer - Should we check if the email has been used before?
-Product Owner - Yes, so that multiple accounts do not have the same email address. During registration, we should check if 
-the email is unique
+Product Owner: We must provide a simple process for users to create accounts and engage with the platform.
+
+Developer: For account creation, what details should we gather from users during the registration process?
+
+Product Owner: Let's keep it straightforward and request their name, email, and password.
+
+Developer: What criteria should we impose on passwords and emails?
+
+Product Owner: Passwords must meet security standards, including a minimum length and a combination of letters, numbers, and symbols. For emails, we should ensure they follow the format "user@example.com."
+
+Developer: Should we verify whether an email has been used previously?
+
+Product Owner: Absolutely, this check ensures that multiple accounts cannot use the same email address. During registration, the system must confirm the email's uniqueness.
 
 Acceptance Criteria: 
 1.Users should be able to initiate the registration process from the platform's homepage or login page.
