@@ -122,5 +122,6 @@ What we did:
 - Everyone needs to connect to the database by the end of project week!
     -AWS will be used to share the database between everyone
 - Everyone's UI needs to look the same (CSS styling)
+- A Moqup shpould be made so everyone knows the common style for the UI
 - Next meeting we will be discussing our plan for project week
     - Assigning tasks and deadlines for project week
