@@ -38,11 +38,22 @@ const login = async (req, res) => {
     );
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Login successful", token });
+    res.status(500).json({ message: "Login Unsuccessful", token });
   }
 };
 
-const register = (req, res) => {};
+const register = async (req, res) => {
+  try {
+    const { firstName, lastName, emailAddress, password } = req.body;
+
+    db.query(
+      "INSERT INTO table_name(firstName, lastName, ) VALUES (value_1,value_2,value_3)"
+    );
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Registration Unsuccessful", token });
+  }
+};
 
 module.exports = {
   login,
