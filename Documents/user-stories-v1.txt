@@ -97,4 +97,21 @@ Acceptance criteria:
 5.	The search bar should provide autosuggestions as users type, helping them complete their queries.
 
 
-User Story 5 - Campaign Progress  ~ Omarr 
+User Story 5 - HomePage  ~ Omarr 
+
+As a fundraiser, I want access a simple homepage that I can easily navigate through, so that I can use the site with ease. 
+
+Conversation:
+-	There will be a search bar. 
+
+-	There will be a tab that contains the following: “Log In”; “Sign Up”; “ Introductory Tab”;  “Campaign’s”. 
+
+-   The layout should be clear and simple. 
+
+Acceptance criteria: 
+1. There will be a search bar, that allows up to 50 characters to be inputted. 
+2. There will be blue tabs with a white font, with the labelled tabs. I.e: Log in, sign up, etc.
+3. The colour of the layout will be blue and white. 
+4. 
+
+
