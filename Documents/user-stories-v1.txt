@@ -76,16 +76,7 @@ User Story 4 - Campaign Search ~ Chris
 
 Story:
 
-Story- as a potential donator I want to have the ability to search for my desired campaign directly.
-
-Conversation:
-Product owner: there needs to be an easy way to search for a specific campaign. 
-Developer: how would you like this feature to be?
-Product owner: I would like for there to be a search bar.
-Developer: Okay, we can place it on the home page and centrally for ease of use for the user.
-Product owner: that is great is there a way to make it more convenient?
-Developer: yes we can add an autofill feature which, as the user types creates a drop-down box with other similar campaign as the user types
-Product owner: this will make the process very straightforward and helpful.
+Story- as a potential donator I want to have the ability to search for my desired campaign easily and directly, I would also like for there to be a dropdown box as I type giving me suggestions.
 
 
 Acceptance criteria:
