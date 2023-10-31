@@ -78,6 +78,12 @@ Story:
 
 Story- as a potential donator I want to have the ability to search for my desired campaign easily and directly, I would also like for there to be a dropdown box as I type giving me suggestions.
 
+Conversation:
+: there needs to be an easy way to search for a specific campaign. 
+: I would like for there to be a search bar.
+: I would like it to be central.
+: I would like there to be a drop down auto fill feature with similar campaigns.
+
 
 Acceptance criteria:
 
