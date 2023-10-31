@@ -125,3 +125,7 @@ What we did:
 - A Moqup shpould be made so everyone knows the common style for the UI
 - Next meeting we will be discussing our plan for project week
     - Assigning tasks and deadlines for project week
+
+    31/10/2023 - meeting time 3:00 - duration ~ mins
+    attedants: christopher, usu, michale, omar, abdul.
+    what we did:
