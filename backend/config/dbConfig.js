@@ -1,9 +1,9 @@
 const mysql2 = require("mysql2"); // or 'mysql2' if you chose that driver
 
 const db = mysql2.createConnection({
-  host: "localhost", // Your database host
-  user: "root", // Your database username
-  password: "$uperDragon13", // Your database password
+  host: "crowdfunding.cw5agzmuyhnb.eu-west-2.rds.amazonaws.com", // Your database host
+  user: "admin", // Your database username
+  password: "finalyear2023", // Your database password
   database: "Crowdfunding", // Your database name
 });
 
