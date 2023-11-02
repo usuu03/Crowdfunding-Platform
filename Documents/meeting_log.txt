@@ -140,5 +140,7 @@ What we did:
  attedants: christopher, usu, michale, omar, 
  -usu set 20 campaigns and set up 5 users.
  -michaele structured campaign boxes on page.
+ -chris not done much since last meeting.
+ -abdul not done much since last meeting.
 
 
