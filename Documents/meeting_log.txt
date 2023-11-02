@@ -126,13 +126,19 @@ What we did:
 - Next meeting we will be discussing our plan for project week
     - Assigning tasks and deadlines for project week
 
-    31/10/2023 - meeting time 3:00 - duration ~ mins
+    31/10/2023 - meeting time 3:00 - duration ~ 1 hr 30 mins
     attedants: christopher, usu, michale, omar, abdul.
     what we did:
-    we went throough where eceryone was currently at.
-    usu: tried to connect database but is currently failing to connect after repeated attempts.
-    miachel: currnetly designing campgaing boxes and trying to get all buttons working correctly on the page.
-    chris: currenly redoing my feature as the last was broken/messed up.
-    omar: done lofi for home page and starting to code home page working on navigation bar.
-    abdul: still working on styling for feilds, going to start header and footer of page.
+    -we went throough where eceryone was currently at.
+    -usu: tried to connect database but is currently failing to connect after repeated attempts.
+    -miachel: currnetly designing campgaing boxes and trying to get all buttons working correctly on the page.
+    -chris: currenly redoing my feature as the last was broken/messed up.
+    -omar: done lofi for home page and starting to code home page working on navigation bar.
+    -abdul: still working on styling for feilds, going to start header and footer of page.
     
+2/11/2023 - meeting time 1:00 - duration ~ 1hr
+ attedants: christopher, usu, michale, omar, 
+ -usu set 20 campaigns and set up 5 users.
+ -michaele structured campaign boxes on page.
+
+
