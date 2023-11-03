@@ -109,6 +109,6 @@ Acceptance criteria:
 1. There will be a search bar, that allows up to 50 characters to be inputted. 
 2. There will be blue tabs with a white font, with the labelled tabs. I.e: Log in, sign up, etc.
 3. The colour of the layout will be blue and white. 
-4. 
+4. The HomePage will provide a summary with the following: "organisations mission"; "How to get Involved"; "How to contact us". 
 
 
