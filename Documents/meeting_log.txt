@@ -137,9 +137,9 @@ What we did:
     -abdul: still working on styling for feilds, going to start header and footer of page.
     
 2/11/2023 - meeting time 1:00 - duration ~ 1hr
- attedants: christopher, usu, michale, omar, 
+ attedants: christopher, usu, michael, omar, 
  -usu set 20 campaigns and set up 5 users.
- -michaele structured campaign boxes on page.
+ -michael structured campaign boxes on page.
  -chris not done much since last meeting.
  -abdul not done much since last meeting.
 
