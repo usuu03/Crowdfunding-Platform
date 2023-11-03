@@ -154,3 +154,30 @@ when we are going to do our work during project week.
 
 monday submit a plan for project week on monday.
 
+sort out lofi for all pages
+everyone needs the same css style (because everyones is different)
+
+abudl palans for next week
+, 22hours worked on project next week
+. major tasks connect to database should take 20-25 minutes.
+ start working on backend e.g create campaign feture.
+ 4 hours to connect to the databse. take 1 hour to populate databse. 
+
+michael plans for next week
+14 hours worked on project next week
+connect ui with databse to show stubs should take 6 hours.
+clickable boxes that go to new page, should take 2 hours
+want drop downs to filter campaigns to categorys should take 4 hours.
+
+omar plans for next week 15 hours
+have home page completed 
+work on about us interface
+
+
+christopher 16 hours
+fix clickable feature 3 hours 
+style css on page 3 hours
+connect to databse 2 hours 
+make searches connectable connectable through databse (take to page of campaign) 8 hours 
+
+
