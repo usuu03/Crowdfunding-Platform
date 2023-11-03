@@ -180,4 +180,5 @@ style css on page 3 hours
 connect to databse 2 hours 
 make searches connectable connectable through databse (take to page of campaign) 8 hours 
 
-
+we need to re-do the plan.
+the current plan is not very good or clear, various tasks spread accross the whole plan, pashes are not clear as they also do not follow their time scale and cross over the whole project.
