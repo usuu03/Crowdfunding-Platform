@@ -4,6 +4,11 @@ const app = express();
 //Middleware
 app.use(express.json());
 
+//Routes
+const authRoutes = require("./routes/authRoutes");
+
+app.use("/user", authRoutes);
+
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
