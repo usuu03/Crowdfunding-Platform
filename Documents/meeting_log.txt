@@ -196,6 +196,20 @@ What we have done so far in the project
 - done a gant chart
 - done a plan
 - have done research on other crowdfunding platforms
+- define roles and responsibilities 
+- review project objectives and goals
+- identify and document high priority features and functionalities
+- started main crowdfunding platform development
+- set up a node.js server using express.js for the main platform implamenting user stories 
+- create a react based front end for the main platform
 
 what we need to do.
+- testing and quality assurance
+- conduct unit testing and integration testing for the main platform, address any issues
+- integration planning/ develop integration plans for each project to ensure compatibility with the main platform
+- prototype integration and refinement
+- integgration of main features and enhancments from individual pet projects into the main crowdfunding project 
+- conduct thoughrough testing on integrarted prototype and gather feed back from team members and steakholders
+
+
 
