@@ -182,3 +182,20 @@ make searches connectable connectable through databse (take to page of campaign)
 
 we need to re-do the plan.
 the current plan is not very good or clear, various tasks spread accross the whole plan, pashes are not clear as they also do not follow their time scale and cross over the whole project.
+
+
+09/11/2023 - Meeting Time 2pm - Duration ~  hour
+Attendants: Michael, Chris, Abdul, Usu
+What we did:
+
+What we have done so far in the project 
+
+- we have done user stories 
+- started pet projects 
+- set up a databse in the cloud 
+- done a gant chart
+- done a plan
+- have done research on other crowdfunding platforms
+
+what we need to do.
+
