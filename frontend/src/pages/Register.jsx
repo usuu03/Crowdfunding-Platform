@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function Register() {
-  //This is to get the data from the input fields
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
     emailAddress: "",
+    confirmEmail: "",
     password: "",
   });
 
@@ -19,12 +19,23 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Check if the email addresses match
+    if (userData.emailAddress !== userData.confirmEmail) {
+      setErrors({
+        ...errors,
+        emailMatch: "Email addresses do not match",
+        password: "", // Clear password error
+      });
+      return;
+    }
+
     // Check if the password meets the criteria
     if (!isPasswordValid(userData.password)) {
       setErrors({
         ...errors,
         password:
           "Your password must have at least: 8 characters, 1 uppercase letter, 1 lowercase letter, 1 symbol, and 1 number.",
+        emailMatch: "", // Clear email match error
       });
       return;
     }
@@ -89,7 +100,9 @@ export default function Register() {
           <div className="form-row">
             <div className="form-emailAddress">
               <input
-                className="form-control"
+                className={`form-control ${
+                  errors.emailMatch ? "input-error" : ""
+                }`}
                 type="email"
                 name="emailAddress"
                 placeholder="Email Address"
@@ -101,9 +114,11 @@ export default function Register() {
           <div className="form-row">
             <div className="form-confirmEmailAddress">
               <input
-                className="form-control"
+                className={`form-control ${
+                  errors.emailMatch ? "input-error" : ""
+                }`}
                 type="email"
-                name="confirmEmail" // Add a name attribute
+                name="confirmEmail"
                 placeholder="Confirm Email Address"
                 onChange={handleInputChange}
               />
@@ -113,7 +128,9 @@ export default function Register() {
           <div className="form-row">
             <div className="form-password">
               <input
-                className="form-control"
+                className={`form-control ${
+                  errors.password ? "input-error" : ""
+                }`}
                 type="password"
                 name="password"
                 placeholder="Password"
@@ -122,20 +139,13 @@ export default function Register() {
             </div>
           </div>
 
-          <div className="form-row">
-            <div className="password-explained">
-              {errors.password && <p>{errors.password}</p>}
-              {errors.emailMatch && <p>{errors.emailMatch}</p>}
-              {/* <p>Your password must have at least:</p>
-              <ul>
-                <li>8 characters</li>
-                <li>1 uppercase letter</li>
-                <li>1 lowercase letter</li>
-                <li>1 symbol</li>
-                <li>1 number</li>
-              </ul> */}
+          {errors.password && (
+            <div className="form-row">
+              <div className="password-explained">
+                <p>{errors.password}</p>
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="form-row">
             <button type="submit" className="btn btn-primary">

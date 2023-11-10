@@ -2,83 +2,108 @@ const db = require("../config/dbConfig");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
-/**
- *
- * @param {*} req
- * @param {*} res
- */
 const register = async (req, res) => {
   try {
-    //This is the data the user will input, and the data that will be stored
-    //in the db
     const { firstName, lastName, emailAddress, password } = req.body;
 
-    //Encrypting the password
-    const hashPassword = await bcrypt.hash(password, 10);
+    // Hash the password securely with bcrypt
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-    //SQL Query that puts the user data into the database
-    db.query(
-      "INSERT INTO Users (firstName, lastName, emailAddress, password) VALUES (?, ?, ?, ?)",
-      //The user data in square brackets
-      [firstName, lastName, emailAddress, hashPassword],
-      (error, results) => {
-        if (error) {
-          console.error(error);
-          //Prints this if theres an error
-          return res.status(500).json({ message: "Registration Unsuccessful" });
-        }
+    // Insert the user into the Users table with the hashed password
+    const insertQuery =
+      "INSERT INTO Users (firstName, lastName, emailAddress, password) VALUES (?, ?, ?, ?)";
+    await db
+      .promise()
+      .query(insertQuery, [firstName, lastName, emailAddress, hashedPassword]);
 
-        //Prints this if its successful
-        res.status(201).json({ message: "Registration successful" });
-      }
-    );
+    res.status(201).json({ message: "Registration successful" });
+  } catch (error) {
+    console.error("Registration Error:", error);
+    res
+      .status(500)
+      .json({ message: "Internal Server Error during registration" });
+  }
+};
+
+const login = async (req, res) => {
+  try {
+    const { emailAddress, password } = req.body;
+
+    // Find the user by email address
+    const selectQuery = "SELECT * FROM Users WHERE emailAddress = ?";
+    const [results] = await db.promise().query(selectQuery, [emailAddress]);
+
+    if (results.length === 0) {
+      return res.status(400).json({ message: "User not found" });
+    }
+
+    const user = results[0];
+
+    // console.log("Input Password:", password);
+    // console.log("Stored Password Hash:", user.password);
+
+    // Check the password using bcrypt
+    const isMatch = await bcrypt.compare(password.trim(), user.password);
+
+    // console.log("Password Match:", isMatch);
+
+    if (isMatch) {
+      // Generate a JWT token if the password is correct
+      const token = jwt.sign({ emailAddress }, process.env.JWT_SECRET_KEY, {
+        expiresIn: "1h",
+      });
+
+      res.status(200).json({ message: "Login successful", token, user });
+    } else {
+      res.status(401).json({ message: "Invalid credentials" });
+    }
+  } catch (error) {
+    console.error("Login Error:", error);
+
+    if (
+      error instanceof jwt.JsonWebTokenError ||
+      error instanceof jwt.TokenExpiredError
+    ) {
+      res.status(401).json({ message: "Invalid token" });
+    } else {
+      res.status(500).json({ message: `Login Unsuccessful: ${error.message}` });
+    }
+  }
+};
+
+const deleteUser = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    // Check if the user exists
+    const [userRows] = await db
+      .promise()
+      .query("SELECT * FROM Users WHERE userID = ?", [id]);
+
+    if (userRows.length === 0) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Delete the user from the User table
+    const [results] = await db
+      .promise()
+      .query("DELETE FROM Users WHERE userID = ?", [id]);
+
+    // Check if any rows were affected by the delete
+    if (results.affectedRows === 0) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // User deleted successfully
+    res.status(200).json({ message: "User deleted successfully", results });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
-// const login = async (req, res) => {
-//   try {
-//     const { emailAddress, password } = req.body;
-
-//     //Finding the user by email address
-//     db.query(
-//       "SELECT * FROM User WHERE emailAddress = ?",
-//       [emailAddress],
-//       async (error, results) => {
-//         if (error) {
-//           console.error(error);
-//           return res.status(500).json({ message: "Login Failed" });
-//         }
-
-//         if (results.length === 0) {
-//           return res.status(400).json({ message: "User not found" });
-//         }
-
-//         //Checking the password
-//         const user = results[0];
-//         const isMatch = await bcrypt.compare(password, user.password);
-
-//         if (!isMatch) {
-//           return res.status(401).json({ message: "Invalid credentials" });
-//         }
-
-//         // Generate a JWT token
-//         const token = jwt.sign({ emailAddress }, process.env.JWT_SECRET_KEY, {
-//           expiresIn: "1h",
-//         });
-
-//         res.status(200).json({ message: "Login successful", token });
-//       }
-//     );
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ message: "Login Unsuccessful", token });
-//   }
-// };
-
 module.exports = {
-  // login,
   register,
+  login,
+  deleteUser,
 };
