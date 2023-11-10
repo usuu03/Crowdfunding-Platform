@@ -213,3 +213,16 @@ what we need to do.
 
 
 
+09/11/2023 - Meeting with Supervisor - Time 4pm - Duration ~ 40 minutes 
+Attendants: Usu, Michael, Abdul, Usu 
+Topics covered:
+- Checked in with Rogerio about what we have done,
+- None of us did the LoFi for our respective pages 
+- We need to improve the way we organise our meetings
+- Gave feedback on Michael's and Abdul's pages and the database connection
+- We all need to know where everyone is at with their individual pet projects
+
+Targets for everyone next Week:
+- Have LoFi for all our pages
+- Have a functioning prototype
+- Start new User Stories
