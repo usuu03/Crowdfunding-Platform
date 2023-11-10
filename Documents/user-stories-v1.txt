@@ -3,7 +3,7 @@ USER STORIES V1
 
 User Story 1 - Registration/Authentication
 Story: 
-Story - As a potential donator, I want the ability to create a new account on the platform 
+As a potential donator, I want the ability to create a new account on the platform 
 so that I can begin browsing and contributing to campaigns that align with my interests.
 
 Conversation: 
@@ -112,3 +112,17 @@ Acceptance criteria:
 4. The HomePage will provide a summary with the following: "organisations mission"; "How to get Involved"; "How to contact us". 
 
 
+User Story 6 - Campaign Page - 
+
+User Story - As a donator, I want to access pages of individual campaigns so that I can access more detailed information about the Campaign.
+
+Conversation:
+- User should see more detailed information such as the Campaigns - description, current amount, target amount, and others.
+- Campaigns should have a Poster Image to represented 
+- Button that will take them to a donation page where they can donate money to the campaign
+
+Acceptance Criteria:
+- Donors should navigate to an individual campaign page by clicking on a campaign from a list or search result.
+- The campaign page should display essential details such as title, description, amount raised, funding goal, creator details.
+- Visual elements like a poster image, and other images should be included for a more engaging experience
+- A clear call-to-action button like "Contribute" should be present for users to easily contribute to the campaign if interested.
