@@ -1,8 +1,16 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; // Note the addition of 'Routes' here
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useNavigate,
+} from "react-router-dom";
+
 import axios from "axios";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     emailAddress: "",
     password: "",
@@ -17,6 +25,9 @@ export default function Login() {
         userData
       );
       console.log(response.data);
+
+      //Redirecting to the Homepage if successfully logged in
+      navigate("/home");
     } catch (error) {
       console.error("Login Error:", error);
     }

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function Register() {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
@@ -46,6 +47,7 @@ export default function Register() {
         userData
       );
       console.log(response.data);
+      navigate("/home");
     } catch (error) {
       console.error("Registration error:", error);
     }

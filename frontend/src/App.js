@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 // Import your page components (Register and Login)
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import HomePage from "./pages/HomePage";
 
 //Importing Components
 import Header from "./components/Header";
@@ -15,10 +16,9 @@ function App() {
         <Header />
         <Routes>
           {" "}
-          {/* Use 'Routes' as a parent container */}
           <Route path="/register" element={<Register />} />{" "}
-          {/* Use 'element' prop to specify the component */}
           <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<HomePage />} />
         </Routes>
       </div>
     </Router>
