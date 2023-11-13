@@ -9,8 +9,11 @@ app.use(cors());
 
 //Routes
 const authRoutes = require("./routes/authRoutes");
+const campaignRoutes = require("./routes/campaignRoutes");
 
 app.use("/user", authRoutes);
+
+app.use("/campaigns", campaignRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
