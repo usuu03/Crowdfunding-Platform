@@ -63,4 +63,4 @@ const getAllRegions = async (req, res) => {
   }
 };
 
-module.exports = { getAllCampaigns, getAllCategories };
+module.exports = { getAllCampaigns, getAllCategories, getAllRegions };

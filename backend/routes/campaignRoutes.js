@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const categoryController = require("../controllers/categoryController");
+const campaignController = require("../controllers/campaignController");
 
-// Campaign route
-router.get("/categories", categoryController.getAllCategories);
+//Categories of Campaigns
+router.get("/categories", campaignController.getAllCategories);
 
-// Campaign route
-router.get("/regions", regionController.getAllRegions);
+// Region of the Campaign
+router.get("/regions", campaignController.getAllRegions);
 
 router.get("/all", campaignController.getAllCampaigns);
 
