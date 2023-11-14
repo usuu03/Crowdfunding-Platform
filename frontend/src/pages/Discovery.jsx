@@ -3,7 +3,7 @@ import Campaign from "../components/Campaign";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaCaretDown } from "react-icons/fa";
 import { Modal, Button } from "react-bootstrap";
-import CustomPopup from "./custompopup";
+import CustomPopup from "../components/CustomPopup";
 import axios from "axios";
 
 function Discovery() {
@@ -39,7 +39,7 @@ function Discovery() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/campaigns/all") // Make a GET request to your API endpoint
+      .get("http://localhost:4000/campaigns/all") // Make a GET request to your API endpoint
       .then((response) => {
         setCampaigns(response.data); // Assuming the response contains campaign data
       })
@@ -51,7 +51,7 @@ function Discovery() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/categories/all") // Make a GET request to your API endpoint
+      .get("http://localhost:4000/campaigns/categories") // Make a GET request to your API endpoint
       .then((response) => {
         setCategories(response.data); // Assuming the response contains campaign data
       })
@@ -63,7 +63,7 @@ function Discovery() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/regions/all") // Make a GET request to your API endpoint
+      .get("http://localhost:4000/campaigns/regions") // Make a GET request to your API endpoint
       .then((response) => {
         setRegions(response.data); // Assuming the response contains campaign data
       })
