@@ -231,7 +231,7 @@ code {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   /* Three boxes per row */
-  gap: 30px;
+  gap: 10px;
   /* Gap between boxes */
 }
 
@@ -239,9 +239,11 @@ code {
 .campaign-box {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 15px;
   padding: 20px;
   margin: 10px;
+  height: 100%;
+  width: 30vh;
   /* Add margin to create space between boxes */
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   text-align: center;
