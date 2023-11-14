@@ -228,7 +228,7 @@ Targets for everyone next Week:
 - Start new User Stories
 
 
-14/11/2023 - Meeting - Time 3pm - Duration ~ 
+14/11/2023 - Meeting - Time 3pm - Duration ~ 40mins
 Attendants - Omar, Chris, Usu, Michael and Usu 
 What we discussed: 
 - How we can connect to the database from Campus
@@ -291,3 +291,4 @@ What's he's currently working on:
 Target for Next Meeting:
 - Lofi will be done
 - Integrate Abdul and Omar's Pet Project 
+
