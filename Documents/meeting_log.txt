@@ -91,7 +91,7 @@ What to do for the next meeting:
     Instead of sorting out plan in phases we should put our user stories there.
 
 
-Usu will say he's going to work more hours during Christmas
+
 
 
 24/10/2023 - Meeting Time 3pm - Duration ~ 1hr
@@ -228,7 +228,7 @@ Targets for everyone next Week:
 - Start new User Stories
 
 
-14/11/2023 - Meeting - Time 3pm - Duration ~ 55mins
+14/11/2023 - Meeting - Time 3pm - Duration ~ 1h 15min
 Attendants - Omar, Chris, Usu, Michael and Usu 
 What we discussed: 
 - How we can connect to the database from Campus
@@ -292,3 +292,5 @@ Target for Next Meeting:
 - Lofi will be done
 - Integrate Abdul and Omar's Pet Project 
 
+
+Usu will say he's going to work more hours during Christmas
