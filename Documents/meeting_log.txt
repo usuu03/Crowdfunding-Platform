@@ -228,7 +228,7 @@ Targets for everyone next Week:
 - Start new User Stories
 
 
-14/11/2023 - Meeting - Time 3pm - Duration ~ 40mins
+14/11/2023 - Meeting - Time 3pm - Duration ~ 55mins
 Attendants - Omar, Chris, Usu, Michael and Usu 
 What we discussed: 
 - How we can connect to the database from Campus
