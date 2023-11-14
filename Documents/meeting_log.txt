@@ -226,3 +226,68 @@ Targets for everyone next Week:
 - Have LoFi for all our pages
 - Have a functioning prototype
 - Start new User Stories
+
+
+14/11/2023 - Meeting - Time 3pm - Duration ~ 
+Attendants - Omar, Chris, Usu, Michael and Usu 
+What we discussed: 
+- How we can connect to the database from Campus
+- Find out through Abdul that we can connect by using "WiFi Guest"
+- Allowed us to connect to the database from Uni
+
+Michael:
+What he's working on: 
+- Pet Project Dropdowns connecting to the database
+- Finishing up his "Learn More" feature 
+- Adjusting his CSS so that it's consistent with the rest
+
+Target's for Next Meeting:
+- Dropdowns will be fully working
+- Start Testing on Pet Project
+- Have the CSS consistent with the rest of the project
+
+Chris: 
+What's he's currently working on:
+- Trying to connect to the database to make the searches find the campaign stored in the database for his 
+Pet Project
+- Adjusting his CSS so that's it's consistent with the rest of the project
+- Fix clickable feature 
+- Have the LoFi done by then 
+
+Target for Next Meeting:
+- Have the database connected 
+- Fix CSS so that its consistent 
+- Have the LoFi by then 
+
+Omar:
+What he's currently working on:
+- Working on his Pet Project the Homepage
+- Working on the Footer of the Homepage
+- Updated the images of the Homepages
+- Adjusting the CSS so that it's consistent with the rest of the project 
+
+Target for Next Meeting:
+- Have the Homepage done 
+- Have the CSS consistent
+- Have LoFi done by then 
+
+
+Abdul:
+What he's currently working on:
+- Finishing up the Pet Project
+- Adjusting the CSS so that it is consistent with the rest of the Project
+
+Target for Next Meeting:
+- Lofi will be done
+- CSS will be consistent
+- Will start Testing of Pet Project
+
+Usu:
+What's he's currently working on:
+- Integrating the Pet Project into a functioning prototype
+- Integrating Michael's Pet Project into the Dropdown 
+- Started testing his Pet Project
+
+Target for Next Meeting:
+- Lofi will be done
+- Integrate Abdul and Omar's Pet Project 
