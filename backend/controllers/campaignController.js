@@ -6,8 +6,7 @@ const getAllCampaigns = async (req, res) => {
     const [results] = await db.promise().query(query);
 
     if (results.length === 0) {
-      res.status(404).json({ message: "No campaigns found" });
-      return;
+      return res.status(404).json({ message: "No campaigns found" });
     }
 
     const campaigns = results.map((campaign) => ({
@@ -23,42 +22,38 @@ const getAllCampaigns = async (req, res) => {
   }
 };
 
-//Getting all categories from the Camapaigns
 const getAllCategories = async (req, res) => {
   try {
     const query = "SELECT DISTINCT category FROM Campaign";
     const [results] = await db.promise().query(query);
 
     if (results.length === 0) {
-      res.status(404).json({ message: "No Categories found" });
-      return;
+      return res.status(404).json({ message: "No Categories found" });
     }
 
     const categories = results.map((result) => result.category);
 
     res.json(categories);
   } catch (error) {
-    console.error("Error fetching campaign data:", error);
+    console.error("Error fetching category data:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
-//Getting all Regions from the campaigns
 const getAllRegions = async (req, res) => {
   try {
     const query = "SELECT DISTINCT region FROM Campaign";
     const [results] = await db.promise().query(query);
 
     if (results.length === 0) {
-      res.status(404).json({ message: "No Regions found" });
-      return;
+      return res.status(404).json({ message: "No Regions found" });
     }
 
     const regions = results.map((result) => result.region);
 
     res.json(regions);
   } catch (error) {
-    console.error("Error fetching campaign data:", error);
+    console.error("Error fetching region data:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };

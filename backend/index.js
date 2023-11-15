@@ -13,7 +13,7 @@ const campaignRoutes = require("./routes/campaignRoutes");
 
 app.use("/user", authRoutes);
 
-app.use("/campaigns", campaignRoutes);
+app.use("/api/campaigns", campaignRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
