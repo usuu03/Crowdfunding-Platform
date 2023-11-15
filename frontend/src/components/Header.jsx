@@ -11,6 +11,10 @@ export default function Header() {
               Crowdfunding Platform
             </Link>
           </div>
+
+          <div>
+            <Link to="/create-campaign"></Link>
+          </div>
         </nav>
       </header>
     </div>

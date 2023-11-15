@@ -88,6 +88,39 @@ code {
 
 
 /* Michael's Pet Project CSS */
+.discovery {
+  text-align: center;
+  padding: 20px;
+}
+
+
+
+h1 {
+  color: black;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  text-align: left;
+}
+
+h2 {
+  color: black;
+  font-size: 24px;
+}
+
+h3 {
+  color: black;
+  font-size: 14px;
+}
+
+h4 {
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14;
+  display: inline-block;
+  text-align: center;
+}
+
+
 .btn-primary {
   background-color: #007bff;
   color: #fff;
@@ -126,6 +159,7 @@ code {
 .dropdown-container {
   display: inline-block;
   margin-top: 40px;
+  margin-bottom: 20px;
   text-align: center;
   margin: 0 auto;
 }
@@ -228,14 +262,16 @@ code {
 }
 
 .campaign-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* Three boxes per row */
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* Ensure the boxes wrap to the next line */
   gap: 10px;
   /* Gap between boxes */
 }
 
-/* Style each campaign box */
+
 .campaign-box {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
@@ -243,8 +279,8 @@ code {
   padding: 20px;
   margin: 10px;
   height: 100%;
-  width: 30vh;
-  /* Add margin to create space between boxes */
+  width: 200px;
+  /* Set a fixed width */
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   text-align: center;
 }

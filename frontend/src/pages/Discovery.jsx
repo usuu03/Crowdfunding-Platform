@@ -7,6 +7,7 @@ import CustomPopup from "../components/CustomPopup";
 import axios from "axios";
 
 function Discovery() {
+  // State variables for dropdowns, modal, campaigns, categories, regions, and selected options
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [regionOpen, setRegionOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -16,17 +17,51 @@ function Discovery() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
 
+  // Fetch campaigns, categories, and regions from the server on component mount
+  useEffect(() => {
+    // Fetch campaigns
+    axios
+      .get("http://localhost:4000/api/campaigns/all")
+      .then((response) => setCampaigns(response.data))
+      .catch((error) => console.error("Error fetching campaign data:", error));
+  }, []);
+
+  useEffect(() => {
+    // Fetch categories
+    axios
+      .get("http://localhost:4000/api/campaigns/categories")
+      .then((response) => setCategories(response.data))
+      .catch((error) => console.error("Error fetching category data:", error));
+  }, []);
+
+  useEffect(() => {
+    // Fetch regions
+    axios
+      .get("http://localhost:4000/api/campaigns/regions")
+      .then((response) => setRegions(response.data))
+      .catch((error) => console.error("Error fetching region data:", error));
+  }, []);
+
+  useEffect(() => {
+    // Hide dropdowns initially
+    document.getElementById("categoriesDropdown").style.display = "none";
+    document.getElementById("regionDropdown").style.display = "none";
+  }, []);
+
+  // Open and close modal functions
   const openPopup = () => setShowModal(true);
   const closePopup = () => setShowModal(false);
 
+  // Toggle dropdown visibility based on type
   const toggleDropdown = (dropdownType) => {
-    if (dropdownType === "categories") {
-      setCategoriesOpen(!categoriesOpen);
-    } else if (dropdownType === "region") {
-      setRegionOpen(!regionOpen);
+    if (dropdownType === "categoriesDropdown") {
+      setCategoriesOpen((prevOpen) => !prevOpen);
+    } else if (dropdownType === "regionDropdown") {
+      setRegionOpen((prevOpen) => !prevOpen);
     }
   };
 
+  // Handle the selection of an option in the dropdown
   const handleSelect = (selected) => {
     if (categoriesOpen) {
       setSelectedCategory(selected);
@@ -37,58 +72,19 @@ function Discovery() {
     }
   };
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:4000/campaigns/all") // Make a GET request to your API endpoint
-      .then((response) => {
-        setCampaigns(response.data); // Assuming the response contains campaign data
-      })
-      .catch((error) => {
-        // Handle errors here
-        console.error("Error fetching campaign data:", error);
-      });
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:4000/campaigns/categories") // Make a GET request to your API endpoint
-      .then((response) => {
-        setCategories(response.data); // Assuming the response contains campaign data
-      })
-      .catch((error) => {
-        // Handle errors here
-        console.error("Error fetching category data:", error);
-      });
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:4000/campaigns/regions") // Make a GET request to your API endpoint
-      .then((response) => {
-        setRegions(response.data); // Assuming the response contains campaign data
-      })
-      .catch((error) => {
-        // Handle errors here
-        console.error("Error fetching region data:", error);
-      });
-  }, []);
-
-  useEffect(() => {
-    document.getElementById("categoriesDropdown").style.display = "none";
-    document.getElementById("regionDropdown").style.display = "none";
-  }, []);
-
   const filterFunction = (event) => {
     const input = event.target.value.toUpperCase();
     const filteredCategories = categories.filter((category) =>
       category.toUpperCase().includes(input)
     );
-    setCategoriesOpen(filteredCategories);
+    setCategoriesOpen(filteredCategories.length > 0);
   };
 
+  // Calculate progress bar width
   const progressWidth = (currentAmount, goal) =>
     (currentAmount / goal) * 100 + "%";
 
+  // Render the component
   return (
     <div className="App">
       <div className="discovery" style={{ backgroundColor: "white" }}>
@@ -140,7 +136,7 @@ function Discovery() {
             <a
               href="#"
               key={category.id}
-              onClick={() => handleSelect(category, setSelectedCategory)}
+              onClick={() => handleSelect(category)}
             >
               {category}
             </a>
@@ -176,13 +172,13 @@ function Discovery() {
       </div>
 
       <div className="campaign-container">
-        {campaigns.map((campaign, index) => (
-          <div key={index} className="campaign-box">
+        {campaigns.map((campaign) => (
+          <div key={campaign.id} className="campaign-box">
             <div className="campaign-box-content">
               <div className="campaign-image">
                 <img src="image-placeholder.jpg" alt="Campaign Image" />
               </div>
-              <div id={`campaign-${index}`}>
+              <div id={`campaign-${campaign.id}`}>
                 <h3>{campaign.title}</h3>
                 <p>
                   Raised: ${campaign.currentAmount} of ${campaign.goal}
