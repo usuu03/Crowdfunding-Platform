@@ -20,7 +20,7 @@ function Discovery() {
 
   const handleSelect = (selected, dropdownType) => {
     if (dropdownType === "categoriesDropdown") {
-      setSelectedCategory(selected);
+      setSelectedCategory(selected); // Update to set the category name
     } else if (dropdownType === "regionDropdown") {
       setSelectedRegion(selected);
     }
@@ -111,8 +111,8 @@ function Discovery() {
           >
             <option value="">Select Category</option>
             {filteredCategories.map((category) => (
-              <option key={category.id} value={category}>
-                {category}
+              <option key={category.id} value={category.name}>
+                {category.name}
               </option>
             ))}
           </select>
