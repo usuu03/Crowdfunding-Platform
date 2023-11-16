@@ -17,7 +17,7 @@ code {
 }
 
 /* Header Component Styles*/
-.header-text a {
+#header-text {
   margin-left: 20px;
 }
 
@@ -87,7 +87,7 @@ code {
 }
 
 
-/* Michael's Pet Project CSS */
+/* Discovery Page Styles */
 .discovery {
   text-align: center;
   padding: 20px;
@@ -97,7 +97,6 @@ code {
 
 h1 {
   color: black;
-  font-family: 'Courier New', Courier, monospace;
   font-size: 20px;
   text-align: left;
 }
@@ -114,7 +113,7 @@ h3 {
 
 h4 {
   color: white;
-  font-family: 'Courier New', Courier, monospace;
+
   font-size: 14;
   display: inline-block;
   text-align: center;
@@ -157,13 +156,13 @@ h4 {
 }
 
 .dropdown-container {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 40px;
   margin-bottom: 20px;
   text-align: center;
-  margin: 0 auto;
 }
-
 
 .dropdown-container h4 {
   padding-right: 10px;
@@ -319,4 +318,18 @@ h4 {
   /* Adjust this width to show progress */
   background-color: #007bff;
   border-radius: 5px;
+}
+
+/* Campaign Creation Form Styles */
+#container-create {
+  margin-top: 20px;
+}
+
+#create-btn {
+  margin-left: 1500%;
+  size: 100%;
+}
+
+.create-title {
+  margin-top: 20px;
 }

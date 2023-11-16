@@ -47,7 +47,7 @@ export default function Register() {
         userData
       );
       console.log(response.data);
-      navigate("/discover");
+      navigate("/discovery");
     } catch (error) {
       console.error("Registration error:", error);
     }

@@ -1,22 +1,39 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; // Note the addition of 'Routes' here
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <div>
-      <header>
-        <nav className="navbar navbar-expand-md navbar-dark bg-primary">
-          <div className="header-text">
-            <Link to="/login" className="navbar-brand mr-10">
-              Crowdfunding Platform
-            </Link>
-          </div>
-
-          <div>
-            <Link to="/create-campaign"></Link>
-          </div>
-        </nav>
-      </header>
-    </div>
+    <header>
+      <nav className="navbar navbar-expand-lg navbar-light bg-primary">
+        <Link to="/login" className="navbar-brand" id="header-text">
+          Crowdfunding Platform
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item active">
+              <Link to="/create-campaign" className="nav-link">
+                Create
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/login" className="nav-link">
+                Logout
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
   );
 }
