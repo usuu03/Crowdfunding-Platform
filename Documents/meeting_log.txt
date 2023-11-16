@@ -294,3 +294,52 @@ Target for Next Meeting:
 
 
 Usu will say he's going to work more hours during Christmas
+
+
+16/11/2023 - Meeting Time 
+
+
+Chris: 
+What he is working on:
+- Successfully connected to the Database
+- Finished Pet project lofi
+- Working on the CSS and trying to make it consistent
+
+Targets for next meeting:
+- Fully implemnt the search feature
+
+
+Abdul:
+What he is working on:
+- Finished my pet project lofi 
+- Started Testing my project
+
+Targets for next meeting: 
+- Start a new Pet Project
+
+Omar:
+What he is currently working and what he has achieved: 
+- Transferring code from Brackets to VSCode
+- Done with the Lofi 
+
+Target for next meeting: 
+- Start Test for Pet Project 
+
+Michael
+What he is currently working and what he has achieved: 
+- Fixing my Pet project Dropdowns
+- lofi is done
+
+Target for next meeting: 
+- Have the dropdown fully working in my Pet Project
+- Start testing for my pet Project 
+
+Usu
+What he is currently working and what he has achieved: 
+- Integrated Abdul's Prototype 
+- Fixing Dropdowns from the Discovery Page 
+- Have finished lofi for his Pet Project 
+
+Targets for next Meeting:
+- Prototype will be functioning
+- Testing of current Pet Project should be completed

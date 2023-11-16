@@ -111,8 +111,8 @@ Acceptance criteria:
 3. The colour of the layout will be blue and white. 
 4. The HomePage will provide a summary with the following: "organisations mission"; "How to get Involved"; "How to contact us". 
 
-
-User Story 6 - Campaign Page - 
+ 
+User Story 6 - Campaign Page - Michael
 
 User Story - As a donator, I want to access pages of individual campaigns so that I can access more detailed information about the Campaign.
 
@@ -126,3 +126,10 @@ Acceptance Criteria:
 - The campaign page should display essential details such as title, description, amount raised, funding goal, creator details.
 - Visual elements like a poster image, and other images should be included for a more engaging experience
 - A clear call-to-action button like "Contribute" should be present for users to easily contribute to the campaign if interested.
+
+
+Updating User Details - Abdul 
+
+
+Campaign Dashboards - Usu 
+User Story: 
