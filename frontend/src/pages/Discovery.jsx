@@ -10,7 +10,6 @@ function Discovery() {
   const [showModal, setShowModal] = useState(false);
   const [campaigns, setCampaigns] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [filteredCategories, setFilteredCategories] = useState([]);
   const [regions, setRegions] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
@@ -20,20 +19,9 @@ function Discovery() {
 
   const handleSelect = (selected, dropdownType) => {
     if (dropdownType === "categoriesDropdown") {
-      setSelectedCategory(selected); // Update to set the category name
+      setSelectedCategory(selected);
     } else if (dropdownType === "regionDropdown") {
       setSelectedRegion(selected);
-    }
-  };
-
-  const filterFunction = (event, dropdownType) => {
-    const input = event.target.value.toUpperCase();
-
-    if (dropdownType === "categories") {
-      const filteredData = categories.filter((item) =>
-        item.name.toUpperCase().includes(input)
-      );
-      setFilteredCategories(filteredData);
     }
   };
 
@@ -63,10 +51,7 @@ function Discovery() {
 
     axios
       .get("http://localhost:4000/api/campaigns/categories")
-      .then((response) => {
-        setCategories(response.data);
-        setFilteredCategories(response.data);
-      })
+      .then((response) => setCategories(response.data))
       .catch((error) => console.error("Error fetching category data:", error));
 
     axios
@@ -79,10 +64,10 @@ function Discovery() {
     (currentAmount / goal) * 100 + "%";
 
   return (
-    <div className="App">
+    <div className="container">
       <div className="discovery" style={{ backgroundColor: "white" }}>
         <div>
-          <h2>Discovery</h2>
+          <h2 className="register-title">Discovery</h2>
         </div>
 
         <div>
@@ -106,7 +91,7 @@ function Discovery() {
             className="dropdown"
           >
             <option value="">Select Category</option>
-            {filteredCategories.map((category) => (
+            {categories.map((category) => (
               <option key={category.id} value={category}>
                 {category}
               </option>
