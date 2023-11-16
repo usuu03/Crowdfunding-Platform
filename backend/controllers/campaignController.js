@@ -58,4 +58,49 @@ const getAllRegions = async (req, res) => {
   }
 };
 
-module.exports = { getAllCampaigns, getAllCategories, getAllRegions };
+const addCampaign = async (req, res) => {
+  const {
+    campaignTitle,
+    campaignDescription,
+    userID,
+    goal,
+    category,
+    region,
+    endDate,
+    posterImage,
+  } = req.body;
+
+  const insertQuery = `INSERT INTO Campaign
+    (campaignTitle, campaignDescription, userID, goal, category, region, endDate, posterImage)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+
+  const values = [
+    campaignTitle,
+    campaignDescription,
+    userID,
+    goal,
+    category,
+    region,
+    endDate,
+    posterImage,
+  ];
+
+  db.query(insertQuery, values, (err, result) => {
+    if (err) {
+      console.error("Error inserting campaign:", err);
+      res
+        .status(500)
+        .json({ error: "Internal Server Error", details: err.message });
+    } else {
+      console.log("Campaign inserted successfully");
+      res.status(201).json({ message: "Campaign created successfully" });
+    }
+  });
+};
+
+module.exports = {
+  getAllCampaigns,
+  getAllCategories,
+  getAllRegions,
+  addCampaign,
+};

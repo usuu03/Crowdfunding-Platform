@@ -10,4 +10,6 @@ router.get("/regions", campaignController.getAllRegions);
 
 router.get("/all", campaignController.getAllCampaigns);
 
+router.post("/add-campaign", campaignController.addCampaign);
+
 module.exports = router;
