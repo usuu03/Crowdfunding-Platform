@@ -27,7 +27,7 @@ export default function Login() {
       console.log(response.data);
 
       //Redirecting to the Homepage if successfully logged in
-      navigate("/discover");
+      navigate("/discovery");
     } catch (error) {
       console.error("Login Error:", error);
     }
