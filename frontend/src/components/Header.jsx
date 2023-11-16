@@ -22,12 +22,12 @@ export default function Header() {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item active">
-              <Link to="/create-campaign" className="nav-link">
+              <Link to="/create-campaign" className="nav-link" id="nav-item">
                 Create
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/login" className="nav-link">
+              <Link to="/login" className="nav-link" id="nav-item">
                 Logout
               </Link>
             </li>
