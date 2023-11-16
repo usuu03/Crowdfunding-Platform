@@ -28,16 +28,12 @@ function Discovery() {
 
   const filterFunction = (event, dropdownType) => {
     const input = event.target.value.toUpperCase();
-    const dataToFilter = dropdownType === "categories" ? categories : regions;
-
-    const filteredData = dataToFilter.filter((item) =>
-      item.toUpperCase().includes(input)
-    );
 
     if (dropdownType === "categories") {
+      const filteredData = categories.filter((item) =>
+        item.name.toUpperCase().includes(input)
+      );
       setFilteredCategories(filteredData);
-    } else if (dropdownType === "regions") {
-      setRegions(filteredData);
     }
   };
 
@@ -111,8 +107,8 @@ function Discovery() {
           >
             <option value="">Select Category</option>
             {filteredCategories.map((category) => (
-              <option key={category.id} value={category.name}>
-                {category.name}
+              <option key={category.id} value={category}>
+                {category}
               </option>
             ))}
           </select>
