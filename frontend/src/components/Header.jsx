@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-primary">
-        <Link to="/" className="navbar-brand" id="header-text">
+        <Link to="/discovery" className="navbar-brand" id="header-text">
           Crowdfunding Platform
         </Link>
         <button
@@ -33,7 +33,7 @@ export default function Header() {
             </li>
             <li className="nav-item">
               <Link to="/login" className="nav-link" id="nav-item">
-                Logout
+                Login/Logout
               </Link>
             </li>
           </ul>
