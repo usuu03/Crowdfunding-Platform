@@ -348,3 +348,26 @@ What he is currently working and what he has achieved:
 Targets for next Meeting:
 - Prototype will be functioning
 - Testing of current Pet Project should be completed
+
+
+17/11/2023 - Meeting Log with Supervisor - Time 3pm - Duration 50min
+Attendants: Chris, Abdul, Michael, Usu
+What was discussed with the Supervisor:
+- Make sure all pet projects are tested and properly done
+- Integrate the code properly (Change the userID in the Add Campaign)
+
+
+
+Chris:
+- Discussed his issues with his Pet Project with the Supervisor 
+- Aimed to get it fixed it by next Week 
+
+
+Usu:
+- Discussed integration 
+- Need to have tests before integration
+- Need to have guidelines on how to documentation
+
+Michael:
+- Test his project 
+
