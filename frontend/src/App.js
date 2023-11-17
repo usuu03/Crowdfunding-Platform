@@ -21,7 +21,7 @@ function App() {
           {" "}
           <Route path="/register" element={<Register />} />{" "}
           <Route path="/login" element={<Login />} />
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Login />} />
           <Route path="/discovery" element={<Discovery />} />
           <Route path="/create-campaign" element={<CampaignCreationForm />} />
         </Routes>
