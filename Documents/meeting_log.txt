@@ -296,7 +296,8 @@ Target for Next Meeting:
 Usu will say he's going to work more hours during Christmas
 
 
-16/11/2023 - Meeting Time - 1:30pm 
+16/11/2023 - Meeting Time - 1:30pm - Duration - 1h and 30 mins 
+Attendants: Omar, Usu, Michael, Abdul, Chris 
 
 What was discussed: 
 - Came Up with more User Stories
