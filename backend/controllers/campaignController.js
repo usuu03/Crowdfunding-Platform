@@ -13,6 +13,8 @@ const getAllCampaigns = async (req, res) => {
       title: campaign.campaignTitle,
       currentAmount: campaign.currentAmount,
       goal: campaign.goal,
+      category: campaign.category,
+      region: campaign.region,
     }));
 
     res.json(campaigns);

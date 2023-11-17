@@ -11,6 +11,8 @@ app.use(cors());
 const authRoutes = require("./routes/authRoutes");
 const campaignRoutes = require("./routes/campaignRoutes");
 
+const { authenticateUser } = require("./middleware/authentication");
+
 app.use("/user", authRoutes);
 
 app.use("/api/campaigns", campaignRoutes);

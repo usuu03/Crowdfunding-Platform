@@ -9,17 +9,10 @@ const authenticateUser = (req, res, next) => {
   }
 
   try {
-    // Check if the token starts with "Bearer " and extract the token part
-    const tokenPart = token.split(" ")[1];
-
     // Verify the token
-    const decoded = jwt.verify(tokenPart, process.env.JWT_SECRET_KEY);
-
-    // Attach user information to the request object
-    req.user = decoded;
-
-    // Move to the next middleware or route handler
-    next();
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    req.user = decoded; // Attach user information to the request object
+    next(); // Move to the next middleware or route handler
   } catch (error) {
     return res.status(401).json({ message: "Unauthorized: Invalid token" });
   }
