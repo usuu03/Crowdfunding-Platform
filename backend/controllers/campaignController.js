@@ -1,5 +1,6 @@
 const db = require("../config/dbConfig");
 
+//Getting all the Campaigns
 const getAllCampaigns = async (req, res) => {
   try {
     const query = "SELECT * FROM Campaign";
@@ -15,6 +16,11 @@ const getAllCampaigns = async (req, res) => {
       goal: campaign.goal,
       category: campaign.category,
       region: campaign.region,
+      startDate: campaign.startDate,
+      endDate: campaign.endDate,
+      creationDate: campaign.creationDate,
+      campaignStatus: campaign.campaignStaus,
+      posterImage: campaign.posterImage,
     }));
 
     res.json(campaigns);
@@ -24,6 +30,7 @@ const getAllCampaigns = async (req, res) => {
   }
 };
 
+//Getting all categories from the Campaigns
 const getAllCategories = async (req, res) => {
   try {
     const query = "SELECT DISTINCT category FROM Campaign";
