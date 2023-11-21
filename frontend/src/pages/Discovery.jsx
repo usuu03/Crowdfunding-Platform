@@ -10,9 +10,9 @@ function Discovery() {
   const [showModal, setShowModal] = useState(false);
   const [campaigns, setCampaigns] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [regions, setRegions] = useState([]);
+  const [countries, setCountry] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedRegion, setSelectedRegion] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState("");
 
   const openPopup = () => setShowModal(true);
   const closePopup = () => setShowModal(false);
@@ -20,8 +20,8 @@ function Discovery() {
   const handleSelect = (selected, dropdownType) => {
     if (dropdownType === "categoriesDropdown") {
       setSelectedCategory(selected);
-    } else if (dropdownType === "regionDropdown") {
-      setSelectedRegion(selected);
+    } else if (dropdownType === "countryDropdown") {
+      setSelectedCountry(selected);
     }
   };
 
@@ -34,9 +34,9 @@ function Discovery() {
       );
     }
 
-    if (selectedRegion) {
+    if (selectedCountry) {
       filteredCampaigns = filteredCampaigns.filter(
-        (campaign) => campaign.region === selectedRegion
+        (campaign) => campaign.country === selectedCountry
       );
     }
 
@@ -55,8 +55,8 @@ function Discovery() {
       .catch((error) => console.error("Error fetching category data:", error));
 
     axios
-      .get("http://localhost:4000/api/campaigns/regions")
-      .then((response) => setRegions(response.data))
+      .get("http://localhost:4000/api/campaigns/country")
+      .then((response) => setCountry(response.data))
       .catch((error) => console.error("Error fetching region data:", error));
   }, []);
 
@@ -102,14 +102,14 @@ function Discovery() {
         <h4>
           located in
           <select
-            value={selectedRegion}
-            onChange={(e) => handleSelect(e.target.value, "regionDropdown")}
+            value={selectedCountry}
+            onChange={(e) => handleSelect(e.target.value, "countryDropdown")}
             className="dropdown"
           >
             <option value="">Select Region</option>
-            {regions.map((region) => (
-              <option key={region.id} value={region}>
-                {region}
+            {countries.map((country) => (
+              <option key={country?.id} value={country}>
+                {country}
               </option>
             ))}
           </select>
