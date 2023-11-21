@@ -7,11 +7,13 @@ import {
   Link,
   useNavigate,
 } from "react-router-dom";
+import { useAuthDispatch } from "../context/authContext";
 
 import axios from "axios";
 
 export default function Login() {
   const navigate = useNavigate();
+  const dispatch = useAuthDispatch();
   const [userData, setUserData] = useState({
     emailAddress: "",
     password: "",
@@ -26,6 +28,7 @@ export default function Login() {
         userData
       );
       console.log(response.data);
+      dispatch({ type: "LOGIN", payload: response.data });
 
       //Redirecting to the Homepage if successfully logged in
       navigate("/discovery");

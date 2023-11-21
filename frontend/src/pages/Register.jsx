@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useAuthDispatch } from "../context/authContext";
 
 export default function Register() {
   const navigate = useNavigate();
+  const dispatch = useAuthDispatch();
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
@@ -47,6 +49,7 @@ export default function Register() {
         userData
       );
       console.log(response.data);
+      dispatch({ type: "LOGIN", payload: response.data });
       navigate("/discovery");
     } catch (error) {
       console.error("Registration error:", error);
