@@ -29,13 +29,9 @@ export default function Login() {
         userData
       );
 
-<<<<<<< HEAD
-      //Redirecting to the Homepage if successfully logged in
-=======
       dispatch({ type: "LOGIN", payload: response.data });
 
       // Redirecting to the Homepage if successfully logged in
->>>>>>> f498275797c2117c6ecee16cc72c3a4babbdc7f3
       navigate("/discovery");
     } catch (error) {
       console.error("Login Error:", error);
