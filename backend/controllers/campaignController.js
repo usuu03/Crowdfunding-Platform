@@ -15,7 +15,7 @@ const getAllCampaigns = async (req, res) => {
       currentAmount: campaign.currentAmount,
       goal: campaign.goal,
       category: campaign.category,
-      region: campaign.region,
+      country: campaign.country,
       startDate: campaign.startDate,
       endDate: campaign.endDate,
       creationDate: campaign.creationDate,
@@ -49,18 +49,18 @@ const getAllCategories = async (req, res) => {
   }
 };
 
-const getAllRegions = async (req, res) => {
+const getAllCountries = async (req, res) => {
   try {
-    const query = "SELECT DISTINCT region FROM Campaign";
+    const query = "SELECT DISTINCT country FROM Campaign";
     const [results] = await db.promise().query(query);
 
     if (results.length === 0) {
       return res.status(404).json({ message: "No Regions found" });
     }
 
-    const regions = results.map((result) => result.region);
+    const countries = results.map((result) => result.country);
 
-    res.json(regions);
+    res.json(countries);
   } catch (error) {
     console.error("Error fetching region data:", error);
     res.status(500).json({ message: "Internal Server Error" });
@@ -75,13 +75,13 @@ const addCampaign = async (req, res) => {
     campaignDescription,
     goal,
     category,
-    region,
+    country,
     endDate,
     posterImage,
   } = req.body;
 
   const insertQuery = `INSERT INTO Campaign
-    (campaignTitle, campaignDescription, userID, goal, category, region, endDate, posterImage)
+    (campaignTitle, campaignDescription, userID, goal, category, country, endDate, posterImage)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
 
   const values = [
@@ -90,7 +90,7 @@ const addCampaign = async (req, res) => {
     userID,
     goal,
     category,
-    region,
+    country,
     endDate,
     posterImage,
   ];
@@ -111,6 +111,6 @@ const addCampaign = async (req, res) => {
 module.exports = {
   getAllCampaigns,
   getAllCategories,
-  getAllRegions,
+  getAllCountries,
   addCampaign,
 };

@@ -7,9 +7,9 @@ const { authenticateUser } = require("../middleware/authentication");
 router.get("/categories", campaignController.getAllCategories);
 
 // Region of the Campaign
-router.get("/regions", campaignController.getAllRegions);
+router.get("/country", campaignController.getAllCountries);
 
-router.get("/all", authenticateUser, campaignController.getAllCampaigns);
+router.get("/all", campaignController.getAllCampaigns);
 
 router.post("/add-campaign", authenticateUser, campaignController.addCampaign);
 

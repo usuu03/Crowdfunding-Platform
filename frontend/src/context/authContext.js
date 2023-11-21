@@ -30,6 +30,14 @@ const AuthProvider = ({ children }) => {
     user: null,
     token: null,
   });
+
+  return (
+    <AuthStateContext.Provider value={state}>
+      <AuthDispatchContext.Provider value={dispatch}>
+        {children}
+      </AuthDispatchContext.Provider>
+    </AuthStateContext.Provider>
+  );
 };
 
 const useAuthState = () => {
