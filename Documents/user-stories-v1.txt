@@ -132,11 +132,13 @@ User Story 7 - Edit User Details - Abdul
 
 User Story 8 - Campaign Dashboards (View Created Cammpaigns) - Usu 
 
-User Story 9 - Edit Campaign Details - Chris
+User Story 9 - Latest Campaigns - Chris
 
-User Story 10 - Payments
+User Story 10 - Edit Campaign Details 
 
-User Story 11 - Adding pictures to campaigns
+User Story 11 - Payments
+
+User Story 12 - Adding pictures to campaigns
 
 User Story 12 - 
 
