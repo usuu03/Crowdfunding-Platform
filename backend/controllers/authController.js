@@ -49,13 +49,17 @@ const login = async (req, res) => {
 
     if (isMatch) {
       // Generate a JWT token if the password is correct
-      const token = jwt.sign({ emailAddress }, process.env.JWT_SECRET_KEY, {
-        expiresIn: "1h",
-      });
+      const token = jwt.sign(
+        { userId: user.userID },
+        process.env.JWT_SECRET_KEY,
+        {
+          expiresIn: "1h",
+        }
+      );
 
       res.status(200).json({ message: "Login successful", token, user });
     } else {
-      res.status(401).json({ message: "Invalid credentials" });
+      return res.status(401).json({ message: "Invalid credentials" });
     }
   } catch (error) {
     console.error("Login Error:", error);

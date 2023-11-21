@@ -72,7 +72,7 @@ const addCampaign = async (req, res) => {
   const {
     campaignTitle,
     campaignDescription,
-
+    userID,
     goal,
     category,
     region,
@@ -87,7 +87,7 @@ const addCampaign = async (req, res) => {
   const values = [
     campaignTitle,
     campaignDescription,
-    req.user.userID,
+    userID,
     goal,
     category,
     region,
