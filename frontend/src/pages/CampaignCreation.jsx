@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import useAxiosInstance from "../axiosInstance";
+import { useAuthState } from "../context/authContext";
 
 function CampaignCreationForm() {
   const navigate = useNavigate();
+  const { isAuthenticated, user } = useAuthState();
+  const axiosInstance = useAxiosInstance();
+
   const initialFormData = {
     campaignTitle: "",
     campaignDescription: "",
@@ -40,8 +45,8 @@ function CampaignCreationForm() {
     }
 
     try {
-      const response = await axios.post(
-        "http://localhost:4000/api/campaigns/add-campaign",
+      const response = await axiosInstance.post(
+        "/api/campaigns/add-campaign",
         formData
       );
       console.log(response.data);
@@ -55,6 +60,20 @@ function CampaignCreationForm() {
     // Clear form data after submission
     setFormData(initialFormData);
   };
+
+  useEffect(() => {
+    // Check authentication status when the component mounts
+    if (!isAuthenticated) {
+      // Redirect if not logged in
+      alert("Please Log In to see to start a Campaign");
+      navigate("/login");
+    }
+  }, [isAuthenticated, navigate]);
+
+  if (!isAuthenticated) {
+    // Return null or a loading spinner, etc.
+    return null;
+  }
 
   return (
     <div className="container">
@@ -84,17 +103,6 @@ function CampaignCreationForm() {
 
           <div className="form-row">
             <input
-              type="text"
-              name="userID"
-              value={formData.userID}
-              onChange={handleChange}
-              className="form-control"
-              placeholder="User ID"
-            />
-          </div>
-
-          <div className="form-row">
-            <input
               type="number"
               name="goal"
               value={formData.goal}
@@ -118,11 +126,11 @@ function CampaignCreationForm() {
           <div className="form-row">
             <input
               type="text"
-              name="region"
-              value={formData.region}
+              name="country"
+              value={formData.country}
               onChange={handleChange}
               className="form-control"
-              placeholder="Region"
+              placeholder="Country"
             />
           </div>
 
