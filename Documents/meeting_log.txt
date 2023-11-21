@@ -370,4 +370,46 @@ Usu:
 
 Michael:
 - Test his project 
+- Start next user story
 
+21/11/2023 - Meeting Time - 3pm - Duration - 
+Attendants: Usu, Michael, Abdul, Chris 
+
+What was discussed: 
+- Created 10 User stories and picked their next ones
+- People worked on their individual projects
+
+Chris: 
+What he is currenly working on and what he has achieved:
+- Solving API issue
+
+Targets for next meeting:
+- Fully implement the search feature
+
+Abdul:
+What he is currently working on and what he has achieved:
+- Starting work on new user story- Editing user details
+- Started Testing my project
+
+Targets for next meeting: 
+- Continue new Pet Project
+- Further implementation of testing
+
+Michael:
+What he is currently working and what he has achieved: 
+- Started creation of new user story- view individual campaign page
+- Starting testing of first pet project
+
+Target for next meeting: 
+- Made substantial progress on second user story
+- Continued testing of first user story
+
+Usu:
+What he is currently working and what he has achieved: 
+- Finished integrating first prototype
+- Helping Chris with his first pet project
+-Started testing of first pet project
+
+Targets for next Meeting:
+- Start new pet project
+- To be almmost finished with testing for first pet project
