@@ -10,10 +10,9 @@ function Discovery() {
   const [showModal, setShowModal] = useState(false);
   const [campaigns, setCampaigns] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [filteredCategories, setFilteredCategories] = useState([]);
-  const [regions, setRegions] = useState([]);
+  const [countries, setCountry] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedRegion, setSelectedRegion] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState("");
 
   const openPopup = () => setShowModal(true);
   const closePopup = () => setShowModal(false);
@@ -21,23 +20,8 @@ function Discovery() {
   const handleSelect = (selected, dropdownType) => {
     if (dropdownType === "categoriesDropdown") {
       setSelectedCategory(selected);
-    } else if (dropdownType === "regionDropdown") {
-      setSelectedRegion(selected);
-    }
-  };
-
-  const filterFunction = (event, dropdownType) => {
-    const input = event.target.value.toUpperCase();
-    const dataToFilter = dropdownType === "categories" ? categories : regions;
-
-    const filteredData = dataToFilter.filter((item) =>
-      item.toUpperCase().includes(input)
-    );
-
-    if (dropdownType === "categories") {
-      setFilteredCategories(filteredData);
-    } else if (dropdownType === "regions") {
-      setRegions(filteredData);
+    } else if (dropdownType === "countryDropdown") {
+      setSelectedCountry(selected);
     }
   };
 
@@ -50,9 +34,9 @@ function Discovery() {
       );
     }
 
-    if (selectedRegion) {
+    if (selectedCountry) {
       filteredCampaigns = filteredCampaigns.filter(
-        (campaign) => campaign.region === selectedRegion
+        (campaign) => campaign.country === selectedCountry
       );
     }
 
@@ -67,15 +51,12 @@ function Discovery() {
 
     axios
       .get("http://localhost:4000/api/campaigns/categories")
-      .then((response) => {
-        setCategories(response.data);
-        setFilteredCategories(response.data);
-      })
+      .then((response) => setCategories(response.data))
       .catch((error) => console.error("Error fetching category data:", error));
 
     axios
-      .get("http://localhost:4000/api/campaigns/regions")
-      .then((response) => setRegions(response.data))
+      .get("http://localhost:4000/api/campaigns/country")
+      .then((response) => setCountry(response.data))
       .catch((error) => console.error("Error fetching region data:", error));
   }, []);
 
@@ -83,10 +64,10 @@ function Discovery() {
     (currentAmount / goal) * 100 + "%";
 
   return (
-    <div className="App">
+    <div className="container">
       <div className="discovery" style={{ backgroundColor: "white" }}>
         <div>
-          <h2>Discovery</h2>
+          <h2 className="register-title">Discovery</h2>
         </div>
 
         <div>
@@ -110,7 +91,7 @@ function Discovery() {
             className="dropdown"
           >
             <option value="">Select Category</option>
-            {filteredCategories.map((category) => (
+            {categories.map((category) => (
               <option key={category.id} value={category}>
                 {category}
               </option>
@@ -121,14 +102,14 @@ function Discovery() {
         <h4>
           located in
           <select
-            value={selectedRegion}
-            onChange={(e) => handleSelect(e.target.value, "regionDropdown")}
+            value={selectedCountry}
+            onChange={(e) => handleSelect(e.target.value, "countryDropdown")}
             className="dropdown"
           >
             <option value="">Select Region</option>
-            {regions.map((region) => (
-              <option key={region.id} value={region}>
-                {region}
+            {countries.map((country) => (
+              <option key={country?.id} value={country}>
+                {country}
               </option>
             ))}
           </select>

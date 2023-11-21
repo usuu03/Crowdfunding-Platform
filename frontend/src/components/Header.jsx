@@ -1,11 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuthState, useAuthDispatch } from "../context/authContext"; // Import your authentication context and hooks
 
 export default function Header() {
+  const { isAuthenticated, user } = useAuthState(); // Get authentication state
+  const authDispatch = useAuthDispatch(); // Get authentication dispatch function
+
+  const handleLogout = () => {
+    // Dispatch a logout action when the user clicks "Logout"
+    authDispatch({ type: "LOGOUT" });
+  };
+
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-primary">
-        <Link to="/login" className="navbar-brand" id="header-text">
+        <Link to="/discovery" className="navbar-brand" id="header-text">
           Crowdfunding Platform
         </Link>
         <button
@@ -21,15 +30,46 @@ export default function Header() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item active">
-              <Link to="/create-campaign" className="nav-link">
+            {/* <li className="nav-item active">
+              <Link to="/create-campaign" className="nav-link" id="nav-item">
                 Create
               </Link>
-            </li>
+            </li> */}
+
             <li className="nav-item">
-              <Link to="/login" className="nav-link">
-                Logout
+              <Link to="/discovery" className="nav-link" id="nav-item">
+                Discovery
               </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link to="/campaigns" className="nav-link" id="nav-item">
+                My Campaigns
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link to="/start-campaign" className="nav-link" id="nav-item">
+                Start a Campaign
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              {/* Conditionally render "Login" or "Logout" based on authentication status */}
+              {isAuthenticated ? (
+                <Link
+                  to="/login"
+                  className="nav-link"
+                  id="nav-item"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </Link>
+              ) : (
+                <Link to="/login" className="nav-link" id="nav-item">
+                  Login
+                </Link>
+              )}
             </li>
           </ul>
         </div>

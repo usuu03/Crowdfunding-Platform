@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useAuthDispatch } from "../context/authContext";
 
 export default function Register() {
   const navigate = useNavigate();
+  const dispatch = useAuthDispatch();
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
@@ -47,15 +49,24 @@ export default function Register() {
         userData
       );
       console.log(response.data);
+      dispatch({ type: "LOGIN", payload: response.data });
       navigate("/discovery");
     } catch (error) {
       console.error("Registration error:", error);
+
+      // Handle error response and set error state
+      if (error.response && error.response.data) {
+        setErrors({ password: error.response.data.message });
+      }
     }
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
+
+    // Clear the error when the user starts typing
+    setErrors({});
   };
 
   const isPasswordValid = (password) => {
@@ -143,8 +154,20 @@ export default function Register() {
 
           {errors.password && (
             <div className="form-row">
-              <div className="password-explained">
-                <p>{errors.password}</p>
+              <div className="">
+                <p className="alert alert-danger" role="alert">
+                  {errors.password}
+                </p>
+              </div>
+            </div>
+          )}
+
+          {errors.emailMatch && (
+            <div className="form-row">
+              <div className="">
+                <p className="alert alert-danger" role="alert">
+                  {errors.emailMatch}
+                </p>
               </div>
             </div>
           )}

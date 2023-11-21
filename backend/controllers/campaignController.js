@@ -1,5 +1,6 @@
 const db = require("../config/dbConfig");
 
+//Getting all the Campaigns
 const getAllCampaigns = async (req, res) => {
   try {
     const query = "SELECT * FROM Campaign";
@@ -13,6 +14,13 @@ const getAllCampaigns = async (req, res) => {
       title: campaign.campaignTitle,
       currentAmount: campaign.currentAmount,
       goal: campaign.goal,
+      category: campaign.category,
+      country: campaign.country,
+      startDate: campaign.startDate,
+      endDate: campaign.endDate,
+      creationDate: campaign.creationDate,
+      campaignStatus: campaign.campaignStaus,
+      posterImage: campaign.posterImage,
     }));
 
     res.json(campaigns);
@@ -22,6 +30,7 @@ const getAllCampaigns = async (req, res) => {
   }
 };
 
+//Getting all categories from the Campaigns
 const getAllCategories = async (req, res) => {
   try {
     const query = "SELECT DISTINCT category FROM Campaign";
@@ -40,38 +49,39 @@ const getAllCategories = async (req, res) => {
   }
 };
 
-const getAllRegions = async (req, res) => {
+const getAllCountries = async (req, res) => {
   try {
-    const query = "SELECT DISTINCT region FROM Campaign";
+    const query = "SELECT DISTINCT country FROM Campaign";
     const [results] = await db.promise().query(query);
 
     if (results.length === 0) {
       return res.status(404).json({ message: "No Regions found" });
     }
 
-    const regions = results.map((result) => result.region);
+    const countries = results.map((result) => result.country);
 
-    res.json(regions);
+    res.json(countries);
   } catch (error) {
     console.error("Error fetching region data:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
+//Adding a New Campaign
 const addCampaign = async (req, res) => {
+  const userID = req.user.userId;
   const {
     campaignTitle,
     campaignDescription,
-    userID,
     goal,
     category,
-    region,
+    country,
     endDate,
     posterImage,
   } = req.body;
 
   const insertQuery = `INSERT INTO Campaign
-    (campaignTitle, campaignDescription, userID, goal, category, region, endDate, posterImage)
+    (campaignTitle, campaignDescription, userID, goal, category, country, endDate, posterImage)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
 
   const values = [
@@ -80,7 +90,7 @@ const addCampaign = async (req, res) => {
     userID,
     goal,
     category,
-    region,
+    country,
     endDate,
     posterImage,
   ];
@@ -101,6 +111,6 @@ const addCampaign = async (req, res) => {
 module.exports = {
   getAllCampaigns,
   getAllCategories,
-  getAllRegions,
+  getAllCountries,
   addCampaign,
 };

@@ -16,13 +16,14 @@ function App() {
     <Router>
       <div className="App">
         <Header />
+
         <Routes>
           {" "}
           <Route path="/register" element={<Register />} />{" "}
           <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<Login />} />
           <Route path="/discovery" element={<Discovery />} />
-          <Route path="/create-campaign" element={<CampaignCreationForm />} />
+          <Route path="/start-campaign" element={<CampaignCreationForm />} />
         </Routes>
       </div>
     </Router>
