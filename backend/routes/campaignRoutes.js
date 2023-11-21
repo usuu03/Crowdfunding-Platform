@@ -9,8 +9,8 @@ router.get("/categories", campaignController.getAllCategories);
 // Region of the Campaign
 router.get("/regions", campaignController.getAllRegions);
 
-router.get("/all", campaignController.getAllCampaigns);
+router.get("/all", authenticateUser, campaignController.getAllCampaigns);
 
-router.post("/add-campaign", campaignController.addCampaign);
+router.post("/add-campaign", authenticateUser, campaignController.addCampaign);
 
 module.exports = router;

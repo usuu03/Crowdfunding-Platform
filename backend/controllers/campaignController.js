@@ -69,10 +69,10 @@ const getAllRegions = async (req, res) => {
 
 //Adding a New Campaign
 const addCampaign = async (req, res) => {
+  const userID = req.user.userId;
   const {
     campaignTitle,
     campaignDescription,
-    userID,
     goal,
     category,
     region,
