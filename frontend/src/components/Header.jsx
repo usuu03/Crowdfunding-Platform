@@ -49,11 +49,22 @@ export default function Header() {
             </li>
 
             <li className="nav-item">
+              <Link to="/start-campaign" className="nav-link" id="nav-item">
+                Start a Campaign
+              </Link>
+            </li>
+
+            <li className="nav-item">
               {/* Conditionally render "Login" or "Logout" based on authentication status */}
               {isAuthenticated ? (
-                <span className="nav-link" id="nav-item" onClick={handleLogout}>
+                <Link
+                  to="/login"
+                  className="nav-link"
+                  id="nav-item"
+                  onClick={handleLogout}
+                >
                   Logout
-                </span>
+                </Link>
               ) : (
                 <Link to="/login" className="nav-link" id="nav-item">
                   Login

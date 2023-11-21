@@ -8,16 +8,18 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { useAuthDispatch } from "../context/authContext";
-
 import axios from "axios";
 
 export default function Login() {
   const navigate = useNavigate();
   const dispatch = useAuthDispatch();
+
   const [userData, setUserData] = useState({
     emailAddress: "",
     password: "",
   });
+
+  const [errors, setErrors] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,20 +29,28 @@ export default function Login() {
         "http://localhost:4000/user/login",
         userData
       );
-      console.log(response.data);
+
       dispatch({ type: "LOGIN", payload: response.data });
 
-      //Redirecting to the Homepage if successfully logged in
+      // Redirecting to the Homepage if successfully logged in
       navigate("/discovery");
     } catch (error) {
       console.error("Login Error:", error);
+      // Handle error response and set error state
+      if (error.response && error.response.data) {
+        setErrors({ password: error.response.data.message });
+      }
     }
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
+
+    // Clear the error when the user starts typing
+    setErrors({});
   };
+
   return (
     <div className="container">
       <h2 className="register-title">Sign in to Crowdfunding Platform</h2>
@@ -51,6 +61,12 @@ export default function Login() {
       </div>
       <div className="form-container">
         <h6>Your Account Details</h6>
+        {/* Display Bootstrap alert for password error */}
+        {errors.password && (
+          <div className="alert alert-danger" role="alert">
+            {errors.password}
+          </div>
+        )}
         <form action="" onSubmit={handleSubmit}>
           <div className="form-elements-div">
             <div className="input-email">
