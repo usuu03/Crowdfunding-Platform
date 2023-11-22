@@ -1,3 +1,4 @@
+// authentication.js
 const jwt = require("jsonwebtoken");
 
 const authenticateUser = (req, res, next) => {
@@ -21,6 +22,7 @@ const authenticateUser = (req, res, next) => {
     // Move to the next middleware or route handler
     next();
   } catch (error) {
+    console.error('Token verification error:', error);
     return res.status(401).json({ message: "Unauthorized: Invalid token" });
   }
 };
