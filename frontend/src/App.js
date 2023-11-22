@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import HomePage from "./pages/HomePage";
 import Discovery from "./pages/Discovery";
 import CampaignCreationForm from "./pages/CampaignCreation";
+import EditProfile from "./pages/EditProfile";
 
 //Importing Components
 import Header from "./components/Header";
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/discovery" element={<Discovery />} />
           <Route path="/start-campaign" element={<CampaignCreationForm />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
         </Routes>
       </div>
     </Router>
