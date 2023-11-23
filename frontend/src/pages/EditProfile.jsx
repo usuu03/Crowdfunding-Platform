@@ -44,7 +44,7 @@ export default function EditProfile() {
 
       // Redirect to the user's profile or another appropriate page
       // You might not need this line if you are showing a success message instead
-      navigate("/user/profile");
+      navigate("/discovery");
     } catch (error) {
       console.error("Edit Profile Error:", error);
       // Handle error response and set error state
