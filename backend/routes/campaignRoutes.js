@@ -13,4 +13,7 @@ router.get("/all", campaignController.getAllCampaigns);
 
 router.post("/add-campaign", authenticateUser, campaignController.addCampaign);
 
+//Campaign Search
+router.post("/search", campaignController.searchCampaigns);
+
 module.exports = router;

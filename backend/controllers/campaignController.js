@@ -108,9 +108,45 @@ const addCampaign = async (req, res) => {
   });
 };
 
+const searchCampaigns = async (req, res) => {
+  try {
+    const { campaignTitle } = req.body;
+
+    const insertQuery = "SELECT * FROM Campaign WHERE campaignTitle LIKE ?";
+    const [results] = await db
+      .promise()
+      .query(insertQuery, [`%${campaignTitle}%`]);
+
+    if (results.length === 0) {
+      res.status(404).json({ message: "No results" });
+      return;
+    }
+
+    const campaigns = results.map((campaign) => ({
+      campaignTitle: campaign.campaignTitle,
+      campaignDescription: campaign.campaignDescription,
+      goal: campaign.goal,
+      currentAmount: campaign.currentAmount,
+      category: campaign.category,
+      country: campaign.country,
+      startDate: campaign.startDate,
+      endDate: campaign.endDate,
+      creationDate: campaign.creationDate,
+      campaignStatus: campaign.campaignStatus,
+      posterImage: campaign.posterImage,
+    }));
+
+    res.json(campaigns);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
 module.exports = {
   getAllCampaigns,
   getAllCategories,
   getAllCountries,
   addCampaign,
+  searchCampaigns,
 };
