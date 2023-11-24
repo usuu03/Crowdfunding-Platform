@@ -357,7 +357,6 @@ What was discussed with the Supervisor:
 - Integrate the code properly (Change the userID in the Add Campaign)
 
 
-
 Chris:
 - Discussed his issues with his Pet Project with the Supervisor 
 - Aimed to get it fixed it by next Week 
