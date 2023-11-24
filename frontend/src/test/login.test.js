@@ -1,52 +1,55 @@
+// Login.test.js
 import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { MemoryRouter } from "react-router-dom";
+import { render, fireEvent, waitFor } from "@testing-library/react";
 import axios from "axios";
 import Login from "../pages/Login";
 
 jest.mock("axios");
 
 describe("Login Component", () => {
-  it("handles user input, submits the form, and redirects on successful login", async () => {
-    render(
-      <MemoryRouter>
-        <Login />
-      </MemoryRouter>
-    );
+  it("renders without crashing", () => {
+    render(<Login />);
+  });
 
-    // Simulate user input
-    userEvent.type(
-      screen.getByPlaceholderText(/email address/i),
-      "ue34@kent.ac.uk"
-    );
-    userEvent.type(screen.getByPlaceholderText(/password/i), "Test@2023");
-
-    // Mocking a successful login
-    axios.post.mockResolvedValue({
+  it("handles form submission", async () => {
+    axios.post.mockResolvedValueOnce({
       data: {
-        // Mock the necessary data for a successful login
+        /* your response data here */
       },
     });
 
-    // Simulate form submission
-    fireEvent.click(screen.getByText(/sign in/i));
+    const { getByPlaceholderText, getByText } = render(<Login />);
 
-    // Wait for the asynchronous axios call to resolve
+    // Simulate user input
+    fireEvent.change(getByPlaceholderText("Email Address"), {
+      target: { value: "test@example.com" },
+    });
+
+    fireEvent.change(getByPlaceholderText("Password"), {
+      target: { value: "testpassword" },
+    });
+
+    // Simulate form submission
+    fireEvent.click(getByText("Sign In"));
+
+    // Wait for the asynchronous action to complete
     await waitFor(() => {
-      // Check if axios.post was called with the correct parameters
+      // Check if the expected API call is made
       expect(axios.post).toHaveBeenCalledWith(
         "http://localhost:4000/user/login",
         {
-          emailAddress: "ue34@kent.ac.uk",
-          password: "Test@2023",
+          emailAddress: "test@example.com",
+          password: "testpassword",
         }
       );
-
-      // Check if the component navigates to the correct route after successful login
-      expect(screen.getByText(/Welcome to the Platform!/i)).toBeInTheDocument();
     });
-  });
 
-  // You can add more test cases for edge cases and error handling
+    // Check if the redirect occurs
+    // Note: You might need to adjust this based on how navigation is handled
+    // using the `useNavigate` hook in your component.
+    // For example, if `navigate` is called upon successful login.
+    // Here, you might check if certain elements are present on the page after login.
+    // Example:
+    expect(getByText("Welcome")).toBeInTheDocument();
+  });
 });
