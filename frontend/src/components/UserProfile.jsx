@@ -7,7 +7,6 @@ export default function UserProfile({ user }) {
       <h2>User Profile</h2>
       <p>Name: {user.firstName} {user.lastName}</p>
       <p>Email: {user.emailAddress}</p>
-      {/* Add other user details */}
       <Link to="/edit-profile">Edit Profile</Link>
     </div>
   );

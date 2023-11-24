@@ -42,8 +42,6 @@ export default function EditProfile() {
       const response = await axios.get(`http://localhost:4000/user/${user.id}`);
       setEditedUserData(response.data);
 
-      // Redirect to the user's profile or another appropriate page
-      // You might not need this line if you are showing a success message instead
       navigate("/discovery");
     } catch (error) {
       console.error("Edit Profile Error:", error);
