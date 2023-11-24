@@ -412,3 +412,22 @@ What he is currently working and what he has achieved:
 Targets for next Meeting:
 - Start new pet project
 - To be almmost finished with testing for first pet project
+
+
+24/11/2023 - Meeting Log with Supervisor - Time 3pm - Duration  min
+Attendants: Chris, Abdul, Michael, Usu
+What was discussed with the Supervisor:
+- get home page made 
+- campaign page should have a graph that changes through time as the campaign goes on
+- campaign dashboad can only be accessed when logged in and shows places user has donated to as well as their total donations.this will also a bookmarker for the campaign. it also will have notifications wich updates the user as goals are reached 
+- the dificulty with the new feature banner will be making the new campaigns go to the front of the line.
+- in the next week omar must give answer about implamentation and if he agrees he has 1 more week to get teh home page completed and then some one will take over if not completed 
+- said abduals feature was "easy"
+-expects more complexity and out of the box stuff
+- how the documenting of the testing is done
+- test cases should be documented 
+- finish prototype by christmas and close that as a prototype
+- react documentation 
+- abdual should finsih user story and provide evidence for testing
+- chris react testing and implamentation of feature 
+- same for michale 
