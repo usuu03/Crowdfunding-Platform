@@ -118,8 +118,9 @@ User Story - As a donator, I want to access pages of individual campaigns so tha
 
 Conversation:
 - User should see more detailed information such as the Campaigns - description, current amount, target amount, and others.
-- Campaigns should have a Poster Image to represented 
+- Campaigns should have a Poster Image to represent 
 - Button that will take them to a donation page where they can donate money to the campaign
+- There will be a graph to show how many donations have been made and the amount to show progress.
 
 Acceptance Criteria:
 - Donors should navigate to an individual campaign page by clicking on a campaign from a list or search result.
