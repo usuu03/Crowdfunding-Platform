@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuthState, useAuthDispatch } from "../context/authContext";
+import { FaSearch } from "react-icons/fa";
 
 export default function Header() {
   const { isAuthenticated, user } = useAuthState();
@@ -30,6 +31,11 @@ export default function Header() {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
+              <Link to="/search" className="nav-link" id="nav-item">
+                <FaSearch />
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link to="/discovery" className="nav-link" id="nav-item">
                 Discovery
               </Link>
@@ -44,6 +50,7 @@ export default function Header() {
                 Start a Campaign
               </Link>
             </li>
+
             {isAuthenticated && (
               <>
                 <li className="nav-item">
@@ -52,7 +59,12 @@ export default function Header() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/login" className="nav-link" id="nav-item" onClick={handleLogout}>
+                  <Link
+                    to="/login"
+                    className="nav-link"
+                    id="nav-item"
+                    onClick={handleLogout}
+                  >
                     Logout
                   </Link>
                 </li>
@@ -71,4 +83,3 @@ export default function Header() {
     </header>
   );
 }
-
