@@ -22,11 +22,11 @@ describe("Login Component", () => {
 
     // Simulate user input
     fireEvent.change(getByPlaceholderText("Email Address"), {
-      target: { value: "test@example.com" },
+      target: { value: "ue34@kent.ac.uk" },
     });
 
     fireEvent.change(getByPlaceholderText("Password"), {
-      target: { value: "testpassword" },
+      target: { value: "Test@2023" },
     });
 
     // Simulate form submission
@@ -38,8 +38,8 @@ describe("Login Component", () => {
       expect(axios.post).toHaveBeenCalledWith(
         "http://localhost:4000/user/login",
         {
-          emailAddress: "test@example.com",
-          password: "testpassword",
+          emailAddress: "ue34@kent.ac.uk",
+          password: "Test@2023",
         }
       );
     });
@@ -50,6 +50,6 @@ describe("Login Component", () => {
     // For example, if `navigate` is called upon successful login.
     // Here, you might check if certain elements are present on the page after login.
     // Example:
-    expect(getByText("Welcome")).toBeInTheDocument();
+    expect(getByText("Discovery")).toBeInTheDocument();
   });
 });
