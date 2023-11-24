@@ -134,6 +134,18 @@ User Story 8 - Campaign Dashboards (View Created Cammpaigns) - Usu
 
 User Story 9 - Latest Campaigns - Chris
 
+user story - as a donator, i would like to be able to veiw the latest campaigns that have been added, so i can be aware of newer campaigns.
+
+conversation:
+- user should be able to see a list of the latest campaigns.
+- user should see campaigns in the form of a scrolling line showing an image, tittle and a short description.
+- the campaigns displayed should take the user to the page 
+
+acceptance criteria:
+- the users can scroll back and fourth on the page 
+- images and text should be displayed propelry 
+- the campaigns should be clickable taking the user to the campgain page
+
 User Story 10 - Edit Campaign Details 
 
 User Story 11 - Payments
