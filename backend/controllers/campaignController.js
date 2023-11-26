@@ -1,6 +1,21 @@
+/*
+ * Filename: campaignController.js
+ * Author: Michael Omoloye
+ * Date: October 25, 2023
+ * Description: This file contains endpoints for the Campaign Table in the Database
+ *
+ */
+
 const db = require("../config/dbConfig");
 
-//Getting all the Campaigns
+/**
+ * @function getAllCampaigns
+ * @description Fetches all campaigns from the database.
+ * @param {object} req - Express request object.
+ * @param {object} res - Express response object.
+ * @returns {object} JSON response with an array of campaigns.
+ * @throws {object} JSON response with an error message if an error occurs.
+ */
 const getAllCampaigns = async (req, res) => {
   try {
     const query = "SELECT * FROM Campaign";
@@ -30,7 +45,14 @@ const getAllCampaigns = async (req, res) => {
   }
 };
 
-//Getting all categories from the Campaigns
+/**
+ * @function getAllCategories
+ * @description Fetches all unique campaign categories from the database.
+ * @param {object} req - Express request object.
+ * @param {object} res - Express response object.
+ * @returns {object} JSON response with an array of campaign categories.
+ * @throws {object} JSON response with an error message if an error occurs.
+ */
 const getAllCategories = async (req, res) => {
   try {
     const query = "SELECT DISTINCT category FROM Campaign";
@@ -49,6 +71,14 @@ const getAllCategories = async (req, res) => {
   }
 };
 
+/**
+ * @function getAllCountries
+ * @description Fetches all unique campaign countries from the database.
+ * @param {object} req - Express request object.
+ * @param {object} res - Express response object.
+ * @returns {object} JSON response with an array of campaign countries.
+ * @throws {object} JSON response with an error message if an error occurs.
+ */
 const getAllCountries = async (req, res) => {
   try {
     const query = "SELECT DISTINCT country FROM Campaign";
@@ -67,7 +97,14 @@ const getAllCountries = async (req, res) => {
   }
 };
 
-//Adding a New Campaign
+/**
+ * @function addCampaign
+ * @description Adds a new campaign to the database.
+ * @param {object} req - Express request object.
+ * @param {object} res - Express response object.
+ * @returns {object} JSON response with a success message.
+ * @throws {object} JSON response with an error message if an error occurs.
+ */
 const addCampaign = async (req, res) => {
   const userID = req.user.userId;
   const {
@@ -108,6 +145,14 @@ const addCampaign = async (req, res) => {
   });
 };
 
+/**
+ * @function searchCampaigns
+ * @description Searches campaigns in the database based on a provided title.
+ * @param {object} req - Express request object.
+ * @param {object} res - Express response object.
+ * @returns {object} JSON response with an array of matching campaigns.
+ * @throws {object} JSON response with an error message if an error occurs.
+ */
 const searchCampaigns = async (req, res) => {
   try {
     const { campaignTitle } = req.body;
@@ -143,10 +188,109 @@ const searchCampaigns = async (req, res) => {
   }
 };
 
+/**
+ * @function getUserCampaigns
+ * @description Fetches campaigns created by the authenticated user.
+ * @param {object} req - Express request object.
+ * @param {object} res - Express response object.
+ * @returns {object} JSON response with an array of user's campaigns.
+ * @throws {object} JSON response with an error message if an error occurs.
+ */
+const getUserCampaigns = async (req, res) => {
+  try {
+    const userID = req.user.userId;
+
+    const sqlQuery = "SELECT * FROM Campaign WHERE userID=?";
+    const [results] = await db.promise().query(sqlQuery, [userID]);
+
+    if (results.length === 0) {
+      res.status(404).json({ message: "No Created Campaigns" });
+      return;
+    }
+
+    const campaigns = results.map((campaign) => ({
+      campaignTitle: campaign.campaignTitle,
+      campaignDescription: campaign.campaignDescription,
+      goal: campaign.goal,
+      currentAmount: campaign.currentAmount,
+      category: campaign.category,
+      country: campaign.country,
+      startDate: campaign.startDate,
+      endDate: campaign.endDate,
+      creationDate: campaign.creationDate,
+      campaignStatus: campaign.campaignStatus,
+      posterImage: campaign.posterImage,
+    }));
+
+    res.status(200).json(campaigns);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+/**
+ * @function getUserFollowedCampaigns
+ * @description Fetches campaigns followed by the authenticated user.
+ * @param {object} req - Express request object.
+ * @param {object} res - Express response object.
+ * @returns {object} JSON response with an array of user's followed campaigns.
+ * @throws {object} JSON response with an error message if an error occurs.
+ */
+/**
+ * @function getUserFollowedCampaigns
+ * @description Fetches campaigns followed by the authenticated user.
+ * @param {object} req - Express request object.
+ * @param {object} res - Express response object.
+ * @returns {object} JSON response with an array of user's followed campaigns.
+ * @throws {object} JSON response with an error message if an error occurs.
+ */
+const getUserFollowedCampaigns = async (req, res) => {
+  try {
+    const userID = req.user.userId;
+
+    const sqlQuery = `
+      SELECT c.*
+      FROM Campaign c
+      JOIN user_followed_campaigns fc ON c.campaignID = fc.campaignID
+      WHERE fc.userID = ?;
+    `;
+
+    const [results] = await db.promise().query(sqlQuery, [userID]);
+
+    if (results.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "No Campaigns followed by the User" });
+    }
+
+    const campaigns = results.map((campaign) => ({
+      campaignTitle: campaign.campaignTitle,
+      campaignDescription: campaign.campaignDescription,
+      goal: campaign.goal,
+      currentAmount: campaign.currentAmount,
+      category: campaign.category,
+      country: campaign.country,
+      startDate: campaign.startDate,
+      endDate: campaign.endDate,
+      creationDate: campaign.creationDate,
+      campaignStatus: campaign.campaignStatus,
+      posterImage: campaign.posterImage,
+    }));
+
+    return res.status(200).json(campaigns);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
 module.exports = {
   getAllCampaigns,
   getAllCategories,
   getAllCountries,
   addCampaign,
   searchCampaigns,
+  getUserCampaigns,
+  getUserFollowedCampaigns,
 };
