@@ -132,6 +132,23 @@ Acceptance Criteria:
 User Story 7 - Edit User Details - Abdul 
 
 User Story 8 - Campaign Dashboards (View Created Cammpaigns) - Usu 
+As a registered user on the platform, I want to access a personalized Campaign Dashboard, providing me with a consolidated view of campaigns I'm involved in, whether as a creator or a donor.
+
+Conversation:
+
+- Users should be able to access their Campaign Dashboards only if they are logged in
+- For campaign creators, the dashboard should display a list of campaigns they have created, along with options to edit or delete them.
+- For donors, the dashboard should show a list of campaigns they have contributed to or have bookmarked/followed, along with relevant details like the amount donated and the current status of the campaign.
+The dashboard should have a clear and intuitive layout, making it easy for users to navigate between their created campaigns and campaigns they've contributed to.
+
+Acceptance Criteria:
+After logging in, users should be directed to their Campaign Dashboard.
+- Campaign creators should see a list of campaigns they've created with options to edit or delete each campaign.
+- Users can view the status of their followed/bookmarked campaign
+- Donors should see a list of campaigns they've contributed to, along with details like the amount donated and the current status of each campaign.
+- The dashboard should provide a summary of the user's overall engagement with the platform, such as the total amount donated or the total number of campaigns created.
+- Users should be able to easily navigate between different sections of the dashboard.
+
 
 User Story 9 - Latest Campaigns - Chris
 
