@@ -41,8 +41,8 @@ export default function Header() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/campaigns" className="nav-link" id="nav-item">
-                My Campaigns
+              <Link to="/dashboard" className="nav-link" id="nav-item">
+                My Dashboard
               </Link>
             </li>
             <li className="nav-item">

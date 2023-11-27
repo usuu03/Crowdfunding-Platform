@@ -9,6 +9,7 @@ import Discovery from "./pages/Discovery";
 import CampaignCreationForm from "./pages/CampaignCreation";
 import EditProfile from "./pages/EditProfile";
 import SearchBar from "./pages/SearchBar";
+import CampaignDashboard from "./pages/CampaignDashboard";
 
 //Importing Components
 import Header from "./components/Header";
@@ -28,6 +29,7 @@ function App() {
           <Route path="/start-campaign" element={<CampaignCreationForm />} />
           <Route path="/search" element={<SearchBar />} />
           <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/dashboard" element={<CampaignDashboard />} />
         </Routes>
       </div>
     </Router>

@@ -1,4 +1,9 @@
-//login.jsx
+/*
+ * Filename: Login.jsx
+ * Author: Usu Edeaghe
+ * Date: September 29, 2023
+ * Description: This file contains the UI implementation of Login Page
+ */
 import React, { useState } from "react";
 import {
   BrowserRouter as Router,

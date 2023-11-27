@@ -230,13 +230,54 @@ const getUserCampaigns = async (req, res) => {
 };
 
 /**
- * @function getUserFollowedCampaigns
- * @description Fetches campaigns followed by the authenticated user.
+ * @function getUserDonatedCampaigns
+ * @description Fetches campaigns donated by the authenticated User
  * @param {object} req - Express request object.
  * @param {object} res - Express response object.
- * @returns {object} JSON response with an array of user's followed campaigns.
+ * @returns {object} JSON response with an array of user's donated campaigns.
  * @throws {object} JSON response with an error message if an error occurs.
  */
+
+const getUserDonatedCampaigns = async (req, res) => {
+  try {
+    const userID = req.user.userId;
+
+    const sqlQuery = `
+      SELECT c.*
+      FROM Campaign c
+      JOIN Donation d ON c.campaignID = d.campaignID
+      WHERE d.userID = ?;
+    `;
+
+    const [results] = await db.promise().query(sqlQuery, [userID]);
+
+    if (results.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "No Campaigns followed by the User" });
+    }
+
+    const campaigns = results.map((campaign) => ({
+      campaignTitle: campaign.campaignTitle,
+      campaignDescription: campaign.campaignDescription,
+      goal: campaign.goal,
+      currentAmount: campaign.currentAmount,
+      category: campaign.category,
+      country: campaign.country,
+      startDate: campaign.startDate,
+      endDate: campaign.endDate,
+      creationDate: campaign.creationDate,
+      campaignStatus: campaign.campaignStatus,
+      posterImage: campaign.posterImage,
+    }));
+
+    return res.status(200).json(campaigns);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
 /**
  * @function getUserFollowedCampaigns
  * @description Fetches campaigns followed by the authenticated user.
@@ -293,4 +334,5 @@ module.exports = {
   searchCampaigns,
   getUserCampaigns,
   getUserFollowedCampaigns,
+  getUserDonatedCampaigns,
 };

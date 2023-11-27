@@ -63,4 +63,16 @@ router.get(
   campaignController.getUserFollowedCampaigns
 );
 
+/**
+ * @route GET /api/campaigns/user/donated
+ * @description Retrieves campaigns that the authenticated user has donated to
+ * @access Private (Requires authentication)
+ */
+
+router.get(
+  "/user/donated",
+  authenticateUser,
+  campaignController.getUserDonatedCampaigns
+);
+
 module.exports = router;
