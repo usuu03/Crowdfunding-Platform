@@ -7,10 +7,12 @@
 // Import necessary testing libraries
 import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react";
+import { act } from "react-dom-testing";
 import axios from "axios";
 import { BrowserRouter as Router } from "react-router-dom";
 import Login from "../pages/Login";
 import { AuthProvider } from "../context/authContext";
+const jwt = require("jsonwebtoken");
 
 // Mock useNavigate
 jest.mock("react-router-dom", () => ({
@@ -18,27 +20,41 @@ jest.mock("react-router-dom", () => ({
   useNavigate: jest.fn(),
 }));
 
+// Mock Axios post
+jest.mock("axios");
+
+// Mock the token generation function
+const generateDynamicToken = jest.fn(() =>
+  jwt.sign({ userId: 1 }, process.env.JWT_SECRET_KEY, { expiresIn: "1h" })
+);
+
 describe("Login Component", () => {
   it("handles form submission", async () => {
     // Mock useNavigate
     const mockNavigate = jest.fn();
     require("react-router-dom").useNavigate.mockReturnValue(mockNavigate);
 
-    // Simulate a successful login response from the server
-    axios.post.mockResolvedValueOnce({
-      data: {
-        message: "Login successful",
-        token:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcwMTA5MTIwNCwiZXhwIjoxNzAxMDk0ODA0fQ.IDgw7S3AAKPgT0DQDlsJ7FtHmD1FImzvgiuYoN1Pn7E",
-        user: {
-          userID: 1,
-          firstName: "Usu",
-          lastName: "Edeaghe",
-          emailAddress: "ue34@kent.ac.uk",
-          password:
-            "$2b$10$Y1lNnZREUMHiXxZPuBez2.RsuwMfbrvG7ao8vyj1lhzRI6TuJZypq",
-        },
-      },
+    // Mock Axios post
+    axios.post.mockImplementationOnce(async (url, data) => {
+      if (url === "http://localhost:4000/user/login") {
+        // Simulate a successful login response
+        const dynamicToken = generateDynamicToken();
+        return Promise.resolve({
+          data: {
+            message: "Login successful",
+            token: dynamicToken,
+            user: {
+              userID: 1,
+              firstName: "Usu",
+              lastName: "Edeaghe",
+              emailAddress: "ue34@kent.ac.uk",
+              password:
+                "$2b$10$Y1lNnZREUMHiXxZPuBez2.RsuwMfbrvG7ao8vyj1lhzRI6TuJZypq",
+            },
+          },
+        });
+      }
+      return Promise.reject(new Error("Unexpected URL: " + url));
     });
 
     const { getByPlaceholderText, getByText } = render(
@@ -75,5 +91,8 @@ describe("Login Component", () => {
 
     // Check if the redirect occurs
     expect(mockNavigate).toHaveBeenCalled();
+
+    // Ensure that the function to generate dynamic token is called
+    expect(generateDynamicToken).toHaveBeenCalled();
   });
 });
