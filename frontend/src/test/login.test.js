@@ -1,24 +1,53 @@
-// Login.test.js
+/*
+ * Filename: login.test.js
+ * Author: Usu Edeaghe
+ * Date: November 20, 2023
+ * Description: This file contains tests for the login feature
+ */
+// Import necessary testing libraries
 import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react";
 import axios from "axios";
+import { BrowserRouter as Router } from "react-router-dom";
 import Login from "../pages/Login";
+import { AuthProvider } from "../context/authContext";
 
-jest.mock("axios");
+// Mock useNavigate
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: jest.fn(),
+}));
 
 describe("Login Component", () => {
-  it("renders without crashing", () => {
-    render(<Login />);
-  });
-
   it("handles form submission", async () => {
+    // Mock useNavigate
+    const mockNavigate = jest.fn();
+    require("react-router-dom").useNavigate.mockReturnValue(mockNavigate);
+
+    // Simulate a successful login response from the server
     axios.post.mockResolvedValueOnce({
       data: {
-        /* your response data here */
+        message: "Login successful",
+        token:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcwMTA5MTIwNCwiZXhwIjoxNzAxMDk0ODA0fQ.IDgw7S3AAKPgT0DQDlsJ7FtHmD1FImzvgiuYoN1Pn7E",
+        user: {
+          userID: 1,
+          firstName: "Usu",
+          lastName: "Edeaghe",
+          emailAddress: "ue34@kent.ac.uk",
+          password:
+            "$2b$10$Y1lNnZREUMHiXxZPuBez2.RsuwMfbrvG7ao8vyj1lhzRI6TuJZypq",
+        },
       },
     });
 
-    const { getByPlaceholderText, getByText } = render(<Login />);
+    const { getByPlaceholderText, getByText } = render(
+      <Router>
+        <AuthProvider>
+          <Login />
+        </AuthProvider>
+      </Router>
+    );
 
     // Simulate user input
     fireEvent.change(getByPlaceholderText("Email Address"), {
@@ -45,11 +74,6 @@ describe("Login Component", () => {
     });
 
     // Check if the redirect occurs
-    // Note: You might need to adjust this based on how navigation is handled
-    // using the `useNavigate` hook in your component.
-    // For example, if `navigate` is called upon successful login.
-    // Here, you might check if certain elements are present on the page after login.
-    // Example:
-    expect(getByText("Discovery")).toBeInTheDocument();
+    expect(mockNavigate).toHaveBeenCalled();
   });
 });

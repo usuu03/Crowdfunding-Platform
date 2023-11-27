@@ -1,7 +1,14 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; // Note the addition of 'Routes' here
+/*
+ * Filename: App.js
+ * Author: Usu Edeaghe
+ * Date: October 10, 2023
+ * Description: This file contains the UI and routers to different pages of the Platform
+ */
 
-// Import your page components (Register and Login)
+// App.js
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./context/authContext";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import HomePage from "./pages/HomePage";
@@ -10,28 +17,27 @@ import CampaignCreationForm from "./pages/CampaignCreation";
 import EditProfile from "./pages/EditProfile";
 import SearchBar from "./pages/SearchBar";
 import CampaignDashboard from "./pages/CampaignDashboard";
-
-//Importing Components
 import Header from "./components/Header";
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Header />
+      <AuthProvider>
+        <div className="App">
+          <Header />
 
-        <Routes>
-          {" "}
-          <Route path="/register" element={<Register />} />{" "}
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Login />} />
-          <Route path="/discovery" element={<Discovery />} />
-          <Route path="/start-campaign" element={<CampaignCreationForm />} />
-          <Route path="/search" element={<SearchBar />} />
-          <Route path="/edit-profile" element={<EditProfile />} />
-          <Route path="/dashboard" element={<CampaignDashboard />} />
-        </Routes>
-      </div>
+          <Routes>
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/discovery" element={<Discovery />} />
+            <Route path="/start-campaign" element={<CampaignCreationForm />} />
+            <Route path="/search" element={<SearchBar />} />
+            <Route path="/edit-profile" element={<EditProfile />} />
+            <Route path="/dashboard" element={<CampaignDashboard />} />
+          </Routes>
+        </div>
+      </AuthProvider>
     </Router>
   );
 }

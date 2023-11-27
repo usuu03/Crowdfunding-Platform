@@ -1,7 +1,7 @@
 /*
  * Filename: Register.jsx
  * Author: Usu Edeaghe
- * Date: Septemeber 29, 2023
+ * Date: October 17, 2023
  * Description: This file contains the UI implementation of Registration Page
  */
 import React, { useState } from "react";

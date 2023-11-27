@@ -1,3 +1,9 @@
+/*
+ * Filename: authContext.js
+ * Author: Usu Edeaghe
+ * Date: November 21, 2023
+ * Description: This file contains Authorisation Context, that checks if a User is logged in
+ */
 import { createContext, useContext, useReducer } from "react";
 
 const AuthStateContext = createContext();
