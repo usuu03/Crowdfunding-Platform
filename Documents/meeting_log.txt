@@ -445,7 +445,7 @@ What he is currently working and what he has achieved:
 
 Target for next meeting: 
 - Lofi completed for second feature
-- 
+- Progress on second feature implementation
 
 
 Chris:
