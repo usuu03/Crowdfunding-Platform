@@ -414,7 +414,7 @@ Targets for next Meeting:
 - To be almmost finished with testing for first pet project
 
 
-24/11/2023 - Meeting Log with Supervisor - Time 3pm - Duration  min
+24/11/2023 - Meeting Log with Supervisor - Time 3pm - Duration - 1 hr
 Attendants: Chris, Abdul, Michael, Usu
 What was discussed with the Supervisor:
 - get home page made 
@@ -430,4 +430,52 @@ What was discussed with the Supervisor:
 - react documentation 
 - abdual should finsih user story and provide evidence for testing
 - chris react testing and implamentation of feature 
-- same for michale 
+- same for michael
+
+28/11/2023 - Meeting time 3pm - Duration - 
+Attendants: Michael, Chris, Abdul, Usu
+
+What was discussed:
+
+Michael:
+What he is currently working and what he has achieved: 
+- Implementing second feature
+- Starting testing for first feature
+- Creating lofi for second feature
+
+Target for next meeting: 
+- Lofi completed for second feature
+- 
+
+
+Chris:
+What he is currently working and what he has achieved:
+- Currently working latest campaigns and home page user story.
+-Starting your testing for seach
+- Creating lofi for home page.
+
+Target for next meeting: 
+- Have lofi complete
+- Progress made on feature.
+
+Usu:
+What he is currently working and what he has achieved: 
+- Still implementing testing on feature
+- Started working on api for second feature
+-Created table in database to follow a campaign
+
+Target for next meeting: 
+- Have api fully working
+- Have a lofi for second feature complete.
+
+Abdul:
+What he is currently working and what he has achieved: 
+- Implementing second feature
+- Writing user story for second feature
+- Create lofi for second feature
+
+Target for next meeting: 
+- Lofi should be completed for second feature
+- Second feature close to completion if not completed
+
+
