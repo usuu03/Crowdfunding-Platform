@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 import useAxiosInstance from "../axiosInstance";
 import { useAuthState } from "../context/authContext";
 
+/**
+ * Component for creating a new campaign.
+ * @returns {JSX.Element} Campaign creation form.
+ */
 function CampaignCreationForm() {
   const navigate = useNavigate();
   const { isAuthenticated, user } = useAuthState();

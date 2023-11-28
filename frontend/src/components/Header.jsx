@@ -40,17 +40,42 @@ export default function Header() {
                 Discovery
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/dashboard" className="nav-link" id="nav-item">
-                My Dashboard
+            //Having trouble here
+            <li className="nav-item dropdown">
+              <Link
+                className="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Dropdown link
               </Link>
+              <div
+                className="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <Link className="dropdown-item" href="#">
+                  User Name
+                </Link>
+                <Link className="dropdown-item" href="#">
+                  My Campaigns
+                </Link>
+                <Link className="dropdown-item" to="">
+                  My Donations
+                </Link>
+                <a className="dropdown-item" href="#">
+                  Followed
+                </a>
+              </div>
             </li>
             <li className="nav-item">
               <Link to="/start-campaign" className="nav-link" id="nav-item">
                 Start a Campaign
               </Link>
             </li>
-
+            //end
             {isAuthenticated && (
               <>
                 <li className="nav-item">

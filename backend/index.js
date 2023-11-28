@@ -1,3 +1,11 @@
+/*
+ * Filename: index.js
+ * Author: Usu Edeaghe
+ * Date: October 10, 2023
+ * Description: This file contains
+ *
+ */
+
 const express = require("express");
 const app = express();
 const cors = require("cors");
