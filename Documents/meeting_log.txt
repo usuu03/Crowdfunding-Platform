@@ -436,6 +436,8 @@ What was discussed with the Supervisor:
 Attendants: Michael, Chris, Abdul, Usu
 
 What was discussed:
+- Everyone's progress on their user stories
+- Discussed creating an app to aid the project.
 
 Michael:
 What he is currently working and what he has achieved: 
