@@ -1,4 +1,10 @@
-// login.test.js
+/*
+ * Filename: login.test.js
+ * Author: Usu Edeaghe
+ * Date: November 21, 2023
+ * Description: This file contains the tests for the Login feature
+ *
+ */
 
 import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react";
