@@ -1,18 +1,13 @@
-/*
- * Filename: login.test.js
- * Author: Usu Edeaghe
- * Date: November 20, 2023
- * Description: This file contains tests for the login feature
- */
-// Import necessary testing libraries
+// login.test.js
+
 import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react";
-import { act } from "react-dom-testing";
 import axios from "axios";
 import { BrowserRouter as Router } from "react-router-dom";
 import Login from "../pages/Login";
 import { AuthProvider } from "../context/authContext";
-const jwt = require("jsonwebtoken");
+import { act } from "react-dom-testing";
+import jwt from "jsonwebtoken";
 
 // Mock useNavigate
 jest.mock("react-router-dom", () => ({
@@ -57,6 +52,7 @@ describe("Login Component", () => {
       return Promise.reject(new Error("Unexpected URL: " + url));
     });
 
+    // Render the component
     const { getByPlaceholderText, getByText } = render(
       <Router>
         <AuthProvider>
@@ -67,7 +63,7 @@ describe("Login Component", () => {
 
     // Simulate user input
     fireEvent.change(getByPlaceholderText("Email Address"), {
-      target: { value: "ue34@kent.ac.uk" },
+      target: { value: "moo39@kent.ac.uk" },
     });
 
     fireEvent.change(getByPlaceholderText("Password"), {
@@ -75,7 +71,10 @@ describe("Login Component", () => {
     });
 
     // Simulate form submission
-    fireEvent.click(getByText("Sign In"));
+    await act(async () => {
+      fireEvent.click(getByText("Sign In"));
+      await Promise.resolve(); // Let pending promises resolve
+    });
 
     // Wait for the asynchronous action to complete
     await waitFor(() => {
@@ -83,7 +82,7 @@ describe("Login Component", () => {
       expect(axios.post).toHaveBeenCalledWith(
         "http://localhost:4000/user/login",
         {
-          emailAddress: "ue34@kent.ac.uk",
+          emailAddress: "moo39@kent.ac.uk",
           password: "Test@2023",
         }
       );
