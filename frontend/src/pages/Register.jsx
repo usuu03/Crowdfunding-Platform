@@ -16,7 +16,7 @@ export default function Register() {
     firstName: "",
     lastName: "",
     emailAddress: "",
-    confirmEmail: "",
+    confirmEmailAddress: "",
     password: "",
   });
 
@@ -137,7 +137,7 @@ export default function Register() {
                   errors.emailMatch ? "input-error" : ""
                 }`}
                 type="email"
-                name="confirmEmail"
+                name="confirmEmailAddress"
                 placeholder="Confirm Email Address"
                 onChange={handleInputChange}
               />
@@ -157,6 +157,8 @@ export default function Register() {
               />
             </div>
           </div>
+
+          {/* Displaying errors if User fails to register */}
 
           {errors.password && (
             <div className="form-row">
