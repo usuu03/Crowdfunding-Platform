@@ -40,7 +40,7 @@ export default function Header() {
                 Discovery
               </Link>
             </li>
-            //Having trouble here
+            {/* //Having trouble here */}
             <li className="nav-item dropdown">
               <Link
                 className="nav-link dropdown-toggle"
@@ -75,7 +75,7 @@ export default function Header() {
                 Start a Campaign
               </Link>
             </li>
-            //end
+            {/* //end */}
             {isAuthenticated && (
               <>
                 <li className="nav-item">

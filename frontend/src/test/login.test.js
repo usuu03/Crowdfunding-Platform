@@ -1,11 +1,3 @@
-/*
- * Filename: login.test.js
- * Author: Usu Edeaghe
- * Date: November 21, 2023
- * Description: This file contains the tests for the Login feature
- *
- */
-
 import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react";
 import axios from "axios";
@@ -30,32 +22,23 @@ const generateDynamicToken = jest.fn(() =>
 );
 
 describe("Login Component", () => {
-  it("handles form submission", async () => {
+  it("handles form submission with valid credentials", async () => {
     // Mock useNavigate
     const mockNavigate = jest.fn();
     require("react-router-dom").useNavigate.mockReturnValue(mockNavigate);
 
     // Mock Axios post
-    axios.post.mockImplementationOnce(async (url, data) => {
-      if (url === "http://localhost:4000/user/login") {
-        // Simulate a successful login response
-        const dynamicToken = generateDynamicToken();
-        return Promise.resolve({
-          data: {
-            message: "Login successful",
-            token: dynamicToken,
-            user: {
-              userID: 1,
-              firstName: "Usu",
-              lastName: "Edeaghe",
-              emailAddress: "ue34@kent.ac.uk",
-              password:
-                "$2b$10$Y1lNnZREUMHiXxZPuBez2.RsuwMfbrvG7ao8vyj1lhzRI6TuJZypq",
-            },
-          },
-        });
-      }
-      return Promise.reject(new Error("Unexpected URL: " + url));
+    axios.post.mockResolvedValueOnce({
+      data: {
+        message: "Login successful",
+        token: "mocked-token",
+        user: {
+          userID: 1,
+          firstName: "Usu",
+          lastName: "Edeaghe",
+          emailAddress: "ue34@kent.ac.uk",
+        },
+      },
     });
 
     // Render the component
@@ -96,8 +79,61 @@ describe("Login Component", () => {
 
     // Check if the redirect occurs
     expect(mockNavigate).toHaveBeenCalled();
+  });
 
-    // Ensure that the function to generate dynamic token is called
-    expect(generateDynamicToken).toHaveBeenCalled();
+  it("displays an error message for invalid credentials", async () => {
+    // Mock useNavigate
+    const mockNavigate = jest.fn();
+    require("react-router-dom").useNavigate.mockReturnValue(mockNavigate);
+
+    // Mock Axios post for invalid credentials
+    axios.post.mockRejectedValueOnce({
+      response: {
+        data: {
+          message: "Invalid credentials",
+        },
+      },
+    });
+
+    // Render the component
+    const { getByPlaceholderText, getByText } = render(
+      <Router>
+        <AuthProvider>
+          <Login />
+        </AuthProvider>
+      </Router>
+    );
+
+    // Simulate user input
+    fireEvent.change(getByPlaceholderText("Email Address"), {
+      target: { value: "invalid@kent.ac.uk" },
+    });
+
+    fireEvent.change(getByPlaceholderText("Password"), {
+      target: { value: "InvalidPassword" },
+    });
+
+    // Simulate form submission
+    await act(async () => {
+      fireEvent.click(getByText("Sign In"));
+      await Promise.resolve(); // Let pending promises resolve
+    });
+
+    // Wait for the asynchronous action to complete
+    await waitFor(() => {
+      // Check if the expected API call is made
+      expect(axios.post).toHaveBeenCalledWith(
+        "http://localhost:4000/user/login",
+        {
+          emailAddress: "invalid@kent.ac.uk",
+          password: "InvalidPassword",
+        }
+      );
+    });
+
+    // Check if the error message is displayed
+    expect(getByText("Invalid credentials")).toBeTruthy();
+    // Check if the redirect does not occur
+    expect(mockNavigate).not.toHaveBeenCalled();
   });
 });
