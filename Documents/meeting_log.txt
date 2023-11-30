@@ -481,3 +481,48 @@ Target for next meeting:
 - Second feature close to completion if not completed
 
 
+30/11/2023 - Meeting time 1pm - Duration - 1h 15min
+
+
+
+Michael: 
+What he has achieved:
+- Made some progress on the UI of the Campaign page
+- Done lofi for the UI 
+
+Targets for next week:
+- Having the UI of the Campaign page fully finished
+- Start testing of the Discovery Page. 
+
+
+Abdul
+What he has achieved:
+- Made a lofi
+- Started implementing his feature 
+- Started testing his previous feature
+
+Targets for next week
+- Feature should be fully implemented 
+- Testing will be fully done 
+
+
+Chris
+What he has achieved:
+- Finished lofi for his Pet Project
+- Started his new feature
+
+Targets for next week: 
+- Implemnent the UI
+- Start testing 
+
+
+Usu: 
+What he has achieved: 
+- Tested the form submission of the Login feature
+- Implemented the API for the Campaign Dashboard page
+- Implemented a lofi of my feature
+
+Targets for next week: 
+- Add more tests to the Login feature
+- Implement tests for the Registration feature
+- Have a React UI of the Campaign Dashboard
