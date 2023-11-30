@@ -130,6 +130,21 @@ Acceptance Criteria:
 
 
 User Story 7 - Edit User Details - Abdul 
+Story:
+Story - As a campaign creator, I want to be able to edit my details such as first name, last name and password.
+
+Conversation:
+1. Users can easily navigate to 'Edit Profile'.
+2. Button ('Save Changes') to save changes made by users.
+3. Button ('Cancel') to cancel any changes made.
+
+Acceptance Criteria:
+1. Once a user is logged in, 'edit profile' will appear in the header.
+2. The system should validate that changes meet the requirements.
+3. New Password should be enetered twice to confirm.
+4. Once 'save changes' is pressed, a confirmation message should appear.
+5. A 'cancel' button to prevent changes if necessary.
+
 
 User Story 8 - Campaign Dashboards (View Created Cammpaigns) - Usu 
 As a registered user on the platform, I want to access a personalized Campaign Dashboard, providing me with a consolidated view of campaigns I'm involved in, whether as a creator or a donor.
