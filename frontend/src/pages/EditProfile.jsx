@@ -10,12 +10,12 @@ export default function EditProfile() {
   const [editedUserData, setEditedUserData] = useState({
     firstName: "",
     lastName: "",
-    emailAddress: "",
-    currentPassword: "",
     newPassword: "",
+    confirmPassword: "",
   });
 
   const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -24,7 +24,6 @@ export default function EditProfile() {
         setEditedUserData(response.data);
       } catch (error) {
         console.error("Error fetching user data:", error);
-        // Handle error
       }
     };
 
@@ -35,17 +34,35 @@ export default function EditProfile() {
     e.preventDefault();
 
     try {
-      // Make a PUT request to update the user's details
-      await axios.put(`http://localhost:4000/user/${user.id}`, editedUserData);
+      if (editedUserData.newPassword !== editedUserData.confirmPassword) {
+        setErrors({ general: "Passwords do not match." });
+        return;
+      }
 
-      // Fetch updated user data
+      await axios.put(`http://localhost:4000/user/${user.id}`, {
+        firstName: editedUserData.firstName,
+        lastName: editedUserData.lastName,
+        newPassword: editedUserData.newPassword,
+      });
+
       const response = await axios.get(`http://localhost:4000/user/${user.id}`);
       setEditedUserData(response.data);
+
+      setEditedUserData((prevData) => ({
+        ...prevData,
+        newPassword: "",
+        confirmPassword: "",
+      }));
+
+      setSuccessMessage("Profile updated successfully!");
+
+      setTimeout(() => {
+        setSuccessMessage("");
+      }, 3000);
 
       navigate("/discovery");
     } catch (error) {
       console.error("Edit Profile Error:", error);
-      // Handle error response and set error state
       if (error.response && error.response.data) {
         setErrors({ general: error.response.data.message });
       }
@@ -56,8 +73,11 @@ export default function EditProfile() {
     const { name, value } = e.target;
     setEditedUserData({ ...editedUserData, [name]: value });
 
-    // Clear the error when the user starts typing
     setErrors({});
+  };
+
+  const handleCancel = () => {
+    navigate("/discovery");
   };
 
   return (
@@ -67,6 +87,11 @@ export default function EditProfile() {
         {errors.general && (
           <div className="alert alert-danger" role="alert">
             {errors.general}
+          </div>
+        )}
+        {successMessage && (
+          <div className="alert alert-success" role="alert">
+            {successMessage}
           </div>
         )}
         <form action="" onSubmit={handleSubmit}>
@@ -93,40 +118,38 @@ export default function EditProfile() {
               />
             </div>
 
-            <div className="form-emailAddress">
-              <input
-                className={`form-control ${errors.emailMatch ? "input-error" : ""}`}
-                type="email"
-                name="emailAddress"
-                placeholder="Email Address"
-                value={editedUserData.emailAddress}
-                onChange={handleInputChange}
-              />
-            </div>
-
-            <div className="form-currentPassword">
-              <input
-                className="form-control"
-                type="password"
-                name="currentPassword"
-                placeholder="Current Password"
-                onChange={handleInputChange}
-              />
-            </div>
-
             <div className="form-newPassword">
               <input
                 className="form-control"
                 type="password"
                 name="newPassword"
                 placeholder="New Password"
+                value={editedUserData.newPassword}
                 onChange={handleInputChange}
               />
             </div>
 
-            <button type="submit" className="btn btn-primary">
-              Save Changes
-            </button>
+            <div className="form-confirmPassword">
+              <input
+                className={`form-control ${
+                  errors.passwordMatch ? "input-error" : ""
+                }`}
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                value={editedUserData.confirmPassword}
+                onChange={handleInputChange}
+              />
+            </div>
+
+            <div className="form-buttons">
+              <button type="submit" className="btn btn-primary">
+                Save Changes
+              </button>
+              <button type="button" className="btn btn-secondary" onClick={handleCancel}>
+                Cancel
+              </button>
+            </div>
           </div>
         </form>
       </div>
