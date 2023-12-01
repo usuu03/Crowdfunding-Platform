@@ -526,3 +526,33 @@ Targets for next week:
 - Add more tests to the Login feature
 - Implement tests for the Registration feature
 - Have a React UI of the Campaign Dashboard
+
+
+Meeting with Supervisor - 01/12/2023 
+Duration: 
+Attendants: Chris, Abdul, Usu,  
+What was discussed in the meeting:
+- Told the supervisor that Omar left the group 
+- Discussed what the prototype should be by the end of the term
+- Went through what each group member is at currently with the project 
+- Discussed the app, the benefits and negatives
+- Discussed the testing and how to documentation 
+- Discuss how I went about the app 
+
+Abdul: 
+- Having issues with fetching data from the database 
+- Supervisor recommended to look at other people's code 
+
+
+Usu:
+- Discussed what he has done this week
+- Discussed what he aims to do before the end of term 
+- Needs to pass the message on how he tested his features
+
+Chris:
+- Discussed that he is taking over Omar's Pet Project 
+- Discussed what each he will have for the end of the Pet Project 
+
+Michael: 
+- Discussed that what he has done this week
+- Discussed what each he will have for the end of the Pet Project 
