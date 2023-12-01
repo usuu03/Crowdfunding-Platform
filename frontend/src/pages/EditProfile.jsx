@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import useAxiosInstance from "../axiosInstance";
 import { useAuthState } from "../context/authContext";
 
 export default function EditProfile() {
   const { user } = useAuthState();
   const navigate = useNavigate();
+  const axiosInstance = useAxiosInstance();
 
   const [editedUserData, setEditedUserData] = useState({
     firstName: "",
@@ -20,7 +21,8 @@ export default function EditProfile() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/user/${user.id}`);
+        // Use the custom Axios instance to make the request
+        const response = await axiosInstance.get(`/user/${user.id}`);
         setEditedUserData(response.data);
       } catch (error) {
         console.error("Error fetching user data:", error);
@@ -28,7 +30,7 @@ export default function EditProfile() {
     };
 
     fetchUserData();
-  }, [user.id]);
+  }, [axiosInstance, user.id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,13 +41,15 @@ export default function EditProfile() {
         return;
       }
 
-      await axios.put(`http://localhost:4000/user/${user.id}`, {
+      // Use the custom Axios instance to make the request
+      await axiosInstance.put(`/user/${user.id}`, {
         firstName: editedUserData.firstName,
         lastName: editedUserData.lastName,
         newPassword: editedUserData.newPassword,
       });
 
-      const response = await axios.get(`http://localhost:4000/user/${user.id}`);
+      // Use the custom Axios instance to fetch updated user data
+      const response = await axiosInstance.get(`/user/${user.id}`);
       setEditedUserData(response.data);
 
       setEditedUserData((prevData) => ({
