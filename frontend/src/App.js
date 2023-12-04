@@ -34,7 +34,7 @@ function App() {
             <Route path="/start-campaign" element={<CampaignCreationForm />} />
             <Route path="/search" element={<SearchBar />} />
             <Route path="/edit-profile" element={<EditProfile />} />
-            <Route path="/dashboard" element={<CampaignDashboard />} />
+            <Route path="/campaigns" element={<CampaignDashboard />} />
           </Routes>
         </div>
       </AuthProvider>

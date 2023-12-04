@@ -41,35 +41,12 @@ export default function Header() {
               </Link>
             </li>
             {/* //Having trouble here */}
-            <li className="nav-item dropdown">
-              <Link
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdownMenuLink"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Dropdown link
+            <li className="nav-item">
+              <Link to="/campaigns" className="nav-link" id="nav-item">
+                My Campaigns
               </Link>
-              <div
-                className="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <Link className="dropdown-item" href="#">
-                  User Name
-                </Link>
-                <Link className="dropdown-item" href="#">
-                  My Campaigns
-                </Link>
-                <Link className="dropdown-item" to="">
-                  My Donations
-                </Link>
-                <a className="dropdown-item" href="#">
-                  Followed
-                </a>
-              </div>
             </li>
+
             <li className="nav-item">
               <Link to="/start-campaign" className="nav-link" id="nav-item">
                 Start a Campaign

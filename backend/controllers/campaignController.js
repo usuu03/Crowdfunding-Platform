@@ -254,10 +254,11 @@ const getUserDonatedCampaigns = async (req, res) => {
     if (results.length === 0) {
       return res
         .status(404)
-        .json({ message: "No Campaigns followed by the User" });
+        .json({ message: "No donated Campaigns by the User" });
     }
 
     const campaigns = results.map((campaign) => ({
+      campaignID: campaign.campaignID,
       campaignTitle: campaign.campaignTitle,
       campaignDescription: campaign.campaignDescription,
       goal: campaign.goal,
@@ -293,7 +294,7 @@ const getUserFollowedCampaigns = async (req, res) => {
     const sqlQuery = `
       SELECT c.*
       FROM Campaign c
-      JOIN user_followed_campaigns fc ON c.campaignID = fc.campaignID
+      JOIN User_Followed_Campaigns fc ON c.campaignID = fc.campaignID
       WHERE fc.userID = ?;
     `;
 

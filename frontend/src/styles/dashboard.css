@@ -1,0 +1,14 @@
+/*
+ * Filename: dashboard.css
+ * Author: Usu Edeaghe
+ * Date: December 1, 2023
+ * Description: This file contains the styles for the Dashboard feature
+ */
+
+hr {
+    border: 2px solid;
+}
+
+#btn {
+    margin: 10px;
+}

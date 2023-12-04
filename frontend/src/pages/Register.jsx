@@ -1,9 +1,5 @@
-/*
- * Filename: Register.jsx
- * Author: Usu Edeaghe
- * Date: October 17, 2023
- * Description: This file contains the UI implementation of Registration Page
- */
+// Register.jsx
+
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -29,7 +25,7 @@ export default function Register() {
     e.preventDefault();
 
     // Check if the email addresses match
-    if (userData.emailAddress !== userData.confirmEmail) {
+    if (userData.emailAddress !== userData.confirmEmailAddress) {
       setErrors({
         ...errors,
         emailMatch: "Email addresses do not match",
