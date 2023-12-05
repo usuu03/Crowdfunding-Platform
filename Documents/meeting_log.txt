@@ -557,11 +557,12 @@ Michael:
 - Discussed what each he will have for the end of the Pet Project 
 
 
-05/12/2023 - Meeting time 3pm - Duration ~  
+05/12/2023 - Meeting time 3pm - Duration ~ 1hr 
 Attendants: Michael, Chris, Abdul, Usu
 
 What was discussed:
-- Everyone's progress on their user stories
+- Everyone's progress on their pet projects
+- Discussing what needs to be complete for the prototype
 
 
 Michael:
