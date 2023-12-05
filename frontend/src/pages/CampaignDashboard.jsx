@@ -6,8 +6,6 @@
  */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// ... (your imports)
-
 import Campaign from "../components/Campaign";
 import { useAuthState } from "../context/authContext";
 import { Link, useNavigate } from "react-router-dom";
@@ -23,42 +21,77 @@ function CampaignDashboard() {
   const [userFollowed, setUserFollowed] = useState([]);
   const [userDonated, setUserDonated] = useState([]);
 
-  useEffect(() => {
-    // Fetch user campaigns when the component mounts
-    const fetchUserCreatedCampaigns = async () => {
-      try {
-        const response = await axiosInstance.get("/api/campaigns/user");
-        setUserCampaigns(response.data);
-      } catch (error) {
-        console.error("Error fetching user campaigns:", error);
-        // Handle error if needed
-      }
-    };
-
-    if (isAuthenticated) {
-      fetchUserCreatedCampaigns();
+  // Fetch user campaigns when the component mounts
+  const fetchUserCreatedCampaigns = async () => {
+    try {
+      const response = await axiosInstance.get("/api/campaigns/user");
+      setUserCampaigns(response.data);
+    } catch (error) {
+      console.error("Error fetching user campaigns:", error);
+      // Handle error if needed
     }
-  }, [isAuthenticated, axiosInstance]);
+  };
+
+  // Function to fetch user-donated campaigns
+  const fetchUserDonatedCampaigns = async () => {
+    try {
+      const response = await axiosInstance.get("/api/campaigns/user/donated");
+      setUserDonated(response.data);
+    } catch (error) {
+      console.error("Error fetching user donated campaigns:", error);
+      // Handle error if needed
+    }
+  };
+
+  // Function to fetch user-followed campaigns
+  const fetchUserFollowedCampaigns = async () => {
+    try {
+      const response = await axiosInstance.get("/api/campaigns/user/following");
+      setUserFollowed(response.data);
+    } catch (error) {
+      console.error("Error fetching user followed campaigns:", error);
+      // Handle error if needed
+    }
+  };
 
   return (
     <div className="container">
       <h2 className="register-title">Campaign Dashboard</h2>
 
       <div className="btn-section">
-        <Link id="btn" className="btn btn-success">
+        <button
+          id="btn"
+          className="btn btn-primary"
+          onClick={() => {
+            fetchUserCreatedCampaigns();
+          }}
+        >
           Started
-        </Link>
-        <Link id="btn" className="btn btn-warning">
+        </button>
+        <button
+          id="btn"
+          className="btn btn-info"
+          onClick={() => {
+            fetchUserDonatedCampaigns();
+          }}
+        >
           Donated
-        </Link>
-        <Link id="btn" className="btn btn-danger">
+        </button>
+        <button
+          id="btn"
+          className="btn btn-success"
+          onClick={() => {
+            fetchUserFollowedCampaigns();
+          }}
+        >
           Following
-        </Link>
+        </button>
       </div>
 
       <hr />
 
       <div className="campaign-container">
+        {/* Use a conditional rendering based on the selected category */}
         {userCampaigns.map((campaign) => (
           <Campaign
             key={campaign.campaignID}
@@ -68,6 +101,45 @@ function CampaignDashboard() {
             goal={campaign.goal}
           />
         ))}
+
+        {/* Conditionally render a button if no campaigns are available */}
+        {userCampaigns.length === 0 && (
+          <button
+            className="btn btn-warning"
+            onClick={() => {
+              // Handle the click for starting a fundraiser
+              navigate("/create-fundraiser");
+            }}
+          >
+            Start a Fundraiser
+          </button>
+        )}
+
+        {/* Conditionally render a button if no donated campaigns are available */}
+        {userDonated.length === 0 && (
+          <button
+            className="btn btn-warning"
+            onClick={() => {
+              // Handle the click for donating to campaigns
+              navigate("/donate-to-campaigns");
+            }}
+          >
+            Donate to Campaigns
+          </button>
+        )}
+
+        {/* Conditionally render a button if no followed campaigns are available */}
+        {userFollowed.length === 0 && (
+          <button
+            className="btn btn-warning"
+            onClick={() => {
+              // Handle the click for following campaigns
+              navigate("/follow-campaigns");
+            }}
+          >
+            Follow Campaigns
+          </button>
+        )}
       </div>
     </div>
   );

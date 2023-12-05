@@ -8,7 +8,7 @@ const Campaign = ({ id, title, currentAmount, goal }) => {
   };
 
   return (
-    <div key={id} className="campaign-box">
+    <div key={id} className="campaign">
       <div className="campaign-box-content">
         <div className="campaign-image">
           <img src="image-placeholder.jpg" alt="Campaign Image" />
@@ -25,9 +25,15 @@ const Campaign = ({ id, title, currentAmount, goal }) => {
                 width: progressWidth(currentAmount, goal),
               }}
             ></div>
-            <div className="btn-section">
-              <button className="btn btn-light">Edit</button>
-            </div>
+          </div>
+
+          <div className="btn-section">
+            <button className="btn btn-warning" id="btn-edit">
+              Edit
+            </button>
+            <button className="btn btn-danger" id="btn-delete">
+              Delete
+            </button>
           </div>
         </div>
       </div>

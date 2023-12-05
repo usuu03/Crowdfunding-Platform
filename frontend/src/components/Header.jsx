@@ -41,11 +41,6 @@ export default function Header() {
               </Link>
             </li>
             {/* //Having trouble here */}
-            <li className="nav-item">
-              <Link to="/campaigns" className="nav-link" id="nav-item">
-                My Campaigns
-              </Link>
-            </li>
 
             <li className="nav-item">
               <Link to="/start-campaign" className="nav-link" id="nav-item">
@@ -55,6 +50,11 @@ export default function Header() {
             {/* //end */}
             {isAuthenticated && (
               <>
+                <li className="nav-item">
+                  <Link to="/campaigns" className="nav-link" id="nav-item">
+                    My Campaigns
+                  </Link>
+                </li>
                 <li className="nav-item">
                   <Link to="/edit-profile" className="nav-link" id="nav-item">
                     Edit Profile
