@@ -432,7 +432,7 @@ What was discussed with the Supervisor:
 - chris react testing and implamentation of feature 
 - same for michael
 
-28/11/2023 - Meeting time 3pm - Duration - 
+28/11/2023 - Meeting time 3pm - Duration - 1hr 30
 Attendants: Michael, Chris, Abdul, Usu
 
 What was discussed:
@@ -482,7 +482,6 @@ Target for next meeting:
 
 
 30/11/2023 - Meeting time 1pm - Duration - 1h 15min
-
 
 
 Michael: 
@@ -556,3 +555,46 @@ Chris:
 Michael: 
 - Discussed that what he has done this week
 - Discussed what each he will have for the end of the Pet Project 
+
+
+05/12/2023 - Meeting time 3pm - Duration ~  
+Attendants: Michael, Chris, Abdul, Usu
+
+What was discussed:
+- Everyone's progress on their user stories
+
+
+Michael:
+What he is currently working and what he has achieved: 
+- Still implementing second feature UI
+
+Target for next meeting: 
+- Close to completing second feature implementation
+- Continue testing
+
+
+Chris:
+What he is currently working and what he has achieved:
+- Currently working on Homepage feature.
+
+Target for next meeting: 
+- Have majority of homepage finished.
+- Start testing
+
+Usu:
+What he is currently working and what he has achieved: 
+- Working on UI for dashboard page
+- Implemented a followed campaigns UI.
+
+Target for next meeting: 
+- Have created campaigns on dashboard and followed campaigns fully working.
+-Implement: Viweing campaigns you have donated to.
+
+Abdul:
+What he is currently working and what he has achieved: 
+- Still implementing second feature.
+- Started implementing testing for 1st feature.
+
+Target for next meeting: 
+- Second feature will be complete
+
