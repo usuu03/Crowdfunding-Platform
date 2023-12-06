@@ -1,0 +1,100 @@
+USER STORIES V1
+
+
+User Story 1 - Registration/Authentication
+Story: 
+Story - As a potential donator, I want the ability to create a new account on the platform 
+so that I can begin browsing and contributing to campaigns that align with my interests.
+
+Conversation: 
+- Simple process for users to create accounts and engage with the platform.
+
+- Let's keep it straightforward and request their name, email, and password.
+
+- Passwords must meet security standards, including a minimum length and a combination of letters, numbers, and symbols. For emails, we should ensure they follow the format "user@example.com."
+
+- Check ensures that multiple accounts cannot use the same email address. During registration, the system must confirm the email's uniqueness.
+
+Acceptance Criteria: 
+1.Users should be able to initiate the registration process from the platform's homepage or login page.
+2.The registration form should request an email and password.
+3.The system should validate that the email follows the standard email format (e.g., user@example.com).
+4.Passwords should have a minimum length of at least 8 characters.
+5.Passwords should contain a mix of letters, numbers, and symbols for enhanced security.
+6.When a user submits the registration form, the system should verify that the provided email has not been used for another account.
+7.If the email has been used before, the system should prompt the user to choose a different email address.
+
+
+User Story 2 - Camapaign Creation ~ Abdul
+Story:
+Story - As a campaign creator, I want to be able to create a new campaign, give it a campaign title, a target amount, and a duration, as well as other details.
+
+Conversation:
+Campaign Creator - I want to create campaigns with a title, funding goal, deadline, and description. I need validation for the campaign title (not empty), funding goal (numeric and positive), and the deadline date (valid future date).
+Developer - Implement the campaign creation form with specified details and validation rules.
+Campaign Creator - I want campaigns to be visible and searchable for donors once created.
+Developer - Ensure that campaigns are listed and searchable for donors.
+Campaign Creator - Campaign creators should be able to edit or delete their campaigns.
+Developer - Implement features to allow campaign creators to edit or delete their campaigns as needed.
+
+Acceptance Criteria:
+1. Campaign creation form should include a tile, funding goal, deadline date and description.
+2. Make sure fields are filled. This includes ensuring that campaign titles are not left empty, funding goals are numeric and positive, and the deadline date is a valid future date.
+3. The campaign creator should be able to submit the campaign creation form.
+4. After successfully creating a campaign, the campaign should be visible to other users on the platform. It should appear in a campaign listing or search results.
+5. The campaign creator should have the option to delete their campaign
+6. The campaign creator should be able to edit campaign details e.g. campaign title, deadline date etc.
+
+
+User Story 3 - Camapaign Discovery ~ Michael
+
+User Story - As a potential donor, I want to be able to browse and discover campaigns that I am interested in, 
+so that I can read up on causes that I care about, whether I have an account or not.
+
+    Conversation:
+
+    Product Owner: For viewing campaign details, we want users to see everything from the campaign title and 
+    description to the fundraising progress.
+    Developer: We should ensure that users can click on a campaign to get detailed information such as the title, 
+    description, images, videos, fundraising goal, and current progress. 
+
+    Product Owner: We need to ensure users can easily browse and search for campaigns.
+    Developer: We start with making sure users can access the platform without creating an account. We should allow users to view a list of 
+    campaigns and provide a search bar for keyword searches.
+    
+    Product Owner: This feature needs to provide users with the ability to filter campaigns.
+    Developer: We should allow users to filter campaigns based on criteria like campaign type (personal, nonprofit), location, popularity, and fundraising  progress.
+
+    Acceptance Criteria:
+    - Users should be able to access the campaign browsing and discovery feature without the need to create an account or log in.
+    - Users should be able to filter between campaigns based on keywords, categories, or tags
+    - Users should be able to click on a campaign to view detailed information, for example, the campaign title, fundraising goal, and the progress made.
+    - Users should have the option to sort campaigns by factors such as most recent, most funded, and ending soonest.
+    - If a user attempts an action not possible without an account (e.g., donating or starting a campaign), clear guidance should be provided on how to  proceed.
+
+User Story 4 - Campaign Search ~ Chris 
+
+Story:
+
+Story- as a potential donator I want to have the ability to search for my desired campaign directly.
+
+Conversation:
+Product owner: there needs to be an easy way to search for a specific campaign. 
+Developer: how would you like this feature to be?
+Product owner: I would like for there to be a search bar.
+Developer: Okay, we can place it on the home page and centrally for ease of use for the user.
+Product owner: that is great is there a way to make it more convenient?
+Developer: yes we can add an autofill feature which, as the user types creates a drop-down box with other similar campaign as the user types
+Product owner: this will make the process very straightforward and helpful.
+
+
+Acceptance criteria:
+
+1.	It should be capable of searching for relevant items or content based on the user's input.
+2.	The search bar should be able to accept user input.
+3.	The search results should be accurate and relevant to the user's query.
+4.	If no results are found, it should communicate this to the user clearly and suggest possible actions.
+5.	The search bar should provide autosuggestions as users type, helping them complete their queries.
+
+
+User Story 5 - Campaign Progress  ~ Omarr 
