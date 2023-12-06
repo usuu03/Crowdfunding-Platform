@@ -31,7 +31,10 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<HomePage />} />
             <Route path="/discovery" element={<Discovery />} />
-            <Route path="/start-campaign" element={<CampaignCreationForm />} />
+            <Route
+              path="/start-fundraiser"
+              element={<CampaignCreationForm />}
+            />
             <Route path="/search" element={<SearchBar />} />
             <Route path="/edit-profile" element={<EditProfile />} />
             <Route path="/campaigns" element={<CampaignDashboard />} />

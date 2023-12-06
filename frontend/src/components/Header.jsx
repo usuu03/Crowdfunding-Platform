@@ -43,7 +43,7 @@ export default function Header() {
             {/* //Having trouble here */}
 
             <li className="nav-item">
-              <Link to="/start-campaign" className="nav-link" id="nav-item">
+              <Link to="/start-fundraiser" className="nav-link" id="nav-item">
                 Start a Campaign
               </Link>
             </li>
