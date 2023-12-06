@@ -75,4 +75,22 @@ router.get(
   campaignController.getUserDonatedCampaigns
 );
 
+/**
+ * @route PUT /api/campaigns/update/:id
+ * @description Updates the Campaign the user has created
+ * @access Private (Requires authentication)
+ */
+router.put("/update/:id", authenticateUser, campaignController.updateCampaigns);
+
+/**
+ * @route DELETE /api/campaigns/delete/:id
+ * @description Deletes the Campaign created has created
+ * @access Private (Requires authentication)
+ */
+router.delete(
+  "/delete/:id",
+  authenticateUser,
+  campaignController.deleteCampaign
+);
+
 module.exports = router;

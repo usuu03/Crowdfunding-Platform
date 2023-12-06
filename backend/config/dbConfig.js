@@ -1,4 +1,4 @@
-const mysql2 = require("mysql2"); // or 'mysql2' if you chose that driver
+const mysql2 = require("mysql2");
 
 const db = mysql2.createConnection({
   host: "crowdfunding.c9am8nnvogkn.us-east-1.rds.amazonaws.com", // Your database host

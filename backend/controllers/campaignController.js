@@ -27,6 +27,7 @@ const getAllCampaigns = async (req, res) => {
 
     const campaigns = results.map((campaign) => ({
       title: campaign.campaignTitle,
+      campaignDescription: campaign.campaignDescription,
       currentAmount: campaign.currentAmount,
       goal: campaign.goal,
       category: campaign.category,
@@ -38,7 +39,7 @@ const getAllCampaigns = async (req, res) => {
       posterImage: campaign.posterImage,
     }));
 
-    res.json(campaigns);
+    res.status(200).json(campaigns);
   } catch (error) {
     console.error("Error fetching campaign data:", error);
     res.status(500).json({ message: "Internal Server Error" });
@@ -327,6 +328,92 @@ const getUserFollowedCampaigns = async (req, res) => {
   }
 };
 
+/**
+ * @function updateCampaign
+ * @description Updates the Campaign Information
+ * @param {object} req - Express request object.
+ * @param {object} res - Express response object.
+ * @returns {object} JSON response with a string showing if the Campaign was updated.
+ * @throws {object} JSON response with an error message if an error occurs.
+ */
+const updateCampaigns = async (req, res) => {
+  try {
+    const userID = req.user.userId;
+    const { id } = req.params;
+    const update = req.body;
+
+    //Updating the Campaign in the Campaign Table
+    const updateQuery =
+      "UPDATE Campaign SET ? WHERE campaignID = ? AND userID = ?";
+    const [results] = await db
+      .promise()
+      .query(updateQuery, [update, id, userID]);
+
+    console.log(results);
+
+    //Checking if the Campaign exists
+    if (results.affectedRows === 0) {
+      return res.status(404).json({ message: "Campaign not Found" });
+    }
+
+    res.status(200).json({ message: "Campaign updated successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+/**
+ * @function deleteCampaign
+ * @description Delete a Campaign from the Table
+ * @param {object} req - Express request object.
+ * @param {object} res - Express response object.
+ * @returns {object} JSON response with an array of the updated Campaign.
+ * @throws {object} JSON response with an error message if an error occurs.
+ */
+// const deleteDestination = async (req, res) => {
+//   try {
+//     const userID = req.user.userId;
+//     const { id } = req.params;
+
+//     const deleteQuery =
+//       "DELETE FROM Destination WHERE destinationID = ? AND userID = ?";
+
+//     const [results] = await db.promise().query(deleteQuery, [id, userID]);
+
+//     if (results.affectedRows === 0) {
+//       return res.status(404).json({ message: "Destination not found" });
+//     }
+
+//     res
+//       .status(200)
+//       .json({ message: "Successfully deleted destination", results });
+//   } catch (error) {
+//     console.error("Destination deletion error", error);
+//     res.status(500).json({ message: "Internal Server Error" });
+//   }
+// };
+
+const deleteCampaign = async (req, res) => {
+  try {
+    const userID = req.user.userId;
+    const { id } = req.params;
+
+    const deleteQuery =
+      "DELETE FROM Campaign WHERE campaignID = ? AND userID = ?";
+
+    const [results] = await db.promise().query(deleteQuery, [id, userID]);
+
+    if (results.affectedRows === 0) {
+      return res.status(404).json({ message: "Campaign not found" });
+    }
+
+    res.status(200).json({ message: "Successfully deleted Campaign" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
 module.exports = {
   getAllCampaigns,
   getAllCategories,
@@ -336,4 +423,6 @@ module.exports = {
   getUserCampaigns,
   getUserFollowedCampaigns,
   getUserDonatedCampaigns,
+  updateCampaigns,
+  deleteCampaign,
 };
