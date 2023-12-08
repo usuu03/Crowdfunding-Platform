@@ -9,7 +9,7 @@ const updateUserById = async (userId, updatedUserData) => {
   const { newPassword, ...userData } = updatedUserData;
 
   if (newPassword) {
-    userData.password = newPassword; // Make sure to hash the password before storing in production
+    userData.password = newPassword;
   }
 
   const [result] = await db.promise().query('UPDATE Users SET ? WHERE UserID = ?', [userData, userId]);
