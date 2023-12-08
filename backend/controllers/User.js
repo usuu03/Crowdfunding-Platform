@@ -1,8 +1,7 @@
-// User.js
 const db = require('../config/dbConfig');
 
 const getUserById = async (userId) => {
-  const [rows] = await db.query('SELECT * FROM users WHERE id = ?', [userId]);
+  const [rows] = await db.promise().query('SELECT * FROM Users WHERE userID = ?', [userId]);
   return rows[0];
 };
 
@@ -13,7 +12,7 @@ const updateUserById = async (userId, updatedUserData) => {
     userData.password = newPassword; // Make sure to hash the password before storing in production
   }
 
-  const [result] = await db.query('UPDATE users SET ? WHERE id = ?', [userData, userId]);
+  const [result] = await db.promise().query('UPDATE Users SET ? WHERE UserID = ?', [userData, userId]);
 
   if (result.affectedRows > 0) {
     const updatedUser = await getUserById(userId);

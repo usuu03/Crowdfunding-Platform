@@ -4,7 +4,7 @@ import useAxiosInstance from "../axiosInstance";
 import { useAuthState } from "../context/authContext";
 
 export default function EditProfile() {
-  const { user } = useAuthState();
+  const { user, token } = useAuthState();
   const navigate = useNavigate();
   const axiosInstance = useAxiosInstance();
 
@@ -21,7 +21,7 @@ export default function EditProfile() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        // Use the custom Axios instance to make the request
+        // Use user.id directly
         const response = await axiosInstance.get(`/user/${user.id}`);
         setEditedUserData(response.data);
       } catch (error) {
@@ -37,18 +37,36 @@ export default function EditProfile() {
 
     try {
       if (editedUserData.newPassword !== editedUserData.confirmPassword) {
-        setErrors({ general: "Passwords do not match." });
+        setErrors({ passwordMatch: "Passwords do not match." });
+        return;
+      } else {
+        setErrors({ passwordMatch: "" }); // Clear password match error
+      }
+
+      // Ensure user ID and token are available before making the request
+      if (!user || !user.id || !token) {
+        console.error("User ID or token not available");
         return;
       }
 
-      // Use the custom Axios instance to make the request
-      await axiosInstance.put(`/user/${user.id}`, {
+      // Include the token in the request headers
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      let requestBody = {
         firstName: editedUserData.firstName,
         lastName: editedUserData.lastName,
-        newPassword: editedUserData.newPassword,
-      });
+      };
 
-      // Use the custom Axios instance to fetch updated user data
+      if (editedUserData.newPassword) {
+        requestBody.newPassword = editedUserData.newPassword;
+      }
+
+      await axiosInstance.put(`/user/${user.id}`, requestBody, config);
+
       const response = await axiosInstance.get(`/user/${user.id}`);
       setEditedUserData(response.data);
 
@@ -102,48 +120,58 @@ export default function EditProfile() {
           <div className="form-elements-div">
             <div className="form-firstName">
               <input
-                className="form-control"
+                className={`form-control ${errors.firstName ? "input-error" : ""}`}
                 type="text"
                 name="firstName"
                 placeholder="First Name"
                 value={editedUserData.firstName}
                 onChange={handleInputChange}
               />
+              {errors.firstName && (
+                <small className="text-danger">{errors.firstName}</small>
+              )}
             </div>
 
             <div className="form-lastName">
               <input
-                className="form-control"
+                className={`form-control ${errors.lastName ? "input-error" : ""}`}
                 type="text"
                 name="lastName"
                 placeholder="Last Name"
                 value={editedUserData.lastName}
                 onChange={handleInputChange}
               />
+              {errors.lastName && (
+                <small className="text-danger">{errors.lastName}</small>
+              )}
             </div>
 
             <div className="form-newPassword">
               <input
-                className="form-control"
+                className={`form-control ${errors.passwordMatch ? "input-error" : ""}`}
                 type="password"
                 name="newPassword"
                 placeholder="New Password"
                 value={editedUserData.newPassword}
                 onChange={handleInputChange}
               />
+              {errors.passwordMatch && (
+                <small className="text-danger">{errors.passwordMatch}</small>
+              )}
             </div>
 
             <div className="form-confirmPassword">
               <input
-                className={`form-control ${
-                  errors.passwordMatch ? "input-error" : ""
-                }`}
+                className={`form-control ${errors.passwordMatch ? "input-error" : ""}`}
                 type="password"
                 name="confirmPassword"
                 placeholder="Confirm Password"
                 value={editedUserData.confirmPassword}
                 onChange={handleInputChange}
               />
+              {errors.passwordMatch && (
+                <small className="text-danger">{errors.passwordMatch}</small>
+              )}
             </div>
 
             <div className="form-buttons">
