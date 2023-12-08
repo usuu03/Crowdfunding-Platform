@@ -30,3 +30,61 @@ hr {
 .btn btn-warning {
     margin-right: 10vh;
 }
+
+#campaign-1 h3 {
+    font-size: 20px;
+    color: #333;
+}
+
+#campaign-1 p {
+    font-size: 16px;
+    color: #666;
+}
+
+.progress {
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 50%;
+    /* Adjust this width to show progress */
+    background-color: #007bff;
+    border-radius: 5px;
+}
+
+/* .button-container {
+    background-color: #f2f2f2;
+    border-style: none;
+    padding: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Center vertically */
+/* margin-left: 25vh;
+} */
+.button-container {
+    /* background-color: #f2f2f2; */
+
+    border-width: 3px;
+    border: 1px solid #f2f2f2;
+    /* Adjust the width as needed */
+    border-radius: 5px;
+    padding: 20px;
+    /* box-shadow: 5px 5px 5px 5px #dcdcdc; */
+    padding: 15vh;
+    display: flex;
+    width: max-content;
+    align-items: center;
+    justify-content: center;
+    /* Center horizontally */
+    margin-left: 30vh;
+}
+
+.button-container button {
+    margin: 0 auto;
+    /* Center horizontally */
+}

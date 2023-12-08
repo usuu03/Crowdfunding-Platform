@@ -69,15 +69,15 @@ function CampaignCreationForm() {
     // Check authentication status when the component mounts
     if (!isAuthenticated) {
       // Redirect if not logged in
-      alert("Please Log In to see to start a Campaign");
       navigate("/login");
+      window.alert("Please Log In to see to start a Campaign");
     }
   }, [isAuthenticated, navigate]);
 
-  if (!isAuthenticated) {
-    // Return null or a loading spinner, etc.
-    return null;
-  }
+  // if (!isAuthenticated) {
+  //   // Return null or a loading spinner, etc.
+  //   return null;
+  // }
 
   return (
     <div className="container">

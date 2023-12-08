@@ -66,24 +66,6 @@ function CampaignDashboard() {
     }
   };
 
-  const deleteCampaign = async (campaignID) => {
-    // Display a confirmation dialog
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this campaign?"
-    );
-
-    if (confirmDelete) {
-      try {
-        // Make the delete request using the campaignID
-        await axiosInstance.delete(`/api/campaigns/delete/${campaignID}`);
-        // Fetch updated campaigns after deletion
-        fetchUserCreatedCampaigns();
-      } catch (error) {
-        console.error("Error deleting the Campaign");
-      }
-    }
-  };
-
   const progressWidth = (current, goal) => {
     const progress = (current / goal) * 100;
     return `${progress}%`;
@@ -92,6 +74,39 @@ function CampaignDashboard() {
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
   };
+
+  useEffect(() => {
+    // Check authentication status when the component mounts
+    if (!isAuthenticated) {
+      // Redirect if not logged in
+      navigate("/login");
+      window.alert(
+        "Please Log In to see to view Campaigns you are involved in!"
+      );
+    }
+  }, [isAuthenticated, navigate]);
+
+  // const deleteCampaign = async (campaignID) => {
+  //   console.log("Deleting campaign with ID:", campaignID);
+
+  //   // Display a confirmation dialog
+  //   const confirmDelete = window.confirm(
+  //     "Are you sure you want to delete this campaign?"
+  //   );
+
+  //   if (confirmDelete) {
+  //     try {
+  //       // Make the delete request using the campaignID
+  //       await axiosInstance.delete(`/api/campaigns/delete/${campaignID}`);
+  //       console.log("Campaign deleted successfully.");
+
+  //       // Fetch updated campaigns after deletion
+  //       fetchUserCreatedCampaigns();
+  //     } catch (error) {
+  //       console.error("Error deleting the Campaign:", error);
+  //     }
+  //   }
+  // };
 
   return (
     <div className="container">
@@ -142,43 +157,54 @@ function CampaignDashboard() {
 
           <div className="campaign-container">
             {selectedTab === "Started" &&
-              userCampaigns.map((campaign) => (
-                <div key={campaign.campaignID} className="campaign-item">
-                  <Campaign
-                    id={campaign.campaignID}
-                    title={campaign.campaignTitle}
-                    currentAmount={campaign.currentAmount}
-                    goal={campaign.goal}
-                  />
-                  {/* Delete button for each campaign */}
-                  <button
-                    className="btn btn-danger"
-                    onClick={() => deleteCampaign(campaign.campaignID)}
-                  >
-                    Delete
-                  </button>
-                </div>
-              ))}
-
-            {selectedTab === "Donated" &&
-              userDonated.map((campaign) => (
-                <div key={campaign.id} className="campaign-box">
+              userCampaigns.map((fundraiser) => (
+                <div key={fundraiser.campaignID} className="campaign-box">
                   <div className="campaign-box-content">
                     <div className="campaign-image">
                       <img src="image-placeholder.jpg" alt="Campaign Image" />
                     </div>
-                    <div id={`campaign-${campaign.id}`}>
-                      <h3>{campaign.campaignTitle}</h3>
+                    <div id={`campaign-${fundraiser.campaignID}`}>
+                      <h3>{fundraiser.campaignTitle}</h3>
                       <p>
-                        Raised: ${campaign.currentAmount} of ${campaign.goal}
+                        Raised: ${fundraiser.currentAmount} of $
+                        {fundraiser.goal}
                       </p>
                       <div className="progress">
                         <div
                           className="progress-bar"
                           style={{
                             width: progressWidth(
-                              campaign.currentAmount,
-                              campaign.goal
+                              fundraiser.currentAmount,
+                              fundraiser.goal
+                            ),
+                          }}
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+
+            {selectedTab === "Donated" &&
+              userDonated.map((fundraiser) => (
+                <div key={fundraiser.campaignID} className="campaign-box">
+                  <div className="campaign-box-content">
+                    <div className="campaign-image">
+                      <img src="image-placeholder.jpg" alt="Campaign Image" />
+                    </div>
+                    <div id={`campaign-${fundraiser.campaignID}`}>
+                      <h3>{fundraiser.campaignTitle}</h3>
+                      <p>
+                        Raised: ${fundraiser.currentAmount} of $
+                        {fundraiser.goal}
+                      </p>
+                      <div className="progress">
+                        <div
+                          className="progress-bar"
+                          style={{
+                            width: progressWidth(
+                              fundraiser.currentAmount,
+                              fundraiser.goal
                             ),
                           }}
                         ></div>
@@ -189,24 +215,25 @@ function CampaignDashboard() {
               ))}
 
             {selectedTab === "Following" &&
-              userFollowed.map((campaign) => (
-                <div key={campaign.id} className="campaign-box">
+              userFollowed.map((fundraiser) => (
+                <div key={fundraiser.campaignID} className="campaign-box">
                   <div className="campaign-box-content">
                     <div className="campaign-image">
                       <img src="image-placeholder.jpg" alt="Campaign Image" />
                     </div>
-                    <div id={`campaign-${campaign.id}`}>
-                      <h3>{campaign.title}</h3>
+                    <div id={`campaign-${fundraiser.campaignID}`}>
+                      <h3>{fundraiser.campaignTitle}</h3>
                       <p>
-                        Raised: ${campaign.currentAmount} of ${campaign.goal}
+                        Raised: ${fundraiser.currentAmount} of $
+                        {fundraiser.goal}
                       </p>
                       <div className="progress">
                         <div
                           className="progress-bar"
                           style={{
                             width: progressWidth(
-                              campaign.currentAmount,
-                              campaign.goal
+                              fundraiser.currentAmount,
+                              fundraiser.goal
                             ),
                           }}
                         ></div>
@@ -217,36 +244,42 @@ function CampaignDashboard() {
               ))}
 
             {userCampaigns.length === 0 && selectedTab === "Started" && (
-              <button
-                className="btn btn-warning"
-                onClick={() => {
-                  navigate("/start-fundraiser");
-                }}
-              >
-                Start a Fundraiser
-              </button>
+              <div className="button-container">
+                <button
+                  className="btn btn-warning"
+                  onClick={() => {
+                    navigate("/start-fundraiser");
+                  }}
+                >
+                  Start a Fundraiser
+                </button>
+              </div>
             )}
 
             {userDonated.length === 0 && selectedTab === "Donated" && (
-              <button
-                className="btn btn-warning"
-                onClick={() => {
-                  navigate("/donate-to-campaigns");
-                }}
-              >
-                Donate to Campaigns
-              </button>
+              <div className="button-container">
+                <button
+                  className="btn btn-warning"
+                  onClick={() => {
+                    navigate("/discovery");
+                  }}
+                >
+                  Donate to Fundraisers
+                </button>
+              </div>
             )}
 
             {userFollowed.length === 0 && selectedTab === "Following" && (
-              <button
-                className="btn btn-warning"
-                onClick={() => {
-                  navigate("/discovery");
-                }}
-              >
-                Follow Campaigns
-              </button>
+              <div className="button-container">
+                <button
+                  className="btn btn-warning"
+                  onClick={() => {
+                    navigate("/discovery");
+                  }}
+                >
+                  Follow Fundraisers
+                </button>
+              </div>
             )}
           </div>
         </>

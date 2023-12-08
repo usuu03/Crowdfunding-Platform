@@ -118,12 +118,12 @@ function Discovery() {
 
       <div className="campaign-container">
         {filterCampaigns().map((campaign) => (
-          <div key={campaign.id} className="campaign-box">
+          <div key={campaign.campaignID} className="campaign-box">
             <div className="campaign-box-content">
               <div className="campaign-image">
                 <img src="image-placeholder.jpg" alt="Campaign Image" />
               </div>
-              <div id={`campaign-${campaign.id}`}>
+              <div id={`campaign-${campaign.campaignID}`}>
                 <h3>{campaign.title}</h3>
                 <p>
                   Raised: ${campaign.currentAmount} of ${campaign.goal}
