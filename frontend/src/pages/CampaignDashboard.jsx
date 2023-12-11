@@ -86,33 +86,16 @@ function CampaignDashboard() {
     }
   }, [isAuthenticated, navigate]);
 
-  // const deleteCampaign = async (campaignID) => {
-  //   console.log("Deleting campaign with ID:", campaignID);
-
-  //   // Display a confirmation dialog
-  //   const confirmDelete = window.confirm(
-  //     "Are you sure you want to delete this campaign?"
-  //   );
-
-  //   if (confirmDelete) {
-  //     try {
-  //       // Make the delete request using the campaignID
-  //       await axiosInstance.delete(`/api/campaigns/delete/${campaignID}`);
-  //       console.log("Campaign deleted successfully.");
-
-  //       // Fetch updated campaigns after deletion
-  //       fetchUserCreatedCampaigns();
-  //     } catch (error) {
-  //       console.error("Error deleting the Campaign:", error);
-  //     }
-  //   }
-  // };
-
   return (
     <div className="container">
       {isAuthenticated ? (
         <>
           <h2 className="register-title">Campaign Dashboard</h2>
+
+          <div>
+            <p>Welcome to your User Dashboard Usunobu Edeaghe</p>
+            <p>You have donated: £150 amount</p>
+          </div>
 
           <div className="btn-section">
             <button

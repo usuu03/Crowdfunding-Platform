@@ -20,16 +20,19 @@ app.use(cookieParser());
 // Routes
 const authRoutes = require("./routes/authRoutes");
 const campaignRoutes = require("./routes/campaignRoutes");
-const userRoutes = require("./routes/user"); // Add this line
+const userRoutes = require("./routes/userRoutes");
+const donationRoutes = require("./routes/donationRoutes");
 
 const { authenticateUser } = require("./middleware/authentication");
 
+// Use the user routes
+app.use("/api/user", userRoutes);
+
 app.use("/user", authRoutes);
 
-// Use the user routes
-app.use("/user", userRoutes);
-
 app.use("/api/campaigns", campaignRoutes);
+
+app.use("/api/donations", donationRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
