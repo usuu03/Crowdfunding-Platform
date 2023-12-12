@@ -42,6 +42,18 @@ function EditProfile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Check for empty values
+    const requiredFields = ['firstName', 'lastName', 'emailAddress', 'password'];
+    const emptyFields = requiredFields.filter((field) => !formData[field].trim());
+
+    if (emptyFields.length > 0) {
+      setErrors({
+        ...errors,
+        general: 'Please fill out all required fields.',
+      });
+      return;
+    }
+
     // Validate password
     if (formData.password && !isPasswordValid(formData.password)) {
       setErrors({
@@ -77,6 +89,11 @@ function EditProfile() {
       <h2 className="edit-title">Edit Your Details</h2>
       <div className="" id="container-edit">
         <form onSubmit={handleSubmit} className="form-div">
+          {errors.general && (
+            <div className="alert alert-danger" role="alert">
+              {errors.general}
+            </div>
+          )}
           <div className="form-row">
             <input
               type="text"
@@ -85,6 +102,7 @@ function EditProfile() {
               onChange={handleChange}
               className="form-control"
               placeholder="First Name"
+              required
             />
           </div>
 
@@ -96,6 +114,7 @@ function EditProfile() {
               onChange={handleChange}
               className="form-control"
               placeholder="Last Name"
+              required
             />
           </div>
 
@@ -107,6 +126,7 @@ function EditProfile() {
               onChange={handleChange}
               className="form-control"
               placeholder="Email Address"
+              required
             />
           </div>
 
@@ -118,6 +138,7 @@ function EditProfile() {
               onChange={handleChange}
               className="form-control"
               placeholder="Password"
+              required
             />
             {errors.password && (
               <div className="alert alert-danger" role="alert">
