@@ -19,6 +19,8 @@ function CampaignDashboard() {
   const navigate = useNavigate();
   const { isAuthenticated, user } = useAuthState();
   const axiosInstance = useAxiosInstance();
+  const [userDetails, setUserDetails] = useState([]);
+  const [totalAmount, setTotalAmount] = useState(0.0);
   const [userCampaigns, setUserCampaigns] = useState([]);
   const [userFollowed, setUserFollowed] = useState([]);
   const [userDonated, setUserDonated] = useState([]);
@@ -30,6 +32,8 @@ function CampaignDashboard() {
       fetchUserCreatedCampaigns();
       fetchUserDonatedCampaigns();
       fetchUserFollowedCampaigns();
+      fetchUserDetails();
+      fetchUserStats();
     }
   }, [isAuthenticated]);
 
@@ -66,6 +70,27 @@ function CampaignDashboard() {
     }
   };
 
+  //Function to fetch User Details
+  const fetchUserDetails = async () => {
+    try {
+      const response = await axiosInstance.get("/api/user/details");
+      setUserDetails(response.data[0]);
+    } catch (error) {
+      console.log("Error fetching User Details", error);
+    }
+  };
+
+  //Function to fetch the Total Amount the User has donated overall
+  const fetchUserStats = async () => {
+    try {
+      const response = await axiosInstance.get("/api/donations/total");
+      console.log(response.data);
+      setTotalAmount(response.data);
+    } catch (error) {
+      console.log("Error fetching the Donation", error);
+    }
+  };
+
   const progressWidth = (current, goal) => {
     const progress = (current / goal) * 100;
     return `${progress}%`;
@@ -93,8 +118,16 @@ function CampaignDashboard() {
           <h2 className="register-title">Campaign Dashboard</h2>
 
           <div>
-            <p>Welcome to your User Dashboard Usunobu Edeaghe</p>
-            <p>You have donated: £150 amount</p>
+            <p>
+              Welcome to your Dashboard{" "}
+              <b>
+                {userDetails.firstName} {userDetails.lastName}
+              </b>
+            </p>
+            <p>
+              You have donated: <b>£{totalAmount.totalDonationAmount}</b> across
+              all the Campaigns you have donated to!{" "}
+            </p>
           </div>
 
           <div className="btn-section">
