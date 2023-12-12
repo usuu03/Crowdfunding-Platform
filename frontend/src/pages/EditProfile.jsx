@@ -101,8 +101,6 @@ function EditProfile() {
             />
           </div>
 
-          {/* Email address is excluded from the form */}
-
           <div className="form-row">
             <input
               type="password"
