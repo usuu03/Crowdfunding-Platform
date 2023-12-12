@@ -18,6 +18,7 @@ function EditProfile() {
   const initialFormData = {
     firstName: '',
     lastName: '',
+    emailAddress: '',
     password: '',
   };
 
@@ -27,18 +28,15 @@ function EditProfile() {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Exclude updating the email address
-    if (name !== 'emailAddress') {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    }
-
     // Clear password error when the user starts typing
     if (name === 'password') {
       setErrors({ ...errors, password: '' });
     }
+
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -98,6 +96,17 @@ function EditProfile() {
               onChange={handleChange}
               className="form-control"
               placeholder="Last Name"
+            />
+          </div>
+
+          <div className="form-row">
+            <input
+              type="email"
+              name="emailAddress"
+              value={formData.emailAddress}
+              onChange={handleChange}
+              className="form-control"
+              placeholder="Email Address"
             />
           </div>
 

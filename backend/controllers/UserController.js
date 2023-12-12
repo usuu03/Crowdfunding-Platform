@@ -4,16 +4,16 @@ const bcrypt = require('bcrypt');
 const updateUserDetails = async (req, res) => {
   try {
     const userId = req.user.userId;
-    const { lastName, firstName, password } = req.body;
+    const { lastName, firstName, emailAddress, password } = req.body;
 
     // Hash the password securely with bcrypt
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const updateQuery = `UPDATE Users
-      SET lastName=?, firstName=?, password=?
+      SET lastName=?, firstName=?, emailAddress=?, password=?
       WHERE userId=?`;
 
-    const values = [lastName, firstName, hashedPassword, userId];
+    const values = [lastName, firstName, emailAddress, hashedPassword, userId];
 
     db.query(updateQuery, values, (err, result) => {
       if (err) {
