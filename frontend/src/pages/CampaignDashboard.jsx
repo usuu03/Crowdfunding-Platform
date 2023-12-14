@@ -13,8 +13,6 @@ import useAxiosInstance from "../axiosInstance";
 
 import "../styles/dashboard.css";
 
-// ... (existing imports)
-
 function CampaignDashboard() {
   const navigate = useNavigate();
   const { isAuthenticated, user } = useAuthState();
