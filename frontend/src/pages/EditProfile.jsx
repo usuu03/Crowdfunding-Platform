@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import useAxiosInstance from '../axiosInstance';
-import { useAuthState } from '../context/authContext';
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import useAxiosInstance from "../axiosInstance";
+import { useAuthState } from "../context/authContext";
 
 const isPasswordValid = (password) => {
   // Password must have at least 8 characters, 1 uppercase, 1 lowercase, 1 symbol, and 1 number
-  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  const regex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   return regex.test(password);
 };
 
@@ -16,10 +17,10 @@ function EditProfile() {
   const axiosInstance = useAxiosInstance();
 
   const initialFormData = {
-    firstName: '',
-    lastName: '',
-    emailAddress: '',
-    password: '',
+    firstName: "",
+    lastName: "",
+    emailAddress: "",
+    password: "",
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -29,8 +30,8 @@ function EditProfile() {
     const { name, value } = e.target;
 
     // Clear password error when the user starts typing
-    if (name === 'password') {
-      setErrors({ ...errors, password: '' });
+    if (name === "password") {
+      setErrors({ ...errors, password: "" });
     }
 
     setFormData((prevData) => ({
@@ -43,13 +44,20 @@ function EditProfile() {
     e.preventDefault();
 
     // Check for empty values
-    const requiredFields = ['firstName', 'lastName', 'emailAddress', 'password'];
-    const emptyFields = requiredFields.filter((field) => !formData[field].trim());
+    const requiredFields = [
+      "firstName",
+      "lastName",
+      "emailAddress",
+      "password",
+    ];
+    const emptyFields = requiredFields.filter(
+      (field) => !formData[field].trim()
+    );
 
     if (emptyFields.length > 0) {
       setErrors({
         ...errors,
-        general: 'Please fill out all required fields.',
+        general: "Please fill out all required fields.",
       });
       return;
     }
@@ -59,21 +67,22 @@ function EditProfile() {
       setErrors({
         ...errors,
         password:
-          'Your password must have at least: 8 characters, 1 uppercase letter, 1 lowercase letter, 1 symbol, and 1 number.',
+          "Your password must have at least: 8 characters, 1 uppercase letter, 1 lowercase letter, 1 symbol, and 1 number.",
       });
       return;
     }
 
     try {
       const response = await axiosInstance.put(
-        'http://localhost:4000/api/users/update-user-details',
+        "/api/user/update-user-details",
         formData
       );
       console.log(response.data);
-      alert('User details updated successfully!');
+      alert("User details updated successfully!");
+      navigate("/campaigns");
     } catch (error) {
       console.error(error);
-      alert('Error updating user details. Please try again.');
+      alert("Error updating user details. Please try again.");
     }
 
     // Clear form data after submission
