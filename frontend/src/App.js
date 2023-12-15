@@ -6,7 +6,6 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import HomePage from "./pages/HomePage";
 import Discovery from "./pages/Discovery";
-import CampaignPage from "./pages/CampaignPage";
 import CampaignCreationForm from "./pages/CampaignCreation";
 import EditProfile from "./pages/EditProfile";
 import SearchBar from "./pages/SearchBar";
@@ -27,7 +26,6 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/discovery" element={<Discovery />} />
-          <Route path="/:id" element={<CampaignPage />} />
           <Route path="/start-fundraiser" element={<CampaignCreationForm />} />
           <Route path="/search" element={<SearchBar />} />
           <Route path="/edit-profile" element={<EditProfile />} />
