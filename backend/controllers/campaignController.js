@@ -1,6 +1,6 @@
 /*
  * Filename: campaignController.js
- * Author: Michael Omoleye
+ * Author: Michael Omoyele
  * Date: October 25, 2023
  * Description: This file contains endpoints for the Campaign Table in the Database
  *
@@ -97,7 +97,6 @@ const getAllCountries = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
-
 /**
  * @function getCampaignById
  * @description Fetches specific campaigns based off their id from the database.
@@ -106,6 +105,7 @@ const getAllCountries = async (req, res) => {
  * @returns {object} JSON response with an array of campaign countries.
  * @throws {object} JSON response with an error message if an error occurs.
  */
+
 const getCampaignById = async (req, res) => {
   try {
     const { id } = req.params; // Extract campaignId from request parameters
@@ -118,9 +118,6 @@ const getCampaignById = async (req, res) => {
     }
 
     const campaign = results[0]; // Take the first result
-
-   // Convert binary image data to base64
-  const base64Image = Buffer.from(campaign.posterImage).toString("base64");
 
 
     const formattedCampaign = {
@@ -136,9 +133,6 @@ const getCampaignById = async (req, res) => {
       endDate: campaign.endDate,
       creationDate: campaign.creationDate,
       campaignStatus: campaign.campaignStatus,
-      // Use the base64 image data
-      posterImage: `data:image/jpeg;base64,${base64Image}`,
-      //posterImage: campaign.posterImage,
     };
 
     res.status(200).json(formattedCampaign);
@@ -147,6 +141,7 @@ const getCampaignById = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
 
 /**
  * @function followCampaign
