@@ -1,6 +1,6 @@
 /*
  * Filename: campaignRoutes.js
- * Author: Michael Omoloye
+ * Author: Michael Omoyele
  * Date: October 25, 2023
  * Description: Defines routes related to campaigns using the campaignController.
  */

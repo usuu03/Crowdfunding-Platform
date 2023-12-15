@@ -133,6 +133,7 @@ const getCampaignById = async (req, res) => {
       endDate: campaign.endDate,
       creationDate: campaign.creationDate,
       campaignStatus: campaign.campaignStatus,
+      posterImage: campaign.posterImage,
     };
 
     res.status(200).json(formattedCampaign);
