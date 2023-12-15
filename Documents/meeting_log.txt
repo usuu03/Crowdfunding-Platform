@@ -605,4 +605,47 @@ Attendants: Michaek, Usu, Chris, Abdul
 Everyone jsut worked on their individual pet projects and not much was discussed as we had to end it early.
 
 
-08/12/2023 - Meeting with Supervisor - Duration ~ 
+08/12/2023 - Meeting with Supervisor - Duration ~ 1hr
+
+Aim to get a clean prototype by next week.
+
+
+12/12/2023 - Meeting time 3pm - Duration ~ 1hr
+
+What was discussed:
+- What everyone needed to do for the prototype.
+- What we are implementing after the holiday
+
+
+Michael:
+What he is currently working and what he has achieved: 
+- Continuing second feature UI
+
+Target for next meeting: 
+- To complete second feature implementation
+- Continue testing
+
+
+Chris:
+What he is currently working and what he has achieved:
+- Continuing working on Homepage feature.
+
+Target for next meeting: 
+- Have majority of homepage finished.
+- Do testing
+
+Usu:
+What he is currently working and what he has achieved: 
+- Testing and second feature.
+
+Target for next meeting: 
+- Have everything working for the prototype.
+
+Abdul:
+What he is currently working and what he has achieved: 
+- Implementing second feature.
+- Testing
+
+Target for next meeting: 
+- Have feature ready for prototype
+
