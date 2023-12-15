@@ -611,6 +611,7 @@ Aim to get a clean prototype by next week.
 
 
 12/12/2023 - Meeting time 3pm - Duration ~ 1hr
+Attendants: Michael, Chris, Abdul, Usu
 
 What was discussed:
 - What everyone needed to do for the prototype.
@@ -649,3 +650,9 @@ What he is currently working and what he has achieved:
 Target for next meeting: 
 - Have feature ready for prototype
 
+
+15/12/2023 - Meeting with Supervisor ~ Duration - 1hr
+Attendants: Michael, Abdul, Usu, Chris
+
+What we did:
+- Discussed everyones progress on their second features.
