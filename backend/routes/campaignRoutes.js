@@ -31,7 +31,6 @@ router.get("/country", campaignController.getAllCountries);
  */
 router.get("/all", campaignController.getAllCampaigns);
 
-
 /**
  * @route POST /api/campaigns/add-campaign
  * @description Adds a new campaign to the database.
@@ -93,5 +92,7 @@ router.delete(
   authenticateUser,
   campaignController.deleteCampaign
 );
+
+router.get("/:id", campaignController.getCampaignById);
 
 module.exports = router;

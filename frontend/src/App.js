@@ -10,6 +10,7 @@ import CampaignCreationForm from "./pages/CampaignCreation";
 import EditProfile from "./pages/EditProfile";
 import SearchBar from "./pages/SearchBar";
 import CampaignDashboard from "./pages/CampaignDashboard";
+import CampaignPage from "./pages/CampaignPage";
 
 //Importing Components
 import Header from "./components/Header";
@@ -30,6 +31,7 @@ function App() {
           <Route path="/search" element={<SearchBar />} />
           <Route path="/edit-profile" element={<EditProfile />} />
           <Route path="/campaigns" element={<CampaignDashboard />} />
+          <Route path="/:campaignID" element={<CampaignPage />} />
         </Routes>
       </div>
     </Router>

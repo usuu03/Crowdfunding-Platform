@@ -5,6 +5,7 @@ import { FaCaretDown } from "react-icons/fa";
 import { Modal, Button } from "react-bootstrap";
 import CustomPopup from "../components/CustomPopup";
 import axios from "axios";
+// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function Discovery() {
   const [showModal, setShowModal] = useState(false);
@@ -124,7 +125,9 @@ function Discovery() {
                 <img src="image-placeholder.jpg" alt="Campaign Image" />
               </div>
               <div id={`campaign-${campaign.campaignID}`}>
+                {/* <Link to={`/${campaign.campaignID}`}> */}
                 <h3>{campaign.title}</h3>
+                {/* </Link> */}
                 <p>
                   Raised: ${campaign.currentAmount} of ${campaign.goal}
                 </p>
