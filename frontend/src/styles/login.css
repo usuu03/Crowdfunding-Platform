@@ -1,0 +1,62 @@
+/*
+ * Filename: login.css
+ * Author: Usu Edeaghe
+ * Date: January 3, 2024
+ * Description: File which contains the styles for the Login Component
+ *
+ */
+
+@import "keep-react/css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+#login-card {
+    width: full;
+    /* Adjust the width as needed */
+    height: 500px;
+    /* Adjust the height as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputArea {
+    margin-top: 20px;
+    /* Increase the margin-top as needed */
+}
+
+/* Additional styling for form elements */
+.form-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    /* Increase the margin-top as needed */
+    width: 100%;
+}
+
+/* Adjusted styling for username and password fields */
+.username-field input,
+.password-field input {
+    padding: 10px;
+    margin-bottom: 15px;
+    /* Increased the margin-bottom for more space */
+    width: 100%;
+}
+
+.username-field .phosphor-react,
+.password-field .phosphor-react {
+    margin-right: 10px;
+    padding: 10px;
+    /* Adjust the margin as needed */
+}
