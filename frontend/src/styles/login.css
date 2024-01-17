@@ -1,7 +1,19 @@
 #form-div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.max-w-md {
     margin: 0 auto;
 }
 
-#navbar .nav-link.active {
-    text-decoration: underline;
+.form-elements-div {
+    align-items: center;
+    width: 100%;
+}
+
+
+#text {
+    text-align: center;
 }

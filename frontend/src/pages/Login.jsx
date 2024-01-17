@@ -9,6 +9,7 @@ import React, { useState } from "react";
 import { Alert, Button, Container, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthDispatch } from "../context/authContext";
+import "../styles/login.css";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -52,15 +53,15 @@ export default function Login() {
   };
 
   return (
-    <Container className="mt-5">
+    <Container className="mt-5 mx-auto">
       <div className="max-w-md mx-auto bg-white p-8 rounded-md shadow-md">
-        <h2 className="text-2xl font-semibold mb-4">
+        <h2 className="text-2xl font-semibold mb-4" id="text">
           Sign in to Crowdfunding Platform
         </h2>
-        <p>
+        <p id="text">
           Do not have an account? <Link to="/register">Sign Up</Link>
         </p>
-        <div className="form-container" id="form-div">
+        <div className="form" id="form-div">
           <h6>Your Account Details</h6>
           {/* Display Bootstrap alert for password error */}
           {errors.password && <Alert variant="danger">{errors.password}</Alert>}
@@ -71,6 +72,8 @@ export default function Login() {
                   placeholder="Email Address"
                   name="emailAddress"
                   type="text"
+                  className="email-form"
+                  size="lg"
                   onChange={handleInputChange}
                 />
               </div>
@@ -79,20 +82,24 @@ export default function Login() {
                   placeholder="Password"
                   name="password"
                   type="password"
+                  size="lg"
                   onChange={handleInputChange}
                 />
               </div>
-              <Button
-                type="submit"
-                id="login-btn"
-                className="btn btn-dark"
-                block
-              >
-                Sign In
-              </Button>{" "}
-              <p className="mt-2">
-                <a href="#">Forgot your password?</a>
-              </p>
+              <div className="d-grid gap-2">
+                <Button
+                  type="submit"
+                  id="login-btn"
+                  variant="outline-dark"
+                  size="lg"
+                  block
+                >
+                  Sign In
+                </Button>{" "}
+                <p className="mt-2" id="text">
+                  <a href="#">Forgot your password?</a>
+                </p>
+              </div>
             </div>
           </Form>
         </div>

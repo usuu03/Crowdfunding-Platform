@@ -27,9 +27,11 @@ code {
 
 }
 
-#navbar {
-  background-color: #6666ff;
+#navbar .nav-link.active {
+  text-decoration: none;
 }
+
+
 
 
 

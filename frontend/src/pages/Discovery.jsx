@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from "react";
-import Campaign from "../components/Campaign";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { FaCaretDown } from "react-icons/fa";
-import { Modal, Button } from "react-bootstrap";
-import CustomPopup from "../components/CustomPopup";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useEffect, useState } from "react";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Dropdown,
+  ProgressBar,
+  Row,
+} from "react-bootstrap";
+import CustomPopup from "../components/CustomPopup";
 
 function Discovery() {
   const [showModal, setShowModal] = useState(false);
@@ -64,7 +70,7 @@ function Discovery() {
     (currentAmount / goal) * 100 + "%";
 
   return (
-    <div className="container">
+    <Container>
       <div className="discovery" style={{ backgroundColor: "white" }}>
         <div>
           <h2 className="register-title">Discovery</h2>
@@ -75,76 +81,95 @@ function Discovery() {
             Explore a world of impactful campaigns and discover the causes that
             matter to you!
           </h3>
-          <button className="btn btn-primary" onClick={openPopup}>
+          <Button variant="primary" onClick={openPopup}>
             Learn More
-          </button>
+          </Button>
           {showModal && <CustomPopup closePopup={closePopup} />}
         </div>
       </div>
 
-      <div className="dropdown-container">
-        <h4>
-          Explore Campaigns in
-          <select
-            value={selectedCategory}
-            onChange={(e) => handleSelect(e.target.value, "categoriesDropdown")}
-            className="dropdown"
-          >
-            <option value="">Select Category</option>
-            {categories.map((category) => (
-              <option key={category.id} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
-        </h4>
+      <Row className="dropdown-container">
+        <Col>
+          <h4>
+            Explore Campaigns in
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="categoriesDropdown">
+                {selectedCategory || "Select Category"}
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item
+                  onClick={() => handleSelect("", "categoriesDropdown")}
+                >
+                  Select Category
+                </Dropdown.Item>
+                {categories.map((category) => (
+                  <Dropdown.Item
+                    key={category.id}
+                    onClick={() => handleSelect(category, "categoriesDropdown")}
+                  >
+                    {category}
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          </h4>
+        </Col>
 
-        <h4>
-          located in
-          <select
-            value={selectedCountry}
-            onChange={(e) => handleSelect(e.target.value, "countryDropdown")}
-            className="dropdown"
-          >
-            <option value="">Select Region</option>
-            {countries.map((country) => (
-              <option key={country?.id} value={country}>
-                {country}
-              </option>
-            ))}
-          </select>
-        </h4>
-      </div>
+        <Col>
+          <h4>
+            located in
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="countryDropdown">
+                {selectedCountry || "Select Region"}
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item
+                  onClick={() => handleSelect("", "countryDropdown")}
+                >
+                  Select Region
+                </Dropdown.Item>
+                {countries.map((country) => (
+                  <Dropdown.Item
+                    key={country?.id}
+                    onClick={() => handleSelect(country, "countryDropdown")}
+                  >
+                    {country}
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          </h4>
+        </Col>
+      </Row>
 
-      <div className="campaign-container">
+      <Row className="campaign-container">
         {filterCampaigns().map((campaign) => (
-          <div key={campaign.campaignID} className="campaign-box">
-            <div className="campaign-box-content">
-              <div className="campaign-image">
-                <img src="image-placeholder.jpg" alt="Campaign Image" />
-              </div>
-              <div id={`campaign-${campaign.campaignID}`}>
-                <h3>{campaign.title}</h3>
-                <p>
+          <Col key={campaign.campaignID} md={4} className="mb-4">
+            <Card>
+              <Card.Img
+                variant="top"
+                src="image-placeholder.jpg"
+                alt="Campaign Image"
+              />
+              <Card.Body>
+                <Card.Title>{campaign.title}</Card.Title>
+                <Card.Text>
                   Raised: ${campaign.currentAmount} of ${campaign.goal}
-                </p>
-                <div className="progress">
-                  <div
-                    className="progress-bar"
-                    style={{
-                      width: progressWidth(
-                        campaign.currentAmount,
-                        campaign.goal
-                      ),
-                    }}
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
+                </Card.Text>
+                <ProgressBar
+                  now={(campaign.currentAmount / campaign.goal) * 100}
+                  label={`${progressWidth(
+                    campaign.currentAmount,
+                    campaign.goal
+                  )}%`}
+                  visuallyHidden
+                />
+              </Card.Body>
+            </Card>
+          </Col>
         ))}
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 }
 
