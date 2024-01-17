@@ -7,17 +7,17 @@
 
 // App.js
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./context/authContext";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import HomePage from "./pages/HomePage";
-import Discovery from "./pages/Discovery";
-import CampaignCreationForm from "./pages/CampaignCreation";
-import EditProfile from "./pages/EditProfile";
-import SearchBar from "./pages/SearchBar";
-import CampaignDashboard from "./pages/CampaignDashboard";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Header from "./components/Header";
+import { AuthProvider } from "./context/authContext";
+import CampaignCreationForm from "./pages/CampaignCreation";
+import CampaignDashboard from "./pages/CampaignDashboard";
+import Discovery from "./pages/Discovery";
+import EditProfile from "./pages/EditProfile";
+import HomePage from "./pages/HomePage";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import SearchBar from "./pages/SearchBar";
 
 function App() {
   return (

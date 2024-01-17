@@ -71,7 +71,7 @@ function Discovery() {
 
   return (
     <Container>
-      <div className="discovery" style={{ backgroundColor: "white" }}>
+      <div className="discovery">
         <div>
           <h2 className="register-title">Discovery</h2>
         </div>
@@ -91,7 +91,7 @@ function Discovery() {
       <Row className="dropdown-container">
         <Col>
           <h4>
-            Explore Campaigns in
+            Explore Campaigns in{" "}
             <Dropdown>
               <Dropdown.Toggle variant="success" id="categoriesDropdown">
                 {selectedCategory || "Select Category"}
@@ -145,10 +145,10 @@ function Discovery() {
       <Row className="campaign-container">
         {filterCampaigns().map((campaign) => (
           <Col key={campaign.campaignID} md={4} className="mb-4">
-            <Card>
+            <Card style={{ width: "18rem" }}>
               <Card.Img
                 variant="top"
-                src="image-placeholder.jpg"
+                src={`http://localhost:4000/uploads/${campaign.posterImage}`}
                 alt="Campaign Image"
               />
               <Card.Body>

@@ -101,10 +101,6 @@ const getAllCountries = async (req, res) => {
 /**
  * @function addCampaign
  * @description Adds a new campaign to the database.
- * @param {object} req - Express request object.
- * @param {object} res - Express response object.
- * @returns {object} JSON response with a success message.
- * @throws {object} JSON response with an error message if an error occurs.
  */
 const addCampaign = async (req, res) => {
   const userID = req.user.userId;
@@ -115,8 +111,9 @@ const addCampaign = async (req, res) => {
     category,
     country,
     endDate,
-    posterImage,
   } = req.body;
+
+  const posterImage = req.file ? req.file.filename : null;
 
   const insertQuery = `INSERT INTO Campaign
     (campaignTitle, campaignDescription, userID, goal, category, country, endDate, posterImage)
@@ -149,10 +146,6 @@ const addCampaign = async (req, res) => {
 /**
  * @function searchCampaigns
  * @description Searches campaigns in the database based on a provided title.
- * @param {object} req - Express request object.
- * @param {object} res - Express response object.
- * @returns {object} JSON response with an array of matching campaigns.
- * @throws {object} JSON response with an error message if an error occurs.
  */
 const searchCampaigns = async (req, res) => {
   try {

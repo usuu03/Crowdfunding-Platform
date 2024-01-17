@@ -11,6 +11,7 @@ const app = express();
 const cors = require("cors");
 require("dotenv").config();
 const cookieParser = require("cookie-parser");
+const path = require("path");
 
 // Middleware
 app.use(express.json());
@@ -22,8 +23,6 @@ const authRoutes = require("./routes/authRoutes");
 const campaignRoutes = require("./routes/campaignRoutes");
 const userRoutes = require("./routes/userRoutes");
 const donationRoutes = require("./routes/donationRoutes");
-
-const { authenticateUser } = require("./middleware/authentication");
 
 // Use the user routes
 app.use("/api/user", userRoutes);
@@ -37,6 +36,8 @@ app.use("/api/donations", donationRoutes);
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
+
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => {

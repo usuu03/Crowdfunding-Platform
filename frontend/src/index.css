@@ -3,12 +3,14 @@
 
 
 body {
-  margin: 0;
+  margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+ 
+
 }
 
 code {
@@ -298,13 +300,17 @@ h4 {
   
 } */
 
-.campaign-container {
+/* .campaign-container {
   margin: 30px auto;
   /* Center the campaign container with auto left and right margins */
-  display: grid;
+/* display: grid;
   width: 75%;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+} */
+
+.campaign-container {
+  /* margin-right: 10px; */
 }
 
 .campaign-box {

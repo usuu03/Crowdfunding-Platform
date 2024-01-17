@@ -54,7 +54,7 @@ export default function Login() {
 
   return (
     <Container className="mt-5 mx-auto">
-      <div className="max-w-md mx-auto bg-white p-8 rounded-md shadow-md">
+      <div className="max-w-md mx-auto  p-8 rounded-md shadow-md">
         <h2 className="text-2xl font-semibold mb-4" id="text">
           Sign in to Crowdfunding Platform
         </h2>
@@ -77,7 +77,7 @@ export default function Login() {
                   onChange={handleInputChange}
                 />
               </div>
-              <div className="mb-3">
+              <div className="mb-3 ">
                 <Form.Control
                   placeholder="Password"
                   name="password"
@@ -90,7 +90,7 @@ export default function Login() {
                 <Button
                   type="submit"
                   id="login-btn"
-                  variant="outline-dark"
+                  variant="outline-primary"
                   size="lg"
                   block
                 >

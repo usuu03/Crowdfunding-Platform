@@ -9,6 +9,7 @@ const express = require("express");
 const router = express.Router();
 const campaignController = require("../controllers/campaignController");
 const { authenticateUser } = require("../middleware/authentication");
+const { uploadImage } = require("../middleware/images");
 
 /**
  * @route GET /api/campaigns/categories
@@ -36,7 +37,12 @@ router.get("/all", campaignController.getAllCampaigns);
  * @description Adds a new campaign to the database.
  * @access Private (Requires authentication)
  */
-router.post("/add-campaign", authenticateUser, campaignController.addCampaign);
+router.post(
+  "/add-campaign",
+  authenticateUser,
+  uploadImage,
+  campaignController.addCampaign
+);
 
 /**
  * @route POST /api/campaigns/search
