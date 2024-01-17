@@ -90,7 +90,7 @@ function Discovery() {
 
       <Row className="dropdown-container">
         <Col>
-          <h4>
+          <h4 className="h4-no-margin">
             Explore Campaigns in{" "}
             <Dropdown>
               <Dropdown.Toggle variant="success" id="categoriesDropdown">
@@ -116,7 +116,7 @@ function Discovery() {
         </Col>
 
         <Col>
-          <h4>
+          <h4 className="h4-no-margin">
             located in
             <Dropdown>
               <Dropdown.Toggle variant="success" id="countryDropdown">
