@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
-import { FaSearch } from "react-icons/fa";
+import { FaRegUser, FaSearch } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import { useAuthDispatch, useAuthState } from "../context/authContext";
 
@@ -29,15 +29,22 @@ function Header() {
                 Discovery
               </Nav.Link>
               {/* Start a Campaign */}
-              <Nav.Link as={NavLink} to="/start-fundraiser" id="nav-item">
-                Start a Campaign
-              </Nav.Link>
+
+              {/* Will be displayed if the User is Authenticated */}
+              {isAuthenticated && (
+                <Nav.Link as={NavLink} to="/campaigns" id="nav-item">
+                  My Campaigns
+                </Nav.Link>
+              )}
+              {/* Start a Campaign */}
+              {isAuthenticated && (
+                <Nav.Link as={NavLink} to="/start-fundraiser" id="nav-item">
+                  Start a Campaign
+                </Nav.Link>
+              )}
               {/* My Campaigns, Edit Profile, Logout */}
               {isAuthenticated && (
-                <NavDropdown title={user.username} id="nav-dropdown">
-                  <NavDropdown.Item as={NavLink} to="/campaigns">
-                    My Campaigns
-                  </NavDropdown.Item>
+                <NavDropdown title={<FaRegUser />} id="nav-dropdown">
                   <NavDropdown.Item as={NavLink} to="/edit-profile">
                     Edit Profile
                   </NavDropdown.Item>

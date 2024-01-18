@@ -312,7 +312,11 @@ h4 {
 } */
 
 .campaign-container {
-  /* margin-right: 10px; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 30px auto;
+  /* Center the campaign container with auto left and right margins */
 }
 
 .campaign-box {
@@ -320,10 +324,10 @@ h4 {
   border: 1px solid #ddd;
   border-radius: 15px;
   padding: 20px;
-  /* Comment out the width property to allow flexibility within the grid */
-  /* width: 200px; */
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   text-align: center;
+  width: 100%;
+  /* Make each card take 100% width of its container */
 }
 
 .campaign-box-content {

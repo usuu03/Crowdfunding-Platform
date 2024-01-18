@@ -4,12 +4,11 @@
  * Date: November 20, 2023
  * Description: This file contains the UI implementation of Campaign Dashboard Page
  */
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Campaign from "../components/Campaign";
-import { useAuthState } from "../context/authContext";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import Nav from "react-bootstrap/Nav";
+import { useNavigate } from "react-router-dom";
 import useAxiosInstance from "../axiosInstance";
+import { useAuthState } from "../context/authContext";
 
 import "../styles/dashboard.css";
 
@@ -129,47 +128,53 @@ function CampaignDashboard() {
           </div>
 
           <div className="btn-section">
-            <button
-              id="btn"
-              className={`btn btn-primary ${
-                selectedTab === "Started" ? "active" : ""
-              }`}
-              onClick={() => {
-                fetchUserCreatedCampaigns();
-                handleTabChange("Started");
-              }}
-            >
-              Started
-            </button>
-            <button
-              id="btn"
-              className={`btn btn-info ${
-                selectedTab === "Donated" ? "active" : ""
-              }`}
-              onClick={() => {
-                fetchUserDonatedCampaigns();
-                handleTabChange("Donated");
-              }}
-            >
-              Donated
-            </button>
-            <button
-              id="btn"
-              className={`btn btn-success ${
-                selectedTab === "Following" ? "active" : ""
-              }`}
-              onClick={() => {
-                fetchUserFollowedCampaigns();
-                handleTabChange("Following");
-              }}
-            >
-              Following
-            </button>
+            <Nav variant="tabs" defaultActiveKey="Started">
+              <Nav.Item>
+                <Nav.Link
+                  eventKey="Started"
+                  className={`nav-link ${
+                    selectedTab === "Started" ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    fetchUserCreatedCampaigns();
+                    handleTabChange("Started");
+                  }}
+                >
+                  Started
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link
+                  eventKey="Donated"
+                  className={`nav-link ${
+                    selectedTab === "Donated" ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    fetchUserDonatedCampaigns();
+                    handleTabChange("Donated");
+                  }}
+                >
+                  Donated
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link
+                  eventKey="Following"
+                  className={`nav-link ${
+                    selectedTab === "Following" ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    fetchUserFollowedCampaigns();
+                    handleTabChange("Following");
+                  }}
+                >
+                  Following
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
           </div>
 
-          <hr />
-
-          <div className="campaign-container">
+          <div className="campaign-container" style={{ marginTop: "20px" }}>
             {selectedTab === "Started" &&
               userCampaigns.map((fundraiser) => (
                 <div key={fundraiser.campaignID} className="campaign-box">
