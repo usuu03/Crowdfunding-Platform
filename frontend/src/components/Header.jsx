@@ -4,7 +4,6 @@ import { BsPersonFill } from "react-icons/bs";
 import { FaSearch } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import { useAuthDispatch, useAuthState } from "../context/authContext";
-im;
 
 function Header() {
   const { isAuthenticated, user } = useAuthState();
