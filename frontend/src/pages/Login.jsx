@@ -53,56 +53,45 @@ export default function Login() {
   };
 
   return (
-    <Container className="mt-5 mx-auto">
-      <div className="max-w-md mx-auto  p-8 rounded-md shadow-md">
-        <h2 className="text-2xl font-semibold mb-4" id="text">
+    <Container className="">
+      <div className="login">
+        <h2 className="" id="">
           Sign in to Crowdfunding Platform
         </h2>
         <p id="text">
           Do not have an account? <Link to="/register">Sign Up</Link>
         </p>
-        <div className="form" id="form-div">
-          <h6>Your Account Details</h6>
-          {/* Display Bootstrap alert for password error */}
-          {errors.password && <Alert variant="danger">{errors.password}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <div className="form-elements-div">
-              <div className="mb-3">
-                <Form.Control
-                  placeholder="Email Address"
-                  name="emailAddress"
-                  type="text"
-                  className="email-form"
-                  size="lg"
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="mb-3 ">
-                <Form.Control
-                  placeholder="Password"
-                  name="password"
-                  type="password"
-                  size="lg"
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="d-grid gap-2">
-                <Button
-                  type="submit"
-                  id="login-btn"
-                  variant="outline-primary"
-                  size="lg"
-                  block
-                >
-                  Sign In
-                </Button>{" "}
-                <p className="mt-2" id="text">
-                  <a href="#">Forgot your password?</a>
-                </p>
-              </div>
-            </div>
-          </Form>
-        </div>
+        <Form onSubmit={handleSubmit} className="login-form">
+          <div className="login-form">
+            <Form.Control
+              placeholder="Email Address"
+              size="md"
+              name="emailAddress"
+              id="input"
+              onChange={handleInputChange}
+            />
+            <Form.Control
+              placeholder="*******"
+              name="password"
+              size="md"
+              type="password"
+              id="input"
+              onChange={handleInputChange}
+            />
+            <Button
+              variant="outline-primary"
+              name="login-btn"
+              type="submit"
+              size="md"
+              block
+              id="input"
+            >
+              Log In
+            </Button>
+          </div>
+        </Form>
+        {/* Display Bootstrap alert for password error */}
+        {errors.password && <Alert variant="danger">{errors.password}</Alert>}
       </div>
     </Container>
   );
