@@ -66,25 +66,8 @@ hr {
     /* Center vertically */
 /* margin-left: 25vh;
 } */
-.button-container {
-    /* background-color: #f2f2f2; */
 
-    border-width: 3px;
-    border: 1px solid #f2f2f2;
-    /* Adjust the width as needed */
-    border-radius: 5px;
-    padding: 20px;
-    /* box-shadow: 5px 5px 5px 5px #dcdcdc; */
-    padding: 15vh;
-    display: flex;
-    width: max-content;
-    align-items: center;
-    justify-content: center;
-    /* Center horizontally */
-    margin-left: 30vh;
-}
-
-.button-container button {
+.btn-container {
     margin: 0 auto;
-    /* Center horizontally */
+    margin-bottom: 10%;
 }

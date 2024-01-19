@@ -1,8 +1,10 @@
 import React from "react";
 import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
-import { FaRegUser, FaSearch } from "react-icons/fa";
+import { BsPersonFill } from "react-icons/bs";
+import { FaSearch } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import { useAuthDispatch, useAuthState } from "../context/authContext";
+im;
 
 function Header() {
   const { isAuthenticated, user } = useAuthState();
@@ -44,7 +46,10 @@ function Header() {
               )}
               {/* My Campaigns, Edit Profile, Logout */}
               {isAuthenticated && (
-                <NavDropdown title={<FaRegUser />} id="nav-dropdown">
+                <NavDropdown
+                  title={<BsPersonFill className="icon-container" />}
+                  id="nav-dropdown"
+                >
                   <NavDropdown.Item as={NavLink} to="/edit-profile">
                     Edit Profile
                   </NavDropdown.Item>

@@ -24,6 +24,11 @@ code {
   color: white;
 }
 
+.icon-container {
+  fill: white;
+  width: 100%;
+}
+
 #nav-item {
   color: white;
 
