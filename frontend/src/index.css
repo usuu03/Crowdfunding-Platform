@@ -45,6 +45,7 @@ code {
 
 /* Discovery Page Styles */
 .discovery {
+  margin-top: 10%;
   text-align: center;
   padding: 20px;
 }
@@ -255,36 +256,9 @@ h4 {
   /* Center the campaign container with auto left and right margins */
 }
 
-.campaign-box {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  width: 100%;
-  /* Make each card take 100% width of its container */
-}
-
-.campaign-box-content {
-  padding: 20px;
-  text-align: center;
-}
-
-.campaign-image {
-  max-width: 100%;
-  max-height: 150px;
-  object-fit: cover;
-}
-
-#campaign-1 h3 {
-  font-size: 20px;
-  color: #333;
-}
-
-#campaign-1 p {
-  font-size: 16px;
-  color: #666;
+.pagination {
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .progress {

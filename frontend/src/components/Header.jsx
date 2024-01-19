@@ -14,10 +14,10 @@ function Header() {
 
   return (
     <header>
-      <Navbar expand="lg" bg="primary" variant="un" id="navbar">
+      <Navbar expand="lg" bg="primary" variant="un" id="navbar" fixed="top">
         <Container>
           <Navbar.Brand as={Link} to="/discovery" id="header-text">
-            Crowdfunding Platform
+            HelpingHand
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarNavDropdown" />
           <Navbar.Collapse id="navbarNavDropdown">
