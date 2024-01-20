@@ -12,6 +12,8 @@ const AuthDispatchContext = createContext();
 const authReducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
+      localStorage.setItem("user", JSON.stringify(action.payload.user));
+      localStorage.setItem("token", action.payload.token);
       return {
         ...state,
         isAuthenticated: true,
@@ -19,6 +21,8 @@ const authReducer = (state, action) => {
         token: action.payload.token,
       };
     case "LOGOUT":
+      localStorage.removeItem("user");
+      localStorage.removeItem("token");
       return {
         ...state,
         isAuthenticated: false,
@@ -31,10 +35,13 @@ const authReducer = (state, action) => {
 };
 
 const AuthProvider = ({ children }) => {
+  const storedUser = localStorage.getItem("user");
+  const storedToken = localStorage.getItem("token");
+
   const [state, dispatch] = useReducer(authReducer, {
-    isAuthenticated: false,
-    user: null,
-    token: null,
+    isAuthenticated: !!storedUser && !!storedToken,
+    user: storedUser ? JSON.parse(storedUser) : null,
+    token: storedToken || null,
   });
 
   return (
@@ -63,4 +70,4 @@ const useAuthDispatch = () => {
   return context;
 };
 
-export { AuthProvider, useAuthState, useAuthDispatch };
+export { AuthProvider, useAuthDispatch, useAuthState };

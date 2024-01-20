@@ -40,6 +40,7 @@ function CampaignDashboard() {
     try {
       const response = await axiosInstance.get("/api/campaigns/user");
       setUserCampaigns(response.data);
+      console.log(response.data);
     } catch (error) {
       console.error("Error fetching user campaigns:", error);
       // Handle error if needed
@@ -178,14 +179,15 @@ function CampaignDashboard() {
           <div className="campaign-container" style={{ marginTop: "20px" }}>
             {selectedTab === "Started" &&
               userCampaigns.map((campaign) => (
-                <Card border="light">
+                <Card border="light" id={campaign.campaignID}>
                   <Card.Img
                     variant="top"
                     src={`http://localhost:4000/uploads/${campaign.posterImage}`}
                   />
 
                   <Card.Body id={`campaign-${campaign.campaignID}`}>
-                    <Card.Title>{campaign.title}</Card.Title>
+                    <Card.Title>{campaign.campaignTitle}</Card.Title>
+
                     <Card.Text>
                       Raised: ${campaign.currentAmount} of ${campaign.goal}
                     </Card.Text>
@@ -203,14 +205,14 @@ function CampaignDashboard() {
 
             {selectedTab === "Donated" &&
               userDonated.map((campaign) => (
-                <Card border="light">
+                <Card border="light" id={campaign.campaignID}>
                   <Card.Img
                     variant="top"
                     src={`http://localhost:4000/uploads/${campaign.posterImage}`}
                   />
 
                   <Card.Body id={`campaign-${campaign.campaignID}`}>
-                    <Card.Title>{campaign.title}</Card.Title>
+                    <Card.Title>{campaign.campaignTitle}</Card.Title>
                     <Card.Text>
                       Raised: ${campaign.currentAmount} of ${campaign.goal}
                     </Card.Text>
@@ -228,14 +230,15 @@ function CampaignDashboard() {
 
             {selectedTab === "Following" &&
               userFollowed.map((campaign) => (
-                <Card border="light">
+                <Card border="light" id={campaign.campaignID}>
                   <Card.Img
                     variant="top"
                     src={`http://localhost:4000/uploads/${campaign.posterImage}`}
                   />
 
                   <Card.Body id={`campaign-${campaign.campaignID}`}>
-                    <Card.Title>{campaign.title}</Card.Title>
+                    <Card.Title>{campaign.campaignTitle}</Card.Title>
+
                     <Card.Text>
                       Raised: ${campaign.currentAmount} of ${campaign.goal}
                     </Card.Text>
