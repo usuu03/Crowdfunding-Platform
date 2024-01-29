@@ -1,6 +1,6 @@
 /*
  * Filename: campaignRoutes.js
- * Author: Michael Omoloye
+ * Author: Michael Omoyele
  * Date: October 25, 2023
  * Description: Defines routes related to campaigns using the campaignController.
  */
@@ -30,13 +30,6 @@ router.get("/country", campaignController.getAllCountries);
  * @access Public
  */
 router.get("/all", campaignController.getAllCampaigns);
-
-/**
- * @route GET /api/campaigns/:id
- * @description Retrieves campaigns by id.
- * @access Public
- */
-router.get("/:id", campaignController.getCampaignById);
 
 /**
  * @route POST /api/campaigns/add-campaign
@@ -99,5 +92,7 @@ router.delete(
   authenticateUser,
   campaignController.deleteCampaign
 );
+
+router.get("/:id", campaignController.getCampaignById);
 
 module.exports = router;

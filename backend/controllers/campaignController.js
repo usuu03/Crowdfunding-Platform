@@ -97,74 +97,6 @@ const getAllCountries = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
-/**
- * @function getCampaignById
- * @description Fetches specific campaigns based off their id from the database.
- * @param {object} req - Express request object.
- * @param {object} res - Express response object.
- * @returns {object} JSON response with an array of campaign countries.
- * @throws {object} JSON response with an error message if an error occurs.
- */
-
-const getCampaignById = async (req, res) => {
-  try {
-    const { id } = req.params; // Extract campaignId from request parameters
-
-    const query = "SELECT * FROM Campaign WHERE campaignID = ?";
-    const [results] = await db.promise().query(query, [id]);
-
-    if (results.length === 0) {
-      return res.status(404).json({ message: "No campaign found" });
-    }
-
-    const campaign = results[0]; // Take the first result
-
-
-    const formattedCampaign = {
-      campaignID: campaign.campaignID,
-      campaignTitle: campaign.campaignTitle,
-      campaignDescription: campaign.campaignDescription,
-      goal: campaign.goal,
-      followerCount: campaign.followerCount,
-      currentAmount: campaign.currentAmount,
-      category: campaign.category,
-      country: campaign.country,
-      startDate: campaign.startDate,
-      endDate: campaign.endDate,
-      creationDate: campaign.creationDate,
-      campaignStatus: campaign.campaignStatus,
-    };
-
-    res.status(200).json(formattedCampaign);
-  } catch (error) {
-    console.error("Error fetching campaign data:", error);
-    res.status(500).json({ message: "Internal Server Error" });
-  }
-};
-
-
-/**
- * @function followCampaign
- * @description Adds new follower of campaign to the database
- * @param {object} req - Express request object.
- * @param {object} res - Express response object.
- * @returns {object} JSON response with an array of campaign countries.
- * @throws {object} JSON response with an error message if an error occurs.
- */
-const followCampaign = async (req, res) => {
-  const { campaignId } = req.params;
-
-  try {
-    const updateQuery = "UPDATE Campaign SET followerCount = followerCount + 1 WHERE campaignID = ?";
-    await db.promise().query(updateQuery, [campaignId]);
-
-    res.status(200).json({ message: "Successfully followed the campaign." });
-  } catch (error) {
-    console.error("Error following the campaign:", error);
-    res.status(500).json({ message: "Internal Server Error" });
-  }
-};
-
 
 /**
  * @function addCampaign
@@ -459,12 +391,52 @@ const deleteCampaign = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+const getCampaignById = async (req, res) => {
+  try {
+    const { id } = req.params; // Extract campaignId from request parameters
+
+    const query = "SELECT * FROM Campaign WHERE campaignID = ?";
+    const [results] = await db.promise().query(query, [id]);
+
+    if (results.length === 0) {
+      return res.status(404).json({ message: "No campaign found" });
+    }
+
+    const campaign = results[0]; // Take the first result
+
+    // Convert binary image data to base64
+    const base64Image = Buffer.from(campaign.posterImage).toString("base64");
+
+    const formattedCampaign = {
+      campaignID: campaign.campaignID,
+      campaignTitle: campaign.campaignTitle,
+      campaignDescription: campaign.campaignDescription,
+      goal: campaign.goal,
+      followerCount: campaign.followerCount,
+      currentAmount: campaign.currentAmount,
+      category: campaign.category,
+      country: campaign.country,
+      startDate: campaign.startDate,
+      endDate: campaign.endDate,
+      creationDate: campaign.creationDate,
+      campaignStatus: campaign.campaignStatus,
+      // Use the base64 image data
+      posterImage: `data:image/jpeg;base64,${base64Image}`,
+      //posterImage: campaign.posterImage,
+    };
+
+    res.status(200).json(formattedCampaign);
+  } catch (error) {
+    console.error("Error fetching campaign data:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
 module.exports = {
   getAllCampaigns,
   getAllCategories,
   getAllCountries,
-  getCampaignById,
-  followCampaign,
   addCampaign,
   searchCampaigns,
   getUserCampaigns,
@@ -472,4 +444,5 @@ module.exports = {
   getUserDonatedCampaigns,
   updateCampaigns,
   deleteCampaign,
+  getCampaignById,
 };
