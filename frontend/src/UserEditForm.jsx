@@ -30,8 +30,6 @@ function UserEditForm({ userId }) {
       console.error(error);
       alert('Error updating user details. Please try again.');
     }
-
-    // You can add additional logic here if needed, such as redirecting the user.
   };
 
   return (
