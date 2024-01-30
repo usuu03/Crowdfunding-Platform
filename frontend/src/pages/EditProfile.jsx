@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import useAxiosInstance from "../axiosInstance";
@@ -26,6 +26,23 @@ function EditProfile() {
   const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState({});
 
+  useEffect(() => {
+    // Fetch user details when component mounts
+    const fetchUserDetails = async () => {
+      try {
+        const response = await axiosInstance.get("/api/user/details");
+        const userDetails = response.data[0]; // Assuming the response is an array with one element
+        setFormData(userDetails);
+      } catch (error) {
+        console.error("Error fetching user details:", error);
+      }
+    };
+
+    if (isAuthenticated) {
+      fetchUserDetails();
+    }
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -44,15 +61,8 @@ function EditProfile() {
     e.preventDefault();
 
     // Check for empty values
-    const requiredFields = [
-      "firstName",
-      "lastName",
-      "emailAddress",
-      "password",
-    ];
-    const emptyFields = requiredFields.filter(
-      (field) => !formData[field].trim()
-    );
+    const requiredFields = ["firstName", "lastName", "emailAddress", "password"];
+    const emptyFields = requiredFields.filter((field) => !formData[field].trim());
 
     if (emptyFields.length > 0) {
       setErrors({
