@@ -1,0 +1,13 @@
+MUST DO USER STORIES: 
+
+- Payments System ~ Usu
+- Update and Delete Campaign ~ Michael 
+- Comment Section ~ Chris 
+- Email Integration ~ 
+- Social Media Integration 
+
+
+
+
+NICE TO HAVES
+- IT Support 
