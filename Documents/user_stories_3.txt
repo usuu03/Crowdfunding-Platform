@@ -6,8 +6,24 @@ MUST DO USER STORIES:
 - Email Integration ~ 
 - Social Media Integration 
 
+User story 3 - comments section - chris
+
+User story - as a donator I want to be able to communicate with other like-minded donators within a moments section on the donation page
+
+Conversation:
+-  user’  should be able to communicate with other donators 
+-  the user should see other comments inside of the comments section 
+-  the user should be able to click a button after they have finished writhing their message to send their message.
+
+Acceptance criteria:
+- the user should be able to scroll through different comments 
+- the user should be able to send their own comments 
+
+
+
 
 
 
 NICE TO HAVES
 - IT Support 
+- random donation (random act of kindness buton)
