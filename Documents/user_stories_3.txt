@@ -13,7 +13,11 @@ User Story - As a campaign creator I want to be edit information and apply updat
 Conversation:
 - User should be able to easily remove and add information for the campaign
 - User should be able to delete a campaign if goal has been reached
-- User should be able to have access to the campaign in
+- User should be able to view changes made to campaign page easily
+
+Acceptance Criteria:
+- Only campaign creator can edit or delete the campaign page
+-
 
 
 User story 3 - comments section - chris
