@@ -17,7 +17,8 @@ Conversation:
 
 Acceptance Criteria:
 - Only campaign creator can edit or delete the campaign page
--
+- Potential donors and users should see these updates instantly.
+- Once Campaign is removed noone should be able to access it
 
 
 User story 3 - comments section - chris
