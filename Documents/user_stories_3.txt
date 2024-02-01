@@ -6,6 +6,11 @@ MUST DO USER STORIES:
 - Email Integration ~ Abdul
 - Social Media Integration 
 
+NICE TO HAVES
+- IT Support 
+- random donation (random act of kindness buton)
+
+
 User Story 2 - Update and Delete Campaign - Michael
 
 User Story - As a campaign creator I want to be edit information and apply updates to my campaign page based on the campaign's progress so that I can keep followers and supporters in the loop every step of the way.
@@ -33,16 +38,6 @@ Conversation:
 Acceptance criteria:
 - the user should be able to scroll through different comments 
 - the user should be able to send their own comments 
-
-
-
-
-
-
-NICE TO HAVES
-- IT Support 
-- random donation (random act of kindness buton)
-
 
 
 
