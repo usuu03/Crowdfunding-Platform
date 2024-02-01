@@ -3,7 +3,7 @@ MUST DO USER STORIES:
 - Payments System ~ Usu
 - Update and Delete Campaign ~ Michael 
 - Comment Section ~ Chris 
-- Email Integration ~ 
+- Email Integration ~ Abdul
 - Social Media Integration 
 
 User Story 2 - Update and Delete Campaign - Michael
