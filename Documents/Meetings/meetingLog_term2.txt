@@ -1,0 +1,17 @@
+30/01/2024 - Group Meeting - Usu, Michael, Chris, Abdul 
+
+Time: 3PM - Duration 
+
+
+Met to discuss the new User Stories and creative features users can implement
+Potential Ideas:
+- Deleting Campaign
+- Updating a Campaign 
+- Payment systems
+- Chatroom  
+- Random Act of Kindness
+- Instagram integration (User Creates Campaign and the Crowdfunding Platform Instagram Account posts that Campaign )
+- Email Integration 
+    - Email Notifications when someone donates, etc 
+- Matching Grant, companies can offer larger amounts to campaigns 
+- Non-monetary contributions, can be goods or services 
