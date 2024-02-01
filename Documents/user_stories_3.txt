@@ -42,3 +42,25 @@ Acceptance criteria:
 NICE TO HAVES
 - IT Support 
 - random donation (random act of kindness buton)
+
+
+
+
+USER STORY - Payment System with Blockchain Integration - Usu Edeaghe
+
+STORY:
+As a registered user on the crowdfunding platform, I want to be able to make secure payments towards campaigns I support, ensuring that my donations reach their intended recipients transparently through blockchain technology.
+
+CONVERSATION:
+- Users should be able to access the payment system from individual campaign pages or their campaign dashboard.
+- Payment system should support methods such as credit/debit cards, Paypal, and blockchain transactions.
+- Users should have the option to make one-time donations or set up recurring donations for ongoing support.
+- The payment system should be user-friendly with clear prompts and confirmation messages through each step.
+- Users should receive immediate confirmation of their donations, including a receipt and acknowledgment from the campaign creator.
+
+ACCEPTANCE CRITERIA:
+1. Users can access the payment system from both individual campaign pages and their campaign dashboard.
+2. Payment system supports multiple payment methods, including credit/debit cards, Paypal, and blockchain transactions.
+3. Users can choose between one-time donations and recurring donations with customizable frequency and duration.
+4. Users receive immediate confirmation of their donations, along with a receipt and acknowledgment from the campaign creator.
+
