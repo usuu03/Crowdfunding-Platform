@@ -256,19 +256,22 @@ function CampaignDashboard() {
 
             {userCampaigns.length === 0 && selectedTab === "Started" && (
               <div className="button-container">
+                <h6>No Campaigns have been started.</h6>
                 <Button
                   className="btn btn-warning"
+                  size="md"
                   onClick={() => {
                     navigate("/start-fundraiser");
                   }}
                 >
-                  Start a Fundraiser
+                  Start a Campaign
                 </Button>
               </div>
             )}
 
             {userDonated.length === 0 && selectedTab === "Donated" && (
               <div className="button-container">
+                <h6>No Donations have been made.</h6>
                 <button
                   className="btn btn-warning"
                   onClick={() => {
@@ -282,8 +285,14 @@ function CampaignDashboard() {
 
             {userFollowed.length === 0 && selectedTab === "Following" && (
               <div className="btn-container">
-                <h4>No Followed Campaigns</h4>
-                <Button variant="warning" size="lg">
+                <h6>No Followed Campaigns</h6>
+                <Button
+                  onClick={() => {
+                    navigate("/discovery");
+                  }}
+                  variant="warning"
+                  size="md"
+                >
                   Follow a Fundraiser
                 </Button>
               </div>
