@@ -6,6 +6,16 @@ MUST DO USER STORIES:
 - Email Integration ~ 
 - Social Media Integration 
 
+User Story 2 - Update and Delete Campaign - Michael
+
+User Story - As a campaign creator I want to be edit information and apply updates to my campaign page based on the campaign's progress so that I can keep followers and supporters in the loop every step of the way.
+
+Conversation:
+- User should be able to easily remove and add information for the campaign
+- User should be able to delete a campaign if goal has been reached
+- User should be able to have access to the campaign in
+
+
 User story 3 - comments section - chris
 
 User story - as a donator I want to be able to communicate with other like-minded donators within a moments section on the donation page
@@ -27,33 +37,3 @@ Acceptance criteria:
 NICE TO HAVES
 - IT Support 
 - random donation (random act of kindness buton)
-
-
-
-
-USER STORY - Payment System - Usu Edeaghe 
-
-STORY:
-As a registered user on the crowdfunding platform, I want to be able to make secure
-payments towards campaigns I support, ensuring that my donations reach their intended 
-recipients and transparently.
-
-CONVERSATION: 
-- Users should be able to access the payment system from individual campaign pages or 
-their campaign dashboard
-- Payment system should support methods such as credit/debit cards, and Paypal
-- Users should have the option to make one-time donations or set up recurring donations for
-ongoing support
-- Users should be user friendly with clear prompts and confirmation messages through each step
-- Users should receive immediate confirmation of their donations, including a receipt 
-and acknowledgment from campaign creator
-
-ACCEPTANCE CRITERIA: 
-1. Users can access the payment system from both individual campaign pages and their 
-campaign dashboard
-2. Payment system supports multiple payment methods, including credit/debit cards, Paypal 
-3. Users can choose between one-time donations and recurring donations with customizable 
-frequency and durtion.
-4. Users receive immediate confirmation of their donations, along with a receipt and acknowledgment 
-from the campaign creator.
-
