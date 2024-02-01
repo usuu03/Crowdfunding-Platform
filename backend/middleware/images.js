@@ -1,13 +1,13 @@
 // uploadMiddleware.js
-import { v2 as cloudinary } from "cloudinary";
+// import { v2 as cloudinary } from "cloudinary";
 const multer = require("multer");
 const path = require("path");
 
-cloudinary.config({
-  cloud_name: "djaylhbph",
-  api_key: "149185691639867",
-  api_secret: "jkBm42de6S5CBFzt3tT-lbucqv4",
-});
+// cloudinary.config({
+//   cloud_name: "djaylhbph",
+//   api_key: "149185691639867",
+//   api_secret: "jkBm42de6S5CBFzt3tT-lbucqv4",
+// });
 
 // Define storage for multer
 const storage = multer.diskStorage({
