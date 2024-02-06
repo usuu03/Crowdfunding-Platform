@@ -59,3 +59,19 @@ ACCEPTANCE CRITERIA:
 3. Users can choose between one-time donations and recurring donations with customizable frequency and duration.
 4. Users receive immediate confirmation of their donations, along with a receipt and acknowledgment from the campaign creator.
 
+
+
+User Story - Email Integration - Abdul
+
+Story:
+Users should get emails when they complete certain actions on the website e.g. create an account, change their details, donate to a campaign etc.
+
+Conversation:
+1. As a new user, when I create an account on the website, I should receive a welcome email confirming my registration.
+2. When I update my account details (e.g., name, email, password), I should receive a confirmation email acknowledging the changes.
+3. Upon successfully donating to a campaign, I should receive an email receipt confirming my donation.
+
+Acceptance Criteria:
+1. Emails should be personalized and contain information relevant to the specific action performed.
+2. Emails should have clear subject lines indicating the purpose (e.g., "Welcome", "Donation Receipt").
+3. The system should handle email delivery reliably, ensuring that emails are sent promptly and that users receive them in their inbox without delay.
