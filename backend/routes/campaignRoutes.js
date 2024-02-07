@@ -101,6 +101,4 @@ router.delete(
   campaignController.deleteCampaign
 );
 
-router.get("/:id", campaignController.getCampaignById);
-
 module.exports = router;
