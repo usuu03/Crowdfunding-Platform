@@ -37,3 +37,22 @@ Tasks for next week:
 - Progress on our pet projects 
 - Finish our last pet projects 
 - Update Gitlab with project deliverables
+
+06/02/2024 - Group meeting - Usu, Michael, Chris, Abdul
+
+Time - 3PM
+
+indiviudal updates 
+- errors and progress for each perosn
+- chris- error is integration working with indiviudal branch. and finsihed user story for next pet project
+- Michael - finisihed progress page and completed user story for next pet project 
+- Abdul - no errors completed user story for next pet project, and is now working on next pet project 
+- Usu - completed user story for next project, updated the Git with project deliverables and issues and made a start on next pet projects
+
+group updates 
+
+abstract - created a shared document and began abstract
+poster - 
+evaluation forms - made a start on evaluation forms 
+
+
