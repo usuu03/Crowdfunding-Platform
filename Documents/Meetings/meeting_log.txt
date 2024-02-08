@@ -1,0 +1,658 @@
+MEETING LOG
+
+WORK 6 HOURS A WEEK
+
+
+28/09/2023- Meeting with Supervisor - Time 2pm - Duration ~ 1hr
+Attendants: Michael, Chris, Usu, Abdul, Omar
+Description:
+We were given a description on what was going to be needed for the project.
+Spoke on:
+Creating a Gitlab for the group
+Designating PET projects
+Needing to create User Stories
+Researching other crowdfunding platforms
+Having a prototype by Christmas
+Evaluation (e.g. surveys)
+
+
+03/09/2023 - Meeting Time 3pm - Duration ~ 1hr
+Attendants: Usu, Chris, Abdul, Michael
+What we did:
+Set up a Google Drive folder where we will keep documents,  
+documents for the following: competitors, project plan,  meeting log, and user stories. 
+All the attendees have access to all the files in the folder. Focused on finding different 
+crowdfunding platforms and finding out the advantages and disadvantages of each. We then started working on our User stories.
+ We all came up with 4 user stories
+
+
+06/09/2023 - Meeting with Supervisor - Time 3pm - Duration ~ 50 mins
+Attendants: Usu, Chris, Abdul, Michael - Omar was sick and could not make the meeting
+Description:
+To Dos: Need to rank user stories, Need to assign pet project, Set up gantt chart or visual way to track plan, Existing systems, Need to assign pet project
+Who 
+Need: 
+Feedback - Does not matter
+
+
+10/10/2023 - Meeting Time 3pm - Duration ~ 1 hour 44 minutes
+Attendants: Chris, Michael, Omar, Usu, Abdul
+Actions: 
+- Started Developing a Gantt Chart in Excel
+- Set Up different branches in the Gitlab for each member to work on their Pet Project
+- Prioritised 5 User Stories Assigned a Project to each of the members of the group
+    Omar - Campaign - Camapaign Progress
+    Abdul - Campaign Creation
+    Michael - Discovery
+    Chris - Search Campaigns
+    Usu - User Logging and Log Out/Registration
+
+
+Who:
+Need: 
+Feedback 
+
+
+17/10/2023 - Meeting Time 3pm - Duration ~ 1 hour
+Attendants: Chris, Michael, Omar, Abdul, Usu 
+Actions: 
+- Set up Gitlab for Chris
+- Discussed the Database entities, Michael and Usu are responsible for setting
+up the database
+- Concluded that each team member except Usu and Michael would start working on 
+their UIs, as Usu and Michael would set up the database
+To Dos: Set up database, discuss what entities are key for the initial prototype,
+Start our pet projects
+
+19/10/2023 - Meeting Time 3pm - Duration ~ 45 minutes
+Attendants: Chris, Michael, Usu, Abdul
+Actions: 
+- Uploaded Gantt Chart outlining the project plan 
+- Started coding our UIs for our respective Pet Projects
+To Dos: 
+- Keep working on UIs for our respective Pet Projects
+- Michael and Usu set up the database 
+
+
+20/10/2023 - Meeting with Supervisor - Time 4pm - Duration ~ 1hr 10 minutes
+Attendants: Usu, Abdul, Michael, Chris 
+What was done during the meeting:
+- Updated the Supervisor on what was done during the week
+- Went through the User Stories of the people that missed the meeting last week 
+- Received feedback on the individual Projects 
+- 
+
+
+What to do for the next meeting:
+- Redo our User Stories 
+- Make sure Pet Projects are nor dependent on each other
+- Set up Database and create stubs for it 
+- Plan 
+    Instead of sorting out plan in phases we should put our user stories there.
+
+
+
+
+
+24/10/2023 - Meeting Time 3pm - Duration ~ 1hr
+Attendants: Usu, Michael, Chris, Abdul, Omar
+What we did:
+- Began with the creation of the database
+- Began with the rewrite of the user stories and conversations
+- Made more progress on everyone's UIs
+-Discussed the relational schema
+
+What to do:
+-Continue with database creation and continue the development of everyone's UI.
+
+
+26/10/2023 - Meeting Time 13:30pm - Duration ~ 1hr 30 mins
+Attendants: Usu, Michael, Chris, Omar
+What we did:
+- Continued progress on the UI designs
+- Continued progress on the database
+
+27/10/2023 - Meeting Time 4pm - Duration ~ 1hr
+Attendants: Usu, Michael, Chris, Abdul, Omar
+What we did:
+- Gave updates on everyone's progress so far
+-Discussed how to improve our user stories
+- Everyone needs to set up targets for each week to track progress.
+- Stand up agile methods should be implemented.
+- Everyone needs to connect to the database by the end of project week!
+    -AWS will be used to share the database between everyone
+- Everyone's UI needs to look the same (CSS styling)
+- A Moqup shpould be made so everyone knows the common style for the UI
+- Next meeting we will be discussing our plan for project week
+    - Assigning tasks and deadlines for project week
+
+    31/10/2023 - meeting time 3:00 - duration ~ 1 hr 30 mins
+    attedants: christopher, usu, michale, omar, abdul.
+    what we did:
+    -we went throough where eceryone was currently at.
+    -usu: tried to connect database but is currently failing to connect after repeated attempts.
+    -miachel: currnetly designing campgaing boxes and trying to get all buttons working correctly on the page.
+    -chris: currenly redoing my feature as the last was broken/messed up.
+    -omar: done lofi for home page and starting to code home page working on navigation bar.
+    -abdul: still working on styling for feilds, going to start header and footer of page.
+    
+2/11/2023 - meeting time 1:00 - duration ~ 1hr
+ attedants: christopher, usu, michael, omar, 
+ -usu set 20 campaigns and set up 5 users.
+ -michael structured campaign boxes on page.
+ -chris not done much since last meeting.
+ -abdul not done much since last meeting.
+
+
+03/11/2023 - Meeting Time 4pm - Duration ~ 1 hour
+Attendants: Michael, Chris, Abdul, Omar
+What we did:
+
+who is going to do what during project where.
+what we are going to do during project week.
+when we are going to do our work during project week.
+
+monday submit a plan for project week on monday.
+
+sort out lofi for all pages
+everyone needs the same css style (because everyones is different)
+
+abudl palans for next week
+, 22hours worked on project next week
+. major tasks connect to database should take 20-25 minutes.
+ start working on backend e.g create campaign feture.
+ 4 hours to connect to the databse. take 1 hour to populate databse. 
+
+michael plans for next week
+14 hours worked on project next week
+connect ui with databse to show stubs should take 6 hours.
+clickable boxes that go to new page, should take 2 hours
+want drop downs to filter campaigns to categorys should take 4 hours.
+
+omar plans for next week 15 hours
+have home page completed 
+work on about us interface
+
+
+christopher 16 hours
+fix clickable feature 3 hours 
+style css on page 3 hours
+connect to databse 2 hours 
+make searches connectable connectable through databse (take to page of campaign) 8 hours 
+
+we need to re-do the plan.
+the current plan is not very good or clear, various tasks spread accross the whole plan, pashes are not clear as they also do not follow their time scale and cross over the whole project.
+
+
+09/11/2023 - Meeting Time 2pm - Duration ~ 2 hours 20 mins
+Attendants: Michael, Chris, Abdul, Usu
+What we did:
+
+What we have done so far in the project 
+
+- we have done user stories 
+- started pet projects 
+- set up a databse in the cloud 
+- done a gant chart
+- done a plan
+- have done research on other crowdfunding platforms
+- define roles and responsibilities 
+- review project objectives and goals
+- identify and document high priority features and functionalities
+- started main crowdfunding platform development
+- set up a node.js server using express.js for the main platform implamenting user stories 
+- create a react based front end for the main platform
+
+what we need to do.
+- testing and quality assurance
+- conduct unit testing and integration testing for the main platform, address any issues
+- integration planning/ develop integration plans for each project to ensure compatibility with the main platform
+- prototype integration and refinement
+- integgration of main features and enhancments from individual pet projects into the main crowdfunding project 
+- conduct thoughrough testing on integrarted prototype and gather feed back from team members and steakholders
+
+
+
+09/11/2023 - Meeting with Supervisor - Time 4pm - Duration ~ 40 minutes 
+Attendants: Usu, Michael, Abdul, chris 
+Topics covered:
+- Checked in with Rogerio about what we have done,
+- None of us did the LoFi for our respective pages 
+- We need to improve the way we organise our meetings
+- Gave feedback on Michael's and Abdul's pages and the database connection
+- We all need to know where everyone is at with their individual pet projects
+
+Targets for everyone next Week:
+- Have LoFi for all our pages
+- Have a functioning prototype
+- Start new User Stories
+
+
+14/11/2023 - Meeting - Time 3pm - Duration ~ 1h 15min
+Attendants - Omar, Chris, Usu, Michael and Usu 
+What we discussed: 
+- How we can connect to the database from Campus
+- Find out through Abdul that we can connect by using "WiFi Guest"
+- Allowed us to connect to the database from Uni
+
+Michael:
+What he's working on: 
+- Pet Project Dropdowns connecting to the database
+- Finishing up his "Learn More" feature 
+- Adjusting his CSS so that it's consistent with the rest
+
+Target's for Next Meeting:
+- Dropdowns will be fully working
+- Start Testing on Pet Project
+- Have the CSS consistent with the rest of the project
+
+Chris: 
+What's he's currently working on:
+- Trying to connect to the database to make the searches find the campaign stored in the database for his 
+Pet Project
+- Adjusting his CSS so that's it's consistent with the rest of the project
+- Fix clickable feature 
+- Have the LoFi done by then 
+
+Target for Next Meeting:
+- Have the database connected 
+- Fix CSS so that its consistent 
+- Have the LoFi by then 
+
+Omar:
+What he's currently working on:
+- Working on his Pet Project the Homepage
+- Working on the Footer of the Homepage
+- Updated the images of the Homepages
+- Adjusting the CSS so that it's consistent with the rest of the project 
+
+Target for Next Meeting:
+- Have the Homepage done 
+- Have the CSS consistent
+- Have LoFi done by then 
+
+
+Abdul:
+What he's currently working on:
+- Finishing up the Pet Project
+- Adjusting the CSS so that it is consistent with the rest of the Project
+
+Target for Next Meeting:
+- Lofi will be done
+- CSS will be consistent
+- Will start Testing of Pet Project
+
+Usu:
+What's he's currently working on:
+- Integrating the Pet Project into a functioning prototype
+- Integrating Michael's Pet Project into the Dropdown 
+- Started testing his Pet Project
+
+Target for Next Meeting:
+- Lofi will be done
+- Integrate Abdul and Omar's Pet Project 
+
+
+Usu will say he's going to work more hours during Christmas
+
+
+16/11/2023 - Meeting Time - 1:30pm - Duration - 1h and 30 mins 
+Attendants: Omar, Usu, Michael, Abdul, Chris 
+
+What was discussed: 
+- Came Up with more User Stories
+- Each of us worked individually on our current tasks and helped each other too when we needed help
+
+
+Chris: 
+What he is working on:
+- Successfully connected to the Database
+- Finished Pet project lofi
+- Working on the CSS and trying to make it consistent
+
+Targets for next meeting:
+- Fully implemnt the search feature
+
+
+Abdul:
+What he is working on:
+- Finished my pet project lofi 
+- Started Testing my project
+
+Targets for next meeting: 
+- Start a new Pet Project
+
+Omar:
+What he is currently working and what he has achieved: 
+- Transferring code from Brackets to VSCode
+- Done with the Lofi 
+
+Target for next meeting: 
+- Start Test for Pet Project 
+
+Michael
+What he is currently working and what he has achieved: 
+- Fixing my Pet project Dropdowns
+- lofi is done
+
+Target for next meeting: 
+- Have the dropdown fully working in my Pet Project
+- Start testing for my pet Project 
+
+Usu
+What he is currently working and what he has achieved: 
+- Integrated Abdul's Prototype 
+- Fixing Dropdowns from the Discovery Page 
+- Have finished lofi for his Pet Project 
+
+Targets for next Meeting:
+- Prototype will be functioning
+- Testing of current Pet Project should be completed
+
+
+17/11/2023 - Meeting Log with Supervisor - Time 3pm - Duration 50min
+Attendants: Chris, Abdul, Michael, Usu
+What was discussed with the Supervisor:
+- Make sure all pet projects are tested and properly done
+- Integrate the code properly (Change the userID in the Add Campaign)
+
+
+Chris:
+- Discussed his issues with his Pet Project with the Supervisor 
+- Aimed to get it fixed it by next Week 
+
+
+Usu:
+- Discussed integration 
+- Need to have tests before integration
+- Need to have guidelines on how to documentation
+
+Michael:
+- Test his project 
+- Start next user story
+
+21/11/2023 - Meeting Time - 3pm - Duration - 
+Attendants: Usu, Michael, Abdul, Chris 
+
+What was discussed: 
+- Created 10 User stories and picked their next ones
+- People worked on their individual projects
+
+Chris: 
+What he is currenly working on and what he has achieved:
+- Solving API issue
+
+Targets for next meeting:
+- Fully implement the search feature
+
+Abdul:
+What he is currently working on and what he has achieved:
+- Starting work on new user story- Editing user details
+- Started Testing my project
+
+Targets for next meeting: 
+- Continue new Pet Project
+- Further implementation of testing
+
+Michael:
+What he is currently working and what he has achieved: 
+- Started creation of new user story- view individual campaign page
+- Starting testing of first pet project
+
+Target for next meeting: 
+- Made substantial progress on second user story
+- Continued testing of first user story
+
+Usu:
+What he is currently working and what he has achieved: 
+- Finished integrating first prototype
+- Helping Chris with his first pet project
+-Started testing of first pet project
+
+Targets for next Meeting:
+- Start new pet project
+- To be almmost finished with testing for first pet project
+
+
+24/11/2023 - Meeting Log with Supervisor - Time 3pm - Duration - 1 hr
+Attendants: Chris, Abdul, Michael, Usu
+What was discussed with the Supervisor:
+- get home page made 
+- campaign page should have a graph that changes through time as the campaign goes on
+- campaign dashboad can only be accessed when logged in and shows places user has donated to as well as their total donations.this will also a bookmarker for the campaign. it also will have notifications wich updates the user as goals are reached 
+- the dificulty with the new feature banner will be making the new campaigns go to the front of the line.
+- in the next week omar must give answer about implamentation and if he agrees he has 1 more week to get teh home page completed and then some one will take over if not completed 
+- said abduals feature was "easy"
+-expects more complexity and out of the box stuff
+- how the documenting of the testing is done
+- test cases should be documented 
+- finish prototype by christmas and close that as a prototype
+- react documentation 
+- abdual should finsih user story and provide evidence for testing
+- chris react testing and implamentation of feature 
+- same for michael
+
+28/11/2023 - Meeting time 3pm - Duration - 1hr 30
+Attendants: Michael, Chris, Abdul, Usu
+
+What was discussed:
+- Everyone's progress on their user stories
+- Discussed creating an app to aid the project.
+
+Michael:
+What he is currently working and what he has achieved: 
+- Implementing second feature
+- Starting testing for first feature
+- Creating lofi for second feature
+
+Target for next meeting: 
+- Lofi completed for second feature
+- Progress on second feature implementation
+
+
+Chris:
+What he is currently working and what he has achieved:
+- Currently working latest campaigns and home page user story.
+-Starting your testing for seach
+- Creating lofi for home page.
+
+Target for next meeting: 
+- Have lofi complete
+- Progress made on feature.
+
+Usu:
+What he is currently working and what he has achieved: 
+- Still implementing testing on feature
+- Started working on api for second feature
+-Created table in database to follow a campaign
+
+Target for next meeting: 
+- Have api fully working
+- Have a lofi for second feature complete.
+
+Abdul:
+What he is currently working and what he has achieved: 
+- Implementing second feature
+- Writing user story for second feature
+- Create lofi for second feature
+
+Target for next meeting: 
+- Lofi should be completed for second feature
+- Second feature close to completion if not completed
+
+
+30/11/2023 - Meeting time 1pm - Duration - 1h 15min
+
+
+Michael: 
+What he has achieved:
+- Made some progress on the UI of the Campaign page
+- Done lofi for the UI 
+
+Targets for next week:
+- Having the UI of the Campaign page fully finished
+- Start testing of the Discovery Page. 
+
+
+Abdul
+What he has achieved:
+- Made a lofi
+- Started implementing his feature 
+- Started testing his previous feature
+
+Targets for next week
+- Feature should be fully implemented 
+- Testing will be fully done 
+
+
+Chris
+What he has achieved:
+- Finished lofi for his Pet Project
+- Started his new feature
+
+Targets for next week: 
+- Implemnent the UI
+- Start testing 
+
+
+Usu: 
+What he has achieved: 
+- Tested the form submission of the Login feature
+- Implemented the API for the Campaign Dashboard page
+- Implemented a lofi of my feature
+
+Targets for next week: 
+- Add more tests to the Login feature
+- Implement tests for the Registration feature
+- Have a React UI of the Campaign Dashboard
+
+
+Meeting with Supervisor - 01/12/2023 
+Duration: 
+Attendants: Chris, Abdul, Usu,  
+What was discussed in the meeting:
+- Told the supervisor that Omar left the group 
+- Discussed what the prototype should be by the end of the term
+- Went through what each group member is at currently with the project 
+- Discussed the app, the benefits and negatives
+- Discussed the testing and how to documentation 
+- Discuss how I went about the app 
+
+Abdul: 
+- Having issues with fetching data from the database 
+- Supervisor recommended to look at other people's code 
+
+
+Usu:
+- Discussed what he has done this week
+- Discussed what he aims to do before the end of term 
+- Needs to pass the message on how he tested his features
+
+Chris:
+- Discussed that he is taking over Omar's Pet Project 
+- Discussed what each he will have for the end of the Pet Project 
+
+Michael: 
+- Discussed that what he has done this week
+- Discussed what each he will have for the end of the Pet Project 
+
+
+05/12/2023 - Meeting time 3pm - Duration ~ 1hr 
+Attendants: Michael, Chris, Abdul, Usu
+
+What was discussed:
+- Everyone's progress on their pet projects
+- Discussing what needs to be complete for the prototype
+
+
+Michael:
+What he is currently working and what he has achieved: 
+- Still implementing second feature UI
+
+Target for next meeting: 
+- Close to completing second feature implementation
+- Continue testing
+
+
+Chris:
+What he is currently working and what he has achieved:
+- Currently working on Homepage feature.
+
+Target for next meeting: 
+- Have majority of homepage finished.
+- Start testing
+
+Usu:
+What he is currently working and what he has achieved: 
+- Working on UI for dashboard page
+- Implemented a followed campaigns UI.
+
+Target for next meeting: 
+- Have created campaigns on dashboard and followed campaigns fully working.
+-Implement: Viweing campaigns you have donated to.
+
+Abdul:
+What he is currently working and what he has achieved: 
+- Still implementing second feature.
+- Started implementing testing for 1st feature.
+
+Target for next meeting: 
+- Second feature will be complete
+
+07/12/2023 - Meeting Time 1pm - Duartion ~ 1hr
+Attendants: Michaek, Usu, Chris, Abdul
+
+Everyone jsut worked on their individual pet projects and not much was discussed as we had to end it early.
+
+
+08/12/2023 - Meeting with Supervisor - Duration ~ 1hr
+
+Aim to get a clean prototype by next week.
+
+
+12/12/2023 - Meeting time 3pm - Duration ~ 1hr
+Attendants: Michael, Chris, Abdul, Usu
+
+What was discussed:
+- What everyone needed to do for the prototype.
+- What we are implementing after the holiday
+
+
+Michael:
+What he is currently working and what he has achieved: 
+- Continuing second feature UI
+
+Target for next meeting: 
+- To complete second feature implementation
+- Continue testing
+
+
+Chris:
+What he is currently working and what he has achieved:
+- Continuing working on Homepage feature.
+
+Target for next meeting: 
+- Have majority of homepage finished.
+- Do testing
+
+Usu:
+What he is currently working and what he has achieved: 
+- Testing and second feature.
+
+Target for next meeting: 
+- Have everything working for the prototype.
+
+Abdul:
+What he is currently working and what he has achieved: 
+- Implementing second feature.
+- Testing
+
+Target for next meeting: 
+- Have feature ready for prototype
+
+
+15/12/2023 - Meeting with Supervisor ~ Duration - 1hr
+Attendants: Michael, Abdul, Usu, Chris
+
+What we did:
+- Discussed everyones progress on their second features.

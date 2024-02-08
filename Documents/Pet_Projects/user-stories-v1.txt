@@ -1,0 +1,189 @@
+USER STORIES V1
+
+
+User Story 1 - Registration/Authentication
+Story: 
+As a potential donator, I want the ability to create a new account on the platform 
+so that I can begin browsing and contributing to campaigns that align with my interests.
+
+Conversation: 
+- Simple process for users to create accounts and engage with the platform.
+
+- Let's keep it straightforward and request their name, email, and password.
+
+- Passwords must meet security standards, including a minimum length and a combination of letters, numbers, and symbols. For emails, we should ensure they follow the format "user@example.com."
+
+- Check ensures that multiple accounts cannot use the same email address. During registration, the system must confirm the email's uniqueness.
+
+Acceptance Criteria: 
+1.Users should be able to initiate the registration process from the platform's homepage or login page.
+2.The registration form should request an email and password.
+3.The system should validate that the email follows the standard email format (e.g., user@example.com).
+4.Passwords should have a minimum length of at least 8 characters.
+5.Passwords should contain a mix of letters, numbers, and symbols for enhanced security.
+6.When a user submits the registration form, the system should verify that the provided email has not been used for another account.
+7.If the email has been used before, the system should prompt the user to choose a different email address.
+
+
+User Story 2 - Camapaign Creation ~ Abdul
+Story:
+Story - As a campaign creator, I want to be able to create a new campaign, give it a campaign title, a target amount, and a duration, as well as other details.
+
+Conversation:
+Campaign Creator - I want to create campaigns with a title, funding goal, deadline, and description. I need validation for the campaign title (not empty), funding goal (numeric and positive), and the deadline date (valid future date).
+Developer - Implement the campaign creation form with specified details and validation rules.
+Campaign Creator - I want campaigns to be visible and searchable for donors once created.
+Developer - Ensure that campaigns are listed and searchable for donors.
+Campaign Creator - Campaign creators should be able to edit or delete their campaigns.
+Developer - Implement features to allow campaign creators to edit or delete their campaigns as needed.
+
+Acceptance Criteria:
+1. Campaign creation form should include a tile, funding goal, deadline date and description.
+2. Make sure fields are filled. This includes ensuring that campaign titles are not left empty, funding goals are numeric and positive, and the deadline date is a valid future date.
+3. The campaign creator should be able to submit the campaign creation form.
+4. After successfully creating a campaign, the campaign should be visible to other users on the platform. It should appear in a campaign listing or search results.
+5. The campaign creator should have the option to delete their campaign
+6. The campaign creator should be able to edit campaign details e.g. campaign title, deadline date etc.
+
+
+User Story 3 - Camapaign Discovery ~ Michael
+
+User Story - As a potential donor, I want to be able to browse and discover campaigns that I am interested in, 
+so that I can read up on causes that I care about, whether I have an account or not.
+
+    Conversation:
+
+    Product Owner: For viewing campaign details, we want users to see everything from the campaign title and 
+    description to the fundraising progress.
+    Developer: We should ensure that users can click on a campaign to get detailed information such as the title, 
+    description, images, videos, fundraising goal, and current progress. 
+
+    Product Owner: We need to ensure users can easily browse and search for campaigns.
+    Developer: We start with making sure users can access the platform without creating an account. We should allow users to view a list of 
+    campaigns and provide a search bar for keyword searches.
+    
+    Product Owner: This feature needs to provide users with the ability to filter campaigns.
+    Developer: We should allow users to filter campaigns based on criteria like campaign type (personal, nonprofit), location, popularity, and fundraising  progress.
+
+    Acceptance Criteria:
+    - Users should be able to access the campaign browsing and discovery feature without the need to create an account or log in.
+    - Users should be able to filter between campaigns based on keywords, categories, or tags
+    - Users should be able to click on a campaign to view detailed information, for example, the campaign title, fundraising goal, and the progress made.
+    - Users should have the option to sort campaigns by factors such as most recent, most funded, and ending soonest.
+    - If a user attempts an action not possible without an account (e.g., donating or starting a campaign), clear guidance should be provided on how to  proceed.
+
+User Story 4 - Campaign Search ~ Chris 
+
+Story:
+
+Story- as a potential donator I want to have the ability to search for my desired campaign easily and directly, I would also like for there to be a dropdown box as I type giving me suggestions.
+
+Conversation:
+: there needs to be an easy way to search for a specific campaign. 
+: I would like for there to be a search bar.
+: I would like it to be central.
+: I would like there to be a drop down auto fill feature with similar campaigns.
+
+
+Acceptance criteria:
+
+1.	It should be capable of searching for relevant items or content based on the user's input.
+2.	The search bar should be able to accept user input.
+3.	The search results should be accurate and relevant to the user's query.
+4.	If no results are found, it should communicate this to the user clearly and suggest possible actions.
+5.	The search bar should provide autosuggestions as users type, helping them complete their queries.
+
+
+User Story 5 - HomePage  ~ Omarr 
+
+As a fundraiser, I want access a simple homepage that I can easily navigate through, so that I can use the site with ease. 
+
+Conversation:
+-	There will be a search bar. 
+
+-	There will be a tab that contains the following: “Log In”; “Sign Up”; “ Introductory Tab”;  “Campaign’s”. 
+
+-   The layout should be clear and simple. 
+
+Acceptance criteria: 
+1. There will be a search bar, that allows up to 50 characters to be inputted. 
+2. There will be blue tabs with a white font, with the labelled tabs. I.e: Log in, sign up, etc.
+3. The colour of the layout will be blue and white. 
+4. The HomePage will provide a summary with the following: "organisations mission"; "How to get Involved"; "How to contact us". 
+
+ 
+User Story 6 - Campaign Page - Michael
+
+User Story - As a donator, I want to access pages of individual campaigns so that I can access more detailed information about the Campaign.
+
+Conversation:
+- User should see more detailed information such as the Campaigns - description, current amount, target amount, and others.
+- Campaigns should have a Poster Image to represent 
+- Button that will take them to a donation page where they can donate money to the campaign
+- There will be a graph to show how many donations have been made and the amount to show progress.
+
+Acceptance Criteria:
+- Donors should navigate to an individual campaign page by clicking on a campaign from a list or search result.
+- The campaign page should display essential details such as title, description, amount raised, funding goal, creator details.
+- Visual elements like a poster image, and other images should be included for a more engaging experience
+- A clear call-to-action button like "Contribute" should be present for users to easily contribute to the campaign if interested.
+
+
+User Story 7 - Edit User Details - Abdul 
+Story:
+Story - As a campaign creator, I want to be able to edit my details such as first name, last name and password.
+
+Conversation:
+1. Users can easily navigate to 'Edit Profile'.
+2. Button ('Save Changes') to save changes made by users.
+3. Button ('Cancel') to cancel any changes made.
+
+Acceptance Criteria:
+1. Once a user is logged in, 'edit profile' will appear in the header.
+2. The system should validate that changes meet the requirements.
+3. New Password should be enetered twice to confirm.
+4. Once 'save changes' is pressed, a confirmation message should appear.
+5. A 'cancel' button to prevent changes if necessary.
+
+
+User Story 8 - Campaign Dashboards (View Created Cammpaigns) - Usu 
+As a registered user on the platform, I want to access a personalized Campaign Dashboard, providing me with a consolidated view of campaigns I'm involved in, whether as a creator or a donor.
+
+Conversation:
+
+- Users should be able to access their Campaign Dashboards only if they are logged in
+- For campaign creators, the dashboard should display a list of campaigns they have created, along with options to edit or delete them.
+- For donors, the dashboard should show a list of campaigns they have contributed to or have bookmarked/followed, along with relevant details like the amount donated and the current status of the campaign.
+The dashboard should have a clear and intuitive layout, making it easy for users to navigate between their created campaigns and campaigns they've contributed to.
+
+Acceptance Criteria:
+After logging in, users should be directed to their Campaign Dashboard.
+- Campaign creators should see a list of campaigns they've created with options to edit or delete each campaign.
+- Users can view the status of their followed/bookmarked campaign
+- Donors should see a list of campaigns they've contributed to, along with details like the amount donated and the current status of each campaign.
+- The dashboard should provide a summary of the user's overall engagement with the platform, such as the total amount donated or the total number of campaigns created.
+- Users should be able to easily navigate between different sections of the dashboard.
+
+
+User Story 9 - Latest Campaigns - Chris
+
+user story - as a donator, i would like to be able to veiw the latest campaigns that have been added, so i can be aware of newer campaigns.
+
+conversation:
+- user should be able to see a list of the latest campaigns.
+- user should see campaigns in the form of a scrolling line showing an image, tittle and a short description.
+- the campaigns displayed should take the user to the page 
+
+acceptance criteria:
+- the users can scroll back and fourth on the page 
+- images and text should be displayed propelry 
+- the campaigns should be clickable taking the user to the campgain page
+
+User Story 10 - Edit Campaign Details 
+
+User Story 11 - Payments
+
+User Story 12 - Adding pictures to campaigns
+
+User Story 12 - 
+

@@ -1,0 +1,95 @@
+Usu’s User Stories
+User Story 1: User Registration:
+As a new user, I want to be able to create an account on the platform, so that I can start browsing and donating to campaigns that align with my interests
+The registration process should require a valid email that has not been used before and a valid password.
+User Story 2: Campaign Creation:
+As a campaign creator, I want to be able to create a new campaign, give it a campaign title, a target amount, and a duration, as well as other details.
+The campaign creation form should include input fields for the description, campaign title, deadline date, and the funding goal. After creating a campaign, it should be visible to other users on the platform.
+User Story 3: Progress Tracker
+As a user, I want to track the progress of campaigns I’ve donated to, so I can see how close they are to reaching their funding goals.
+On the campaign page, there should be a progress bar or indicator showing the percentage of the funding goal reached. I should be able to see the total amount raised and the deadline for the campaign.
+User Story 4: Profile Management
+As a user I want to be able to edit my profile information, including my name, profile picture and password
+I should have access to a profile page where I can edit my display name, upload or change my profile picture and update my password. The changes should be updated in my profile.
+
+
+Michael’s User Stories
+
+User Story 1: Discover Campaigns
+As a new user, I want to be able to browse and discover campaigns that I am interested in, so that I read up on cause I care about, whether I have an account or not.
+The website should have a discover page listing campaigns whether new or old that can be filtered by categories that the user is interested in.
+User Story 2: Campaign Progress
+As a Campaign creator, I want to be able to post updates on my campaign page to keep my supporters informed about our progress and impact.
+If you go on the page of an undergoing campaign, there would be a section used to post updates about the campaign made by the owner.
+User Story 3: Anonymous Donations
+As a user, I want to be able to donate to any cause of my choice anonymously if I choose to.
+Before the final step in completing the donation, there would be a check box to confirm whether the user would want their name and details to be left private.
+User Story 4: Weekly Newsletter
+As a user, I want to receive email notifications about campaigns that match my interests or have updates.
+As everyone signs up with an email, if they have chosen to be notified on specific campaigns or just the regular newsletter consisting of upcoming campaigns and current campaign progress, that would be sent to their email on a weekly or monthly basis.
+
+
+
+Omar’s User Stories:
+
+User Story 1: Transaction log.
+As a user, I want to view the donations made by philanthropists, so that I can see who has been making contributions.
+
+Located on the fundraising page, there should be a statement listing the donations made along with a timestamp.
+
+User Story 2: Withdrawal of Funds. 
+As a user, I want to withdraw my money, so that I can use it for the purposes pertinent to my campaign.
+
+Once a campaign's financial objectives are satisfied, an option button should be located on my campaign page that will enable the user  to easily withdraw funds. 
+
+
+User Story 3: Introduction to crowdfunding. 
+As a user, I want to be able to view introductory instructions regarding crowdfunding, so that I can be confident on how to proceed with my project.  
+
+Once sign up has been completed, an introductory tab should be located on the right corner which directs the user to a powerpoint to explain and guide the process on how to be successful in raising funds for projects. 
+
+User Story 4: Logging out.
+As a user, I want to log out of my page, so that no one else can access my page. 
+
+Once a user is finished on the site, an option to log out should be present. A logout button located in the top right corner that is easy to locate on the interface. 
+
+User Story 5: GUI 
+As a user, i want to access a simple and elegant homepage, so that i can easily navigate throughout the website.
+
+
+
+christopher’s user stories:
+
+user story 1: search bar
+As a user I would like to be able to search for my desired cause/campaign.
+this search bar should also have drop down options as the user types to help aid the search process
+
+user story 2: back arrow
+As a user I would like to be able to click a button which will take me back to my previous page so I can freely go back if I miss something or require to do so.
+this button should take the user directly back to the previous page keeping all prior information present
+
+user story 3: pricing tab
+as a user i would like for my supporters to be able to see the different pricing/donation options
+this should provide a page which has a number of different price points the user can choose from.
+
+user story 4: other forms of payment
+as a user i would like to be able to pay in multiple forms of payment and not be restricted to just visa debit card payments
+it should accept paypal, apple pay and master card.
+
+
+
+Abdul’s User Stories:
+
+User Story 1: Accessibility:
+As a donor with accessibility needs, I want the platform to be easy to navigate and interact with
+Clear alt text for images and videos on site
+User Story 2: Campaign Promotion Tools:
+As a campaign owner, I want access to promotional tools and resources provided by the platform
+Tips on social media marketing, email templates, and suggestions for reaching a wider audience should be provided. To allow campaign owners to expand on their campaigns
+User Story 3: Recurring Donations:
+As a campaign creator, I want to set up subscription options so that supporters can choose to make monthly or yearly contributions to my campaign
+When at the donation page, an option to subscribe is provided, so committed users can continuously support.
+User Story 4: Filter:
+As a donor, I want to be able to filter and sort campaigns based on various criteria, e.g. most popular, campaigns close to their fundraising goals etc.
+Potential donors has options to filter out certain things so that they find their ideal campaigns (linked with search bar)
+
