@@ -38,7 +38,7 @@ function HomePage() {
 
       <div className="image">
         <Container>
-          <Image src="/public/Screenshot 2024-02-07 at 16.28.01.png" rounded />
+          <Image src="/Screenshot 2024-02-07 at 16.28.01.png" rounded />
         </Container>
       </div>
 
