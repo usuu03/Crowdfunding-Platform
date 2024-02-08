@@ -55,4 +55,55 @@ abstract - created a shared document and began abstract
 poster - 
 evaluation forms - made a start on evaluation forms 
 
+08/02/2024 - Group meeting with supervisor Usu, Michael, Chris, Abdual
 
+time - 1 1PM
+
+feedbcak on first abstract 
+
+rephrase some stuff on the project description. not  technical enough . technologies used need to be mentioned. second part better worded and phrased than first but both meed to be re done. 
+
+
+feedback on first poster 
+
+get rid of slogan 
+
+name it a crowdfunding platform callled helping hand 
+
+remove phone number 
+remove contact us 
+
+restructure poster so 
+
+aims 
+features
+key pages 
+
+key features and pages deonst need titles 
+
+we are selling a product and not a service 
+
+first sentence is too long 
+we have to change the language so it is a product.
+what is it needs to describe the system 
+can take smaller screen shots of so its cleare (dont take screenshot of whole page)
+need to add a screen shot of home page on the posteer 
+
+feed back on latest prototype 
+
+abdul: is currently working on email integration
+has started in the fornt end in seperate pages/ has to 
+says it will be finished by next week 
+
+usu: is currently doing payment systems 
+started reading documentation for stripe and has begun implamenting ui not working right now (needs a bit of code to help the api work )
+dont take actual money create a stub 
+use a made up currnecy 
+
+Michael: working on edit campaigns
+only he as a campaign owner he  should be able to make changes 
+
+chris: working on latest campaigns
+latest campaign created should be pushed to the front
+
+need a plan 
