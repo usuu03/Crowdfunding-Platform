@@ -55,7 +55,7 @@ abstract - created a shared document and began abstract
 poster - 
 evaluation forms - made a start on evaluation forms 
 
-08/02/2024 - Group meeting with supervisor Usu, Michael, Chris, Abdual
+08/02/2024 - Group meeting with supervisor Usu, Michael, Chris, Abdul
 
 time - 1 1PM
 
@@ -107,3 +107,28 @@ chris: working on latest campaigns
 latest campaign created should be pushed to the front
 
 need a plan 
+
+13/02/2024 - Group Meeting - Usu, Michael, Chris, Abdul 
+
+Time: 3PM - Duration ~ 1hr
+
+- Discussed changes to be made to both abstract and poster in preparation for Friday.
+
+Michael:
+Started next pet project and is finalising abstract/poster.
+
+Chris:
+Due to start next feature and is working on abstract/poster.
+
+Abdul:
+Started working on feature and working on abstract/poster.
+
+Usu:
+Started working on UI for feature and abstract/poster.
+
+
+Aim for next week:
+
+-Would have completed submission for Abstract/Poster and would have further progress on each user story.
+
+
