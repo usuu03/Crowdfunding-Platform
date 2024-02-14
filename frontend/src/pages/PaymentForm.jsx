@@ -8,14 +8,33 @@ export default function PaymentForm() {
         <h2>Donate to Campaign</h2>
         <div className="payment-form">
           <Form>
-            <Form.Control placeholder="Amount to Donate" type="number" />
+            <Form.Control
+              placeholder="Amount to Donate"
+              type="number"
+              className="form-item"
+            />
             <hr />
             <div className="credit-information">
               <h5>Credit/Debit Information</h5>
-              <Form.Control type="text" placeholder="Full Name" required />
-              <Form.Control type="email" placeholder="Email Address" />
-              <Form.Control type="text" placeholder="Card Number" required />
-              <InputGroup>
+              <Form.Control
+                type="text"
+                placeholder="Full Name"
+                required
+                className="form-item"
+              />
+              <Form.Control
+                type="email"
+                placeholder="Email Address"
+                className="form-item"
+                required
+              />
+              <Form.Control
+                type="text"
+                placeholder="Card Number"
+                required
+                className="form-item"
+              />
+              <InputGroup className="form-item">
                 <Form.Control type="text" placeholder="MM/YY" required />
                 <Form.Control type="text" placeholder="CVV" required />
               </InputGroup>
