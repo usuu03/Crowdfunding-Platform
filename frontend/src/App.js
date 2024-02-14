@@ -6,6 +6,7 @@
  */
 
 // App.js
+import { loadStripe } from "@stripe/stripe-js";
 import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Header from "./components/Header";
@@ -16,8 +17,11 @@ import Discovery from "./pages/Discovery";
 import EditProfile from "./pages/EditProfile";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
+import PaymentForm from "./pages/PaymentForm";
 import Register from "./pages/Register";
 import SearchBar from "./pages/SearchBar";
+
+const stripePromise = loadStripe("your-publishable-key");
 
 function App() {
   return (
@@ -38,6 +42,7 @@ function App() {
             <Route path="/search" element={<SearchBar />} />
             <Route path="/edit-profile" element={<EditProfile />} />
             <Route path="/campaigns" element={<CampaignDashboard />} />
+            <Route path="/donation" element={<PaymentForm />} />
           </Routes>
         </div>
       </AuthProvider>
