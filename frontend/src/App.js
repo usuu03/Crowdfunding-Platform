@@ -11,6 +11,7 @@ import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import { AuthProvider } from "./context/authContext";
+import BlockchainPaymentForm from "./pages/BlockchainPaymentForm";
 import CampaignCreationForm from "./pages/CampaignCreation";
 import CampaignDashboard from "./pages/CampaignDashboard";
 import Discovery from "./pages/Discovery";
@@ -43,6 +44,10 @@ function App() {
             <Route path="/edit-profile" element={<EditProfile />} />
             <Route path="/campaigns" element={<CampaignDashboard />} />
             <Route path="/donation" element={<PaymentForm />} />
+            <Route
+              path="/blockchain-donation"
+              element={<BlockchainPaymentForm />}
+            />
           </Routes>
         </div>
       </AuthProvider>
