@@ -132,3 +132,31 @@ Aim for next week:
 -Would have completed submission for Abstract/Poster and would have further progress on each user story.
 
 
+15/ 02/2024: group presentation meeting with supervisor - chris, Usu, Michael, Abdual
+
+time - 1pm 
+
+- chat bot supported by chatgpt will be hard to implament becasue it would have to be specific to our campaign 
+- the abstract is okay but everything can be on one page by reducing the spaces inbetween the names 
+
+feedback on poster 
+- make the yellow space smaller so we can have more sapce
+- so that we can add more features and image
+- we can add a diagram of backend and front end and more features in writing. 
+
+- chat gpt will recomend users to the latest new sources if asked general questions 
+-  if we have doubt about anything in our project we need to remove it from the abstract because the deadline is tomorrow. 
+
+
+- updates starts made on pet projects 
+- micahel - authentication 
+- chris  - latest cmapaigns front end
+- abdul email implamentation front end is currently done, users have been given options if they want notifications or not, currently starting on back end (what emails users will receive)
+- emails should be sent to users who opt in to receive notifications and not for those who have not 
+usu- payment system through blockchain and debit, current idea for user to input wallet address and selected crypto and amount. 
+
+- plan is needed for projectf for project week needs a corpus/ documentation  and report. a plan of activities are needed. who is going to do what when. 
+- only one person needs to upload the poster and abstract. 
+
+
+
