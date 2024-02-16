@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-primary">
-        <Link to="/discovery" className="navbar-brand" id="header-text">
+        <Link to="/" className="navbar-brand" id="header-text">
           Crowdfunding Platform
         </Link>
         <button

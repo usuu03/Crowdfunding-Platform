@@ -3,12 +3,14 @@
 
 
 body {
-  margin: 0;
+  margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+
 }
 
 code {
@@ -22,83 +24,71 @@ code {
   color: white;
 }
 
+.icon-container {
+  fill: white;
+  width: 100%;
+}
+
 #nav-item {
   color: white;
 
 }
 
-
-
-
-
-/* Register Page Styles */
-
-.register-title {
-  margin-top: 20px;
+#navbar .nav-link.active {
+  text-decoration: none;
 }
 
-.form-div,
-.form-container {
-  background-color: #f2f2f2;
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: 5px 5px 5px 5px #dcdcdc;
 
+.h4-no-margin {
+  margin-bottom: 0;
 }
 
-.password-explained {
-  background-color: #d9e6f2;
-  border-radius: 5px;
-  width: 20%;
-  padding: 20px;
+/* Home Page Styles*/
+
+
+.title h1 {
+  margin-top: 120px;
+  text-align: center;
 }
 
-.form-row {
-  margin-bottom: 20px;
-  display: flex;
-  width: auto;
-  /* Use Flexbox layout */
-  justify-content: space-between;
-  /* Space elements evenly */
-
+.title h2 {
+  margin-top: px;
+  text-align: center;
 }
 
-.form-firstName,
-.form-lastName {
-  width: 49%;
-  /* Set the width for both columns */
+.title button {
+  align-items: center;
 }
 
-.form-emailAddress,
-.form-confirmEmailAddress,
-.form-password {
+.home-popup button {
+  align-items: center;
+}
+
+.image img {
   width: 100%;
+  height: 600px;
 }
 
-.form-div .btn btn-primary {
-  width: 15%;
+.home-popup .modal {
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-/* Login Page Styles */
-.form-elements-div {
-  margin-bottom: 20px;
-
-  justify-content: space-between;
-
-}
-
-.input-password,
-.input-email {
-  margin-bottom: 20px;
-}
-
-#login-btn {
-  margin-bottom: 20px;
+.latest-campaigns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 30px auto;
+  /* Center the campaign container with auto left and right margins */
 }
 
 
 /* Discovery Page Styles */
 .discovery {
+  margin-top: 10%;
   text-align: center;
   padding: 20px;
 }
@@ -292,45 +282,26 @@ h4 {
   
 } */
 
-.campaign-container {
+/* .campaign-container {
   margin: 30px auto;
   /* Center the campaign container with auto left and right margins */
-  display: grid;
+/* display: grid;
   width: 75%;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+} */
+
+.campaign-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 30px auto;
+  /* Center the campaign container with auto left and right margins */
 }
 
-.campaign-box {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  padding: 20px;
-  /* Comment out the width property to allow flexibility within the grid */
-  /* width: 200px; */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
-
-.campaign-box-content {
-  padding: 20px;
-  text-align: center;
-}
-
-.campaign-image {
-  max-width: 100%;
-  max-height: 150px;
-  object-fit: cover;
-}
-
-#campaign-1 h3 {
-  font-size: 20px;
-  color: #333;
-}
-
-#campaign-1 p {
-  font-size: 16px;
-  color: #666;
+.pagination {
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .progress {
@@ -354,7 +325,7 @@ h4 {
 .campaign-title h1 {
   text-align: center;
   color: #0056b3;
-  margin-top: 200px;
+  margin-top: 100px;
   margin-bottom: 2px;
 }
 
@@ -363,35 +334,58 @@ h4 {
   font-size: larger;
 }
 
-.followers {
-  width: auto;
-}
-
-.followers h1 {
-  font-size: large;
-  text-align: right;
-
+.tabs {
+  position: relative;
+  margin-top: 75px;
+  max-width: 600px;
+  right: -250px;
   
 }
 
-.image-container {
+.tab-content {
+  height: 600px;
+  overflow-y: auto;
+  width: 1400px;
+
+}
+
+.list-group {
   position: relative;
-  top: 200px;
+  margin-top: 100px;
   width: 700px;
-  height: 300px;
+  height: 350px;
   right: -250px;
 }
 
-.sidebar {
+
+.image-container {
   position: relative;
-  margin-top: -100px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+  margin-top: 100px;
+  width: 700px;
+  height: 350px;
+  right: -250px;
+}
+
+.image-container img {
+  /* Make sure the image takes up 100% of the container */
+  width: 100%;
+  height: 100%;
+  /* Add max-width: 100%; to ensure the image doesn't exceed its natural size */
+  max-width: 100%;
+  /* Add object-fit: cover; to maintain the aspect ratio and cover the container */
+  object-fit: cover;
+}
+
+.sidebar {
+  position: absolute;
+  margin-top: -550px;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
   border-radius: 15px;
-  padding: 20px;
+   padding: 20px; 
    width: 300px; 
    height: 500px;
-  right: -1000px; 
+  right: 300px; 
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
@@ -433,75 +427,23 @@ h4 {
 
 .campaign-description {
   position:relative;
-  margin-top: 0px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 15px;
+  margin-top: 200px;
+  width: 850px;
   padding: 20px;
-  width: 600px;
-  right: -250px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  text-align: center;
+  right: -200px;
 }
 
 
-.donate-button {
-  margin-top: 75px;
-  background-color: #0056b3;
-  color: #fff; /* Text color */
+.donate-button button {
+  margin-top: 50px;
   padding: 20px;
-  border: none; /* Remove border */
-  border-radius: 8px; /* Add rounded corners */
-  cursor: pointer; /* Change cursor on hover */
-  font-size: 18px; /* Adjust font size */
-  transition: background-color 0.3s ease; /* Smooth color transition on hover */
   width: 200px;
 }
 
-.donate-button:hover {
-  background-color: #003366; /* Darker color on hover */
-}
-
-.confirmation-overlay {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-  z-index: 2000;
-}
-
-.confirmation-modal {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #fff;
+.share-button button {
+  margin-top: 60px;
   padding: 20px;
-  border-radius: 5px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2001; /* Ensure the modal appears above the overlay */
-}
-
-.confirmation-modal p {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-.confirmation-modal button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+  width: 200px;
 }
 
 
@@ -518,3 +460,4 @@ h4 {
 .create-title {
   margin-top: 20px;
 }
+
