@@ -160,3 +160,27 @@ usu- payment system through blockchain and debit, current idea for user to input
 
 
 
+20/11/2024 - Time Update 3PM - Duration 1hr
+Meeting Agenda: 
+- Discuss the plans for Project Week 
+- Discuss the features needed for Poster Fair Demonstration
+- Discuss Activities each person has to do 
+
+Activities per person: 
+- Chris and Michael will get people to use the platform 
+- Abdul and Usu will explain to people how to use the platform 
+- Michael and Chris will write the questionnaire 
+- 
+
+Individual Tasks: 
+Usu
+- Update the UI of Create Campaign and Implement Mock Payment System 
+Chris 
+- Latest Campaign Backend implementation 
+Michael 
+- Update UI for Individual Campaign and Implementing Frontend of Edit Campaign 
+Abdul 
+- Backend implementation of email integration 
+
+Objectives for next meeting: 
+- Complete each individual pet project 
