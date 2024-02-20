@@ -1,0 +1,20 @@
+.register {
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 10%;
+}
+
+.login-form {
+    padding: 20px;
+}
+
+#input {
+    margin-top: 20px;
+
+}
+
+.alert {
+    width: 70%;
+    margin: 0 auto;
+}

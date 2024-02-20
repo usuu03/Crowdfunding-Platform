@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  useNavigate,
-} from "react-router-dom";
-import { useAuthDispatch } from "../context/authContext";
+/*
+ * Filename: Login.jsx
+ * Author: Usu Edeaghe
+ * Date: October 17, 2023
+ * Description: This file contains the UI implementation of Login Page
+ */
 import axios from "axios";
+import React, { useState } from "react";
+import { Alert, Button, Container, Form } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthDispatch } from "../context/authContext";
+import "../styles/login.css";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -51,53 +53,46 @@ export default function Login() {
   };
 
   return (
-    <div className="container">
-      <h2 className="register-title">Sign in to Crowdfunding Platform</h2>
-      <div>
-        <p>
+    <Container className="">
+      <div className="login">
+        <h2 className="" id="">
+          Sign in to Crowdfunding Platform
+        </h2>
+        <p id="text">
           Do not have an account? <Link to="/register">Sign Up</Link>
         </p>
-      </div>
-      <div className="form-container">
-        <h6>Your Account Details</h6>
+        <Form onSubmit={handleSubmit} className="login-form">
+          <div className="login-form">
+            <Form.Control
+              placeholder="Email Address"
+              size="md"
+              name="emailAddress"
+              id="input"
+              onChange={handleInputChange}
+            />
+            <Form.Control
+              placeholder="*******"
+              name="password"
+              size="md"
+              type="password"
+              id="input"
+              onChange={handleInputChange}
+            />
+            <Button
+              variant="outline-primary"
+              name="login-btn"
+              type="submit"
+              size="md"
+              block
+              id="input"
+            >
+              Log In
+            </Button>
+          </div>
+        </Form>
         {/* Display Bootstrap alert for password error */}
-        {errors.password && (
-          <div className="alert alert-danger" role="alert">
-            {errors.password}
-          </div>
-        )}
-        <form action="" onSubmit={handleSubmit}>
-          <div className="form-elements-div">
-            <div className="input-email">
-              <input
-                className="form-control"
-                placeholder="Email Address"
-                name="emailAddress"
-                type="text"
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="input-password">
-              <input
-                className="form-control"
-                placeholder="Password"
-                name="password"
-                type="password"
-                onChange={handleInputChange}
-              />
-            </div>
-            <button type="submit" id="login-btn" className="btn btn-primary">
-              Sign In
-            </button>{" "}
-            <span>
-              {" "}
-              <p>
-                <a href="">Forgot your password?</a>
-              </p>
-            </span>
-          </div>
-        </form>
+        {errors.password && <Alert variant="danger">{errors.password}</Alert>}
       </div>
-    </div>
+    </Container>
   );
 }

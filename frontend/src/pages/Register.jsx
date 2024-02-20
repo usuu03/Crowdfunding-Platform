@@ -1,16 +1,19 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import React, { useState } from "react";
+import { Alert, Button, Col, Form, InputGroup } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuthDispatch } from "../context/authContext";
+import "../styles/register.css";
 
 export default function Register() {
   const navigate = useNavigate();
   const dispatch = useAuthDispatch();
+
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
     emailAddress: "",
-    confirmEmail: "",
+    confirmEmailAddress: "",
     password: "",
   });
 
@@ -23,7 +26,7 @@ export default function Register() {
     e.preventDefault();
 
     // Check if the email addresses match
-    if (userData.emailAddress !== userData.confirmEmail) {
+    if (userData.emailAddress !== userData.confirmEmailAddress) {
       setErrors({
         ...errors,
         emailMatch: "Email addresses do not match",
@@ -37,7 +40,7 @@ export default function Register() {
       setErrors({
         ...errors,
         password:
-          "Your password must have at least: 8 characters, 1 uppercase letter, 1 lowercase letter, 1 symbol, and 1 number.",
+          "Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.",
         emailMatch: "", // Clear email match error
       });
       return;
@@ -76,109 +79,95 @@ export default function Register() {
   };
 
   return (
-    <div className="container">
-      <h2 className="register-title">Create an Account</h2>
+    <>
+      <div className="register">
+        <h2 className="">Create an Account</h2>
 
-      <div className="info-container">
-        <p>
-          Already have an account? <Link to="/login">Sign In</Link>
-        </p>
-      </div>
+        <div className="info-container">
+          <p>
+            Already have an account? <Link to="/login">Sign In</Link>
+          </p>
+        </div>
 
-      <div className="form-div">
         <h6>Your Account Details</h6>
-        <form className="" onSubmit={handleSubmit}>
-          <div className="form-row">
-            <div className="form-firstName">
-              <input
-                className="form-control"
-                type="text"
-                name="firstName"
+        <form onSubmit={handleSubmit}>
+          <InputGroup className="mb-3">
+            <Col>
+              <Form.Control
                 placeholder="First Name"
+                size="md"
+                name="firstName"
                 onChange={handleInputChange}
               />
-            </div>
-
-            <div className="form-lastName">
-              <input
-                className="form-control"
-                type="text"
-                name="lastName"
+            </Col>
+            <Col>
+              <Form.Control
                 placeholder="Last Name"
+                size="md"
+                name="lastName"
                 onChange={handleInputChange}
               />
-            </div>
-          </div>
-
-          <div className="form-row">
-            <div className="form-emailAddress">
-              <input
-                className={`form-control ${
-                  errors.emailMatch ? "input-error" : ""
-                }`}
-                type="email"
-                name="emailAddress"
-                placeholder="Email Address"
-                onChange={handleInputChange}
-              />
-            </div>
-          </div>
-
-          <div className="form-row">
-            <div className="form-confirmEmailAddress">
-              <input
-                className={`form-control ${
-                  errors.emailMatch ? "input-error" : ""
-                }`}
-                type="email"
-                name="confirmEmail"
-                placeholder="Confirm Email Address"
-                onChange={handleInputChange}
-              />
-            </div>
-          </div>
-
-          <div className="form-row">
-            <div className="form-password">
-              <input
-                className={`form-control ${
-                  errors.password ? "input-error" : ""
-                }`}
-                type="password"
-                name="password"
-                placeholder="Password"
-                onChange={handleInputChange}
-              />
-            </div>
-          </div>
-
-          {errors.password && (
-            <div className="form-row">
-              <div className="">
-                <p className="alert alert-danger" role="alert">
-                  {errors.password}
-                </p>
-              </div>
-            </div>
-          )}
-
-          {errors.emailMatch && (
-            <div className="form-row">
-              <div className="">
-                <p className="alert alert-danger" role="alert">
-                  {errors.emailMatch}
-                </p>
-              </div>
-            </div>
-          )}
-
-          <div className="form-row">
-            <button type="submit" className="btn btn-primary">
-              Sign Up
-            </button>
-          </div>
+            </Col>
+          </InputGroup>
+          <InputGroup className="mb-3">
+            <Form.Control
+              placeholder="Email Address"
+              size="md"
+              name="emailAddress"
+              onChange={handleInputChange}
+            />
+            <Form.Control
+              placeholder="Confirm Email Address"
+              size="md"
+              name="confirmEmailAddress"
+              onChange={handleInputChange}
+            />
+          </InputGroup>
+          <InputGroup className="mb-3">
+            <Form.Control
+              placeholder="*******"
+              size="md"
+              type="password"
+              name="password"
+              onChange={handleInputChange}
+            />
+          </InputGroup>
+          <Form.Text
+            id="passwordHelpBlock"
+            muted
+            style={{ marginBottom: "10px" }}
+          >
+            {"  "}
+          </Form.Text>{" "}
+          {"    "}
+          <Button
+            variant="outline-primary"
+            type="submit"
+            size="md"
+            id="register-btn"
+            block
+          >
+            Sign Up
+          </Button>
         </form>
       </div>
-    </div>
+
+      {/* Displaying errors if User fails to register */}
+      {errors.password && (
+        <div className="">
+          <div className="alert">
+            <Alert variant="danger">{errors.password}</Alert>
+          </div>
+        </div>
+      )}
+
+      {errors.emailMatch && (
+        <div className="">
+          <div className="alert">
+            <Alert variant="danger">{errors.emailMatch}</Alert>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

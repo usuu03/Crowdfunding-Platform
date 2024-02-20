@@ -1,9 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useAuthState, useAuthDispatch } from "../context/authContext";
+import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
+import { BsPersonFill } from "react-icons/bs";
 import { FaSearch } from "react-icons/fa";
+import { Link, NavLink } from "react-router-dom";
+import { useAuthDispatch, useAuthState } from "../context/authContext";
 
-export default function Header() {
+function Header() {
   const { isAuthenticated, user } = useAuthState();
   const authDispatch = useAuthDispatch();
 
@@ -13,75 +15,65 @@ export default function Header() {
 
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-light bg-primary">
-        <Link to="/" className="navbar-brand" id="header-text">
-          Crowdfunding Platform
-        </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link to="/search" className="nav-link" id="nav-item">
+      <Navbar expand="lg" bg="primary" variant="un" id="navbar" fixed="top">
+        <Container>
+          <Navbar.Brand as={Link} to="/discovery" id="header-text">
+            HelpingHand
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarNavDropdown" />
+          <Navbar.Collapse id="navbarNavDropdown">
+            <Nav variant="underline" className="me-auto">
+              <Nav.Link as={NavLink} to="/search" id="nav-item">
                 <FaSearch />
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/discovery" className="nav-link" id="nav-item">
+              </Nav.Link>
+              <Nav.Link as={NavLink} to="/discovery" id="nav-item">
                 Discovery
-              </Link>
-            </li>
-            {/* //Having trouble here */}
+              </Nav.Link>
+              {/* Start a Campaign */}
 
-            <li className="nav-item">
-              <Link to="/start-fundraiser" className="nav-link" id="nav-item">
-                Start a Campaign
-              </Link>
-            </li>
-            {/* //end */}
-            {isAuthenticated && (
-              <>
-                <li className="nav-item">
-                  <Link to="/campaigns" className="nav-link" id="nav-item">
-                    My Campaigns
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/edit-profile" className="nav-link" id="nav-item">
+              {/* Will be displayed if the User is Authenticated */}
+              {isAuthenticated && (
+                <Nav.Link as={NavLink} to="/campaigns" id="nav-item">
+                  My Campaigns
+                </Nav.Link>
+              )}
+              {/* Start a Campaign */}
+              {isAuthenticated && (
+                <Nav.Link as={NavLink} to="/start-fundraiser" id="nav-item">
+                  Start a Campaign
+                </Nav.Link>
+              )}
+              {/* My Campaigns, Edit Profile, Logout */}
+              {isAuthenticated && (
+                <NavDropdown
+                  title={<BsPersonFill className="icon-container" />}
+                  id="nav-dropdown"
+                >
+                  <NavDropdown.Item as={NavLink} to="/edit-profile">
                     Edit Profile
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item
+                    as={NavLink}
                     to="/login"
-                    className="nav-link"
-                    id="nav-item"
                     onClick={handleLogout}
                   >
                     Logout
-                  </Link>
-                </li>
-              </>
-            )}
-            {!isAuthenticated && (
-              <li className="nav-item">
-                <Link to="/login" className="nav-link" id="nav-item">
+                  </NavDropdown.Item>
+                </NavDropdown>
+              )}
+              {/* Login */}
+              {!isAuthenticated && (
+                <Nav.Link as={NavLink} to="/login" id="nav-item">
                   Login
-                </Link>
-              </li>
-            )}
-          </ul>
-        </div>
-      </nav>
+                </Nav.Link>
+              )}
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </header>
   );
 }
+
+export default Header;

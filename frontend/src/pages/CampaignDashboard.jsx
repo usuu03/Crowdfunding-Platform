@@ -4,12 +4,12 @@
  * Date: November 20, 2023
  * Description: This file contains the UI implementation of Campaign Dashboard Page
  */
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Campaign from "../components/Campaign";
-import { useAuthState } from "../context/authContext";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Button, Card, Nav, ProgressBar } from "react-bootstrap";
+
+import { useNavigate } from "react-router-dom";
 import useAxiosInstance from "../axiosInstance";
+import { useAuthState } from "../context/authContext";
 
 import "../styles/dashboard.css";
 
@@ -40,6 +40,7 @@ function CampaignDashboard() {
     try {
       const response = await axiosInstance.get("/api/campaigns/user");
       setUserCampaigns(response.data);
+      console.log(response.data);
     } catch (error) {
       console.error("Error fetching user campaigns:", error);
       // Handle error if needed
@@ -110,7 +111,7 @@ function CampaignDashboard() {
   }, [isAuthenticated, navigate]);
 
   return (
-    <div className="container">
+    <div className="container" style={{ marginTop: "10%" }}>
       {isAuthenticated ? (
         <>
           <h2 className="register-title">Campaign Dashboard</h2>
@@ -129,149 +130,148 @@ function CampaignDashboard() {
           </div>
 
           <div className="btn-section">
-            <button
-              id="btn"
-              className={`btn btn-primary ${
-                selectedTab === "Started" ? "active" : ""
-              }`}
-              onClick={() => {
-                fetchUserCreatedCampaigns();
-                handleTabChange("Started");
-              }}
-            >
-              Started
-            </button>
-            <button
-              id="btn"
-              className={`btn btn-info ${
-                selectedTab === "Donated" ? "active" : ""
-              }`}
-              onClick={() => {
-                fetchUserDonatedCampaigns();
-                handleTabChange("Donated");
-              }}
-            >
-              Donated
-            </button>
-            <button
-              id="btn"
-              className={`btn btn-success ${
-                selectedTab === "Following" ? "active" : ""
-              }`}
-              onClick={() => {
-                fetchUserFollowedCampaigns();
-                handleTabChange("Following");
-              }}
-            >
-              Following
-            </button>
+            <Nav variant="tabs" defaultActiveKey="Started">
+              <Nav.Item>
+                <Nav.Link
+                  eventKey="Started"
+                  className={`nav-link ${
+                    selectedTab === "Started" ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    fetchUserCreatedCampaigns();
+                    handleTabChange("Started");
+                  }}
+                >
+                  Started
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link
+                  eventKey="Donated"
+                  className={`nav-link ${
+                    selectedTab === "Donated" ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    fetchUserDonatedCampaigns();
+                    handleTabChange("Donated");
+                  }}
+                >
+                  Donated
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link
+                  eventKey="Following"
+                  className={`nav-link ${
+                    selectedTab === "Following" ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    fetchUserFollowedCampaigns();
+                    handleTabChange("Following");
+                  }}
+                >
+                  Following
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
           </div>
 
-          <hr />
-
-          <div className="campaign-container">
+          <div className="campaign-container" style={{ marginTop: "20px" }}>
             {selectedTab === "Started" &&
-              userCampaigns.map((fundraiser) => (
-                <div key={fundraiser.campaignID} className="campaign-box">
-                  <div className="campaign-box-content">
-                    <div className="campaign-image">
-                      <img src="image-placeholder.jpg" alt="Campaign Image" />
-                    </div>
-                    <div id={`campaign-${fundraiser.campaignID}`}>
-                      <h3>{fundraiser.campaignTitle}</h3>
-                      <p>
-                        Raised: ${fundraiser.currentAmount} of $
-                        {fundraiser.goal}
-                      </p>
-                      <div className="progress">
-                        <div
-                          className="progress-bar"
-                          style={{
-                            width: progressWidth(
-                              fundraiser.currentAmount,
-                              fundraiser.goal
-                            ),
-                          }}
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              userCampaigns.map((campaign) => (
+                <Card border="light" id={campaign.campaignID}>
+                  <Card.Img
+                    variant="top"
+                    src={`http://localhost:4000/uploads/${campaign.posterImage}`}
+                  />
+
+                  <Card.Body id={`campaign-${campaign.campaignID}`}>
+                    <Card.Title>{campaign.campaignTitle}</Card.Title>
+
+                    <Card.Text>
+                      Raised: ${campaign.currentAmount} of ${campaign.goal}
+                    </Card.Text>
+
+                    {/* Progress Bar */}
+                    <ProgressBar
+                      now={(campaign.currentAmount / campaign.goal) * 100}
+                      label={`${Math.round(
+                        (campaign.currentAmount / campaign.goal) * 100
+                      )}%`}
+                    />
+                  </Card.Body>
+                </Card>
               ))}
 
             {selectedTab === "Donated" &&
-              userDonated.map((fundraiser) => (
-                <div key={fundraiser.campaignID} className="campaign-box">
-                  <div className="campaign-box-content">
-                    <div className="campaign-image">
-                      <img src="image-placeholder.jpg" alt="Campaign Image" />
-                    </div>
-                    <div id={`campaign-${fundraiser.campaignID}`}>
-                      <h3>{fundraiser.campaignTitle}</h3>
-                      <p>
-                        Raised: ${fundraiser.currentAmount} of $
-                        {fundraiser.goal}
-                      </p>
-                      <div className="progress">
-                        <div
-                          className="progress-bar"
-                          style={{
-                            width: progressWidth(
-                              fundraiser.currentAmount,
-                              fundraiser.goal
-                            ),
-                          }}
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              userDonated.map((campaign) => (
+                <Card border="light" id={campaign.campaignID}>
+                  <Card.Img
+                    variant="top"
+                    src={`http://localhost:4000/uploads/${campaign.posterImage}`}
+                  />
+
+                  <Card.Body id={`campaign-${campaign.campaignID}`}>
+                    <Card.Title>{campaign.campaignTitle}</Card.Title>
+                    <Card.Text>
+                      Raised: ${campaign.currentAmount} of ${campaign.goal}
+                    </Card.Text>
+
+                    {/* Progress Bar */}
+                    <ProgressBar
+                      now={(campaign.currentAmount / campaign.goal) * 100}
+                      label={`${Math.round(
+                        (campaign.currentAmount / campaign.goal) * 100
+                      )}%`}
+                    />
+                  </Card.Body>
+                </Card>
               ))}
 
             {selectedTab === "Following" &&
-              userFollowed.map((fundraiser) => (
-                <div key={fundraiser.campaignID} className="campaign-box">
-                  <div className="campaign-box-content">
-                    <div className="campaign-image">
-                      <img src="image-placeholder.jpg" alt="Campaign Image" />
-                    </div>
-                    <div id={`campaign-${fundraiser.campaignID}`}>
-                      <h3>{fundraiser.campaignTitle}</h3>
-                      <p>
-                        Raised: ${fundraiser.currentAmount} of $
-                        {fundraiser.goal}
-                      </p>
-                      <div className="progress">
-                        <div
-                          className="progress-bar"
-                          style={{
-                            width: progressWidth(
-                              fundraiser.currentAmount,
-                              fundraiser.goal
-                            ),
-                          }}
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              userFollowed.map((campaign) => (
+                <Card border="light" id={campaign.campaignID}>
+                  <Card.Img
+                    variant="top"
+                    src={`http://localhost:4000/uploads/${campaign.posterImage}`}
+                  />
+
+                  <Card.Body id={`campaign-${campaign.campaignID}`}>
+                    <Card.Title>{campaign.campaignTitle}</Card.Title>
+
+                    <Card.Text>
+                      Raised: ${campaign.currentAmount} of ${campaign.goal}
+                    </Card.Text>
+
+                    {/* Progress Bar */}
+                    <ProgressBar
+                      now={(campaign.currentAmount / campaign.goal) * 100}
+                      label={`${Math.round(
+                        (campaign.currentAmount / campaign.goal) * 100
+                      )}%`}
+                    />
+                  </Card.Body>
+                </Card>
               ))}
 
             {userCampaigns.length === 0 && selectedTab === "Started" && (
               <div className="button-container">
-                <button
+                <h6>No Campaigns have been started.</h6>
+                <Button
                   className="btn btn-warning"
+                  size="md"
                   onClick={() => {
                     navigate("/start-fundraiser");
                   }}
                 >
-                  Start a Fundraiser
-                </button>
+                  Start a Campaign
+                </Button>
               </div>
             )}
 
             {userDonated.length === 0 && selectedTab === "Donated" && (
               <div className="button-container">
+                <h6>No Donations have been made.</h6>
                 <button
                   className="btn btn-warning"
                   onClick={() => {
@@ -284,15 +284,17 @@ function CampaignDashboard() {
             )}
 
             {userFollowed.length === 0 && selectedTab === "Following" && (
-              <div className="button-container">
-                <button
-                  className="btn btn-warning"
+              <div className="btn-container">
+                <h6>No Followed Campaigns</h6>
+                <Button
                   onClick={() => {
                     navigate("/discovery");
                   }}
+                  variant="warning"
+                  size="md"
                 >
-                  Follow Fundraisers
-                </button>
+                  Follow a Fundraiser
+                </Button>
               </div>
             )}
           </div>
