@@ -10,13 +10,13 @@ const transporter = nodemailer.createTransport({
 });
 
 // Function to send registration confirmation email
-const sendRegistrationConfirmationEmail = async (email, name) => {
+const sendRegistrationConfirmationEmail = async (email, firstName) => {
   try {
     await transporter.sendMail({
       from: 'your-email@gmail.com',
       to: email,
       subject: 'Registration Confirmation',
-      html: `<p>Dear ${name},</p><p>Thank you for registering on our platform.</p>`
+      html: `<p>Dear ${firstName},</p><p>Thank you for registering on our platform.</p>`
     });
     console.log('Registration confirmation email sent');
   } catch (error) {
@@ -26,14 +26,14 @@ const sendRegistrationConfirmationEmail = async (email, name) => {
 };
 
 // Function to send profile update confirmation email
-const sendProfileUpdateConfirmationEmail = async (email, name, receiveEmails) => {
+const sendProfileUpdateConfirmationEmail = async (email, firstName, receiveEmails) => {
   try {
     if (receiveEmails) {
       await transporter.sendMail({
         from: 'your-email@gmail.com',
         to: email,
         subject: 'Profile Update Confirmation',
-        html: `<p>Dear ${name},</p><p>Your profile has been successfully updated.</p>`
+        html: `<p>Dear ${firstName},</p><p>Your profile has been successfully updated.</p>`
       });
       console.log('Profile update confirmation email sent');
     }
