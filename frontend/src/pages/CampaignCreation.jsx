@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import useAxiosInstance from "../axiosInstance";
 import { useAuthState } from "../context/authContext";
+import "../styles/creation.css";
 
 /**
  * Component for creating a new campaign.
@@ -25,6 +26,7 @@ function CampaignCreationForm() {
   };
 
   const [formData, setFormData] = useState(initialFormData);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const handleChange = (e) => {
     const { name, value, type } = e.target;
@@ -32,6 +34,10 @@ function CampaignCreationForm() {
       ...prevData,
       [name]: type === "file" ? e.target.files[0] : value,
     }));
+  };
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
   };
 
   const handleSubmit = async (e) => {
@@ -80,9 +86,225 @@ function CampaignCreationForm() {
   // }
 
   return (
-    <div className="container">
-      <h2 className="create-title">Create a Campaign</h2>
-      <div className="" id="container-create">
+    <div className="content">
+      <h2 className="create-title">Create Campaign</h2>
+      <h4>Let's start with basic info</h4>
+      <Form>
+        {/* Campaign Title, Description and Region Section */}
+        <div className="region-title-section">
+          <div className="title">
+            <Form.Label>What's your campaign name?</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="e.g. Funds for my Research Project"
+              className="formItem"
+              id="title"
+            />
+          </div>
+          <div className="description">
+            <Form.Label>What's your campaign name?</Form.Label>
+            <Form.Control
+              as="textarea"
+              type="text"
+              placeholder="e.g. I need funds for my research because....."
+              className="formItem"
+            />
+          </div>
+
+          {/* Campaign Region*/}
+          <div className="region">
+            <Form.Label>What's your campaign region?</Form.Label>
+            <Form.Select className="formItem" id="region">
+              <option value="">Choose your Campaign's Region</option>
+              <option value="Africa">Africa</option>
+              <option value="Asia">Asia</option>
+              <option value="Europe">Europe</option>
+              <option value="North America">North America</option>
+              <option value="South America">South America</option>
+              <option value="Oceania">Oceania</option>
+            </Form.Select>
+          </div>
+        </div>
+
+        {/* Campaign Category */}
+        <div className="category-amount-section">
+          <div className="category">
+            <Form.Label>What is the campaign category?</Form.Label>
+            <div className="form-item">
+              <Button
+                id="category-btn"
+                variant={
+                  selectedCategory === "Community"
+                    ? "primary"
+                    : "outline-primary"
+                }
+                onClick={() => handleCategoryClick("Community")}
+              >
+                Community
+              </Button>
+              <Button
+                id="category-btn"
+                variant={
+                  selectedCategory === "Education & Learning"
+                    ? "primary"
+                    : "outline-primary"
+                }
+                onClick={() => handleCategoryClick("Education & Learning")}
+              >
+                Education & Learning
+              </Button>
+              <Button
+                id="category-btn"
+                variant={
+                  selectedCategory === "Social Welfare"
+                    ? "primary"
+                    : "outline-primary"
+                }
+                onClick={() => handleCategoryClick("Social Welfare")}
+              >
+                Social Welfare
+              </Button>
+              <Button
+                id="category-btn"
+                variant={
+                  selectedCategory === "Humanitarian"
+                    ? "primary"
+                    : "outline-primary"
+                }
+                onClick={() => handleCategoryClick("Humanitatian")}
+              >
+                Humanitarian
+              </Button>
+              <Button
+                id="category-btn"
+                variant={
+                  selectedCategory === "Healthcare"
+                    ? "primary"
+                    : "outline-primary"
+                }
+                onClick={() => handleCategoryClick("Healthcare")}
+              >
+                Healthcare
+              </Button>
+              <Button
+                id="category-btn"
+                variant={
+                  selectedCategory === "Exploration"
+                    ? "primary"
+                    : "outline-primary"
+                }
+                onClick={() => handleCategoryClick("Exploration")}
+              >
+                Exploration
+              </Button>
+              <Button
+                id="category-btn"
+                variant={
+                  selectedCategory === "Music & Audio"
+                    ? "primary"
+                    : "outline-primary"
+                }
+                onClick={() => handleCategoryClick("Music & Audio")}
+              >
+                Music & Audio
+              </Button>
+              <Button
+                id="category-btn"
+                variant={
+                  selectedCategory === "Sports & Outdoors"
+                    ? "primary"
+                    : "outline-primary"
+                }
+                onClick={() => handleCategoryClick("Sport & Outdoors")}
+              >
+                Sport & Outdoors
+              </Button>
+              <Button
+                id="category-btn"
+                variant={
+                  selectedCategory === "Pets & Animals"
+                    ? "primary"
+                    : "outline-primary"
+                }
+                onClick={() => handleCategoryClick("Pets & Animals")}
+              >
+                Pets & Animals
+              </Button>
+              <Button
+                id="category-btn"
+                variant={
+                  selectedCategory === "Business & Entrepreneurship"
+                    ? "primary"
+                    : "outline-primary"
+                }
+                onClick={() =>
+                  handleCategoryClick("Business & Entrepreneurship")
+                }
+              >
+                Business & Entrepreneurship
+              </Button>
+              <Button
+                id="category-btn"
+                variant={
+                  selectedCategory === "Design & Tech Gadgets"
+                    ? "primary"
+                    : "outline-primary"
+                }
+                onClick={() => handleCategoryClick("Design & Tech Gadgets")}
+              >
+                Design & Tech Gadgets
+              </Button>
+              <Button
+                id="category-btn"
+                variant={
+                  selectedCategory === "Food & Beverages"
+                    ? "primary"
+                    : "outline-primary"
+                }
+                onClick={() => handleCategoryClick("Food & Beverages")}
+              >
+                Food & Beverages
+              </Button>
+            </div>
+          </div>
+          {/* Campaign Amount */}
+          <div className="amount">
+            <Form.Label>Let's set your Campaign goal.</Form.Label>
+            <Form.Text muted>
+              When your campaign hits the prescribed limit it will automatically
+              shut down
+            </Form.Text>
+            <Form.Control
+              type="number"
+              placeholder="£1000"
+              id="amount"
+              className="formItem"
+            />
+          </div>
+
+          {/* Campaign Date */}
+          <h4>Let's schedule your Campaign</h4>
+          <div className="dates">
+            <div className="start-date">
+              <Form.Label>Start date </Form.Label>
+              <Form.Control type="date" />
+            </div>
+            <div className="start-date">
+              <Form.Label>End date </Form.Label>
+              <Form.Control type="date" className="formItem" />
+            </div>
+          </div>
+
+          {/* Campaign Poster Image */}
+          <h4>Select the Campaign Poster</h4>
+          <div className="posterImage">
+            <Form.Control type="file" className="formItem" />
+          </div>
+
+          <Button className="formItem">Create Campaign</Button>
+        </div>
+      </Form>
+      {/* <div className="" id="container-create">
         <form onSubmit={handleSubmit} className="form-div">
           <div className="form-row">
             <input
@@ -164,7 +386,7 @@ function CampaignCreationForm() {
             Create Campaign
           </button>
         </form>
-      </div>
+      </div> */}
     </div>
   );
 }

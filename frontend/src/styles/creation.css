@@ -1,0 +1,44 @@
+.content {
+    margin: 0 auto;
+    margin-top: 10%;
+    width: 80%;
+
+}
+
+#category-btn {
+    border-radius: 30px;
+    margin: 3px;
+}
+
+.formItem {
+    margin-bottom: 20px;
+}
+
+
+.amount {
+    display: flex;
+    flex-direction: column;
+}
+
+
+#amount {
+    width: 20%;
+}
+
+#title {
+    width: 38%;
+}
+
+#region {
+    width: 37%;
+}
+
+.dates {
+    display: flex;
+    margin-bottom: 20px;
+
+}
+
+.start-date {
+    margin-right: 20px;
+}
