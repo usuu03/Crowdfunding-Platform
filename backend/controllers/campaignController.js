@@ -110,13 +110,14 @@ const addCampaign = async (req, res) => {
     goal,
     category,
     country,
+    startDate,
     endDate,
   } = req.body;
 
   const posterImage = req.file ? req.file.filename : null;
 
   const insertQuery = `INSERT INTO Campaign
-    (campaignTitle, campaignDescription, userID, goal, category, country, endDate, posterImage)
+    (campaignTitle, campaignDescription, userID, goal, category, country, startDate, endDate, posterImage)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
 
   const values = [
@@ -126,6 +127,7 @@ const addCampaign = async (req, res) => {
     goal,
     category,
     country,
+    startDate,
     endDate,
     posterImage,
   ];
@@ -178,6 +180,44 @@ const searchCampaigns = async (req, res) => {
     res.json(campaigns);
   } catch (error) {
     console.error("Error fetching data:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+const getCampaignById = async (req, res) => {
+  try {
+    const { id } = req.params; // Extract campaignId from request parameters
+
+    const query = "SELECT * FROM Campaign WHERE campaignID = ?";
+    const [results] = await db.promise().query(query, [id]);
+
+    if (results.length === 0) {
+      return res.status(404).json({ message: "No campaign found" });
+    }
+
+    const campaign = results[0]; // Take the first result
+
+    const formattedCampaign = {
+      campaignID: campaign.campaignID,
+      campaignTitle: campaign.campaignTitle,
+      campaignDescription: campaign.campaignDescription,
+      goal: campaign.goal,
+      followerCount: campaign.followerCount,
+      currentAmount: campaign.currentAmount,
+      category: campaign.category,
+      country: campaign.country,
+      startDate: campaign.startDate,
+      endDate: campaign.endDate,
+      creationDate: campaign.creationDate,
+      campaignStatus: campaign.campaignStatus,
+      // Use the base64 image data
+      posterImage: campaign.posterImage,
+      //posterImage: campaign.posterImage,
+    };
+
+    res.status(200).json(formattedCampaign);
+  } catch (error) {
+    console.error("Error fetching campaign data:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
@@ -411,6 +451,7 @@ module.exports = {
   getAllCampaigns,
   getAllCategories,
   getAllCountries,
+  getCampaignById,
   addCampaign,
   searchCampaigns,
   getUserCampaigns,

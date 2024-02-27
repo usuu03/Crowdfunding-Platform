@@ -33,6 +33,13 @@ router.get("/country", campaignController.getAllCountries);
 router.get("/all", campaignController.getAllCampaigns);
 
 /**
+ * @route GET /api/campaigns/:id
+ * @description Retrieves campaigns by their id.
+ * @access Public
+ */
+router.get("/:id", campaignController.getCampaignById);
+
+/**
  * @route POST /api/campaigns/add-campaign
  * @description Adds a new campaign to the database.
  * @access Private (Requires authentication)
