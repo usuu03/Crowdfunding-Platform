@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 
 export default function PaymentForm() {
   const [selectedAmount, setSelectedAmount] = useState(0);
+  const { id: campaignID } = useParams();
   const handleAmountClick = (amount) => {
     setSelectedAmount(amount);
   };

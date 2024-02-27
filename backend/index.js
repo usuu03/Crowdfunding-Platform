@@ -23,6 +23,7 @@ const authRoutes = require("./routes/authRoutes");
 const campaignRoutes = require("./routes/campaignRoutes");
 const userRoutes = require("./routes/userRoutes");
 const donationRoutes = require("./routes/donationRoutes");
+const { log } = require("console");
 
 // Use the user routes
 app.use("/api/user", userRoutes);
@@ -41,5 +42,8 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => {
+  console.log("====================================");
   console.log(`App listening on port ${port}`);
+
+  console.log("====================================");
 });

@@ -29,6 +29,31 @@ const getUserDonatedAmount = async (req, res) => {
   }
 };
 
+const addDonation = async (req, res) => {
+  try {
+    const userID = req.user.userId;
+    const { campaignID } = req.params; // Assuming the parameter name is 'campaignId'
+    const { amount, anonymous } = req.body;
+    // Get the current date
+    const currentDate = new Date().toISOString().split("T")[0];
+
+    const query =
+      "INSERT INTO Donation (userID, campaignID, amount, donationDate, anonymous) VALUES (?, ?, ?, ?, ?)";
+
+    const [results] = await db
+      .promise()
+      .query(query, [userID, campaignID, amount, currentDate, anonymous]);
+
+    res.status(201).json({ message: "Successfully donated" });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ message: `Donation Unsuccessful: ${error.message}` });
+  }
+};
+
 module.exports = {
   getUserDonatedAmount,
+  addDonation,
 };

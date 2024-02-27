@@ -17,4 +17,15 @@ const { authenticateUser } = require("../middleware/authentication");
  */
 router.get("/total", authenticateUser, donationController.getUserDonatedAmount);
 
+/**
+ * @route GET /api/donations/categories
+ * @description Retrieves the total amount that has been donated by a User
+ * @access Private (requires authentication)
+ */
+router.post(
+  "/donate/:campaignID",
+  authenticateUser,
+  donationController.addDonation
+);
+
 module.exports = router;
