@@ -54,10 +54,23 @@ function CampaignCreationForm() {
       return;
     }
 
+    if (!selectedCategory) {
+      alert("Please select a category.");
+      return;
+    }
+
     try {
+      const formDataToSend = new FormData();
+      for (const key in formData) {
+        formDataToSend.append(key, formData[key]);
+      }
+
+      // Add selected category to formDataToSend
+      formDataToSend.append("category", selectedCategory);
+
       const response = await axiosInstance.post(
         "/api/campaigns/add-campaign",
-        formData
+        formDataToSend
       );
       console.log(response.data);
       alert("Campaign created successfully!");
@@ -89,7 +102,7 @@ function CampaignCreationForm() {
     <div className="content">
       <h2 className="create-title">Create Campaign</h2>
       <h4>Let's start with basic info</h4>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         {/* Campaign Title, Description and Region Section */}
         <div className="region-title-section">
           <div className="title">
@@ -99,22 +112,24 @@ function CampaignCreationForm() {
               placeholder="e.g. Funds for my Research Project"
               className="formItem"
               id="title"
+              name="campaign"
             />
           </div>
           <div className="description">
-            <Form.Label>What's your campaign name?</Form.Label>
+            <Form.Label>What's your campaign description?</Form.Label>
             <Form.Control
               as="textarea"
               type="text"
               placeholder="e.g. I need funds for my research because....."
               className="formItem"
+              name="campaignDescription"
             />
           </div>
 
           {/* Campaign Region*/}
           <div className="region">
             <Form.Label>What's your campaign region?</Form.Label>
-            <Form.Select className="formItem" id="region">
+            <Form.Select className="formItem" id="region" name="region">
               <option value="">Choose your Campaign's Region</option>
               <option value="Africa">Africa</option>
               <option value="Asia">Asia</option>
@@ -279,6 +294,7 @@ function CampaignCreationForm() {
               placeholder="£1000"
               id="amount"
               className="formItem"
+              name="goal"
             />
           </div>
 
@@ -287,21 +303,29 @@ function CampaignCreationForm() {
           <div className="dates">
             <div className="start-date">
               <Form.Label>Start date </Form.Label>
-              <Form.Control type="date" />
+              <Form.Control type="date" name="startDate" />
             </div>
             <div className="start-date">
               <Form.Label>End date </Form.Label>
-              <Form.Control type="date" className="formItem" />
+              <Form.Control type="date" className="formItem" name="endDate" />
             </div>
           </div>
 
           {/* Campaign Poster Image */}
           <h4>Select the Campaign Poster</h4>
           <div className="posterImage">
-            <Form.Control type="file" className="formItem" />
+            <Form.Control
+              type="file"
+              className="formItem"
+              name="posterImage"
+              accept="image/*"
+              onChange={handleChange}
+            />
           </div>
 
-          <Button className="formItem">Create Campaign</Button>
+          <Button type="submit" className="formItem">
+            Create Campaign
+          </Button>
         </div>
       </Form>
       {/* <div className="" id="container-create">

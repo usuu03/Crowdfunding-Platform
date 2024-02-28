@@ -1,0 +1,66 @@
+Evaluation:
+- Abstract
+- Poster
+- Video 
+- Technical Report 
+
+
+Images:
+- Can be stuff like logos
+Index.html: 
+- HTML Page linking all the docs 
+
+
+
+Iterations:
+- Reports for each prototype 
+- Plans for each prototype 
+- User Acceptance Test
+- Unit Tests 
+- Challenges Faced
+
+
+
+
+Minutes:
+- Meetings with Rogerio
+- Meetings 
+
+
+
+
+Preparation:
+- Project Plan 
+- Use Case Diagrams
+- Functional Specification
+- New Features
+- Non Functional Reqs
+- User stories
+- Use Cases 
+
+
+
+
+QA: 
+Per Iteration/Prototype
+- Quality Assurance End of Prototype 
+- Quality Assurance Challenges
+Minutes 
+- QA Form Weekly Minutes
+- QA with Rogerio
+Evaluation
+- QA Poster 
+- QA Technical Report
+- QA Abstract
+Source Code
+- Coding QA 
+Preparation
+- QA user stories
+
+Research:
+-System Critique
+- System Personalisation?
+
+
+Source Code:
+- One zip folder per prototype

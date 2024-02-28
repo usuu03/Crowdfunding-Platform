@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 import { BsDot } from "react-icons/bs";
 import { FaHeart, FaPoundSign, FaShareAlt } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../styles/campaign.css";
 
 function CampaignPage() {
@@ -22,6 +22,7 @@ function CampaignPage() {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [campaignImage, setCampaignImage] = useState(null);
   const [creatorName, setCreatorName] = useState(null);
+  const navigate = useNavigate();
   //const chartContainer = useRef(null);
 
   useEffect(() => {
@@ -46,6 +47,10 @@ function CampaignPage() {
   //   }
   // };
 
+  const handleDonateNowClick = () => {
+    navigate(`/donation/${campaignID}`);
+  };
+
   useEffect(() => {
     const fetchCreatorName = async () => {
       try {
@@ -61,35 +66,6 @@ function CampaignPage() {
 
     fetchCreatorName();
   }, [campaignID]);
-
-  // // Fetch campaign image
-  // useEffect(() => {
-  //   if (campaign) {
-  //     axios
-  //       .get(`http://localhost:4000/api/campaigns/images/${campaign.posterImage}`)
-  //       .then((response) => {
-  //         setCampaignImage(`data:image/jpeg;base64,${response.data}`);
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error fetching campaign image:", error);
-  //       });
-  //   }
-  // }, [campaign]);
-
-  // useEffect(() => {
-  //   // Fetch donation data from your server
-  //   axios.get("http://localhost:4000/api/campaigns/donations")
-  //     .then((response) => {
-  //       if (response.data) {
-  //         setDonationData(response.data);
-  //       } else {
-  //         setDonationData([]); // Set an empty array or handle the absence of data appropriately
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching donation data:", error);
-  //     });
-  // }, []);
 
   const handleFollowClick = () => {
     axios
@@ -253,7 +229,9 @@ function CampaignPage() {
               )}%`}
             />
             <div className="donate-button">
-              <Button variant="primary">DONATE NOW</Button>
+              <Button variant="primary" onClick={handleDonateNowClick}>
+                DONATE NOW
+              </Button>
             </div>
             <div className="share-button">
               <Button variant="primary">

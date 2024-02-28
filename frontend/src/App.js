@@ -42,7 +42,7 @@ function App() {
             <Route path="/search" element={<SearchBar />} />
             <Route path="/edit-profile" element={<EditProfile />} />
             <Route path="/campaigns" element={<CampaignDashboard />} />
-            <Route path="/donation" element={<PaymentForm />} />
+            <Route path="/donation/:id" element={<PaymentForm />} />
             <Route
               path="/blockchain-donation"
               element={<BlockchainPaymentForm />}

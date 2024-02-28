@@ -1,7 +1,11 @@
 .payment {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
-    margin-top: 15%;
+    margin-top: 10%;
+
+    padding: 20%;
+
+    /* text-align: center; */
 
 }
 
@@ -13,6 +17,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
+    margin-bottom: 20px;
 }
 
 #amount-btn {
@@ -39,4 +44,9 @@
     display: flex;
     flex-direction: column;
     margin-right: 10px;
+}
+
+#submit-btn {
+    text-align: center;
+    margin-top: 15px;
 }
