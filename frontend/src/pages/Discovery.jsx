@@ -137,7 +137,7 @@ function Discovery() {
               <Link to={`/${campaign.campaignID}`}>
                 <h3>{campaign.title}</h3>
               </Link>
-              <Card.Title>{campaign.title}</Card.Title>
+              {/* <Card.Title>{campaign.title}</Card.Title> */}
               <Card.Text>
                 Raised: ${campaign.currentAmount} of ${campaign.goal}
               </Card.Text>

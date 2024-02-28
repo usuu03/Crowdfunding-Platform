@@ -26,6 +26,7 @@ const getAllCampaigns = async (req, res) => {
     }
 
     const campaigns = results.map((campaign) => ({
+      campaignID: campaign.campaignID,
       title: campaign.campaignTitle,
       campaignDescription: campaign.campaignDescription,
       currentAmount: campaign.currentAmount,
