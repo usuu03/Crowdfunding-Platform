@@ -32,17 +32,57 @@ const getUserDonatedAmount = async (req, res) => {
 const addDonation = async (req, res) => {
   try {
     const userID = req.user.userId;
-    const { campaignID } = req.params; // Assuming the parameter name is 'campaignId'
+    const { campaignID } = req.params;
     const { amount, anonymous } = req.body;
     // Get the current date
     const currentDate = new Date().toISOString().split("T")[0];
 
-    const query =
-      "INSERT INTO Donation (userID, campaignID, amount, donationDate, anonymous) VALUES (?, ?, ?, ?, ?)";
+    // Fetch user's current coin balance
+    const userQuery = "SELECT coins FROM Users WHERE userID = ?";
+    const [userResults] = await db.promise().query(userQuery, [userID]);
+    const currentUserCoins = userResults[0].coins;
 
-    const [results] = await db
+    // Check if the user has enough coins
+    if (currentUserCoins < amount) {
+      return res.status(400).json({ message: "Insufficient balance" });
+    }
+
+    // Fetch campaign's current goal and currentAmount
+    const campaignQuery =
+      "SELECT goal, currentAmount FROM Campaign WHERE campaignID = ?";
+    const [campaignResults] = await db
       .promise()
-      .query(query, [userID, campaignID, amount, currentDate, anonymous]);
+      .query(campaignQuery, [campaignID]);
+    const currentCampaignGoal = campaignResults[0].goal;
+    const currentCampaignAmount = campaignResults[0].currentAmount;
+
+    // Increment the currentAmount by the donation amount
+    const updatedAmount = currentCampaignAmount + amount;
+
+    // Update the campaign's currentAmount in the database
+    const updateCampaignQuery =
+      "UPDATE Campaign SET currentAmount = ? WHERE campaignID = ?";
+    await db.promise().query(updateCampaignQuery, [updatedAmount, campaignID]);
+
+    // Subtract the expense amount from the user's coins
+    const updatedCoins = currentUserCoins - amount;
+
+    // Update the user's coins in the database
+    const updateUserQuery = "UPDATE Users SET coins = ? WHERE userID = ?";
+    await db.promise().query(updateUserQuery, [updatedCoins, userID]);
+
+    // Insert the donation record
+    const donationQuery =
+      "INSERT INTO Donation (userID, campaignID, amount, donationDate, anonymous) VALUES (?, ?, ?, ?, ?)";
+    await db
+      .promise()
+      .query(donationQuery, [
+        userID,
+        campaignID,
+        amount,
+        currentDate,
+        anonymous,
+      ]);
 
     res.status(201).json({ message: "Successfully donated" });
   } catch (error) {

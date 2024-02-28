@@ -45,6 +45,7 @@ const getUserDetails = async (req, res) => {
       firstName: user.firstName,
       lastName: user.lastName,
       emailAddress: user.emailAddress,
+      coins: user.coins,
     }));
 
     return res.status(200).json(userDetails);

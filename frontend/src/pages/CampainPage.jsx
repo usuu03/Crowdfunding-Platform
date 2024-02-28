@@ -22,6 +22,7 @@ function CampaignPage() {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [campaignImage, setCampaignImage] = useState(null);
   const [creatorName, setCreatorName] = useState(null);
+
   //const chartContainer = useRef(null);
 
   useEffect(() => {
