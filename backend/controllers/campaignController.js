@@ -244,6 +244,7 @@ const getUserCampaigns = async (req, res) => {
     }
 
     const campaigns = results.map((campaign) => ({
+      campaignID: campaign.campaignID,
       campaignTitle: campaign.campaignTitle,
       campaignDescription: campaign.campaignDescription,
       goal: campaign.goal,
@@ -281,7 +282,8 @@ const getUserDonatedCampaigns = async (req, res) => {
       SELECT c.*
       FROM Campaign c
       JOIN Donation d ON c.campaignID = d.campaignID
-      WHERE d.userID = ?;
+      WHERE d.userID = ?
+      GROUP BY c.campaignID;  -- Group by campaignID to get unique campaigns
     `;
 
     const [results] = await db.promise().query(sqlQuery, [userID]);
@@ -342,6 +344,7 @@ const getUserFollowedCampaigns = async (req, res) => {
     }
 
     const campaigns = results.map((campaign) => ({
+      campaignID: campaign.campaignID,
       campaignTitle: campaign.campaignTitle,
       campaignDescription: campaign.campaignDescription,
       goal: campaign.goal,

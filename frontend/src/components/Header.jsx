@@ -90,7 +90,11 @@ function Header() {
             {/* Start a Campaign */}
             {isAuthenticated && (
               <Nav.Link as={NavLink} id="nav-item">
-                <b>{`${userDetails.firstName}: Current balance of ${userDetails.coins} FundingCoin`}</b>
+                <b>
+                  <u>
+                    {`${userDetails.firstName} - Current balance of ${userDetails.coins} FundingCoin`}
+                  </u>
+                </b>
               </Nav.Link>
             )}
           </Navbar.Collapse>
