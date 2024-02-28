@@ -198,3 +198,24 @@ group video and when we will record 5 minute video needs to be discueed and plan
 
 features must be finished by wednesday 
 questionaire needs to be done by monday
+
+28/02/2024 - Time 5pm - Duration ~
+Attendants- Michael, Chris, Abdul, Usu
+
+Agenda
+-Checking progress on everyone's features for new build
+-Preparation for Friday
+
+Usu:
+Built backend for normal payment system and will be connected by end of day
+
+Abdul:
+Finishing up one more task for feature and will be done by tomorrow
+
+Chris:
+Finishing up frontend for last feature to be done by tomorrow
+
+Michael:
+Connected feature and will be integrated by today
+
+
