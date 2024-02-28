@@ -21,7 +21,6 @@ function EditProfile() {
     lastName: "",
     emailAddress: "",
     password: "",
-    receiveEmails: true, 
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -55,14 +54,6 @@ function EditProfile() {
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
-    }));
-  };
-
-  const handleCheckboxChange = (e) => {
-    const { name, checked } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: checked,
     }));
   };
 
@@ -173,18 +164,6 @@ function EditProfile() {
                 {errors.password}
               </div>
             )}
-          </div>
-
-          <div className="form-row">
-            <label>
-              <input
-                type="checkbox"
-                name="receiveEmails"
-                checked={formData.receiveEmails}
-                onChange={handleCheckboxChange}
-              />
-              Receive Email Notifications
-            </label>
           </div>
 
           <button type="submit" className="btn btn-primary">
