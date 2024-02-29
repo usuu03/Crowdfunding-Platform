@@ -2,8 +2,8 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect, useState } from "react";
 import { Card, Form, Pagination, ProgressBar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import CustomPopup from "../components/CustomPopup";
- import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function Discovery() {
   const [showModal, setShowModal] = useState(false);
@@ -102,7 +102,7 @@ function Discovery() {
           >
             <option value="">Select Category</option>
             {categories.map((category) => (
-              <option key={category.id} value={category}>
+              <option key={category?.id} value={category}>
                 {category}
               </option>
             ))}
@@ -134,10 +134,10 @@ function Discovery() {
             />
 
             <Card.Body id={`campaign-${campaign.campaignID}`}>
-              <Link to={`/${campaign.id}`}>
+              <Link to={`/${campaign.campaignID}`}>
                 <h3>{campaign.title}</h3>
               </Link>
-              <Card.Title>{campaign.title}</Card.Title>
+              {/* <Card.Title>{campaign.title}</Card.Title> */}
               <Card.Text>
                 Raised: ${campaign.currentAmount} of ${campaign.goal}
               </Card.Text>
