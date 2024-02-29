@@ -100,6 +100,14 @@ const getAllCountries = async (req, res) => {
   }
 };
 
+/**
+ * @function getCampaignById
+ * @description Fetches campaign information based on id from the database.
+ * @param {object} req - Express request object.
+ * @param {object} res - Express response object.
+ * @returns {object} JSON response with success of retrieval.
+ * @throws {object} JSON response with an error message if an error occurs.
+ */
 const getCampaignById = async (req, res) => {
   try {
     const { id } = req.params; // Extract campaignId from request parameters
@@ -138,6 +146,102 @@ const getCampaignById = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+/**
+ * @function editCampaigns
+ * @description Edits Campaign Information after it has been created.
+ * @param {object} req - Express request object.
+ * @param {object} res - Express response object.
+ * @returns {object} JSON response with success.
+ * @throws {object} JSON response with an error message if an error occurs.
+ */
+const editCampaigns = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const update = req.body;
+
+    // Construct the SQL query to update the campaign record
+    const query = "UPDATE Campaign SET ? WHERE campaignID = ?";
+
+    // Execute the SQL query
+    const [results] = await db.promise().query(query, [update, id]);
+
+    // Check if any rows were affected by the update query
+    if (results.affectedRows === 0) {
+      return res.status(404).json({ message: "Campaign not found" });
+    }
+
+    // If the update was successful, return success message
+    res.status(200).json({ message: "Campaign updated successfully" });
+  } catch (error) {
+    console.error("Error updating campaign:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+/**
+ * @function deleteCampaigns
+ * @description Deletes campaigns from the database.
+ * @param {object} req - Express request object.
+ * @param {object} res - Express response object.
+ * @returns {object} JSON response with success.
+ * @throws {object} JSON response with an error message if an error occurs.
+ */
+const deleteCampaigns = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Construct the SQL query to delete the campaign record
+    const query = "DELETE FROM Campaign WHERE campaignID = ?";
+
+    // Execute the SQL query
+    const [results] = await db.promise().query(query, [id]);
+
+    // Check if any rows were affected by the delete query
+    if (results.affectedRows === 0) {
+      return res.status(404).json({ message: "Campaign not found" });
+    }
+
+    // If the delete was successful, return success message
+    res.status(200).json({ message: "Campaign deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting campaign:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+/**
+ * @function getCreatorName
+ * @description Fetches campaign creator from the database.
+ * @param {object} req - Express request object.
+ * @param {object} res - Express response object.
+ * @returns {object} JSON response with success.
+ * @throws {object} JSON response with an error message if an error occurs.
+ */
+const getCreatorName = async (req, res) => {
+  try {
+    const campaignId = req.params.id; // Retrieve campaign ID from URL parameter
+
+    const userQuery = `
+      SELECT Users.firstName, Users.lastName
+      FROM Campaign
+      JOIN Users ON Campaign.userId = Users.userId
+      WHERE Campaign.campaignId = ?;`;
+
+    const [results] = await db.promise().query(userQuery, [campaignId]);
+
+    if (results.length === 0) {
+      return res.status(404).json({ message: "Campaign creator not found" });
+    }
+
+    const { firstName, lastName } = results[0];
+    res.status(200).json({ firstName, lastName });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
 
 
 /**
@@ -441,6 +545,9 @@ module.exports = {
   getAllCategories,
   getAllCountries,
   getCampaignById,
+  editCampaigns,
+  deleteCampaigns,
+  getCreatorName,
   addCampaign,
   searchCampaigns,
   getUserCampaigns,
