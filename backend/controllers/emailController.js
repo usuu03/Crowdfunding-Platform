@@ -2,9 +2,9 @@ const nodemailer = require('nodemailer');
 
 // Create a nodemailer transporter
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: 'smtp.office365.com',
   auth: {
-    user: 'helpinghandcfp@gmail.com',
+    user: 'helpinghandcfp@outlook.com',
     pass: 'HelpingHand1@'
   }
 });
@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
 const sendEmail = async (email, subject, html) => {
   try {
     await transporter.sendMail({
-      from: 'helpinghandcfp@gmail.com',
+      from: 'helpinghandcfp@outlook.com',
       to: email,
       subject: subject,
       html: html
