@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Container, Form, InputGroup } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAxiosInstance from "../axiosInstance";
 import "../styles/payment.css";
 
@@ -17,6 +17,7 @@ export default function PaymentForm() {
   const axiosInstance = useAxiosInstance();
   const { id: campaignID } = useParams();
   const [anonymous, setAnonymous] = useState("No");
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log("Campaign ID:", campaignID);
@@ -94,6 +95,8 @@ export default function PaymentForm() {
         `Thank you, you have successfully donated ${amountToDonate} FundingCoins to the Campaign ${campaign.campaignTitle}`
       );
       console.log("Donation response:", response.data);
+      // Redirecting to the Discovery if successfully donated
+      navigate("/discovery");
     } catch (error) {
       alert(`Donation Unsuccessful: ${error}`);
       console.error("Error making donation:", error);
