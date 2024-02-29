@@ -7,6 +7,7 @@
  */
 
 const db = require("../config/dbConfig");
+const emailController = require('../controllers/emailController');
 
 /**
  * @function getAllCampaigns
@@ -173,6 +174,10 @@ const addCampaign = async (req, res) => {
     endDate,
     posterImage,
   ];
+
+  const subject = 'Campaign Creation Confirmation';
+  const html = `<p>Dear User,</p><p>Your campaign "${campaignTitle}" has been successfully created.</p>`;
+  await emailController.sendEmail(userEmail, subject, html);
 
   db.query(insertQuery, values, (err, result) => {
     if (err) {

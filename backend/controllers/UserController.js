@@ -1,5 +1,6 @@
 const db = require("../config/dbConfig");
 const bcrypt = require("bcrypt");
+const emailController = require('../controllers/emailController');
 
 const getUserDetails = async (req, res) => {
   try {
@@ -40,6 +41,10 @@ const updateUserDetails = async (req, res) => {
       WHERE userId=?`;
 
     const values = [lastName, firstName, emailAddress, hashedPassword, userId];
+
+    const subject = 'Profile Update Confirmation';
+    const html = `<p>Dear ${firstName},</p><p>Your profile has been successfully updated.</p>`;
+    await emailController.sendEmail(emailAddress, subject, html);
 
     db.query(updateQuery, values, (err, result) => {
       if (err) {

@@ -22,6 +22,7 @@ const authRoutes = require("./routes/authRoutes");
 const campaignRoutes = require("./routes/campaignRoutes");
 const userRoutes = require("./routes/userRoutes");
 const donationRoutes = require("./routes/donationRoutes");
+const emailRoutes = require("./routes/emailRoutes");
 
 const { authenticateUser } = require("./middleware/authentication");
 
@@ -33,6 +34,8 @@ app.use("/user", authRoutes);
 app.use("/api/campaigns", campaignRoutes);
 
 app.use("/api/donations", donationRoutes);
+
+app.use("/api/email", emailRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello World");

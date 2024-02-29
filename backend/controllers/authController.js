@@ -1,6 +1,7 @@
 const db = require("../config/dbConfig");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const emailController = require('../controllers/emailController');
 
 const register = async (req, res) => {
   try {
@@ -15,6 +16,10 @@ const register = async (req, res) => {
     await db
       .promise()
       .query(insertQuery, [firstName, lastName, emailAddress, hashedPassword]);
+
+    const subject = 'Registration Confirmation';
+    const html = `<p>Dear ${firstName} ${lastName},</p><p>Thank you for registering on our platform.</p>`;
+    await emailController.sendEmail(emailAddress, subject, html);
 
     res.status(201).json({ message: "Registration successful" });
   } catch (error) {
