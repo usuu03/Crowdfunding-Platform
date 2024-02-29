@@ -17,10 +17,6 @@ const register = async (req, res) => {
       .promise()
       .query(insertQuery, [firstName, lastName, emailAddress, hashedPassword]);
 
-    const subject = 'Registration Confirmation';
-    const html = `<p>Dear ${firstName} ${lastName},</p><p>Thank you for registering on our platform.</p>`;
-    await emailController.sendEmail(emailAddress, subject, html);
-
     res.status(201).json({ message: "Registration successful" });
   } catch (error) {
     console.error("Registration Error:", error);
