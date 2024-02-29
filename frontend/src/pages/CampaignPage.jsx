@@ -1,10 +1,18 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useParams } from "react-router-dom";
-import { Card, Button, Tab, Tabs, ProgressBar, Badge, ListGroup } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import {
+  Button,
+  Card,
+  ListGroup,
+  ProgressBar,
+  Tab,
+  Tabs,
+} from "react-bootstrap";
 import { BsDot } from "react-icons/bs";
-import { FaHeart, FaPoundSign, FaHandHoldingHeart, FaShareAlt } from "react-icons/fa";
+import { FaHeart, FaPoundSign, FaShareAlt } from "react-icons/fa";
+import { useNavigate, useParams } from "react-router-dom";
+import "../styles/campaign.css";
 
 function CampaignPage() {
   const { id: campaignID } = useParams();
@@ -13,7 +21,8 @@ function CampaignPage() {
   const [followerCount, setFollowerCount] = useState(0);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [campaignImage, setCampaignImage] = useState(null);
-   const [creatorName, setCreatorName] = useState(null);
+  const [creatorName, setCreatorName] = useState(null);
+  const navigate = useNavigate();
   //const chartContainer = useRef(null);
 
   useEffect(() => {
@@ -38,49 +47,25 @@ function CampaignPage() {
   //   }
   // };
 
+  const handleDonateNowClick = () => {
+    navigate(`/donation/${campaignID}`);
+  };
+
   useEffect(() => {
     const fetchCreatorName = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/campaign/creator/${campaignID}`);
+        const response = await axios.get(
+          `http://localhost:4000/api/campaign/creator/${campaignID}`
+        );
         const { firstName, lastName } = response.data;
         setCreatorName(`${firstName} ${lastName}`);
       } catch (error) {
-        console.error('Error fetching campaign creator name:', error);
+        console.error("Error fetching campaign creator name:", error);
       }
     };
 
     fetchCreatorName();
   }, [campaignID]);
-
-
-  // // Fetch campaign image
-  // useEffect(() => {
-  //   if (campaign) {
-  //     axios
-  //       .get(`http://localhost:4000/api/campaigns/images/${campaign.posterImage}`)
-  //       .then((response) => {
-  //         setCampaignImage(`data:image/jpeg;base64,${response.data}`);
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error fetching campaign image:", error);
-  //       });
-  //   }
-  // }, [campaign]);
-
-  // useEffect(() => {
-  //   // Fetch donation data from your server
-  //   axios.get("http://localhost:4000/api/campaigns/donations")
-  //     .then((response) => {
-  //       if (response.data) {
-  //         setDonationData(response.data);
-  //       } else {
-  //         setDonationData([]); // Set an empty array or handle the absence of data appropriately
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching donation data:", error);
-  //     });
-  // }, []);
 
   const handleFollowClick = () => {
     axios
@@ -99,12 +84,11 @@ function CampaignPage() {
     setShowConfirmation(false);
   };
 
-
   const progressWidth = (currentAmount, goal) =>
     (currentAmount / goal) * 100 + "%";
 
   const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
@@ -114,17 +98,23 @@ function CampaignPage() {
       return `${day}th`;
     }
     switch (day % 10) {
-      case 1: return `${day}st`;
-      case 2: return `${day}nd`;
-      case 3: return `${day}rd`;
-      default: return `${day}th`;
+      case 1:
+        return `${day}st`;
+      case 2:
+        return `${day}nd`;
+      case 3:
+        return `${day}rd`;
+      default:
+        return `${day}th`;
     }
   };
 
   const formatDayWithSuffix = (dateString) => {
     const date = new Date(dateString);
     const dayWithSuffix = addSuffixToDay(date.getDate());
-    return `${date.toLocaleDateString('en-US', { month: 'long' })} ${dayWithSuffix}, ${date.getFullYear()}`;
+    return `${date.toLocaleDateString("en-US", {
+      month: "long",
+    })} ${dayWithSuffix}, ${date.getFullYear()}`;
   };
 
   return (
@@ -133,12 +123,15 @@ function CampaignPage() {
         <div>
           <div className="campaign-title">
             <h1>{campaign.campaignTitle}</h1>
-            <h2> Fundraising Campaign created by {creatorName} <BsDot /> {campaign.category} <BsDot /> {campaign.country}</h2>
+            <h2>
+              {" "}
+              Fundraising Campaign created by {creatorName} <BsDot />{" "}
+              {campaign.category} <BsDot /> {campaign.country}
+            </h2>
             <div className="status-bar">
               <h2> Campaign is {campaign.campaignStatus} </h2>
             </div>
           </div>
-
 
           <Tabs
             defaultActiveKey="description"
@@ -150,17 +143,25 @@ function CampaignPage() {
               {/* <Badge bg="primary" pill> 14 </Badge> */}
               <div className="tab-content">
                 <div className="image-container">
-                  <Card style={{ width: '700px', height: '400px' }}>
-                    <Card.Img variant="top" img src={`http://localhost:4000/uploads/${campaign.posterImage}`} alt={campaign.campaignTitle} />
+                  <Card style={{ width: "700px", height: "400px" }}>
+                    <Card.Img
+                      variant="top"
+                      img
+                      src={`http://localhost:4000/uploads/${campaign.posterImage}`}
+                      alt={campaign.campaignTitle}
+                    />
                     <Card.Body>
                       <Card.Title>Key Dates</Card.Title>
                       <Card.Text>
                         <p>
-                          This Campaign was created on: {formatDayWithSuffix(campaign.creationDate)}
+                          This Campaign was created on:{" "}
+                          {formatDayWithSuffix(campaign.creationDate)}
                           <br />
-                          This Campaign has been active since: {formatDayWithSuffix(campaign.startDate)}
+                          This Campaign has been active since:{" "}
+                          {formatDayWithSuffix(campaign.startDate)}
                           <br />
-                          This Campaign ends on: {formatDayWithSuffix(campaign.endDate)}
+                          This Campaign ends on:{" "}
+                          {formatDayWithSuffix(campaign.endDate)}
                         </p>
                       </Card.Text>
                     </Card.Body>
@@ -168,19 +169,13 @@ function CampaignPage() {
                 </div>
                 <div className="campaign-description">
                   <Card>
-                    <Card.Title>
-                      Campaign Description
-                    </Card.Title>
-                    <Card.Body>
-                      {campaign.campaignDescription}
-                    </Card.Body>
+                    <Card.Title>Campaign Description</Card.Title>
+                    <Card.Body>{campaign.campaignDescription}</Card.Body>
                   </Card>
                 </div>
-
               </div>
-
             </Tab>
-            <Tab eventKey="donations" title="Donations" >
+            <Tab eventKey="donations" title="Donations">
               <div className="tab-content">
                 <ListGroup as="ul">
                   <ListGroup.Item as="li" active>
@@ -210,7 +205,6 @@ function CampaignPage() {
             </Tab>
           </Tabs>
 
-
           {/* <div className="followers">
             <h1 ><FaHandHoldingHeart /> {campaign.followerCount} Followers</h1>
           </div> */}
@@ -218,7 +212,13 @@ function CampaignPage() {
           <div className="sidebar">
             <div className="amount-raised">
               <p>
-                Raised: <span className="current-amount"><FaPoundSign />{campaign.currentAmount}</span> of <FaPoundSign />{campaign.goal}
+                Raised:{" "}
+                <span className="current-amount">
+                  <FaPoundSign />
+                  {campaign.currentAmount}
+                </span>{" "}
+                of <FaPoundSign />
+                {campaign.goal}
               </p>
             </div>
             {/* Progress Bar */}
@@ -229,13 +229,18 @@ function CampaignPage() {
               )}%`}
             />
             <div className="donate-button">
-              <Button variant="primary">DONATE NOW</Button>
+              <Button variant="primary" onClick={handleDonateNowClick}>
+                DONATE NOW
+              </Button>
             </div>
             <div className="share-button">
-              <Button variant="primary"><FaShareAlt /> {''} SHARE</Button>
+              <Button variant="primary">
+                <FaShareAlt /> {""} SHARE
+              </Button>
             </div>
-            <h1 onClick={handleFollowClick} style={{ cursor: "pointer" }}><FaHeart /> Follow this Campaign</h1>
-
+            <h1 onClick={handleFollowClick} style={{ cursor: "pointer" }}>
+              <FaHeart /> Follow this Campaign
+            </h1>
           </div>
 
           {/* Confirmation Modal */}
@@ -247,8 +252,6 @@ function CampaignPage() {
               </div>
             </div>
           )}
-
-
         </div>
       )}
     </div>

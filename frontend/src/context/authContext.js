@@ -1,12 +1,13 @@
 /*
- * Filename: authContext.js
+ * Filename: AuthContext.js
  * Author: Usu Edeaghe
  * Date: November 21, 2023
- * Description: This file contains Authorisation Context, that checks if a User is logged in
+ * Description: This file contains Authorization Context, that checks if a User is logged in
  */
-import { createContext, useContext, useReducer } from "react";
 
-const AuthStateContext = createContext();
+import React, { createContext, useContext, useReducer } from "react";
+
+const AuthContext = createContext();
 const AuthDispatchContext = createContext();
 
 const authReducer = (state, action) => {
@@ -38,23 +39,32 @@ const AuthProvider = ({ children }) => {
   const storedUser = localStorage.getItem("user");
   const storedToken = localStorage.getItem("token");
 
-  const [state, dispatch] = useReducer(authReducer, {
+  let initialState = {
     isAuthenticated: !!storedUser && !!storedToken,
-    user: storedUser ? JSON.parse(storedUser) : null,
-    token: storedToken || null,
-  });
+    user: null,
+    token: null,
+  };
+
+  try {
+    initialState.user = storedUser ? JSON.parse(storedUser) : null;
+    initialState.token = storedToken || null;
+  } catch (error) {
+    console.error("Error parsing user data:", error);
+  }
+
+  const [state, dispatch] = useReducer(authReducer, initialState);
 
   return (
-    <AuthStateContext.Provider value={state}>
+    <AuthContext.Provider value={state}>
       <AuthDispatchContext.Provider value={dispatch}>
         {children}
       </AuthDispatchContext.Provider>
-    </AuthStateContext.Provider>
+    </AuthContext.Provider>
   );
 };
 
 const useAuthState = () => {
-  const context = useContext(AuthStateContext);
+  const context = useContext(AuthContext);
   if (!context) {
     throw new Error("useAuthState must be used within an AuthProvider");
   }
@@ -66,7 +76,6 @@ const useAuthDispatch = () => {
   if (!context) {
     throw new Error("useAuthDispatch must be used within an AuthProvider");
   }
-
   return context;
 };
 

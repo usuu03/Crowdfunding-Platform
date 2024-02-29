@@ -1,0 +1,52 @@
+.payment {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 10%;
+
+    /* padding: 20%; */
+
+    /* text-align: center; */
+
+}
+
+.form-item {
+    margin-bottom: 20px;
+}
+
+.amount-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin-bottom: 20px;
+}
+
+#amount-btn {
+    border-radius: 0px;
+    margin: 1px;
+    padding: 15px
+}
+
+#custom-amount {
+    margin: 10px;
+    border-radius: 0px;
+    width: 100%;
+}
+
+.name-email {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.name,
+.email {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+#submit-btn {
+    text-align: center;
+    margin-top: 15px;
+}

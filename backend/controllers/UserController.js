@@ -1,32 +1,6 @@
 const db = require("../config/dbConfig");
 const bcrypt = require("bcrypt");
-const emailController = require('../controllers/emailController');
-
-const getUserDetails = async (req, res) => {
-  try {
-    const userID = req.user.userId;
-
-    const userQuery = "SELECT * FROM Users WHERE userID=?";
-
-    const [results] = await db.promise().query(userQuery, [userID]);
-
-    if (results.length === 0) {
-      return res.status(404).json({ message: "User could not be found" });
-    }
-
-    const userDetails = results.map((user) => ({
-      id: user.userID,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      emailAddress: user.emailAddress,
-    }));
-
-    return res.status(200).json(userDetails);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal Server Error" });
-  }
-};
+const emailController = require("../controllers/emailController");
 
 const updateUserDetails = async (req, res) => {
   try {
@@ -42,7 +16,7 @@ const updateUserDetails = async (req, res) => {
 
     const values = [lastName, firstName, emailAddress, hashedPassword, userId];
 
-    const subject = 'Profile Update Confirmation';
+    const subject = "Profile Update Confirmation";
     const html = `<p>Dear ${firstName},</p><p>Your profile has been successfully updated.</p>`;
     await emailController.sendEmail(emailAddress, subject, html);
 
@@ -62,6 +36,33 @@ const updateUserDetails = async (req, res) => {
     res
       .status(500)
       .json({ error: "Internal Server Error", details: error.message });
+  }
+};
+
+const getUserDetails = async (req, res) => {
+  try {
+    const userID = req.user.userId;
+
+    const userQuery = "SELECT * FROM Users WHERE userID=?";
+
+    const [results] = await db.promise().query(userQuery, [userID]);
+
+    if (results.length === 0) {
+      return res.status(404).json({ message: "User could not be found" });
+    }
+
+    const userDetails = results.map((user) => ({
+      id: user.userID,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      emailAddress: user.emailAddress,
+      coins: user.coins,
+    }));
+
+    return res.status(200).json(userDetails);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };
 

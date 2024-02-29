@@ -51,7 +51,7 @@ export default function Register() {
         "http://localhost:4000/user/register",
         userData
       );
-      console.log(response.data);
+
       dispatch({ type: "LOGIN", payload: response.data });
       navigate("/discovery");
     } catch (error) {

@@ -1,16 +1,17 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; // Note the addition of 'Routes' here
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom"; // Note the addition of 'Routes' here
 
 // Import your page components (Register and Login)
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import HomePage from "./pages/HomePage";
-import Discovery from "./pages/Discovery";
-import CampaignPage from "./pages/CampaignPage";
 import CampaignCreationForm from "./pages/CampaignCreation";
-import EditProfile from "./pages/EditProfile";
-import SearchBar from "./pages/SearchBar";
 import CampaignDashboard from "./pages/CampaignDashboard";
+import CampaignPage from "./pages/CampaignPage";
+import Discovery from "./pages/Discovery";
+import EditProfile from "./pages/EditProfile";
+import HomePage from "./pages/HomePage";
+import Login from "./pages/Login";
+import PaymentForm from "./pages/PaymentForm";
+import Register from "./pages/Register";
+import SearchBar from "./pages/SearchBar";
 
 //Importing Components
 import Header from "./components/Header";
@@ -31,6 +32,7 @@ function App() {
           <Route path="/start-fundraiser" element={<CampaignCreationForm />} />
           <Route path="/search" element={<SearchBar />} />
           <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/donation/:id" element={<PaymentForm />} />
           <Route path="/campaigns" element={<CampaignDashboard />} />
         </Routes>
       </div>

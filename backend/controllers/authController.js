@@ -1,7 +1,7 @@
 const db = require("../config/dbConfig");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const emailController = require('../controllers/emailController');
+const emailController = require("../controllers/emailController");
 
 const register = async (req, res) => {
   try {
@@ -17,11 +17,33 @@ const register = async (req, res) => {
       .promise()
       .query(insertQuery, [firstName, lastName, emailAddress, hashedPassword]);
 
-    const subject = 'Registration Confirmation';
+    const subject = "Registration Confirmation";
     const html = `<p>Dear ${firstName} ${lastName},</p><p>Thank you for registering on our platform.</p>`;
     await emailController.sendEmail(emailAddress, subject, html);
 
-    res.status(201).json({ message: "Registration successful" });
+    // Fetch the newly registered user
+    const selectQuery = "SELECT * FROM Users WHERE emailAddress = ?";
+    const [results] = await db.promise().query(selectQuery, [emailAddress]);
+
+    if (results.length === 0) {
+      return res
+        .status(400)
+        .json({ message: "User not found after registration" });
+    }
+
+    const user = results[0];
+
+    // Generate a JWT token
+    const token = jwt.sign(
+      { userId: user.userID },
+      process.env.JWT_SECRET_KEY,
+      {
+        expiresIn: "1h",
+      }
+    );
+
+    // Respond with the token and user object
+    res.status(201).json({ message: "Registration successful", token, user });
   } catch (error) {
     console.error("Registration Error:", error);
     res

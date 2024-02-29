@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { BsPersonFill } from "react-icons/bs";
 import { FaSearch } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
+import useAxiosInstance from "../axiosInstance";
 import { useAuthDispatch, useAuthState } from "../context/authContext";
 
 function Header() {
   const { isAuthenticated, user } = useAuthState();
   const authDispatch = useAuthDispatch();
+  const axiosInstance = useAxiosInstance();
+  const [userDetails, setUserDetails] = useState([]);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetchUserDetails();
+    }
+  }, [isAuthenticated]);
+
+  const fetchUserDetails = async () => {
+    try {
+      const response = await axiosInstance.get("/api/user/details");
+      setUserDetails(response.data[0]);
+      console.log(response.data[0]);
+    } catch (error) {
+      console.log("Error fetching User Details", error);
+    }
+  };
 
   const handleLogout = () => {
     authDispatch({ type: "LOGOUT" });
@@ -22,7 +41,7 @@ function Header() {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarNavDropdown" />
           <Navbar.Collapse id="navbarNavDropdown">
-            <Nav variant="underline" className="me-auto">
+            <Nav variant="underline" className="me-auto justify-content-end">
               <Nav.Link as={NavLink} to="/search" id="nav-item">
                 <FaSearch />
               </Nav.Link>
@@ -30,7 +49,6 @@ function Header() {
                 Discovery
               </Nav.Link>
               {/* Start a Campaign */}
-
               {/* Will be displayed if the User is Authenticated */}
               {isAuthenticated && (
                 <Nav.Link as={NavLink} to="/campaigns" id="nav-item">
@@ -69,6 +87,16 @@ function Header() {
                 </Nav.Link>
               )}
             </Nav>
+            {/* Start a Campaign */}
+            {isAuthenticated && (
+              <Nav.Link as={NavLink} id="nav-item">
+                <b>
+                  <u>
+                    {`${userDetails.firstName} - Current balance of ${userDetails.coins} FundingCoin`}
+                  </u>
+                </b>
+              </Nav.Link>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>

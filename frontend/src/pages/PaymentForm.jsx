@@ -6,6 +6,7 @@
  */
 import React, { useEffect, useState } from "react";
 import { Button, Card, Nav, ProgressBar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
 import useAxiosInstance from "../axiosInstance";
@@ -26,15 +27,15 @@ function CampaignDashboard() {
 
   // Fetch user campaigns when the component mounts
   useEffect(() => {
-    // Fetch user details only when authenticated
     if (isAuthenticated) {
-      fetchUserDetails();
-      fetchUserStats();
       fetchUserCreatedCampaigns();
       fetchUserDonatedCampaigns();
       fetchUserFollowedCampaigns();
+      fetchUserDetails();
+      fetchUserStats();
     }
   }, [isAuthenticated]);
+
   // Function to fetch user campaigns
   const fetchUserCreatedCampaigns = async () => {
     try {
@@ -124,8 +125,9 @@ function CampaignDashboard() {
               </b>
             </p>
             <p>
-              You have donated: <b>£{totalAmount.totalDonationAmount}</b> across
-              all the Campaigns you have donated to!{" "}
+              You have donated:{" "}
+              <b>{totalAmount.totalDonationAmount} FundingCoins</b> across all
+              the Campaigns you have donated to!{" "}
             </p>
           </div>
 
@@ -212,7 +214,9 @@ function CampaignDashboard() {
                   />
 
                   <Card.Body id={`campaign-${campaign.campaignID}`}>
-                    <Card.Title>{campaign.campaignTitle}</Card.Title>
+                    <Link to={`/${campaign.campaignID}`}>
+                      <h3>{campaign.campaignTitle}</h3>
+                    </Link>
                     <Card.Text>
                       Raised: ${campaign.currentAmount} of ${campaign.goal}
                     </Card.Text>
@@ -237,7 +241,9 @@ function CampaignDashboard() {
                   />
 
                   <Card.Body id={`campaign-${campaign.campaignID}`}>
-                    <Card.Title>{campaign.campaignTitle}</Card.Title>
+                    <Link to={`/${campaign.campaignID}`}>
+                      <h3>{campaign.campaignTitle}</h3>
+                    </Link>
 
                     <Card.Text>
                       Raised: ${campaign.currentAmount} of ${campaign.goal}
