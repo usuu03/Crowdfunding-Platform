@@ -150,7 +150,7 @@ const getCampaignById = async (req, res) => {
  */
 const addCampaign = async (req, res) => {
   const userID = req.user.userId;
-  const emailAddress = req.user.email;
+
   const {
     campaignTitle,
     campaignDescription,
@@ -175,10 +175,6 @@ const addCampaign = async (req, res) => {
     endDate,
     posterImage,
   ];
-
-  const subject = 'Campaign Creation Confirmation';
-  const html = `<p>Dear User,</p><p>Your campaign "${campaignTitle}" has been successfully created.</p>`;
-  await emailController.sendEmail(emailAddress, subject, html);
 
   db.query(insertQuery, values, (err, result) => {
     if (err) {
