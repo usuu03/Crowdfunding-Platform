@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 
 // Create a nodemailer transporter
 const transporter = nodemailer.createTransport({
-  service: 'smtp.office365.com',
+  service: 'smtp.live.com',
   auth: {
     user: 'helpinghandcfp@outlook.com',
     pass: 'HelpingHand1@'
