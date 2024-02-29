@@ -11,4 +11,6 @@ router.put(
 
 router.get("/details", authenticateUser, userController.getUserDetails);
 
+router.get("/name/:id", userController.getCreatorName);
+
 module.exports = router;

@@ -66,7 +66,38 @@ const getUserDetails = async (req, res) => {
   }
 };
 
+const getCreatorName = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const userQuery = `
+    SELECT Users.firstName, Users.lastName
+    FROM Campaign
+    INNER JOIN Users ON Campaign.userID = Users.userID;
+    `;
+
+    const [results] = await db.promise().query(userQuery, [id]);
+
+    if (results.length === 0) {
+      return res.status(404).json({ message: "User could not be found" });
+    }
+
+    const creatorName = results.map((user) => ({
+      id: user.userID,
+      firstName: user.firstName,
+      lastName: user.lastName,
+    }));
+
+    return res.status(200).json(creatorName);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+
 module.exports = {
   updateUserDetails,
   getUserDetails,
+  getCreatorName,
 };

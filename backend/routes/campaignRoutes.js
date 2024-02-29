@@ -38,6 +38,19 @@ router.get("/all", campaignController.getAllCampaigns);
  */
 router.get("/:id", campaignController.getCampaignById);
 
+/**
+ * @route PUT /api/edit/:id
+ * @description Edits campaigns.
+ * @access Public
+ */
+router.put('/edit/:id', campaignController.editCampaigns);
+
+/**
+ * @route DELETE /api/delete/:id
+ * @description Deletes campaigns.
+ * @access Public
+ */
+router.delete('/delete/:id', campaignController.deleteCampaigns);
 
 /**
  * @route POST /api/campaigns/add-campaign
