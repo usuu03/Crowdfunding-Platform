@@ -324,8 +324,9 @@ h4 {
 
 .campaign-title h1 {
   text-align: center;
+  align-items: center;
   color: #0056b3;
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 2px;
 }
 
@@ -390,6 +391,11 @@ h4 {
   text-align: center;
 }
 
+.edit-campaign {
+  margin-top: 25px;
+  right: 400px;
+}
+
 .sidebar h1 {
   text-align: center;
   font-size: large;
@@ -399,11 +405,11 @@ h4 {
 }
 
 .amount-raised {
-  font-size: medium;
+  font-size: 100%;
 }
 
 .current-amount {
-  font-size: 350%;
+  font-size: 300%;
   color: #007bff;
 }
 
@@ -445,6 +451,7 @@ h4 {
   padding: 20px;
   width: 200px;
 }
+
 
 
 /* Campaign Creation Form Styles */
