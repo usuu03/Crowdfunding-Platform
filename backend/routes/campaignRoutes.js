@@ -9,6 +9,7 @@ const express = require("express");
 const router = express.Router();
 const campaignController = require("../controllers/campaignController");
 const { authenticateUser } = require("../middleware/authentication");
+const { uploadImage } = require("../middleware/images");
 
 /**
  * @route GET /api/campaigns/categories
@@ -39,25 +40,16 @@ router.get("/all", campaignController.getAllCampaigns);
 router.get("/:id", campaignController.getCampaignById);
 
 /**
- * @route PUT /api/edit/:id
- * @description Edits campaigns.
- * @access Public
- */
-router.put('/edit/:id', campaignController.editCampaigns);
-
-/**
- * @route DELETE /api/delete/:id
- * @description Deletes campaigns.
- * @access Public
- */
-router.delete('/delete/:id', campaignController.deleteCampaigns);
-
-/**
  * @route POST /api/campaigns/add-campaign
  * @description Adds a new campaign to the database.
  * @access Private (Requires authentication)
  */
-router.post("/add-campaign", authenticateUser, campaignController.addCampaign);
+router.post(
+  "/add-campaign",
+  authenticateUser,
+  uploadImage,
+  campaignController.addCampaign
+);
 
 /**
  * @route POST /api/campaigns/search

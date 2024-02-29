@@ -1,315 +1,182 @@
-/*
- * Filename: CampaignDashboard.jsx
- * Author: Usu Edeaghe
- * Date: November 20, 2023
- * Description: This file contains the UI implementation of Campaign Dashboard Page
- */
+import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button, Card, Nav, ProgressBar } from "react-bootstrap";
-import { Link } from "react-router-dom";
-
-import { useNavigate } from "react-router-dom";
+import { Button, Container, Form, InputGroup } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
 import useAxiosInstance from "../axiosInstance";
-import { useAuthState } from "../context/authContext";
+import "../styles/payment.css";
 
-import "../styles/dashboard.css";
-
-function CampaignDashboard() {
-  const navigate = useNavigate();
-  const { isAuthenticated, user } = useAuthState();
+/**
+ * PaymentForm component for handling donations.
+ * Allows users to select predefined donation amounts or enter a custom amount.
+ * @returns JSX element representing the payment form.
+ */
+export default function PaymentForm() {
+  const [campaign, setCampaign] = useState("");
+  const [selectedAmount, setSelectedAmount] = useState(0);
+  const [customAmount, setCustomAmount] = useState("");
   const axiosInstance = useAxiosInstance();
-  const [userDetails, setUserDetails] = useState([]);
-  const [totalAmount, setTotalAmount] = useState(0.0);
-  const [userCampaigns, setUserCampaigns] = useState([]);
-  const [userFollowed, setUserFollowed] = useState([]);
-  const [userDonated, setUserDonated] = useState([]);
-  const [selectedTab, setSelectedTab] = useState("Started"); // Track the selected tab
-
-  // Fetch user campaigns when the component mounts
-  useEffect(() => {
-    if (isAuthenticated) {
-      fetchUserCreatedCampaigns();
-      fetchUserDonatedCampaigns();
-      fetchUserFollowedCampaigns();
-      fetchUserDetails();
-      fetchUserStats();
-    }
-  }, [isAuthenticated]);
-
-  // Function to fetch user campaigns
-  const fetchUserCreatedCampaigns = async () => {
-    try {
-      const response = await axiosInstance.get("/api/campaigns/user");
-      setUserCampaigns(response.data);
-      console.log(response.data);
-    } catch (error) {
-      console.error("Error fetching user campaigns:", error);
-      // Handle error if needed
-    }
-  };
-
-  // Function to fetch user-donated campaigns
-  const fetchUserDonatedCampaigns = async () => {
-    try {
-      const response = await axiosInstance.get("/api/campaigns/user/donated");
-      setUserDonated(response.data);
-    } catch (error) {
-      console.error("Error fetching user donated campaigns:", error);
-      // Handle error if needed
-    }
-  };
-
-  // Function to fetch user-followed campaigns
-  const fetchUserFollowedCampaigns = async () => {
-    try {
-      const response = await axiosInstance.get("/api/campaigns/user/following");
-      setUserFollowed(response.data);
-    } catch (error) {
-      console.error("Error fetching user followed campaigns:", error);
-      // Handle error if needed
-    }
-  };
-
-  //Function to fetch User Details
-  const fetchUserDetails = async () => {
-    try {
-      const response = await axiosInstance.get("/api/user/details");
-      setUserDetails(response.data[0]);
-    } catch (error) {
-      console.log("Error fetching User Details", error);
-    }
-  };
-
-  //Function to fetch the Total Amount the User has donated overall
-  const fetchUserStats = async () => {
-    try {
-      const response = await axiosInstance.get("/api/donations/total");
-      console.log(response.data);
-      setTotalAmount(response.data);
-    } catch (error) {
-      console.log("Error fetching the Donation", error);
-    }
-  };
-
-  const progressWidth = (current, goal) => {
-    const progress = (current / goal) * 100;
-    return `${progress}%`;
-  };
-
-  const handleTabChange = (tab) => {
-    setSelectedTab(tab);
-  };
+  const { id: campaignID } = useParams();
+  const [anonymous, setAnonymous] = useState("No");
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Check authentication status when the component mounts
-    if (!isAuthenticated) {
-      // Redirect if not logged in
-      navigate("/login");
-      window.alert(
-        "Please Log In to see to view Campaigns you are involved in!"
+    console.log("Campaign ID:", campaignID);
+    axios
+      .get(`http://localhost:4000/api/campaigns/${campaignID}`)
+      .then((response) => {
+        setCampaign(response.data);
+        //setCampaignImage(response.data.posterImage);
+        //console.log("Campaign Image URL:", response.data.posterImage);
+      })
+      .catch((error) => console.error("Error fetching campaign data:", error));
+  }, [campaignID]);
+
+  const handleAnonymousChange = () => {
+    // Toggle between "Yes" and "No"
+    const newAnonymous = anonymous === "Yes" ? "No" : "Yes";
+    setAnonymous(newAnonymous);
+  };
+
+  /**
+   * Handle click on predefined donation amount button.
+   * Updates the selectedAmount state and clears the customAmount.
+   * @param {number} amount - The selected donation amount.
+   */
+  const handleAmountClick = (amount) => {
+    setSelectedAmount((prevAmount) => {
+      // If the same amount is double-clicked, unselect it
+      return prevAmount === amount ? 0 : amount;
+    });
+    setCustomAmount("");
+  };
+
+  /**
+   * Handle change in the custom donation amount input field.
+   * Updates the customAmount state.
+   * @param {Object} e - The event object representing the input change event.
+   */
+  const handleCustomAmountChange = (e) => {
+    const { value } = e.target;
+    // Ensure input is a valid number (you can add more validation if needed)
+    if (!isNaN(value) && parseInt(value) >= 0) {
+      setCustomAmount(value);
+      setSelectedAmount(0); // Reset selected amount when custom amount is changed
+    }
+  };
+
+  /**
+   * Handle submission of the donation form.
+   * Sends the donation data to the backend for processing.
+   * @param {Object} e - The event object representing the form submission event.
+   */
+  const handleSubmitDonation = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Determine the amount to donate - can be selected or custom
+      const amountToDonate = customAmount
+        ? parseInt(customAmount)
+        : selectedAmount;
+
+      console.log("Amount to donate:", amountToDonate);
+      console.log("Campaign ID:", campaignID);
+      console.log("Anonymous:", anonymous);
+
+      // Send a POST request to the backend endpoint with donation data
+      const response = await axiosInstance.post(
+        `/api/donations/donate/${campaignID}`,
+        {
+          amount: amountToDonate,
+          anonymous: anonymous,
+        }
       );
+
+      alert(
+        `Thank you, you have successfully donated ${amountToDonate} FundingCoins to the Campaign ${campaign.campaignTitle}`
+      );
+      console.log("Donation response:", response.data);
+      // Redirecting to the Discovery if successfully donated
+      navigate("/discovery");
+    } catch (error) {
+      alert(`Donation Unsuccessful: ${error}`);
+      console.error("Error making donation:", error);
     }
-  }, [isAuthenticated, navigate]);
+  };
 
   return (
-    <div className="container" style={{ marginTop: "10%" }}>
-      {isAuthenticated ? (
-        <>
-          <h2 className="register-title">Campaign Dashboard</h2>
+    <Container className="payment">
+      <h2>Make a Donation to the {campaign.campaignTitle} Campaign</h2>
+      {/* Payment form JSX */}
+      <Form onSubmit={handleSubmitDonation}>
+        {/* Amount Options */}
+        <div className="amount-options">
+          {[25, 50, 100, 250, 500, 1000].map((amount) => (
+            <Button
+              key={amount}
+              id="amount-btn"
+              variant={
+                selectedAmount === amount ? "primary" : "outline-primary"
+              }
+              onClick={() => handleAmountClick(amount)}
+            >
+              {amount} FundingCoins
+            </Button>
+          ))}
+        </div>
 
-          <div>
-            <p>
-              Welcome to your Dashboard{" "}
-              <b>
-                {userDetails.firstName} {userDetails.lastName}
-              </b>
-            </p>
-            <p>
-              You have donated:{" "}
-              <b>{totalAmount.totalDonationAmount} FundingCoins</b> across all
-              the Campaigns you have donated to!{" "}
-            </p>
-          </div>
+        {/* Custom Amount Field */}
+        <Form.Group controlId="customAmount">
+          <Form.Label>Custom Amount</Form.Label>
+          <InputGroup>
+            <InputGroup.Text>FundingCoins</InputGroup.Text>
+            <Form.Control
+              type="number"
+              placeholder="Enter custom amount"
+              value={customAmount}
+              onChange={handleCustomAmountChange}
+            />
+          </InputGroup>
+        </Form.Group>
 
-          <div className="btn-section">
-            <Nav variant="tabs" defaultActiveKey="Started">
-              <Nav.Item>
-                <Nav.Link
-                  eventKey="Started"
-                  className={`nav-link ${
-                    selectedTab === "Started" ? "active" : ""
-                  }`}
-                  onClick={() => {
-                    fetchUserCreatedCampaigns();
-                    handleTabChange("Started");
-                  }}
-                >
-                  Started
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link
-                  eventKey="Donated"
-                  className={`nav-link ${
-                    selectedTab === "Donated" ? "active" : ""
-                  }`}
-                  onClick={() => {
-                    fetchUserDonatedCampaigns();
-                    handleTabChange("Donated");
-                  }}
-                >
-                  Donated
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link
-                  eventKey="Following"
-                  className={`nav-link ${
-                    selectedTab === "Following" ? "active" : ""
-                  }`}
-                  onClick={() => {
-                    fetchUserFollowedCampaigns();
-                    handleTabChange("Following");
-                  }}
-                >
-                  Following
-                </Nav.Link>
-              </Nav.Item>
-            </Nav>
-          </div>
+        <hr />
+        <div className="credit-information">
+          <h6>Personal Info</h6>
+          <InputGroup>
+            <Form.Control
+              type="text"
+              placeholder="Full Name"
+              required
+              className="form-item"
+            />
+            <Form.Control
+              type="email"
+              placeholder="Email"
+              className="form-item"
+              required
+            />
+          </InputGroup>
+          <InputGroup>
+            <Form.Control
+              type="text"
+              placeholder="Address"
+              required
+              className="form-item"
+            />
+          </InputGroup>
+          <Form.Check
+            label="Make an anonymous donation"
+            className="form-item"
+            type="checkbox"
+            checked={anonymous === "Yes"}
+            onChange={handleAnonymousChange}
+          />
+        </div>
 
-          <div className="campaign-container" style={{ marginTop: "20px" }}>
-            {selectedTab === "Started" &&
-              userCampaigns.map((campaign) => (
-                <Card border="light" id={campaign.campaignID}>
-                  <Card.Img
-                    variant="top"
-                    src={`http://localhost:4000/uploads/${campaign.posterImage}`}
-                  />
-
-                  <Card.Body id={`campaign-${campaign.campaignID}`}>
-                    <Card.Title>{campaign.campaignTitle}</Card.Title>
-
-                    <Card.Text>
-                      Raised: ${campaign.currentAmount} of ${campaign.goal}
-                    </Card.Text>
-
-                    {/* Progress Bar */}
-                    <ProgressBar
-                      now={(campaign.currentAmount / campaign.goal) * 100}
-                      label={`${Math.round(
-                        (campaign.currentAmount / campaign.goal) * 100
-                      )}%`}
-                    />
-                  </Card.Body>
-                </Card>
-              ))}
-
-            {selectedTab === "Donated" &&
-              userDonated.map((campaign) => (
-                <Card border="light" id={campaign.campaignID}>
-                  <Card.Img
-                    variant="top"
-                    src={`http://localhost:4000/uploads/${campaign.posterImage}`}
-                  />
-
-                  <Card.Body id={`campaign-${campaign.campaignID}`}>
-                    <Link to={`/${campaign.campaignID}`}>
-                      <h3>{campaign.campaignTitle}</h3>
-                    </Link>
-                    <Card.Text>
-                      Raised: ${campaign.currentAmount} of ${campaign.goal}
-                    </Card.Text>
-
-                    {/* Progress Bar */}
-                    <ProgressBar
-                      now={(campaign.currentAmount / campaign.goal) * 100}
-                      label={`${Math.round(
-                        (campaign.currentAmount / campaign.goal) * 100
-                      )}%`}
-                    />
-                  </Card.Body>
-                </Card>
-              ))}
-
-            {selectedTab === "Following" &&
-              userFollowed.map((campaign) => (
-                <Card border="light" id={campaign.campaignID}>
-                  <Card.Img
-                    variant="top"
-                    src={`http://localhost:4000/uploads/${campaign.posterImage}`}
-                  />
-
-                  <Card.Body id={`campaign-${campaign.campaignID}`}>
-                    <Link to={`/${campaign.campaignID}`}>
-                      <h3>{campaign.campaignTitle}</h3>
-                    </Link>
-
-                    <Card.Text>
-                      Raised: ${campaign.currentAmount} of ${campaign.goal}
-                    </Card.Text>
-
-                    {/* Progress Bar */}
-                    <ProgressBar
-                      now={(campaign.currentAmount / campaign.goal) * 100}
-                      label={`${Math.round(
-                        (campaign.currentAmount / campaign.goal) * 100
-                      )}%`}
-                    />
-                  </Card.Body>
-                </Card>
-              ))}
-
-            {userCampaigns.length === 0 && selectedTab === "Started" && (
-              <div className="button-container">
-                <h6>No Campaigns have been started.</h6>
-                <Button
-                  className="btn btn-warning"
-                  size="md"
-                  onClick={() => {
-                    navigate("/start-fundraiser");
-                  }}
-                >
-                  Start a Campaign
-                </Button>
-              </div>
-            )}
-
-            {userDonated.length === 0 && selectedTab === "Donated" && (
-              <div className="button-container">
-                <h6>No Donations have been made.</h6>
-                <button
-                  className="btn btn-warning"
-                  onClick={() => {
-                    navigate("/discovery");
-                  }}
-                >
-                  Donate to Fundraisers
-                </button>
-              </div>
-            )}
-
-            {userFollowed.length === 0 && selectedTab === "Following" && (
-              <div className="btn-container">
-                <h6>No Followed Campaigns</h6>
-                <Button
-                  onClick={() => {
-                    navigate("/discovery");
-                  }}
-                  variant="warning"
-                  size="md"
-                >
-                  Follow a Fundraiser
-                </Button>
-              </div>
-            )}
-          </div>
-        </>
-      ) : (
-        <p>Please log in to view your Campaign Dashboard.</p>
-      )}
-    </div>
+        {/* Submit Button */}
+        <Button variant="outline-primary" id="submit-btn" type="submit">
+          Make a Donation
+        </Button>
+      </Form>
+    </Container>
   );
 }
-
-export default CampaignDashboard;

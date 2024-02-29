@@ -11,6 +11,7 @@ const app = express();
 const cors = require("cors");
 require("dotenv").config();
 const cookieParser = require("cookie-parser");
+const path = require("path");
 
 // Middleware
 app.use(express.json());
@@ -25,6 +26,8 @@ const donationRoutes = require("./routes/donationRoutes");
 const emailRoutes = require("./routes/emailRoutes");
 
 const { authenticateUser } = require("./middleware/authentication");
+
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Use the user routes
 app.use("/api/user", userRoutes);

@@ -7,7 +7,7 @@
  */
 
 const db = require("../config/dbConfig");
-const emailController = require('../controllers/emailController');
+const emailController = require("../controllers/emailController");
 
 /**
  * @function getAllCampaigns
@@ -120,7 +120,6 @@ const getCampaignById = async (req, res) => {
     }
 
     const campaign = results[0]; // Take the first result
-
 
     const formattedCampaign = {
       campaignID: campaign.campaignID,
@@ -242,32 +241,28 @@ const getCreatorName = async (req, res) => {
   }
 };
 
-
-
 /**
  * @function addCampaign
  * @description Adds a new campaign to the database.
- * @param {object} req - Express request object.
- * @param {object} res - Express response object.
- * @returns {object} JSON response with a success message.
- * @throws {object} JSON response with an error message if an error occurs.
  */
 const addCampaign = async (req, res) => {
   const userID = req.user.userId;
-
   const {
     campaignTitle,
     campaignDescription,
     goal,
     category,
     country,
+    startDate,
     endDate,
-    posterImage,
   } = req.body;
 
+  const posterImage = req.file ? req.file.filename : null;
+  console.log("Received file:", req.file);
+
   const insertQuery = `INSERT INTO Campaign
-    (campaignTitle, campaignDescription, userID, goal, category, country, endDate, posterImage)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+    (campaignTitle, campaignDescription, userID, goal, category, country, startDate, endDate, posterImage)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
   const values = [
     campaignTitle,
@@ -276,6 +271,7 @@ const addCampaign = async (req, res) => {
     goal,
     category,
     country,
+    startDate,
     endDate,
     posterImage,
   ];
@@ -538,7 +534,6 @@ const deleteCampaign = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
-
 
 module.exports = {
   getAllCampaigns,
