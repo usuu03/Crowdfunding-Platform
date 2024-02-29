@@ -102,7 +102,7 @@ function Discovery() {
           >
             <option value="">Select Category</option>
             {categories.map((category) => (
-              <option key={category.id} value={category}>
+              <option key={category?.id} value={category}>
                 {category}
               </option>
             ))}
