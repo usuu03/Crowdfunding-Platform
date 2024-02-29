@@ -2,20 +2,16 @@ const nodemailer = require('nodemailer');
 
 // Create a nodemailer transporter
 const transporter = nodemailer.createTransport({
-  service: 'smtp.office365.com',
-  port: 465,
-  secure: true,
-  logger: true,
-  debug: true,
-  secureConnection: false,
+  host: 'smtp.office365.com',
+  port: 587,
+  secure: false, // false for STARTTLS
   auth: {
-    user: "helpinghandcfp@outlook.com",
-    pass: "HelpingHand1@"
+    user: 'helpinghandcfp@outlook.com',
+    pass: 'HelpingHand1@'
   },
-  tls:{
+  tls: {
     rejectUnauthorized: true
   }
-
 });
 
 const sendEmail = async (email, subject, html) => {
