@@ -329,7 +329,7 @@ function CampaignPage() {
               {/* <Badge bg="primary" pill> 14 </Badge> */}
               <div className="tab-content">
                 <div className="image-container">
-                  <Card style={{ width: '700px', height: '400px' }}>
+                  <Card style={{ width: '700px', height: '500px' }}>
                     <Card.Img variant="top" img src={`http://localhost:4000/uploads/${campaign.posterImage}`} alt={campaign.campaignTitle} />
                     <Card.Body>
                       <Card.Title>Key Dates</Card.Title>

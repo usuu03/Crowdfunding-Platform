@@ -325,7 +325,7 @@ h4 {
 .campaign-title h1 {
   text-align: center;
   align-items: center;
-  color: #0056b3;
+  color: #007bff;
   margin-top: 50px;
   margin-bottom: 2px;
 }
@@ -346,7 +346,7 @@ h4 {
 .tab-content {
   height: 600px;
   overflow-y: auto;
-  width: 1400px;
+  width: 1100px;
 
 }
 
@@ -361,7 +361,7 @@ h4 {
 
 .image-container {
   position: relative;
-  margin-top: 100px;
+  margin-top: 55px;
   width: 700px;
   height: 350px;
   right: -250px;
@@ -375,6 +375,14 @@ h4 {
   max-width: 100%;
   /* Add object-fit: cover; to maintain the aspect ratio and cover the container */
   object-fit: cover;
+}
+
+.campaign-description {
+  position:relative;
+  margin-top: 100px;
+  width: 10px;
+  padding: 10px;
+  right: -280px;
 }
 
 .sidebar {
