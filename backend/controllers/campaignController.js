@@ -258,7 +258,6 @@ const addCampaign = async (req, res) => {
   } = req.body;
 
   const posterImage = req.file ? req.file.filename : null;
-  console.log("Received file:", req.file);
 
   const insertQuery = `INSERT INTO Campaign
     (campaignTitle, campaignDescription, userID, goal, category, country, startDate, endDate, posterImage)
@@ -276,17 +275,25 @@ const addCampaign = async (req, res) => {
     posterImage,
   ];
 
-  db.query(insertQuery, values, (err, result) => {
-    if (err) {
-      console.error("Error inserting campaign:", err);
-      res
-        .status(500)
-        .json({ error: "Internal Server Error", details: err.message });
-    } else {
-      console.log("Campaign inserted successfully");
-      res.status(201).json({ message: "Campaign created successfully" });
-    }
-  });
+  try {
+    const insertResult = await db.promise().query(insertQuery, values);
+    const campaignId = insertResult[0].insertId;
+
+    const selectQuery = "SELECT * FROM Campaign WHERE campaignID = ?";
+    const [campaignData] = await db.promise().query(selectQuery, [campaignId]);
+
+    console.log("Campaign inserted successfully");
+    res.status(201).json({
+      message: "Campaign created successfully",
+      campaignData: campaignData[0],
+    });
+    console.log(campaignData);
+  } catch (error) {
+    console.error("Error creating campaign:", error);
+    res
+      .status(500)
+      .json({ error: "Internal Server Error", details: error.message });
+  }
 };
 
 /**
@@ -343,6 +350,7 @@ const searchCampaigns = async (req, res) => {
 const getUserCampaigns = async (req, res) => {
   try {
     const userID = req.user.userId;
+    console.log(userID);
 
     const sqlQuery = "SELECT * FROM Campaign WHERE userID=?";
     const [results] = await db.promise().query(sqlQuery, [userID]);
@@ -353,6 +361,7 @@ const getUserCampaigns = async (req, res) => {
     }
 
     const campaigns = results.map((campaign) => ({
+      campaignID: campaign.campaignID,
       campaignTitle: campaign.campaignTitle,
       campaignDescription: campaign.campaignDescription,
       goal: campaign.goal,
@@ -387,10 +396,12 @@ const getUserDonatedCampaigns = async (req, res) => {
     const userID = req.user.userId;
 
     const sqlQuery = `
-      SELECT c.*
-      FROM Campaign c
-      JOIN Donation d ON c.campaignID = d.campaignID
-      WHERE d.userID = ?;
+    SELECT c.*
+    FROM Campaign c
+    JOIN Donation d ON c.campaignID = d.campaignID
+    WHERE d.userID = ?
+    GROUP BY c.campaignID;  -- Group by campaignID to get unique campaigns
+
     `;
 
     const [results] = await db.promise().query(sqlQuery, [userID]);

@@ -13,12 +13,13 @@ function CampaignCreationForm() {
   const navigate = useNavigate();
   const { isAuthenticated, user } = useAuthState();
   const axiosInstance = useAxiosInstance();
+  const [campaigns, setCampaign] = useState([]);
 
   const initialFormData = {
     campaignTitle: "",
     campaignDescription: "",
     userID: "",
-    goal: "",
+    goal: 0,
     category: "",
     country: "",
     startDate: "",
@@ -31,6 +32,7 @@ function CampaignCreationForm() {
 
   const handleChange = (e) => {
     const { name, value, type } = e.target;
+    const processedValue = type === "number" ? parseFloat(value) : value;
     setFormData((prevData) => ({
       ...prevData,
       [name]: type === "file" ? e.target.files[0] : value,
@@ -70,9 +72,12 @@ function CampaignCreationForm() {
         }
       );
 
+      setCampaign(response.data);
+
       console.log("Campaign created successfully", response.data);
       alert("Campaign created successfully");
-      navigate("/discovery");
+      console.log(response.data.campaignData.campaignID);
+      navigate(`/${response.data.campaignData.campaignID}`);
     } catch (error) {
       console.error("Error creating campaign", error);
       // Handle error, display error message, etc.
@@ -300,6 +305,7 @@ function CampaignCreationForm() {
               id="amount"
               className="formItem"
               name="goal"
+              onChange={handleChange}
             />
           </div>
 

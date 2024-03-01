@@ -63,7 +63,11 @@ router.post("/search", campaignController.searchCampaigns);
  * @description Retrieves campaigns created by the authenticated user.
  * @access Private (Requires authentication)
  */
-router.get("/user", authenticateUser, campaignController.getUserCampaigns);
+router.get(
+  "/user/created",
+  authenticateUser,
+  campaignController.getUserCampaigns
+);
 
 /**
  * @route GET /api/campaigns/user/following
