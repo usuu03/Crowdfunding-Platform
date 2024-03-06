@@ -219,3 +219,23 @@ Michael:
 Connected feature and will be integrated by today
 
 
+06/03/2024 - Time 3PM - Duration = 1hr 
+Not in attendance: N/A 
+
+Agenda: 
+- Discuss Corpus 
+- Discuss feedback received from campaign poster 
+- Update on progress 
+
+Whats been since previous meeting: 
+- Chris: Got carrusel working
+- Abdul: Implementation works, only for registering and edit details
+- Michael: Edit Campaign and Delete Campaign working
+- Usu: Worked on storing images on the cloud instead of a folder in the backend 
+
+
+Whats being done: 
+- Chris: Working on getting campaign details to show up 
+- Abdul: Adding email integration to rest of the features 
+- Michael: Fixing image update, working on displaying all the donations in the campaign page  
+- Usu: Implementing the logic for a fake blockchain payment system
