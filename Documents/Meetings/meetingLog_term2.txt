@@ -272,3 +272,17 @@ Section 6: Solution (Third Prototype)
 - Evaluation
 Section 6: Evaluation
 Section 7: Conclusion
+
+07/03/2024 - Time 1PM - Duration = 50 minutes 
+Meeting with Supervisor
+
+Agenda: 
+- Discuss Corpus 
+- Discuss Feedback received from Poster Fair 
+- Gave us advice on the next submission 
+    - Should start on time
+    - Should have high quality deliverables for our submission 
+    - Helped us figure out the structure of the technical report
+    - Gave guidance on how to structure the corpus
+    - Include "whats something we are proud of"
+    - Discussed Individual Report 
