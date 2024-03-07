@@ -239,3 +239,36 @@ Whats being done:
 - Abdul: Adding email integration to rest of the features 
 - Michael: Fixing image update, working on displaying all the donations in the campaign page  
 - Usu: Implementing the logic for a fake blockchain payment system
+
+
+07/03/2024 - Meeting with sir - Time 1pm - Duration ~ 1hr
+Attendants: Michael, Abdul, Chris, Usu
+
+Agenda:
+-Deadlines
+-Report
+-Viva
+-Discussing poster fair feedback
+-Corpus
+-Video
+
+Section 1: Introduction
+Section 2: Problem
+Section 3: Methodology
+Section 4: Solution (First Prototype)
+- The user stories
+- The features
+- Testing
+- Evaluation
+Section 5: Solution (Second Prototype)
+- The user stories
+- The features
+- Testing
+- Evaluation
+Section 6: Solution (Third Prototype)
+- The user stories
+- The features
+- Testing
+- Evaluation
+Section 6: Evaluation
+Section 7: Conclusion
